@@ -1,0 +1,22 @@
+<br>
+<!-- <span class="yellow-str">{{item.annotation != null ? item.annotation : '@Override'}}</span><br> -->
+<span class="cl"><span class="orange-str">{{item.returnVal}} <span class="white-str">-</span></span> {{ item.title
+    }} <br/><span class="white-str" *ngFor="let itemz of item.inputMaps; let ind = index"><span class="purple-str">{{itemz.name}}</span>: <span
+            class="white-str">{{"" + itemz.value + ""}}</span>{{ ((ind+1) == (item.inputMaps?.length) ? "" : " -&nbsp;"
+        )}}</span></span>
+<br>
+<div class="draw-line-func"></div>
+<br>
+<!-- <span class="white-class">{{ '{' }}</span>
+<br> -->
+<div class="variable-row" *ngFor="let itemx of item.specialsMap">
+    <span class="func-name">&nbsp;&nbsp;&nbsp;{{itemx.name}}</span> <span class="white-class">{{itemx.name.length > 1 ? ':' : '+'}} </span>
+    <span class="func-specialty" ngClass="{{itemx.preStr ? 'green-str' : 'blue-str'}}">&nbsp;{{itemx.preStr ?
+        '' : ''}}{{itemx.value}}{{itemx.postStr ? '' : ''}}</span><span
+        class="white-class"></span>
+    <br>
+</div>
+
+<!-- <span class="white-class">{{ '}' }}</span> -->
+<br>
+<br>

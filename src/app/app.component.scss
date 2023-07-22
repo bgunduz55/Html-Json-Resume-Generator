@@ -1,0 +1,212 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300italic,500,700);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(https://cdn.arstechnica.net/wp-content/uploads/2016/10/sierra.jpg);
+    background-size: cover;
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.clear {
+    clear: both;
+}
+
+#resume-body {
+    width: 100%;
+    max-width: 1920px;
+    margin: 15px auto 15px auto;
+    opacity: 0.9;
+}
+
+div#resume-center {
+    background: #2b2b2b;
+}
+
+.col-md-4.header-row {
+    padding-left: 1%;
+    background-color: #313334;
+    //border-right: 1px solid gray;
+}
+
+#top {
+    background: #2f2934;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px 15px 0 0;
+    padding-right: 10px;
+    padding-left: 14px;
+    color: white;
+}
+
+#title {
+    display: inline-block;
+    color: white;
+    width: 90%;
+    text-align: center;
+}
+
+#process {
+    float: right;
+}
+
+#y {
+    background: #03d544;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    display: inline-block;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+#s {
+    background: #ffbe03;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    display: inline-block;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+#k {
+    background: #ff4545;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    display: inline-block;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+/* resume-center Kısım */
+
+#no {
+    width: 41px;
+    background: #212222;
+    text-align: right;
+    padding: 0px 12px 0px 0;
+    float: left;
+    color: #cdd3de;
+}
+
+.row-numbers {
+    display: block;
+}
+
+.row-class {
+    margin: 0;
+    // background: #2b2b2b;
+    color: #cdd3de;
+    display: inline-block;
+    -webkit-transform-origin-y: 0;
+    -webkit-transform-origin-x: 0;
+    padding: 0;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.comment {
+    color: #98A8B5;
+    font-weight: 400;
+    display: block;
+}
+
+.comment a {
+    text-decoration: none;
+    border-bottom: 1px dotted;
+    color: aquamarine;
+    font-weight: 400;
+    font-style: italic;
+}
+.orange-str{
+    color: #ff831b;
+}
+
+.yellow-str{
+    color: #fff13b;
+}
+.cl {
+    // color: white;
+    color: lightgrey;
+}
+
+.id {
+    color: #F3A5F7;
+}
+
+.white-class {
+    color: #cccccc;
+    width: fit-content;
+}
+
+.func-name {
+    color: #9876aa;
+    width: fit-content;
+}
+
+.func-specialty {
+    color: #FFFFFF;
+    width: fit-content;
+}
+
+.onemli {
+    color: #FFA9A9;
+    font-style: italic;
+}
+
+#resume-bottom {
+    background: #CEF3DD;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 0 0 15px 15px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+#resume-bottom a {
+    margin-left: 5px;
+    border-bottom: 1px dotted;
+    text-decoration: none;
+    color: #213738;
+}
+
+app-function-view {
+    padding-left: 15px !important;
+    display: block;
+}
+.row.row-class.class-view {
+    background-color: #242424;
+    margin-bottom: 10px;
+    border: 1px solid #78c14d;
+}
+.variable-row{
+    padding-left: 15px;
+    margin-bottom: 5px;
+}
+
+.green-str{
+    color: #78c14d;
+}
+.blue-str{
+    color: #6896b9;
+}
+.white-str{
+    color: white;
+}
+.purple-str{
+    color: #F3A5F7;
+}
+.draw-line-func{
+    border-top: 1px solid #ff831b;
+}
+.draw-line-class{
+    border-top: 1px solid #fff13b;
+}
