@@ -6,8 +6,7 @@
 <br>
 <div class="variable-row" *ngFor="let itemx of item.specialsMap">
     <span class="func-name">&nbsp;&nbsp;&nbsp;{{itemx.name}}</span> <span class="white-class">: </span>
-    <span class="func-specialty" ngClass="{{itemx.preStr ? 'green-str' : 'blue-str'}}" innerHTML="&nbsp;{{itemx.preStr ?
-        '' : ''}}{{itemx.value}}{{itemx.postStr ? '' : ''}}"></span><span
+    <span class="func-specialty" class="green-str" innerHTML="&nbsp;{{itemx.value}}"></span><span
         class="white-class"></span>
     <br>
 </div>

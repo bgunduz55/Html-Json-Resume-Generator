@@ -10,10 +10,8 @@
 <!-- <span class="white-class">{{ '{' }}</span>
 <br> -->
 <div class="variable-row" *ngFor="let itemx of item.specialsMap">
-    <span class="func-name">&nbsp;&nbsp;&nbsp;{{itemx.name}}</span> <span class="white-class">{{itemx.name.length > 1 ? ':' : '+'}} </span>
-    <span class="func-specialty" ngClass="{{itemx.preStr ? 'green-str' : 'blue-str'}}">&nbsp;{{itemx.preStr ?
-        '' : ''}}{{itemx.value}}{{itemx.postStr ? '' : ''}}</span><span
-        class="white-class"></span>
+    <span class="func-name">&nbsp;&nbsp;&nbsp;{{itemx.name}}</span> <span class="white-class">{{itemx.name.length > 1 ? ':' : ''}} </span>
+    <span class="func-specialty" class="green-str">&nbsp;{{itemx.value}}</span>
     <br>
 </div>
 

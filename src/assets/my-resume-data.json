@@ -4,76 +4,116 @@
     "linkedinUrl": "https://www.linkedin.com/in/bgunduz/",
     "playStoreUrl": "https://play.google.com/store/apps/dev?id=7410828019746719138",
     "appStoreUrl": "https://apps.apple.com/ua/developer/burak-gunduz/id1552965916",
-    "lineCount": 135,
+    "lineCount": 125,
     "headerSpecialties": [
         {
             "title": "Personal Information",
-            "annotation":"@Entity",
+            "annotation": "@Entity",
             "specialsMap": [
-                { "name": "name", "value": "Burak GÜNDÜZ", "preStr": "\"", "postStr": "\"" },
-                { "name": "age", "value": "28"},
-                { "name": "title", "value": "Computer Engineer && Senior Fullstack developer", "preStr": "\"", "postStr": "\"" },
-                { "name": "email", "value": "bgunduz_94@hotmail.com", "preStr": "\"", "postStr": "\"" },
-                { "name": "phone", "value": "+905357193476", "preStr": "\"", "postStr": "\"" },
-                { "name": "gender", "value": "male", "preStr": "\"", "postStr": "\"" },
-                { "name": "address", "value": "Turkey - Istanbul(Europe) - Bahcelievler", "preStr": "\"", "postStr": "\"" },
-                { "name": "languages", "value": "Turkish, English", "preStr": "\"", "postStr": "\"" }
+                {
+                    "name": "Name",
+                    "value": "Burak GÜNDÜZ"
+                },
+                {
+                    "name": "Age",
+                    "value": "28"
+                },
+                {
+                    "name": "Title",
+                    "value": "Computer Engineer && Senior Fullstack developer"
+                },
+                {
+                    "name": "Email",
+                    "value": "bgunduz_94@hotmail.com"
+                },
+                {
+                    "name": "Phone",
+                    "value": "+905357193476"
+                },
+                {
+                    "name": "Gender",
+                    "value": "male"
+                },
+                {
+                    "name": "Address",
+                    "value": "Turkey - Istanbul(Europe) - Bahcelievler"
+                },
+                {
+                    "name": "Languages",
+                    "value": "Turkish, English"
+                }
             ]
         },
         {
             "title": "Skills",
-            "annotation":"@Entity",
+            "annotation": "@Entity",
             "specialsMap": [
-                { "name": "programmingLanguages", "preStr":"\"", "postStr":"\"",
-                "value": "Java, Kotlin, Typescript, C#, Javascript, Dart, HTML, PHP, C, CSS, Nodejs, C++, Python, Swift"
+                {
+                    "name": "Programming Languages",
+                    "value": "Java, Kotlin, Typescript, C#, Javascript, Dart, HTML, PHP, C, CSS, Nodejs, C++, Python, Swift"
                 },
-                { "name": "databases", "preStr":"\"", "postStr":"\"",
-                "value": "Mysql, Oracle DB, PostgreSql, MongoDb, MsSql, Cassandra, Sqlite, PlSql"
+                {
+                    "name": "Databases",
+                    "value": "Mysql, Oracle DB, PostgreSql, MongoDb, MsSql, Cassandra, Sqlite, PlSql"
                 },
-                { "name": "technologies", "preStr":"\"", "postStr":"\"",
-                "value": "Spring Framework, Spring Boot, Hibernate, Flutter, Android Development, Animation, 3D Modelling, Angular, J2EE, Design Patterns, Linux System Management, Docker, MVC 4, Apache Http Server, Nginx, Git, Nosql, Apache Tomcat, Scrum, Agile, Laravel, Codeigniter, Jenkins, Unity3d, Wordpress"
+                {
+                    "name": "Technologies",
+                    "value": "Spring Framework, Spring Boot, Hibernate, Flutter, Android Development, Animation, 3D Modelling, Angular, J2EE, Design Patterns, Linux System Management, Docker, MVC 4, Apache Http Server, Nginx, Git, Nosql, Apache Tomcat, Scrum, Agile, Laravel, Codeigniter, Jenkins, Unity3d, Wordpress"
                 },
-                { "name": "programs", "preStr":"\"", "postStr":"\"",
-                "value": "Adobe Illustrator, Photoshop, Blender, Unity3d, Vscode, İntellij Idea, Eclipse, Netbeans, Ms Office, Libre Office, Audacity, Gimp, Incscape, Krita, etc."
+                {
+                    "name": "Programs",
+                    "value": "Adobe Illustrator, Photoshop, Blender, Unity3d, Vscode, İntellij Idea, Eclipse, Netbeans, Ms Office, Libre Office, Audacity, Gimp, Incscape, Krita, etc."
                 }
-
             ]
         },
         {
             "title": "Education Information",
-            "specialsMap": [
-            ],
-            "functionalInfos":[
+            "specialsMap": [],
+            "functionalInfos": [
                 {
-                    "title":"university",
+                    "title": "University",
                     "returnVal": "Management Information Systems",
-                    "inputMaps":[
-                        { "name": "Duration", "value": "4 years" },
-                        { "name": "Start Date", "value": "2019/09/01" },
-                        { "name": "End Date", "value": "still-continue" }
+                    "inputMaps": [
+                        {
+                            "name": "Duration",
+                            "value": "4 years"
+                        },
+                        {
+                            "name": "Start Date",
+                            "value": "2019/09/01"
+                        },
+                        {
+                            "name": "End Date",
+                            "value": "still-continue"
+                        }
                     ],
-                    "specialsMap":[
+                    "specialsMap": [
                         {
                             "name": "University Name",
-                            "preStr": "\"",
-                            "postStr": "\"",
                             "value": "Anadolu University"
                         }
                     ]
                 },
                 {
-                    "title":"university",
+                    "title": "University",
                     "returnVal": "Computer Engineer",
-                    "inputMaps":[
-                        { "name": "Duration", "value": "5 years (1 english prep)" },
-                        { "name": "Start Date", "value": "2011/09/01" },
-                        { "name": "End Date", "value": "2017/02/01" }
+                    "inputMaps": [
+                        {
+                            "name": "Duration",
+                            "value": "5 years (1 english prep)"
+                        },
+                        {
+                            "name": "Start Date",
+                            "value": "2011/09/01"
+                        },
+                        {
+                            "name": "End Date",
+                            "value": "2017/02/01"
+                        }
                     ],
-                    "specialsMap":[
+                    "specialsMap": [
                         {
                             "name": "University Name",
-                            "preStr": "\"",
-                            "postStr": "\"",
                             "value": "Anadolu University"
                         }
                     ]
@@ -82,55 +122,76 @@
         },
         {
             "title": "Internships",
-            "specialsMap":[],
-            "functionalInfos":[
+            "specialsMap": [],
+            "functionalInfos": [
                 {
-                    "title":"computerEngineeringIntern",
+                    "title": "Computer Engineering Intern",
                     "returnVal": "I2I Systems",
-                    "inputMaps":[
-                        { "name": "Duration", "value": "2 months" },
-                        { "name": "Start Date", "value": "2015/08/01" },
-                        { "name": "End Date", "value": "2016/10/01" }
+                    "inputMaps": [
+                        {
+                            "name": "Duration",
+                            "value": "2 months"
+                        },
+                        {
+                            "name": "Start Date",
+                            "value": "2015/08/01"
+                        },
+                        {
+                            "name": "End Date",
+                            "value": "2016/10/01"
+                        }
                     ],
-                    "specialsMap":[
+                    "specialsMap": [
                         {
                             "name": "Description",
-                            "preStr": "\"",
-                            "postStr": "\"",
                             "value": "I developed Java/PlSql inventory system"
                         }
                     ]
                 },
                 {
-                    "title":"computerEngineeringIntern",
+                    "title": "Computer Engineering Intern",
                     "returnVal": "Erkam Publishing House",
-                    "inputMaps":[
-                        { "name": "Duration", "value": "2 months" },
-                        { "name": "Start Date", "value": "2015/08/01" },
-                        { "name": "End Date", "value": "2016/10/01" }
+                    "inputMaps": [
+                        {
+                            "name": "Duration",
+                            "value": "2 months"
+                        },
+                        {
+                            "name": "Start Date",
+                            "value": "2015/08/01"
+                        },
+                        {
+                            "name": "End Date",
+                            "value": "2016/10/01"
+                        }
                     ],
-                    "specialsMap":[
+                    "specialsMap": [
                         {
                             "name": "Description",
-                            "preStr": "\"",
-                            "postStr": "\"",
                             "value": "System Management and making android app."
                         }
                     ]
                 },
                 {
-                    "title":"computerTechnicianIntern",
+                    "title": "Computer Technician Intern",
                     "returnVal": "Havza Public Hospital",
-                    "inputMaps":[
-                        { "name": "Duration", "value": "2 months" },
-                        { "name": "Start Date", "value": "2015/08/01" },
-                        { "name": "End Date", "value": "2016/10/01" }
+                    "inputMaps": [
+                        {
+                            "name": "Duration",
+                            "value": "2 months"
+                        },
+                        {
+                            "name": "Start Date",
+                            "value": "2015/08/01"
+                        },
+                        {
+                            "name": "End Date",
+                            "value": "2016/10/01"
+                        }
                     ],
-                    "specialsMap":[
+                    "specialsMap": [
                         {
                             "name": "Description",
-                            "preStr": "\"",
-                            "postStr": "\"",
                             "value": "Web design project, html, css, php..."
                         }
                     ]
@@ -139,21 +200,26 @@
         },
         {
             "title": "Some Projects",
-            "specialsMap":[
-                {"name": "Neumed" , "preStr": "\"", "postStr": "\"",
-                "value":"Android, İOS and Web clients are native Fulstack, MongoDb - Medical Dictionary project."
+            "specialsMap": [
+                {
+                    "name": "Neumed",
+                    "value": "Android, İOS and Web clients are native Fulstack, MongoDb - Medical Dictionary project."
                 },
-                {"name": "Yazbee" , "preStr": "\"", "postStr": "\"",
-                "value":"Android, İOS and Web clients native Fulstack, whatsapp like chat application works with Openfire Xmpp server"
+                {
+                    "name": "Yazbee",
+                    "value": "Android, İOS and Web clients native Fulstack, whatsapp like chat application works with Openfire Xmpp server"
                 },
-                {"name": "Osymedya" , "preStr": "\"", "postStr": "\"",
-                "value":"A social media for students that studying exams. They can share tests and solve them on the platform, post, like and comment..."
+                {
+                    "name": "Osymedya",
+                    "value": "A social media for students that studying exams. They can share tests and solve them on the platform, post, like and comment..."
                 },
-                {"name": "Social Connection" , "preStr": "\"", "postStr": "\"",
-                "value":"An Android project that works with Xmpp server. And make the people able to use smartphones that who don't know how to use smartphones via controlling their phones remotely by the users that they want to connect"
+                {
+                    "name": "Social Connection",
+                    "value": "An Android project that works with Xmpp server. And make the people able to use smartphones that who don't know how to use smartphones via controlling their phones remotely by the users that they want to connect"
                 },
-                {"name": "ToDo List App" , "preStr": "\"", "postStr": "\"",
-                "value":"A fullstack ToDo app with Angular and Java Spring Boot"
+                {
+                    "name": "ToDo List App",
+                    "value": "A fullstack ToDo app with Angular and Java Spring Boot"
                 }
             ]
         }
@@ -161,190 +227,265 @@
     "specialties": [
         {
             "title": "About Me",
-            "annotation":"@Entity",
+            "annotation": "@Entity",
             "specialsMap": [
-                { "name": "Description",
-                 "value": "I have been researching and developing projects since 2010. I have developed projects with many technologies and languages. There is no part of development that I can't handle. I used database systems such as Mysql, MongoDb, PostgreSql, Oracle Db and Ms Sql, cassandra. I am good at development with Restful and SOA architectures. I worked on HA and Cluster architectures. I researched systems and analysis technologies such as Spark, Hadoop. Android, I developed a Fullstack project in the form of iOS, web(Angular) and Web Admin panel. Mobile clients are native and web Angular. backend - Restful (NeuMed). I have used most operating systems, Windows, Ubuntu, Linux Distributions and MacOs. I have good practice with Linux commands and ssh. System setup and I also have experience in virtualization. Apache, Mysql, php, tomcat etc. on Ubuntu. setups and ssl creation and setup I did. I used Python mostly at the scripting level. I have also researched and intend to use it in artificial intelligence and information processing. As a Full Stack Developer; I've been worked on many programming languages and frameworks. I've coded on each part of development(frontend, backend, mobile and gaming). I always track new technologies and try to make more stable and faster systems that I'm working on. Also I like developing games, make animations or 3d or 2d art drawing about them.", 
-                 "preStr":"\"", "postStr":"\"" }
-
+                {
+                    "name": "Description",
+                    "value": "I have been researching and developing projects since 2010. I have developed projects with many technologies and languages. There is no part of development that I can't handle. I used database systems such as Mysql, MongoDb, PostgreSql, Oracle Db and Ms Sql, cassandra. I am good at development with Restful and SOA architectures. I worked on HA and Cluster architectures. I researched systems and analysis technologies such as Spark, Hadoop. Android, I developed a Fullstack project in the form of iOS, web(Angular) and Web Admin panel. Mobile clients are native and web Angular. backend - Restful (NeuMed). I have used most operating systems, Windows, Ubuntu, Linux Distributions and MacOs. I have good practice with Linux commands and ssh. System setup and I also have experience in virtualization. Apache, Mysql, php, tomcat etc. on Ubuntu. setups and ssl creation and setup I did. I used Python mostly at the scripting level. I have also researched and intend to use it in artificial intelligence and information processing. As a Full Stack Developer; I've been worked on many programming languages and frameworks. I've coded on each part of development(frontend, backend, mobile and gaming). I always track new technologies and try to make more stable and faster systems that I'm working on. Also I like developing games, make animations or 3d or 2d art drawing about them."
+                }
             ]
         },
         {
             "title": "Experiences",
-            "annotation":"@Component",
+            "annotation": "@Component",
             "specialsMap": [
-                { "name": "total", "value": "8+ years", "preStr":"\"", "postStr":"\"" }
-
-            ],
-            "functionalInfos":[
                 {
-                    "title":"Senior Fullstack Developer",
+                    "name": "Total",
+                    "value": "8+ years"
+                }
+            ],
+            "functionalInfos": [
+                {
+                    "title": "Senior Fullstack Developer",
                     "returnVal": "Dgpays",
-                    "inputMaps":[
-                        { "name": "Duration", "value": "2 years 8 months" },
-                        { "name": "Start Date", "value": "2020/05/01" },
-                        { "name": "End Date", "value": "still-working" }
+                    "inputMaps": [
+                        {
+                            "name": "Duration",
+                            "value": "2 years 8 months"
+                        },
+                        {
+                            "name": "Start Date",
+                            "value": "2020/05/01"
+                        },
+                        {
+                            "name": "End Date",
+                            "value": "still-working"
+                        }
                     ],
-                    "specialsMap":[
+                    "specialsMap": [
                         {
                             "name": "Description",
-                            "preStr": "\"",
-                            "postStr": "\"",
                             "value": "I am responsible for development of mobile application software on payment systems. I also worked as a scrum master for about 1 year. I worked on Paycell Mpos, Tuvturk, Platform, Ptt Akıllı Esnaf... and more other projects. I made business and technical refactors on old code bases."
                         }
                     ]
                 },
                 {
-                    "title":"Senior Software Developer",
+                    "title": "Senior Software Developer",
                     "returnVal": "Etiya",
-                    "inputMaps":[
-                        { "name": "Duration", "value": "1 year 1 month" },
-                        { "name": "Start Date", "value": "2019/05/01" },
-                        { "name": "End Date", "value": "2020/05/01" }
+                    "inputMaps": [
+                        {
+                            "name": "Duration",
+                            "value": "1 year 1 month"
+                        },
+                        {
+                            "name": "Start Date",
+                            "value": "2019/05/01"
+                        },
+                        {
+                            "name": "End Date",
+                            "value": "2020/05/01"
+                        }
                     ],
-                    "specialsMap":[
+                    "specialsMap": [
                         {
                             "name": "Description",
-                            "preStr": "\"",
-                            "postStr": "\"",
                             "value": "I was responsible for frontend development of Videotron Bss project with Angular. I've used Ngxs for state management and used various javascript libraries, especially 'rxjs'. Angular 7 - ngxs - CSR ve WSC web dashboard projects. Also I've worked with JIRA, Bitbucket, Teams, Slack and 2 week sprints by Scrum."
                         }
                     ]
                 },
                 {
-                    "title":"Senior Fullstack Developer",
+                    "title": "Senior Fullstack Developer",
                     "returnVal": "Enderun Information Technologies",
-                    "inputMaps":[
-                        { "name": "Duration", "value": "4 months" },
-                        { "name": "Start Date", "value": "2019/02/01" },
-                        { "name": "End Date", "value": "2019/05/01" }
+                    "inputMaps": [
+                        {
+                            "name": "Duration",
+                            "value": "4 months"
+                        },
+                        {
+                            "name": "Start Date",
+                            "value": "2019/02/01"
+                        },
+                        {
+                            "name": "End Date",
+                            "value": "2019/05/01"
+                        }
                     ],
-                    "specialsMap":[
+                    "specialsMap": [
                         {
                             "name": "Description",
-                            "preStr": "\"",
-                            "postStr": "\"",
                             "value": "I was responsible for full stack development of mobile hand terminal QR device app with Spring boot rest api and android development. I've used Oracle db, Tortoise svn, Gitlab. It was an application that managed all the buying and selling and tender processes of the Istanbul metropolitan municipality."
                         }
                     ]
                 },
                 {
-                    "title":"Senior Software Developer",
+                    "title": "Senior Software Developer",
                     "returnVal": "Verisoft",
-                    "inputMaps":[
-                        { "name": "Duration", "value": "5 months" },
-                        { "name": "Start Date", "value": "2018/10/01" },
-                        { "name": "End Date", "value": "2019/02/01" }
+                    "inputMaps": [
+                        {
+                            "name": "Duration",
+                            "value": "5 months"
+                        },
+                        {
+                            "name": "Start Date",
+                            "value": "2018/10/01"
+                        },
+                        {
+                            "name": "End Date",
+                            "value": "2019/02/01"
+                        }
                     ],
-                    "specialsMap":[
+                    "specialsMap": [
                         {
                             "name": "Description",
-                            "preStr": "\"",
-                            "postStr": "\"",
                             "value": "I was responsible for mobile development of payment system's apps. I've used Java, Kotlin and .Net Core on there. I've worked on Mpos mobile app with FlyPOS(for CSOB bank), MyGini loyalty application(b2b and b2c), TapOnPhone mobile POS app, SoftPOS app. "
                         }
                     ]
                 },
                 {
-                    "title":"Fullstack Developer",
+                    "title": "Fullstack Developer",
                     "returnVal": "JAVA Software Inc",
-                    "inputMaps":[
-                        { "name": "Duration", "value": "1 year 11 months" },
-                        { "name": "Start Date", "value": "2016/12/01" },
-                        { "name": "End Date", "value": "2018/10/01" }
-                    ],
-                    "specialsMap":[
+                    "inputMaps": [
                         {
-                            "name": "Description", "preStr": "\"", "postStr": "\"",
+                            "name": "Duration",
+                            "value": "1 year 11 months"
+                        },
+                        {
+                            "name": "Start Date",
+                            "value": "2016/12/01"
+                        },
+                        {
+                            "name": "End Date",
+                            "value": "2018/10/01"
+                        }
+                    ],
+                    "specialsMap": [
+                        {
+                            "name": "Description",
                             "value": "I was responsible for fullstack development of various projects of Java and a Social Media Project of Mobifin Inc. And These were;"
                         },
                         {
-                            "name": " ", "preStr": "\"", "postStr": "\"",
+                            "name": " ",
                             "value": "- Developing Java Jax-RS rest apis for Finkafe Yazbee social media applications for Mobifin Inc"
                         },
                         {
-                            "name": " ", "preStr": "\"", "postStr": "\"",
+                            "name": " ",
                             "value": "- Developing frontend with Angular 4+ (Last version 6). The project works with SSR and SEO optimizations were made."
                         },
                         {
-                            "name": " ", "preStr": "\"", "postStr": "\"",
+                            "name": " ",
                             "value": "- Some changes and updates suitable for rest api endpoints in iOS application"
                         },
                         {
-                            "name": " ", "preStr": "\"", "postStr": "\"",
+                            "name": " ",
                             "value": "- Mysql sql query optimization and cluster, master-master and master-slave installations..."
                         },
                         {
-                            "name": " ", "preStr": "\"", "postStr": "\"",
+                            "name": " ",
                             "value": "- Tomcat ssl certificate generation and port redirection..."
                         },
                         {
-                            "name": " ", "preStr": "\"", "postStr": "\"",
+                            "name": " ",
                             "value": "- Chat system with openfire server (changeable, I installed it on ubuntu) with ios android and web clients like Whatsapp. Video Conference system setup with Openfire meet plugin."
                         },
                         {
-                            "name": " ", "preStr": "\"", "postStr": "\"",
+                            "name": " ",
                             "value": "- Spring boot and mysql & mongo together hybrid database connection- Rest API"
                         },
                         {
-                            "name": " ", "preStr": "\"", "postStr": "\"",
+                            "name": " ",
                             "value": "- Node.js - Express.js with mysql & mongo hybrid db - Rest api with node cache"
                         },
                         {
-                            "name": " ", "preStr": "\"", "postStr": "\"",
+                            "name": " ",
                             "value": "- Streamhash, clipbucket video stream system installations (Ubuntu). - LAMP server installation."
                         },
                         {
-                            "name": " ", "preStr": "\"", "postStr": "\"",
+                            "name": " ",
                             "value": "- Development of social media site on Laravel php mvc framework on Lamp, server editing, NFS for storage and viewing files from different server, creation of development server, Laravel apache SSL and redirection configuration..."
                         },
                         {
-                            "name": " ", "preStr": "\"", "postStr": "\"",
+                            "name": " ",
                             "value": "- ERP - Jax-Rs rest api and Angular 4+ frontend software."
                         },
                         {
-                            "name": " ", "preStr": "\"", "postStr": "\"",
+                            "name": " ",
                             "value": "- Integration with E-Invoice GIB integrator service (Jax-RS) and ERP. Erp invoices issued through the ERP portal can be sent to the Taxpayers as e-Invoices..."
                         },
                         {
-                            "name": " ", "preStr": "\"", "postStr": "\"",
+                            "name": " ",
                             "value": "- Java Swing applet for e-signature, which is written for taxpayer registration request to RA, by obtaining the usb e-signature and having it signed by the server."
                         }
                     ]
                 },
                 {
-                    "title":"Game Developer",
+                    "title": "Game Developer",
                     "returnVal": "Ecmur IT",
-                    "inputMaps":[
-                        { "name": "Duration", "value": "4 months" },
-                        { "name": "Start Date", "value": "2016/08/01" },
-                        { "name": "End Date", "value": "2018/12/01" }
+                    "inputMaps": [
+                        {
+                            "name": "Duration",
+                            "value": "4 months"
+                        },
+                        {
+                            "name": "Start Date",
+                            "value": "2016/08/01"
+                        },
+                        {
+                            "name": "End Date",
+                            "value": "2018/12/01"
+                        }
                     ],
-                    "specialsMap":[
+                    "specialsMap": [
                         {
                             "name": "Description",
-                            "preStr": "\"",
-                            "postStr": "\"",
                             "value": "I was responsible for re-creating the old Flash games with Unity. I've solved old actionscript codes and ported them to C# Unity. I made Facebook and Google social integrations and made friend connections. I've created my own keyboard system inside of game scene and created in-game animations. I've used Smartfox multiplayer server for online gaming and events."
                         }
                     ]
                 },
                 {
-                    "title":"Part Time Employee",
+                    "title": "Part Time Employee",
                     "returnVal": "Karabuk University",
-                    "inputMaps":[
-                        { "name": "Duration", "value": "9 months" },
-                        { "name": "Start Date", "value": "2015/09/01" },
-                        { "name": "End Date", "value": "2016/06/01" }
+                    "inputMaps": [
+                        {
+                            "name": "Duration",
+                            "value": "9 months"
+                        },
+                        {
+                            "name": "Start Date",
+                            "value": "2015/09/01"
+                        },
+                        {
+                            "name": "End Date",
+                            "value": "2016/06/01"
+                        }
                     ],
-                    "specialsMap":[
+                    "specialsMap": [
                         {
                             "name": "Description",
-                            "preStr": "\"",
-                            "postStr": "\"",
                             "value": "I was responsible on Digital Systems Laboratories to control, format and setup computers"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "title": "References",
+            "annotation": "@Entity",
+            "specialsMap": [
+                {
+                    "name": "Ibrahim Akgul",
+                    "value": "CEO/Java Software Inc. - +90 532 278 39 17 - ibrahim.akgul@java.com.tr"
+                },
+                {
+                    "name": "Numan Türkeri",
+                    "value": "Senior Java Developer/BNP Paribas Cardif - +90 538 418 32 07 - numan.turkeri@gmail.com"
+                },
+                {
+                    "name": "Metin Kiper",
+                    "value": "Senior Fullstack Developer/Technoly GMBH - +49 1575 3749917 - metinkiper5@gmail.com"
+                },
+                {
+                    "name": "Murat Pedis",
+                    "value": "IT Senior Security Specialist/Sodexo - +90 506 497 78 76 - murat.pedis@java.com.tr"
                 }
             ]
         }
