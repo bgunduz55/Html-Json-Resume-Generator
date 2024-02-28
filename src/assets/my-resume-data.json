@@ -50,7 +50,7 @@
             "specialsMap": [
                 {
                     "name": "Programming Languages",
-                    "value": "Java, Kotlin, Typescript, C#, Javascript, Dart, HTML, PHP, C, CSS, Nodejs, C++, Python, Swift"
+                    "value": "Java, Kotlin, Typescript, C#, Javascript, Dart, HTML, PHP, CSS, Nodejs, Python, Swift"
                 },
                 {
                     "name": "Databases",
@@ -58,7 +58,7 @@
                 },
                 {
                     "name": "Technologies",
-                    "value": "Spring Framework, Spring Boot, Hibernate, Flutter, Android Development, Animation, 3D Modelling, Angular, J2EE, Design Patterns, Linux System Management, Docker, MVC 4, Apache Http Server, Nginx, Git, Nosql, Apache Tomcat, Scrum, Agile, Laravel, Codeigniter, Jenkins, Unity3d, Wordpress"
+                    "value": "Spring Framework, Spring Boot, Hibernate, Docker, Flutter, Android Development, Animation, 3D Modelling, Angular, J2EE, Design Patterns, Linux System Management, Docker, MVC 4, Apache Http Server, Nginx, Git, Nosql, Apache Tomcat, Scrum, Agile, Laravel, Codeigniter, Jenkins, Unity3d, Wordpress"
                 },
                 {
                     "name": "Programs",
@@ -84,7 +84,7 @@
                         },
                         {
                             "name": "End Date",
-                            "value": "still-continue"
+                            "value": "2024/01/01"
                         }
                     ],
                     "specialsMap": [
@@ -241,7 +241,7 @@
             "specialsMap": [
                 {
                     "name": "Total",
-                    "value": "8+ years"
+                    "value": "9+ years"
                 }
             ],
             "functionalInfos": [
@@ -251,7 +251,7 @@
                     "inputMaps": [
                         {
                             "name": "Duration",
-                            "value": "3 years 5 months"
+                            "value": "3 years 10 months"
                         },
                         {
                             "name": "Start Date",
