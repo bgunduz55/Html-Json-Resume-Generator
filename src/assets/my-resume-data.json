@@ -16,7 +16,7 @@
                 },
                 {
                     "name": "Age",
-                    "value": "28"
+                    "value": "30"
                 },
                 {
                     "name": "Title",
@@ -251,7 +251,7 @@
                     "inputMaps": [
                         {
                             "name": "Duration",
-                            "value": "3 years 10 months"
+                            "value": "4+ years"
                         },
                         {
                             "name": "Start Date",
