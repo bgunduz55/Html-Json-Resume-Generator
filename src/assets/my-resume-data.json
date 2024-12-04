@@ -58,7 +58,7 @@
                 },
                 {
                     "name": "Technologies",
-                    "value": "Spring Framework, Spring Boot, Hibernate, Docker, Flutter, Android Development, Animation, 3D Modelling, Angular, J2EE, Design Patterns, Linux System Management, Docker, MVC 4, Apache Http Server, Nginx, Git, Nosql, Apache Tomcat, Scrum, Agile, Laravel, Codeigniter, Jenkins, Unity3d, Wordpress"
+                    "value": "Spring Framework, Spring Boot, Hibernate, Docker, Flutter, Android Development, Animation, 3D Modelling, Angular, Vue.js, J2EE, Design Patterns, Linux System Management, Docker, MVC 4, Apache Http Server, Nginx, Git, Nosql, Apache Tomcat, Scrum, Agile, Laravel, Codeigniter, Jenkins, Unity3d, Wordpress"
                 },
                 {
                     "name": "Programs",
@@ -251,7 +251,7 @@
                     "inputMaps": [
                         {
                             "name": "Duration",
-                            "value": "4+ years"
+                            "value": "4 years 7 months"
                         },
                         {
                             "name": "Start Date",
@@ -259,7 +259,7 @@
                         },
                         {
                             "name": "End Date",
-                            "value": "still-working"
+                            "value": "2024/11/30"
                         }
                     ],
                     "specialsMap": [
