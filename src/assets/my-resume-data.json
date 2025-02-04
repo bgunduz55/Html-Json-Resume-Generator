@@ -222,6 +222,32 @@
                     "value": "A fullstack ToDo app with Angular and Java Spring Boot"
                 }
             ]
+        },
+        {
+            "title": "References",
+            "annotation": "@Entity",
+            "specialsMap": [
+                {
+                    "name": "Ibrahim Akgul",
+                    "value": "CEO/Java Software Inc. - +90 532 278 39 17 - ibrahim.akgul@java.com.tr - Istanbul/Turkey"
+                },
+                {
+                    "name": "Numan Türkeri",
+                    "value": "Senior Java Developer/BNP Paribas Cardif - +90 538 418 32 07 - numan.turkeri@gmail.com - Istanbul/Turkey"
+                },
+                {
+                    "name": "Metin Kiper",
+                    "value": "Senior Fullstack Developer/Vestiaire Collective - +49 1575 3749917 - metinkiper5@gmail.com - Berlin/Germany"
+                },
+                {
+                    "name": "Murat Pedis",
+                    "value": "IT Senior Security Specialist/Sodexo - +90 506 497 78 76 - muratpedis@gmail.com - Istanbul/Turkey"
+                },
+                {
+                    "name": "Ekrem Kocadere",
+                    "value": "Senior Software Developer/RBI Group IT GmbH - +43 677 64837305 - ekremkocadere@gmail.com - Vienna/Austria"
+                }
+            ]
         }
     ],
     "specialties": [
@@ -231,7 +257,7 @@
             "specialsMap": [
                 {
                     "name": "Description",
-                    "value": "I have been researching and developing projects since 2010. I have developed projects with many technologies and languages. There is no part of development that I can't handle. I used database systems such as Mysql, MongoDb, PostgreSql, Oracle Db and Ms Sql, cassandra. I am good at development with Restful and SOA architectures. I worked on HA and Cluster architectures. I researched systems and analysis technologies such as Spark, Hadoop. Android, I developed a Fullstack project in the form of iOS, web(Angular) and Web Admin panel. Mobile clients are native and web Angular. backend - Restful (NeuMed). I have used most operating systems, Windows, Ubuntu, Linux Distributions and MacOs. I have good practice with Linux commands and ssh. System setup and I also have experience in virtualization. Apache, Mysql, php, tomcat etc. on Ubuntu. setups and ssl creation and setup I did. I used Python mostly at the scripting level. I have also researched and intend to use it in artificial intelligence and information processing. As a Full Stack Developer; I've been worked on many programming languages and frameworks. I've coded on each part of development(frontend, backend, mobile and gaming). I always track new technologies and try to make more stable and faster systems that I'm working on. Also I like developing games, make animations or 3d or 2d art drawing about them."
+                    "value": "I am a dedicated and adaptable full-stack developer with over nine years of experience working on diverse and impactful projects. My journey in software development has allowed me to touch every part of the stack—backend, frontend, and mobile—and contribute to creating end-to-end solutions that are both efficient and user-friendly.<br/><br/>On the backend, I have extensive experience with Java, Spring Boot, and RESTful APIs, building scalable and secure systems to power robust applications. My work often involves database design and management, leveraging technologies like PostgreSQL, MongoDB, and TimescaleDB to ensure reliability and performance.<br/><br/>On the frontend, I have developed clean, intuitive, and responsive user interfaces using React.js, Angular, and modern design principles. I take pride in ensuring the user experience is seamless, accessible, and aligned with business goals.<br/><br/>For mobile development, I have worked on native Android applications using Kotlin and Java and have delivered cross-platform solutions using Flutter. My projects have included everything from task management apps to fintech solutions, each requiring a mix of creativity, technical expertise, and attention to detail.<br/><br/>What sets me apart is my curiosity and eagerness to explore new technologies and methodologies. I thrive on learning, whether it’s diving into the latest tools, exploring cutting-edge frameworks, or tackling domains I haven’t worked in before.<br/><br/>Some career highlights include:<br/>✨ Leading full-stack projects from concept to deployment, ensuring quality and scalability.<br/>✨ Developing secure payment systems and POS applications, integrating APIs, and optimizing performance.<br/>✨ Collaborating with cross-functional teams to deliver user-focused solutions.<br/>✨ Mentoring junior developers and fostering a culture of continuous learning.<br/><br/>I am always open to exploring new challenges, industries, and technologies. Whether it’s refining my current skill set or diving into uncharted territory, I’m excited to grow, innovate, and contribute to projects that make a difference.<br/><br/>Let’s connect to discuss how we can collaborate or explore new opportunities together!"
                 }
             ]
         },
@@ -464,32 +490,6 @@
                             "value": "I was responsible on Digital Systems Laboratories to control, format and setup computers"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "title": "References",
-            "annotation": "@Entity",
-            "specialsMap": [
-                {
-                    "name": "Ibrahim Akgul",
-                    "value": "CEO/Java Software Inc. - +90 532 278 39 17 - ibrahim.akgul@java.com.tr"
-                },
-                {
-                    "name": "Numan Türkeri",
-                    "value": "Senior Java Developer/BNP Paribas Cardif - +90 538 418 32 07 - numan.turkeri@gmail.com"
-                },
-                {
-                    "name": "Metin Kiper",
-                    "value": "Senior Fullstack Developer/Technoly GMBH - +49 1575 3749917 - metinkiper5@gmail.com"
-                },
-                {
-                    "name": "Murat Pedis",
-                    "value": "IT Senior Security Specialist/Sodexo - +90 506 497 78 76 - muratpedis@gmail.com"
-                },
-                {
-                    "name": "Ekrem Kocadere",
-                    "value": "Senior Software Developer/Panthronics AG - +90 545 535 31 05 - ekremkocadere@gmail.com"
                 }
             ]
         }
