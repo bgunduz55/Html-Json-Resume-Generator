@@ -1,10 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TemplateService } from '../../services/template.service';
-import { ResumeService } from '../../services/resume.service';
+import { ResumeService } from '../../shared/services/resume.service';
 import { Resume } from '../../shared/models/resume.model';
 import { Subscription } from 'rxjs';
-
-type TemplateCategory = 'modern' | 'classic' | 'creative' | 'minimal';
 
 interface TemplatePreview {
   id: string;
@@ -162,42 +160,39 @@ interface TemplatePreview {
 export class TemplateSelectorComponent implements OnInit, OnDestroy {
   templates: TemplatePreview[] = [
     {
-      id: 'modern',
+      id: 'modern-professional',
       name: 'Modern Template',
       preview: 'assets/templates/modern-preview.svg',
       description: 'A clean and modern design with emphasis on readability and visual hierarchy.'
     },
     {
-      id: 'professional',
+      id: 'classic-elegant',
       name: 'Professional Template',
       preview: 'assets/templates/professional-preview.svg',
       description: 'Traditional professional layout perfect for corporate environments.'
     },
     {
-      id: 'creative',
+      id: 'creative-portfolio',
       name: 'Creative Template',
       preview: 'assets/templates/creative-preview.svg',
       description: 'Stand out with this creative design featuring unique layout elements.'
     }
   ];
 
-  selectedTemplate: string = 'modern';
-  private subscription: Subscription;
+  selectedTemplate: string = 'modern-professional';
+  private subscription: Subscription = new Subscription();
 
   constructor(
     private templateService: TemplateService,
     private resumeService: ResumeService
-  ) {
-    this.subscription = new Subscription();
-  }
+  ) {}
 
   ngOnInit(): void {
-    const currentTemplate = this.templateService.getCurrentTemplate();
-    this.selectedTemplate = typeof currentTemplate === 'string' ? currentTemplate : currentTemplate.id;
+    this.selectedTemplate = this.templateService.getCurrentTemplate();
     
     this.subscription.add(
-      this.templateService.templateChange$.subscribe(template => {
-        this.selectedTemplate = typeof template === 'string' ? template : template.id;
+      this.templateService.templateChange$.subscribe(templateId => {
+        this.selectedTemplate = templateId;
       })
     );
 

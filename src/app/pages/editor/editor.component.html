@@ -1,41 +1,39 @@
 <div class="editor-container">
-  <div class="sidebar">
-    <ul class="nav flex-column">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="personal-info" routerLinkActive="active">
-          <i class="bi bi-person me-2"></i>Personal Info
+  <app-resume-manager></app-resume-manager>
+  
+  <div class="editor-content">
+    <div class="editor-sections">
+      <nav class="section-nav">
+        <a routerLink="personal-info" routerLinkActive="active">
+          <i class="fas fa-user"></i>
+          <span>Personal Info</span>
         </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="work-experience" routerLinkActive="active">
-          <i class="bi bi-briefcase me-2"></i>Work Experience
+        <a routerLink="work-experience" routerLinkActive="active">
+          <i class="fas fa-briefcase"></i>
+          <span>Work Experience</span>
         </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="education" routerLinkActive="active">
-          <i class="bi bi-mortarboard me-2"></i>Education
+        <a routerLink="education" routerLinkActive="active">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Education</span>
         </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="skills" routerLinkActive="active">
-          <i class="bi bi-gear me-2"></i>Skills
+        <a routerLink="skills" routerLinkActive="active">
+          <i class="fas fa-tools"></i>
+          <span>Skills</span>
         </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="projects" routerLinkActive="active">
-          <i class="bi bi-folder me-2"></i>Projects
+        <a routerLink="projects" routerLinkActive="active">
+          <i class="fas fa-project-diagram"></i>
+          <span>Projects</span>
         </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="certifications" routerLinkActive="active">
-          <i class="bi bi-award me-2"></i>Certifications
+        <a routerLink="certifications" routerLinkActive="active">
+          <i class="fas fa-certificate"></i>
+          <span>Certifications</span>
         </a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="content">
-    <router-outlet></router-outlet>
+      </nav>
+      
+      <div class="section-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -45,20 +43,22 @@
   min-height: calc(100vh - 56px);
 }
 
-.sidebar {
-  width: 250px;
-  background-color: #f8f9fa;
-  border-right: 1px solid #dee2e6;
-  padding: 1rem;
-}
-
-.content {
+.editor-content {
   flex: 1;
   padding: 2rem;
   overflow-y: auto;
 }
 
-.nav-link {
+.section-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.section-nav a {
   color: #495057;
   padding: 0.75rem 1rem;
   border-radius: 8px;
@@ -76,7 +76,7 @@
   }
 }
 
-.nav-item {
-  margin-bottom: 0.5rem;
+.section-content {
+  padding: 2rem;
 }
 </style> 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Resume } from '../../shared/models/resume.model';
-import { ResumeService } from '../../services/resume.service';
+import { ResumeService } from '../../shared/services/resume.service';
 
 @Component({
   selector: 'app-editor',

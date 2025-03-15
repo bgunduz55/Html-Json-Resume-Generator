@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ResumeService } from './resume.service';
+import { ResumeService } from '../shared/services/resume.service';
 import html2pdf from 'html2pdf.js';
 
 @Injectable({

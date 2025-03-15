@@ -1,13 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { ResumeService } from '../../services/resume.service';
+import { ResumeService } from '../../shared/services/resume.service';
 import { PdfExportService } from '../../services/pdf-export.service';
-
-interface SavedResume {
-  id: string;
-  resume: any;
-  lastModified: Date;
-}
+import { Resume } from '../../shared/models/resume.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-resume-manager',
@@ -85,66 +81,43 @@ interface SavedResume {
     }
   `]
 })
-export class ResumeManagerComponent implements OnInit {
-  resumes: SavedResume[] = [];
+export class ResumeManagerComponent implements OnInit, OnDestroy {
+  private currentResume: Resume | null = null;
+  private subscription: Subscription;
 
   constructor(
     private resumeService: ResumeService,
-    private router: Router,
-    private pdfExportService: PdfExportService
-  ) {}
-
-  ngOnInit(): void {
-    this.loadResumes();
+    private pdfExportService: PdfExportService,
+    private router: Router
+  ) {
+    this.subscription = this.resumeService.currentResume$.subscribe(resume => {
+      this.currentResume = resume;
+    });
   }
 
-  createNewResume(): void {
-    const id = this.resumeService.createNewResume();
-    this.router.navigate(['/editor', id]);
-  }
+  ngOnInit(): void {}
 
-  editResume(id: string): void {
-    this.router.navigate(['/editor', id]);
-  }
-
-  deleteResume(id: string): void {
-    if (confirm('Are you sure you want to delete this resume?')) {
-      this.resumeService.deleteResume(id);
-      this.loadResumes();
-    }
-  }
-
-  private loadResumes(): void {
-    this.resumes = this.resumeService.getSavedResumes().map(resume => ({
-      ...resume,
-      lastModified: new Date(resume.lastModified)
-    }));
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   exportResume(): void {
-    try {
-      const jsonData = this.resumeService.exportToJson();
-      const blob = new Blob([jsonData], { type: 'application/json' });
+    if (this.currentResume) {
+      const jsonStr = JSON.stringify(this.currentResume, null, 2);
+      const blob = new Blob([jsonStr], { type: 'application/json' });
       const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'resume.json';
-      link.click();
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'resume.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
       window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error('Failed to export resume:', error);
-      // TODO: Add proper error handling/notification
     }
   }
 
-  async exportToPdf(): Promise<void> {
-    try {
-      await this.pdfExportService.exportToPdf('resume-content', 'resume.pdf');
-      // TODO: Add success notification
-    } catch (error) {
-      console.error('Failed to export PDF:', error);
-      // TODO: Add error notification
-    }
+  exportToPdf(): void {
+    this.router.navigate(['/preview']);
   }
 
   handleFileInput(event: Event): void {
@@ -154,8 +127,8 @@ export class ResumeManagerComponent implements OnInit {
       const reader = new FileReader();
       reader.onload = () => {
         try {
-          const jsonData = reader.result as string;
-          this.resumeService.importFromJson(jsonData);
+          const jsonData = JSON.parse(reader.result as string) as Resume;
+          this.resumeService.updateResume(jsonData);
           // TODO: Add success notification
         } catch (error) {
           console.error('Failed to import resume:', error);

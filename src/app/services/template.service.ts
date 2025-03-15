@@ -16,6 +16,10 @@ export interface Template {
   providedIn: 'root'
 })
 export class TemplateService {
+  private readonly STORAGE_KEY = 'selectedTemplate';
+  private templateSubject = new BehaviorSubject<string>('modern-professional');
+  public readonly templateChange$: Observable<string> = this.templateSubject.asObservable();
+
   private templates: Template[] = [
     {
       id: 'modern-professional',
@@ -64,16 +68,11 @@ export class TemplateService {
     }
   ];
 
-  private currentTemplateSubject = new BehaviorSubject<Template>(this.templates[0]);
-  templateChange$ = this.currentTemplateSubject.asObservable();
-
   constructor() {
-    const savedTemplateId = localStorage.getItem('selectedTemplate');
-    if (savedTemplateId) {
-      const template = this.templates.find(t => t.id === savedTemplateId);
-      if (template) {
-        this.currentTemplateSubject.next(template);
-      }
+    // Load saved template from localStorage
+    const savedTemplate = localStorage.getItem(this.STORAGE_KEY);
+    if (savedTemplate) {
+      this.templateSubject.next(savedTemplate);
     }
   }
 
@@ -90,15 +89,13 @@ export class TemplateService {
   }
 
   setTemplate(templateId: string): void {
-    const template = this.templates.find(t => t.id === templateId);
-    if (template) {
-      this.currentTemplateSubject.next(template);
-      localStorage.setItem('selectedTemplate', templateId);
-    }
+    // Save to localStorage and update subject
+    localStorage.setItem(this.STORAGE_KEY, templateId);
+    this.templateSubject.next(templateId);
   }
 
-  getCurrentTemplate(): Template {
-    return this.currentTemplateSubject.value;
+  getCurrentTemplate(): string {
+    return this.templateSubject.value;
   }
 
   // ATS Optimization Methods
@@ -170,7 +167,7 @@ export class TemplateService {
 
   generateHtml(resume: Resume): string {
     const template = this.getCurrentTemplate();
-    switch (template.id) {
+    switch (template) {
       case 'modern-professional':
         return this.generateModernProfessionalTemplate(resume);
       case 'classic-elegant':

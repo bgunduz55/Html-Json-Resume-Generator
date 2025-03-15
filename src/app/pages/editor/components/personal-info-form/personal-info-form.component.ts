@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Resume, PersonalInfo } from '../../../../shared/models/resume.model';
-import { ResumeService } from '../../../../services/resume.service';
+import { ResumeService } from '../../../../shared/services/resume.service';
+import { PersonalInfo, Resume } from '../../../../shared/models/resume.model';
 
 @Component({
   selector: 'app-personal-info-form',

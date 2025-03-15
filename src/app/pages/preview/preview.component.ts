@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { ResumeService } from '../../shared/services/resume.service';
+import { TemplateService } from '../../services/template.service';
 import { Resume } from '../../shared/models/resume.model';
+import { Subscription } from 'rxjs';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
@@ -9,17 +11,38 @@ import jsPDF from 'jspdf';
   templateUrl: './preview.component.html',
   styleUrls: ['./preview.component.scss']
 })
-export class PreviewComponent implements OnInit {
+export class PreviewComponent implements OnInit, OnDestroy {
   @ViewChild('previewContent') previewContent!: ElementRef;
   resume: Resume | null = null;
+  selectedTemplate: string = 'modern-professional';
   isGeneratingPdf = false;
+  private subscriptions: Subscription[] = [];
 
-  constructor(private resumeService: ResumeService) {}
+  constructor(
+    private resumeService: ResumeService,
+    private templateService: TemplateService
+  ) {}
 
   ngOnInit(): void {
-    this.resumeService.getResume().subscribe(resume => {
-      this.resume = resume;
-    });
+    // Subscribe to resume changes
+    this.subscriptions.push(
+      this.resumeService.currentResume$.subscribe(resume => {
+        this.resume = resume;
+        console.log('Resume updated in preview:', resume);
+      })
+    );
+
+    // Subscribe to template changes
+    this.subscriptions.push(
+      this.templateService.templateChange$.subscribe(templateId => {
+        this.selectedTemplate = templateId;
+        console.log('Template updated in preview:', templateId);
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
   async downloadPDF(): Promise<void> {

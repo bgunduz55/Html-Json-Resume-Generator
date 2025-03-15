@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { EditorRoutingModule } from './editor-routing.module';
@@ -10,6 +11,7 @@ import { EducationFormComponent } from './components/education-form/education-fo
 import { SkillsFormComponent } from './components/skills-form/skills-form.component';
 import { ProjectsFormComponent } from './components/projects-form/projects-form.component';
 import { CertificationsFormComponent } from './components/certifications-form/certifications-form.component';
+import { ResumeManagerComponent } from '../../components/resume-manager/resume-manager.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,51 @@ import { CertificationsFormComponent } from './components/certifications-form/ce
     EducationFormComponent,
     SkillsFormComponent,
     ProjectsFormComponent,
-    CertificationsFormComponent
+    CertificationsFormComponent,
+    ResumeManagerComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    EditorRoutingModule
+    EditorRoutingModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: EditorComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'personal-info',
+            pathMatch: 'full'
+          },
+          {
+            path: 'personal-info',
+            component: PersonalInfoFormComponent
+          },
+          {
+            path: 'work-experience',
+            component: WorkExperienceFormComponent
+          },
+          {
+            path: 'education',
+            component: EducationFormComponent
+          },
+          {
+            path: 'skills',
+            component: SkillsFormComponent
+          },
+          {
+            path: 'projects',
+            component: ProjectsFormComponent
+          },
+          {
+            path: 'certifications',
+            component: CertificationsFormComponent
+          }
+        ]
+      }
+    ])
   ]
 })
 export class EditorModule { }

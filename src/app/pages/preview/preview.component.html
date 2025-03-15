@@ -11,18 +11,18 @@
       <header class="personal-info">
         <div class="header-content">
           <div class="text-content">
-            <h1>{{ resume.personalInfo.fullName }}</h1>
-            <h2>{{ resume.personalInfo.title }}</h2>
+            <h1>{{ resume.personalInfo.fullName || 'Your Name' }}</h1>
+            <h2>{{ resume.personalInfo.title || 'Your Professional Title' }}</h2>
             <div class="contact-info">
-              <p *ngIf="resume.personalInfo.email">
+              <p>
                 <i class="bi bi-envelope"></i>
-                <a [href]="'mailto:' + resume.personalInfo.email">{{ resume.personalInfo.email }}</a>
+                <a [href]="'mailto:' + resume.personalInfo.email">{{ resume.personalInfo.email || 'your.email@example.com' }}</a>
               </p>
-              <p *ngIf="resume.personalInfo.phone">
+              <p>
                 <i class="bi bi-telephone"></i>
-                <a [href]="'tel:' + resume.personalInfo.phone">{{ resume.personalInfo.phone }}</a>
+                <a [href]="'tel:' + resume.personalInfo.phone">{{ resume.personalInfo.phone || '+1 234 567 8900' }}</a>
               </p>
-              <p *ngIf="resume.personalInfo.location">
+              <p>
                 <i class="bi bi-geo-alt"></i>
                 {{ resume.personalInfo.location }}
               </p>
