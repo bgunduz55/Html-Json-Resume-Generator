@@ -24,14 +24,14 @@ export class PreviewComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // Subscribe to resume changes
+    // Subscribe to resume updates
     this.subscriptions.push(
-      this.resumeService.currentResume$.subscribe(resume => {
+      this.resumeService.getResume().subscribe(resume => {
         this.resume = resume;
       })
     );
 
-    // Subscribe to template changes
+    // Subscribe to template selection updates
     this.subscriptions.push(
       this.templateService.selectedTemplate$.subscribe(template => {
         this.selectedTemplate = template;
@@ -40,7 +40,6 @@ export class PreviewComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // Clean up subscriptions
     this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
@@ -50,10 +49,16 @@ export class PreviewComponent implements OnInit, OnDestroy {
     this.isGeneratingPdf = true;
     try {
       const content = this.previewContent.nativeElement;
+      
+      // Wait for a moment to ensure all styles are applied
+      await new Promise(resolve => setTimeout(resolve, 500));
+
       const canvas = await html2canvas(content, {
         scale: 2,
         useCORS: true,
-        logging: false
+        logging: false,
+        allowTaint: true,
+        backgroundColor: '#ffffff'
       });
 
       const contentWidth = content.offsetWidth;
@@ -87,7 +92,11 @@ export class PreviewComponent implements OnInit, OnDestroy {
         );
       }
 
-      pdf.save(`${this.resume.personalInfo.fullName.replace(/\s+/g, '_')}_Resume.pdf`);
+      const fileName = this.resume.personalInfo.fullName
+        ? `${this.resume.personalInfo.fullName.replace(/\s+/g, '_')}_Resume.pdf`
+        : 'resume.pdf';
+
+      pdf.save(fileName);
     } catch (error) {
       console.error('Error generating PDF:', error);
     } finally {
