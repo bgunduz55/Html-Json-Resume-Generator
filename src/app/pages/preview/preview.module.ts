@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
-
 import { PreviewComponent } from './preview.component';
-
-const routes: Routes = [
-  {
-    path: '',
-    component: PreviewComponent
-  }
-];
+import { PreviewRoutingModule } from './preview-routing.module';
+import { ModernProfessionalComponent } from './templates/modern-professional/modern-professional.component';
+import { ClassicElegantComponent } from './templates/classic-elegant/classic-elegant.component';
+import { CreativePortfolioComponent } from './templates/creative-portfolio/creative-portfolio.component';
 
 @NgModule({
   declarations: [
-    PreviewComponent
+    PreviewComponent,
+    ModernProfessionalComponent,
+    ClassicElegantComponent,
+    CreativePortfolioComponent
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    PreviewRoutingModule
   ]
 })
 export class PreviewModule { }
