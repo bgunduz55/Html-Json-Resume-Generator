@@ -1,68 +1,71 @@
 export interface PersonalInfo {
-    fullName: string;
-    title: string;
+    name: string;
     email: string;
     phone: string;
     location: string;
-    linkedIn: string;
-    website: string;
-    github: string;
-    summary: string;
+    summary?: string;
+    title?: string;
+    website?: string;
+    linkedin?: string;
+    github?: string;
 }
 
 export interface WorkExperience {
     company: string;
-    title: string;
+    position: string;
     location: string;
     startDate: string;
-    endDate: string;
+    endDate?: string;
+    current?: boolean;
     description: string;
-    achievements: string[];
+    achievements?: string[];
 }
 
 export interface Education {
-    institution: string;
+    school: string;
     degree: string;
     field: string;
+    location: string;
     startDate: string;
     endDate?: string;
-    gpa?: string;
-    location: string;
-    achievements?: string[];
+    current?: boolean;
     description?: string;
+    achievements?: string[];
 }
 
-export interface SkillCategory {
-    category: string;
-    items: string[];
+export interface Skill {
+    name: string;
+    level?: string;
+    category?: string;
 }
 
 export interface Project {
     name: string;
     description: string;
-    role: string;
-    url: string;
-    startDate: string;
-    endDate: string;
     technologies: string[];
-    achievements: string[];
+    url?: string;
+    startDate?: string;
+    endDate?: string;
+    current?: boolean;
+    achievements?: string[];
 }
 
 export interface Certification {
     name: string;
-    organization: string;
-    issueDate: string;
-    expiryDate: string;
-    credentialId: string;
-    credentialUrl: string;
-    description: string;
+    issuer: string;
+    date: string;
+    url?: string;
+    expiryDate?: string;
+    description?: string;
 }
 
 export interface Resume {
     personalInfo: PersonalInfo;
     workExperience: WorkExperience[];
     education: Education[];
-    skills: SkillCategory[];
-    projects: Project[];
-    certifications: Certification[];
+    skills: Skill[];
+    projects?: Project[];
+    certifications?: Certification[];
+    languages?: string[];
+    interests?: string[];
 } 

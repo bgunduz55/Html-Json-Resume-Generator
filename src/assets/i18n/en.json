@@ -1,0 +1,100 @@
+{
+  "COMMON": {
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "ADD": "Add",
+    "REMOVE": "Remove",
+    "EDIT": "Edit",
+    "DELETE": "Delete",
+    "LOADING": "Loading...",
+    "ERROR": "Error",
+    "SUCCESS": "Success"
+  },
+  "RESUME": {
+    "TITLE": "Resume Builder",
+    "PREVIEW": "Preview",
+    "DOWNLOAD_PDF": "Download PDF",
+    "GENERATING_PDF": "Generating PDF...",
+    "IMPORT": "Import Resume",
+    "EXPORT": "Export Resume",
+    "TEMPLATES": {
+      "TITLE": "Templates",
+      "MODERN": "Modern",
+      "CLASSIC": "Classic",
+      "MINIMAL": "Minimal"
+    }
+  },
+  "PERSONAL_INFO": {
+    "TITLE": "Personal Information",
+    "FULL_NAME": "Full Name",
+    "JOB_TITLE": "Job Title",
+    "EMAIL": "Email",
+    "PHONE": "Phone",
+    "LOCATION": "Location",
+    "LINKEDIN": "LinkedIn",
+    "WEBSITE": "Website",
+    "GITHUB": "GitHub",
+    "SUMMARY": "Professional Summary"
+  },
+  "WORK_EXPERIENCE": {
+    "TITLE": "Work Experience",
+    "ADD": "Add Experience",
+    "COMPANY": "Company",
+    "POSITION": "Position",
+    "START_DATE": "Start Date",
+    "END_DATE": "End Date",
+    "CURRENT": "Current",
+    "LOCATION": "Location",
+    "DESCRIPTION": "Description",
+    "ACHIEVEMENTS": "Key Achievements",
+    "ADD_ACHIEVEMENT": "Add Achievement"
+  },
+  "EDUCATION": {
+    "TITLE": "Education",
+    "ADD": "Add Education",
+    "INSTITUTION": "Institution",
+    "DEGREE": "Degree",
+    "FIELD": "Field of Study",
+    "START_DATE": "Start Date",
+    "END_DATE": "End Date",
+    "GPA": "GPA",
+    "LOCATION": "Location",
+    "DESCRIPTION": "Description"
+  },
+  "SKILLS": {
+    "TITLE": "Skills",
+    "ADD": "Add Skill",
+    "CATEGORY": "Category",
+    "LEVEL": "Level",
+    "BEGINNER": "Beginner",
+    "INTERMEDIATE": "Intermediate",
+    "ADVANCED": "Advanced",
+    "EXPERT": "Expert"
+  },
+  "PROJECTS": {
+    "TITLE": "Projects",
+    "ADD": "Add Project",
+    "NAME": "Project Name",
+    "DESCRIPTION": "Description",
+    "TECHNOLOGIES": "Technologies Used",
+    "ADD_TECHNOLOGY": "Add Technology",
+    "LINK": "Project Link"
+  },
+  "CERTIFICATIONS": {
+    "TITLE": "Certifications",
+    "ADD": "Add Certification",
+    "NAME": "Certification Name",
+    "ISSUER": "Issuing Organization",
+    "DATE": "Issue Date",
+    "EXPIRY": "Expiry Date",
+    "CREDENTIAL_ID": "Credential ID",
+    "CREDENTIAL_URL": "Credential URL"
+  },
+  "VALIDATION": {
+    "REQUIRED": "This field is required",
+    "EMAIL_INVALID": "Please enter a valid email address",
+    "URL_INVALID": "Please enter a valid URL",
+    "PHONE_INVALID": "Please enter a valid phone number",
+    "DATE_INVALID": "Please enter a valid date"
+  }
+} 

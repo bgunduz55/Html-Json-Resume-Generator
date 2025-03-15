@@ -1,112 +1,83 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { ResumeService } from '../../../../services/resume.service';
-
-interface SkillCategory {
-  category: string;
-  items: string[];
-}
+import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ResumeService } from '../../../../shared/services/resume.service';
+import { Skills } from '../../../../shared/models/resume.model';
 
 @Component({
   selector: 'app-skills-form',
   templateUrl: './skills-form.component.html',
   styleUrls: ['./skills-form.component.scss']
 })
-export class SkillsFormComponent implements OnInit, OnDestroy {
-  @Input() data: SkillCategory[] = [];
-  
-  form: FormGroup;
-  showForm = false;
-  editIndex = -1;
-  private subscription: Subscription;
+export class SkillsFormComponent implements OnInit {
+  skillsForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private resumeService: ResumeService
   ) {
-    this.form = this.fb.group({
-      categories: this.fb.array([])
+    this.skillsForm = this.fb.group({
+      technical: this.fb.array([]),
+      soft: this.fb.array([])
     });
-    this.subscription = new Subscription();
-  }
-
-  get categories() {
-    return this.form.get('categories') as FormArray;
-  }
-
-  getCategoryForm(index: number): FormGroup {
-    return this.categories.at(index) as FormGroup;
   }
 
   ngOnInit(): void {
-    if (this.data?.length) {
-      this.data.forEach(category => {
-        this.categories.push(this.createCategoryForm(category));
-      });
-    }
-
-    this.subscription.add(
-      this.form.valueChanges.pipe(
-        debounceTime(500),
-        distinctUntilChanged()
-      ).subscribe(value => {
-        this.resumeService.updateSkills(value.categories);
-      })
-    );
+    this.loadSkills();
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
+  private loadSkills(): void {
+    this.resumeService.getResume().subscribe(resume => {
+      if (resume?.skills) {
+        const technicalArray = this.skillsForm.get('technical') as FormArray;
+        const softArray = this.skillsForm.get('soft') as FormArray;
 
-  createCategoryForm(data?: SkillCategory): FormGroup {
-    return this.fb.group({
-      category: [data?.category || '', Validators.required],
-      items: [data?.items || []]
+        technicalArray.clear();
+        softArray.clear();
+
+        resume.skills.technical.forEach(skill => {
+          technicalArray.push(this.fb.control(skill));
+        });
+
+        resume.skills.soft.forEach(skill => {
+          softArray.push(this.fb.control(skill));
+        });
+      }
     });
   }
 
-  addCategory(): void {
-    this.editIndex = this.categories.length;
-    this.categories.push(this.createCategoryForm());
-    this.showForm = true;
+  get technical(): FormArray {
+    return this.skillsForm.get('technical') as FormArray;
   }
 
-  editCategory(index: number): void {
-    this.editIndex = index;
-    this.showForm = true;
+  get soft(): FormArray {
+    return this.skillsForm.get('soft') as FormArray;
   }
 
-  deleteCategory(index: number): void {
-    this.categories.removeAt(index);
+  addTechnicalSkill(): void {
+    this.technical.push(this.fb.control(''));
   }
 
-  saveCategory(): void {
-    if (this.categories.at(this.editIndex).valid) {
-      this.showForm = false;
-      this.editIndex = -1;
+  addSoftSkill(): void {
+    this.soft.push(this.fb.control(''));
+  }
+
+  removeTechnicalSkill(index: number): void {
+    this.technical.removeAt(index);
+    this.saveChanges();
+  }
+
+  removeSoftSkill(index: number): void {
+    this.soft.removeAt(index);
+    this.saveChanges();
+  }
+
+  saveChanges(): void {
+    if (this.skillsForm.valid) {
+      const skills: Skills = {
+        technical: this.technical.value,
+        soft: this.soft.value
+      };
+      this.resumeService.updateSkills(skills);
     }
-  }
-
-  cancelEdit(): void {
-    if (this.editIndex === this.categories.length - 1) {
-      this.categories.removeAt(this.editIndex);
-    }
-    this.showForm = false;
-    this.editIndex = -1;
-  }
-
-  addSkill(categoryForm: FormGroup): void {
-    const items = categoryForm.get('items')?.value || [];
-    items.push('');
-    categoryForm.patchValue({ items });
-  }
-
-  removeSkill(categoryForm: FormGroup, index: number): void {
-    const items = categoryForm.get('items')?.value || [];
-    items.splice(index, 1);
-    categoryForm.patchValue({ items });
   }
 }

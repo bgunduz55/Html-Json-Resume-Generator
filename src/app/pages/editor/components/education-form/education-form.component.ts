@@ -1,80 +1,66 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { ResumeService } from '../../../../services/resume.service';
-import { Education } from '../../../../models/resume.model';
+import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ResumeService } from '../../../../shared/services/resume.service';
 
 @Component({
   selector: 'app-education-form',
   templateUrl: './education-form.component.html',
   styleUrls: ['./education-form.component.scss']
 })
-export class EducationFormComponent implements OnInit, OnDestroy {
-  @Input() data: Education[] = [];
-  
-  form: FormGroup;
-  showForm = false;
-  editIndex = -1;
-  private subscription: Subscription;
+export class EducationFormComponent implements OnInit {
+  educationForm: FormGroup;
+  editIndex: number = -1;
+  showForm: boolean = false;
 
   constructor(
     private fb: FormBuilder,
     private resumeService: ResumeService
   ) {
-    this.form = this.fb.group({
+    this.educationForm = this.fb.group({
       educations: this.fb.array([])
     });
-    this.subscription = new Subscription();
-  }
-
-  get educations() {
-    return this.form.get('educations') as FormArray;
-  }
-
-  getEducationForm(index: number): FormGroup {
-    return this.educations.at(index) as FormGroup;
   }
 
   ngOnInit(): void {
-    if (this.data?.length) {
-      this.data.forEach(edu => {
-        this.educations.push(this.createEducationForm(edu));
-      });
-    }
-
-    this.subscription.add(
-      this.form.valueChanges.pipe(
-        debounceTime(500),
-        distinctUntilChanged()
-      ).subscribe(value => {
-        this.resumeService.updateEducation(value.educations);
-      })
-    );
+    this.loadEducation();
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+  private loadEducation(): void {
+    this.resumeService.getResume().subscribe(resume => {
+      if (resume?.education) {
+        const educationsArray = this.educationForm.get('educations') as FormArray;
+        educationsArray.clear();
+        resume.education.forEach(edu => {
+          educationsArray.push(this.createEducationForm(edu));
+        });
+      }
+    });
   }
 
-  createEducationForm(data?: Education): FormGroup {
+  get educations(): FormArray {
+    return this.educationForm.get('educations') as FormArray;
+  }
+
+  createEducationForm(education: any = {}): FormGroup {
     return this.fb.group({
-      institution: [data?.institution || '', Validators.required],
-      degree: [data?.degree || '', Validators.required],
-      field: [data?.field || '', Validators.required],
-      startDate: [data?.startDate || '', Validators.required],
-      endDate: [data?.endDate || '', Validators.required],
-      gpa: [data?.gpa || null],
-      location: [data?.location || ''],
-      achievements: [data?.achievements || []],
-      description: [data?.description || '']
+      school: [education.school || '', Validators.required],
+      degree: [education.degree || '', Validators.required],
+      fieldOfStudy: [education.fieldOfStudy || '', Validators.required],
+      location: [education.location || ''],
+      startDate: [education.startDate || '', Validators.required],
+      endDate: [education.endDate || ''],
+      current: [education.current || false],
+      gpa: [education.gpa || ''],
+      description: [education.description || ''],
+      achievements: this.fb.array(education.achievements || []),
+      relevantCourses: this.fb.array(education.relevantCourses || [])
     });
   }
 
   addEducation(): void {
-    this.editIndex = this.educations.length;
-    this.educations.push(this.createEducationForm());
+    this.editIndex = -1;
     this.showForm = true;
+    this.educations.push(this.createEducationForm());
   }
 
   editEducation(index: number): void {
@@ -84,32 +70,51 @@ export class EducationFormComponent implements OnInit, OnDestroy {
 
   deleteEducation(index: number): void {
     this.educations.removeAt(index);
+    this.saveChanges();
   }
 
-  saveEducation(): void {
-    if (this.educations.at(this.editIndex).valid) {
-      this.showForm = false;
-      this.editIndex = -1;
+  getEducationForm(index: number): FormGroup {
+    return this.educations.at(index) as FormGroup;
+  }
+
+  getAchievements(educationIndex: number): FormArray {
+    return this.getEducationForm(educationIndex).get('achievements') as FormArray;
+  }
+
+  addAchievement(educationIndex: number): void {
+    this.getAchievements(educationIndex).push(this.fb.control(''));
+  }
+
+  removeAchievement(educationIndex: number, achievementIndex: number): void {
+    this.getAchievements(educationIndex).removeAt(achievementIndex);
+    this.saveChanges();
+  }
+
+  getRelevantCourses(educationIndex: number): FormArray {
+    return this.getEducationForm(educationIndex).get('relevantCourses') as FormArray;
+  }
+
+  addRelevantCourse(educationIndex: number): void {
+    this.getRelevantCourses(educationIndex).push(this.fb.control(''));
+  }
+
+  removeRelevantCourse(educationIndex: number, courseIndex: number): void {
+    this.getRelevantCourses(educationIndex).removeAt(courseIndex);
+    this.saveChanges();
+  }
+
+  saveChanges(): void {
+    if (this.educationForm.valid) {
+      this.resumeService.updateEducation(this.educationForm.value.educations);
+      if (this.editIndex === -1) {
+        this.showForm = false;
+      }
     }
   }
 
   cancelEdit(): void {
-    if (this.editIndex === this.educations.length - 1) {
-      this.educations.removeAt(this.editIndex);
-    }
     this.showForm = false;
     this.editIndex = -1;
-  }
-
-  addAchievement(educationForm: FormGroup): void {
-    const achievements = educationForm.get('achievements')?.value || [];
-    achievements.push('');
-    educationForm.patchValue({ achievements });
-  }
-
-  removeAchievement(educationForm: FormGroup, index: number): void {
-    const achievements = educationForm.get('achievements')?.value || [];
-    achievements.splice(index, 1);
-    educationForm.patchValue({ achievements });
+    this.loadEducation();
   }
 }

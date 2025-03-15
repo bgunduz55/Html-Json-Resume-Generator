@@ -1,123 +1,88 @@
-<form [formGroup]="form" class="row g-3">
-  <!-- Full Name -->
-  <div class="col-md-6">
-    <label for="fullName" class="form-label">Full Name *</label>
-    <input type="text" 
-           class="form-control" 
-           id="fullName" 
-           formControlName="fullName"
-           [class.is-invalid]="form.get('fullName')?.invalid && form.get('fullName')?.touched">
-    <div class="invalid-feedback">
+<form [formGroup]="personalInfoForm" (ngSubmit)="saveChanges()">
+  <h2>Personal Information</h2>
+
+  <div class="form-group mb-3">
+    <label for="fullName">Full Name *</label>
+    <input type="text" id="fullName" class="form-control" formControlName="fullName" placeholder="John Doe">
+    <div class="invalid-feedback" *ngIf="personalInfoForm.get('fullName')?.invalid && personalInfoForm.get('fullName')?.touched">
       Full name is required
     </div>
   </div>
 
-  <!-- Professional Title -->
-  <div class="col-md-6">
-    <label for="title" class="form-label">Professional Title *</label>
-    <input type="text" 
-           class="form-control" 
-           id="title" 
-           formControlName="title"
-           [class.is-invalid]="form.get('title')?.invalid && form.get('title')?.touched">
-    <div class="invalid-feedback">
+  <div class="form-group mb-3">
+    <label for="title">Professional Title *</label>
+    <input type="text" id="title" class="form-control" formControlName="title" placeholder="Software Engineer">
+    <div class="invalid-feedback" *ngIf="personalInfoForm.get('title')?.invalid && personalInfoForm.get('title')?.touched">
       Professional title is required
     </div>
   </div>
 
-  <!-- Email -->
-  <div class="col-md-6">
-    <label for="email" class="form-label">Email *</label>
-    <input type="email" 
-           class="form-control" 
-           id="email" 
-           formControlName="email"
-           [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched">
-    <div class="invalid-feedback">
-      Please enter a valid email address
+  <div class="form-group mb-3">
+    <label for="email">Email Address *</label>
+    <input type="email" id="email" class="form-control" formControlName="email" placeholder="john.doe@example.com">
+    <div class="invalid-feedback" *ngIf="personalInfoForm.get('email')?.invalid && personalInfoForm.get('email')?.touched">
+      <span *ngIf="personalInfoForm.get('email')?.errors?.['required']">Email is required</span>
+      <span *ngIf="personalInfoForm.get('email')?.errors?.['email']">Please enter a valid email address</span>
     </div>
   </div>
 
-  <!-- Phone -->
-  <div class="col-md-6">
-    <label for="phone" class="form-label">Phone *</label>
-    <input type="tel" 
-           class="form-control" 
-           id="phone" 
-           formControlName="phone"
-           [class.is-invalid]="form.get('phone')?.invalid && form.get('phone')?.touched">
-    <div class="invalid-feedback">
+  <div class="form-group mb-3">
+    <label for="phone">Phone Number *</label>
+    <input type="tel" id="phone" class="form-control" formControlName="phone" placeholder="+1 (555) 123-4567">
+    <div class="invalid-feedback" *ngIf="personalInfoForm.get('phone')?.invalid && personalInfoForm.get('phone')?.touched">
       Phone number is required
     </div>
   </div>
 
-  <!-- Location -->
-  <div class="col-12">
-    <label for="location" class="form-label">Location *</label>
-    <input type="text" 
-           class="form-control" 
-           id="location" 
-           formControlName="location"
-           placeholder="City, Country"
-           [class.is-invalid]="form.get('location')?.invalid && form.get('location')?.touched">
-    <div class="invalid-feedback">
+  <div class="form-group mb-3">
+    <label for="location">Location *</label>
+    <input type="text" id="location" class="form-control" formControlName="location" placeholder="City, Country">
+    <div class="invalid-feedback" *ngIf="personalInfoForm.get('location')?.invalid && personalInfoForm.get('location')?.touched">
       Location is required
     </div>
   </div>
 
-  <!-- LinkedIn -->
-  <div class="col-md-4">
-    <label for="linkedIn" class="form-label">LinkedIn Profile</label>
-    <div class="input-group">
-      <span class="input-group-text"><i class="bi bi-linkedin"></i></span>
-      <input type="url" 
-             class="form-control" 
-             id="linkedIn" 
-             formControlName="linkedIn"
-             placeholder="Profile URL">
+  <div class="form-group mb-3">
+    <label for="website">Website</label>
+    <input type="url" id="website" class="form-control" formControlName="website" placeholder="https://example.com">
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="linkedin">LinkedIn Profile</label>
+    <input type="url" id="linkedin" class="form-control" formControlName="linkedin" placeholder="https://linkedin.com/in/johndoe">
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="github">GitHub Profile</label>
+    <input type="url" id="github" class="form-control" formControlName="github" placeholder="https://github.com/johndoe">
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="photo">Profile Photo</label>
+    <div class="photo-upload-container">
+      <div class="d-flex align-items-center gap-3">
+        <ng-container *ngIf="personalInfoForm.get('photo')?.value; else uploadPlaceholder">
+          <img [src]="personalInfoForm.get('photo')?.value" alt="Profile photo" class="profile-photo">
+        </ng-container>
+        <ng-template #uploadPlaceholder>
+          <div class="upload-placeholder">
+            <i class="bi bi-person"></i>
+          </div>
+        </ng-template>
+        <div class="d-flex flex-column gap-2">
+          <input type="file" id="photo" class="d-none" (change)="onPhotoSelected($event)" accept="image/*">
+          <label for="photo" class="btn btn-outline-primary btn-photo mb-0">
+            <i class="bi bi-upload me-2"></i>Upload Photo
+          </label>
+          <button type="button" class="btn btn-outline-danger btn-photo" *ngIf="personalInfoForm.get('photo')?.value" (click)="removePhoto()">
+            <i class="bi bi-trash me-2"></i>Remove
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Website -->
-  <div class="col-md-4">
-    <label for="website" class="form-label">Personal Website</label>
-    <div class="input-group">
-      <span class="input-group-text"><i class="bi bi-globe"></i></span>
-      <input type="url" 
-             class="form-control" 
-             id="website" 
-             formControlName="website"
-             placeholder="Website URL">
-    </div>
-  </div>
-
-  <!-- GitHub -->
-  <div class="col-md-4">
-    <label for="github" class="form-label">GitHub Profile</label>
-    <div class="input-group">
-      <span class="input-group-text"><i class="bi bi-github"></i></span>
-      <input type="url" 
-             class="form-control" 
-             id="github" 
-             formControlName="github"
-             placeholder="Profile URL">
-    </div>
-  </div>
-
-  <!-- Professional Summary -->
-  <div class="col-12">
-    <label for="summary" class="form-label">Professional Summary *</label>
-    <textarea class="form-control" 
-              id="summary" 
-              formControlName="summary"
-              rows="4"
-              [class.is-invalid]="form.get('summary')?.invalid && form.get('summary')?.touched"
-              placeholder="Write a compelling summary of your professional background and goals"></textarea>
-    <div class="invalid-feedback">
-      Professional summary is required
-    </div>
-    <small class="form-text text-muted">
-      Pro tip: Use keywords from job descriptions you're targeting to make your summary ATS-friendly.
-    </small>
+  <div class="d-flex justify-content-end">
+    <button type="submit" class="btn btn-primary" [disabled]="personalInfoForm.invalid">Save Changes</button>
   </div>
 </form>

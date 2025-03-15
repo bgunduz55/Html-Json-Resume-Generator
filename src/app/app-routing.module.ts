@@ -3,21 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'editor',
-    loadChildren: () => import('./pages/editor/editor.module').then(m => m.EditorModule)
-  },
-  {
     path: '',
     redirectTo: 'editor',
     pathMatch: 'full'
   },
   {
-    path: 'preview',
-    loadChildren: () => import('./pages/preview/preview.module').then(m => m.PreviewModule)
+    path: 'editor',
+    loadChildren: () => import('./pages/editor/editor.module').then(m => m.EditorModule)
   },
   {
-    path: '**',
-    redirectTo: ''
+    path: 'preview',
+    loadChildren: () => import('./pages/preview/preview.module').then(m => m.PreviewModule)
   }
 ];
 

@@ -1,0 +1,153 @@
+.resume-manager {
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.resume-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+
+  i {
+    font-size: 3rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.resume-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.resume-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &.active {
+    border: 2px solid #0d6efd;
+  }
+}
+
+.resume-card-header {
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .resume-actions {
+    display: flex;
+    gap: 0.5rem;
+
+    .btn-link {
+      padding: 0.25rem;
+      color: #6c757d;
+      
+      &:hover {
+        color: #0d6efd;
+      }
+    }
+  }
+}
+
+.resume-card-body {
+  padding: 1rem;
+  flex: 1;
+
+  .resume-info {
+    margin-bottom: 0.5rem;
+    color: #495057;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    i {
+      color: #6c757d;
+    }
+  }
+
+  .resume-date {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+}
+
+.resume-card-footer {
+  padding: 1rem;
+  background-color: #f8f9fa;
+}
+
+// Modal styles
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+}
+
+.modal {
+  z-index: 1050;
+}
+
+// Form styles
+.form-group {
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #495057;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .resume-manager {
+    padding: 1rem;
+  }
+
+  .resume-grid {
+    grid-template-columns: 1fr;
+  }
+} 

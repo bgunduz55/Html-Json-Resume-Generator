@@ -1,78 +1,63 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { ResumeService } from '../../../../services/resume.service';
-import { Certification } from '../../../../models/resume.model';
+import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ResumeService } from '../../../../shared/services/resume.service';
+import { Certification } from '../../../../shared/models/resume.model';
 
 @Component({
   selector: 'app-certifications-form',
   templateUrl: './certifications-form.component.html',
   styleUrls: ['./certifications-form.component.scss']
 })
-export class CertificationsFormComponent implements OnInit, OnDestroy {
-  @Input() data: Certification[] = [];
-  
-  form: FormGroup;
-  showForm = false;
-  editIndex = -1;
-  private subscription: Subscription;
+export class CertificationsFormComponent implements OnInit {
+  certificationsForm: FormGroup;
+  editIndex: number = -1;
+  showForm: boolean = false;
 
   constructor(
     private fb: FormBuilder,
     private resumeService: ResumeService
   ) {
-    this.form = this.fb.group({
+    this.certificationsForm = this.fb.group({
       certifications: this.fb.array([])
     });
-    this.subscription = new Subscription();
-  }
-
-  get certifications() {
-    return this.form.get('certifications') as FormArray;
-  }
-
-  getCertificationForm(index: number): FormGroup {
-    return this.certifications.at(index) as FormGroup;
   }
 
   ngOnInit(): void {
-    if (this.data?.length) {
-      this.data.forEach(cert => {
-        this.certifications.push(this.createCertificationForm(cert));
-      });
-    }
-
-    this.subscription.add(
-      this.form.valueChanges.pipe(
-        debounceTime(500),
-        distinctUntilChanged()
-      ).subscribe(value => {
-        this.resumeService.updateCertifications(value.certifications);
-      })
-    );
+    this.loadCertifications();
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+  private loadCertifications(): void {
+    this.resumeService.getResume().subscribe(resume => {
+      if (resume?.certifications) {
+        const certificationsArray = this.certificationsForm.get('certifications') as FormArray;
+        certificationsArray.clear();
+        resume.certifications.forEach(cert => {
+          certificationsArray.push(this.createCertificationForm(cert));
+        });
+      }
+    });
   }
 
-  createCertificationForm(data?: Certification): FormGroup {
+  get certifications(): FormArray {
+    return this.certificationsForm.get('certifications') as FormArray;
+  }
+
+  createCertificationForm(certification: Partial<Certification> = {}): FormGroup {
     return this.fb.group({
-      name: [data?.name || '', Validators.required],
-      organization: [data?.organization || '', Validators.required],
-      issueDate: [data?.issueDate || '', Validators.required],
-      expiryDate: [data?.expiryDate || ''],
-      credentialId: [data?.credentialId || ''],
-      credentialUrl: [data?.credentialUrl || ''],
-      description: [data?.description || '']
+      name: [certification.name || '', Validators.required],
+      organization: [certification.organization || '', Validators.required],
+      issueDate: [certification.issueDate || '', Validators.required],
+      expiryDate: [certification.expiryDate || ''],
+      credentialId: [certification.credentialId || ''],
+      credentialUrl: [certification.credentialUrl || ''],
+      description: [certification.description || '']
     });
   }
 
   addCertification(): void {
-    this.editIndex = this.certifications.length;
-    this.certifications.push(this.createCertificationForm());
+    this.editIndex = -1;
     this.showForm = true;
+    this.certifications.push(this.createCertificationForm());
   }
 
   editCertification(index: number): void {
@@ -82,20 +67,25 @@ export class CertificationsFormComponent implements OnInit, OnDestroy {
 
   deleteCertification(index: number): void {
     this.certifications.removeAt(index);
+    this.saveChanges();
   }
 
-  saveCertification(): void {
-    if (this.certifications.at(this.editIndex).valid) {
-      this.showForm = false;
-      this.editIndex = -1;
+  getCertificationForm(index: number): FormGroup {
+    return this.certifications.at(index) as FormGroup;
+  }
+
+  saveChanges(): void {
+    if (this.certificationsForm.valid) {
+      this.resumeService.updateCertifications(this.certificationsForm.value.certifications);
+      if (this.editIndex === -1) {
+        this.showForm = false;
+      }
     }
   }
 
   cancelEdit(): void {
-    if (this.editIndex === this.certifications.length - 1) {
-      this.certifications.removeAt(this.editIndex);
-    }
     this.showForm = false;
     this.editIndex = -1;
+    this.loadCertifications();
   }
 }

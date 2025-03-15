@@ -1,4 +1,4 @@
-<div class="certifications-form" [formGroup]="form">
+<div class="certifications-form" [formGroup]="certificationsForm">
   <!-- Certifications List -->
   <div class="mb-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
@@ -94,7 +94,7 @@
 
             <div class="col-12 d-flex justify-content-end gap-2">
               <button type="button" class="btn btn-secondary" (click)="cancelEdit()">İptal</button>
-              <button type="button" class="btn btn-primary" (click)="saveCertification()" [disabled]="getCertificationForm(i).invalid">
+              <button type="button" class="btn btn-primary" (click)="saveChanges()" [disabled]="getCertificationForm(i).invalid">
                 Kaydet
               </button>
             </div>

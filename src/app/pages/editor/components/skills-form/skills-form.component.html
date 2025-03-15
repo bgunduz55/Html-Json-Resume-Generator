@@ -1,76 +1,60 @@
-<div class="skills-form" [formGroup]="form">
-  <!-- Skills List -->
-  <div class="mb-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h3 class="mb-0">Yetenekler</h3>
-      <button class="btn btn-primary" (click)="addCategory()">
-        <i class="bi bi-plus-lg"></i> Kategori Ekle
+<div class="skills-form" [formGroup]="skillsForm">
+  <!-- Technical Skills Section -->
+  <div class="skills-section">
+    <div class="section-header">
+      <h2>Technical Skills</h2>
+      <button type="button" class="btn btn-primary" (click)="addTechnicalSkill()">
+        Add Technical Skill
       </button>
     </div>
 
-    <!-- Skill Categories -->
-    <div class="skills-list" formArrayName="categories">
-      <div *ngFor="let category of categories.controls; let i = index" class="card mb-3 hover-lift">
-        <div class="card-body" *ngIf="i !== editIndex">
-          <div class="d-flex justify-content-between align-items-start">
-            <div class="w-100">
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <h5 class="card-title mb-0">{{category.get('category')?.value}}</h5>
-                <div>
-                  <button class="btn btn-outline-primary btn-sm me-2" (click)="editCategory(i)">
-                    <i class="bi bi-pencil"></i>
-                  </button>
-                  <button class="btn btn-outline-danger btn-sm" (click)="deleteCategory(i)">
-                    <i class="bi bi-trash"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="skills-tags">
-                <span class="badge bg-primary me-2 mb-2" *ngFor="let skill of category.get('items')?.value">
-                  {{skill}}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Edit Form -->
-        <div class="card-body" *ngIf="i === editIndex && showForm" [formGroup]="getCategoryForm(i)">
-          <div class="row g-3">
-            <div class="col-12">
-              <label class="form-label">Kategori Adı*</label>
-              <input type="text" class="form-control" formControlName="category" placeholder="Örn: Programlama Dilleri, Araçlar, Soft Skills">
-              <div class="invalid-feedback" *ngIf="getCategoryForm(i).get('category')?.invalid && getCategoryForm(i).get('category')?.touched">
-                Kategori adı gereklidir
-              </div>
-            </div>
-
-            <div class="col-12">
-              <label class="form-label d-flex justify-content-between align-items-center">
-                <span>Yetenekler</span>
-                <button type="button" class="btn btn-outline-primary btn-sm" (click)="addSkill(getCategoryForm(i))">
-                  <i class="bi bi-plus-lg"></i> Yetenek Ekle
-                </button>
-              </label>
-              <div class="skills-list">
-                <div class="input-group mb-2" *ngFor="let skill of getCategoryForm(i).get('items')?.value; let j = index">
-                  <input type="text" class="form-control" [(ngModel)]="getCategoryForm(i).get('items')?.value[j]" [ngModelOptions]="{standalone: true}" placeholder="Yetenek adı">
-                  <button class="btn btn-outline-danger" type="button" (click)="removeSkill(getCategoryForm(i), j)">
-                    <i class="bi bi-trash"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-12 d-flex justify-content-end gap-2">
-              <button type="button" class="btn btn-secondary" (click)="cancelEdit()">İptal</button>
-              <button type="button" class="btn btn-primary" (click)="saveCategory()" [disabled]="getCategoryForm(i).invalid">
-                Kaydet
-              </button>
-            </div>
-          </div>
+    <div class="skills-list" formArrayName="technical">
+      <div class="skill-item" *ngFor="let skill of technical.controls; let i = index">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            [formControlName]="i"
+            placeholder="Enter technical skill"
+          >
+          <button type="button" class="btn btn-outline-danger" (click)="removeTechnicalSkill(i)">
+            Remove
+          </button>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Soft Skills Section -->
+  <div class="skills-section">
+    <div class="section-header">
+      <h2>Soft Skills</h2>
+      <button type="button" class="btn btn-primary" (click)="addSoftSkill()">
+        Add Soft Skill
+      </button>
+    </div>
+
+    <div class="skills-list" formArrayName="soft">
+      <div class="skill-item" *ngFor="let skill of soft.controls; let i = index">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            [formControlName]="i"
+            placeholder="Enter soft skill"
+          >
+          <button type="button" class="btn btn-outline-danger" (click)="removeSoftSkill(i)">
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Save Button -->
+  <div class="form-actions">
+    <button type="button" class="btn btn-primary" (click)="saveChanges()" [disabled]="!skillsForm.valid">
+      Save Changes
+    </button>
   </div>
 </div>

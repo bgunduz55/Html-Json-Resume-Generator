@@ -4,4 +4,5 @@ export interface Template {
     description: string;
     isAtsOptimized: boolean;
     previewImageUrl?: string;
+    thumbnail: string;
 } 

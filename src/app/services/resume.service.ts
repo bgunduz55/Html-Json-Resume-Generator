@@ -1,85 +1,148 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Resume } from '../models/resume.model';
+import { Resume, Education, WorkExperience, PersonalInfo, Skills, Project, Certification } from '../shared/models/resume.model';
+
+interface SavedResume {
+  id: string;
+  name: string;
+  resume: Resume;
+  lastModified: Date;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResumeService {
-  private initialResume: Resume = {
-    personalInfo: {
-      fullName: '',
-      title: '',
-      email: '',
-      phone: '',
-      location: '',
-      linkedIn: '',
-      website: '',
-      github: '',
-      summary: ''
-    },
-    workExperience: [],
-    education: [],
-    skills: [],
-    projects: [],
-    certifications: []
-  };
-
-  private resumeSubject = new BehaviorSubject<Resume>(this.initialResume);
-  resume$ = this.resumeSubject.asObservable();
+  private currentResume = new BehaviorSubject<Resume | null>(null);
+  currentResume$ = this.currentResume.asObservable();
 
   constructor() {
-    // Load saved resume from localStorage if exists
+    this.loadSavedResume();
+  }
+
+  private loadSavedResume(): void {
     const savedResume = localStorage.getItem('resume');
     if (savedResume) {
-      try {
-        this.resumeSubject.next(JSON.parse(savedResume));
-      } catch (error) {
-        console.error('Error parsing saved resume:', error);
-      }
+      this.currentResume.next(JSON.parse(savedResume));
+    } else {
+      this.initializeResume();
     }
   }
 
-  getResume(): Resume {
-    return this.resumeSubject.value;
+  private initializeResume(): void {
+    const initialResume: Resume = {
+      personalInfo: {
+        fullName: '',
+        title: '',
+        email: '',
+        phone: '',
+        location: '',
+        website: '',
+        linkedin: '',
+        github: '',
+        photo: ''
+      },
+      summary: '',
+      workExperience: [],
+      education: [],
+      skills: {
+        technical: [],
+        soft: []
+      },
+      projects: [],
+      certifications: []
+    };
+    this.currentResume.next(initialResume);
+    this.saveResume();
   }
 
-  setResume(resume: Resume): void {
-    this.resumeSubject.next(resume);
-    this.saveToLocalStorage();
+  getCurrentResume(): Observable<Resume | null> {
+    return this.currentResume$;
   }
 
-  updatePersonalInfo(personalInfo: Resume['personalInfo']): void {
-    const currentResume = this.getResume();
-    this.setResume({ ...currentResume, personalInfo });
+  getResume(): Observable<Resume | null> {
+    return this.currentResume$;
   }
 
-  updateWorkExperience(workExperience: Resume['workExperience']): void {
-    const currentResume = this.getResume();
-    this.setResume({ ...currentResume, workExperience });
+  updateCurrentResume(resume: Resume): void {
+    this.currentResume.next(resume);
+    this.saveResume();
   }
 
-  updateEducation(education: Resume['education']): void {
-    const currentResume = this.getResume();
-    this.setResume({ ...currentResume, education });
+  updatePersonalInfo(personalInfo: PersonalInfo): void {
+    const currentResume = this.currentResume.value;
+    if (currentResume) {
+      this.updateCurrentResume({
+        ...currentResume,
+        personalInfo
+      });
+    }
   }
 
-  updateSkills(skills: Resume['skills']): void {
-    const currentResume = this.getResume();
-    this.setResume({ ...currentResume, skills });
+  updateSummary(summary: string): void {
+    const currentResume = this.currentResume.value;
+    if (currentResume) {
+      this.updateCurrentResume({
+        ...currentResume,
+        summary
+      });
+    }
   }
 
-  updateProjects(projects: Resume['projects']): void {
-    const currentResume = this.getResume();
-    this.setResume({ ...currentResume, projects });
+  updateWorkExperience(workExperience: WorkExperience[]): void {
+    const currentResume = this.currentResume.value;
+    if (currentResume) {
+      this.updateCurrentResume({
+        ...currentResume,
+        workExperience
+      });
+    }
   }
 
-  updateCertifications(certifications: Resume['certifications']): void {
-    const currentResume = this.getResume();
-    this.setResume({ ...currentResume, certifications });
+  updateEducation(education: Education[]): void {
+    const currentResume = this.currentResume.value;
+    if (currentResume) {
+      this.updateCurrentResume({
+        ...currentResume,
+        education
+      });
+    }
   }
 
-  private saveToLocalStorage(): void {
-    localStorage.setItem('resume', JSON.stringify(this.getResume()));
+  updateSkills(skills: Skills): void {
+    const currentResume = this.currentResume.value;
+    if (currentResume) {
+      this.updateCurrentResume({
+        ...currentResume,
+        skills
+      });
+    }
+  }
+
+  updateProjects(projects: Project[]): void {
+    const currentResume = this.currentResume.value;
+    if (currentResume) {
+      this.updateCurrentResume({
+        ...currentResume,
+        projects
+      });
+    }
+  }
+
+  updateCertifications(certifications: Certification[]): void {
+    const currentResume = this.currentResume.value;
+    if (currentResume) {
+      this.updateCurrentResume({
+        ...currentResume,
+        certifications
+      });
+    }
+  }
+
+  private saveResume(): void {
+    const resume = this.currentResume.value;
+    if (resume) {
+      localStorage.setItem('resume', JSON.stringify(resume));
+    }
   }
 } 

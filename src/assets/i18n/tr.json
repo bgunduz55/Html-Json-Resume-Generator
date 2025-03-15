@@ -1,0 +1,100 @@
+{
+  "COMMON": {
+    "SAVE": "Kaydet",
+    "CANCEL": "İptal",
+    "ADD": "Ekle",
+    "REMOVE": "Kaldır",
+    "EDIT": "Düzenle",
+    "DELETE": "Sil",
+    "LOADING": "Yükleniyor...",
+    "ERROR": "Hata",
+    "SUCCESS": "Başarılı"
+  },
+  "RESUME": {
+    "TITLE": "Özgeçmiş Oluşturucu",
+    "PREVIEW": "Önizleme",
+    "DOWNLOAD_PDF": "PDF İndir",
+    "GENERATING_PDF": "PDF Oluşturuluyor...",
+    "IMPORT": "Özgeçmiş İçe Aktar",
+    "EXPORT": "Özgeçmiş Dışa Aktar",
+    "TEMPLATES": {
+      "TITLE": "Şablonlar",
+      "MODERN": "Modern",
+      "CLASSIC": "Klasik",
+      "MINIMAL": "Minimal"
+    }
+  },
+  "PERSONAL_INFO": {
+    "TITLE": "Kişisel Bilgiler",
+    "FULL_NAME": "Ad Soyad",
+    "JOB_TITLE": "Meslek/Unvan",
+    "EMAIL": "E-posta",
+    "PHONE": "Telefon",
+    "LOCATION": "Konum",
+    "LINKEDIN": "LinkedIn",
+    "WEBSITE": "Web Sitesi",
+    "GITHUB": "GitHub",
+    "SUMMARY": "Profesyonel Özet"
+  },
+  "WORK_EXPERIENCE": {
+    "TITLE": "İş Deneyimi",
+    "ADD": "Deneyim Ekle",
+    "COMPANY": "Şirket",
+    "POSITION": "Pozisyon",
+    "START_DATE": "Başlangıç Tarihi",
+    "END_DATE": "Bitiş Tarihi",
+    "CURRENT": "Devam Ediyor",
+    "LOCATION": "Konum",
+    "DESCRIPTION": "Açıklama",
+    "ACHIEVEMENTS": "Başarılar",
+    "ADD_ACHIEVEMENT": "Başarı Ekle"
+  },
+  "EDUCATION": {
+    "TITLE": "Eğitim",
+    "ADD": "Eğitim Ekle",
+    "INSTITUTION": "Kurum",
+    "DEGREE": "Derece",
+    "FIELD": "Bölüm",
+    "START_DATE": "Başlangıç Tarihi",
+    "END_DATE": "Bitiş Tarihi",
+    "GPA": "Not Ortalaması",
+    "LOCATION": "Konum",
+    "DESCRIPTION": "Açıklama"
+  },
+  "SKILLS": {
+    "TITLE": "Yetenekler",
+    "ADD": "Yetenek Ekle",
+    "CATEGORY": "Kategori",
+    "LEVEL": "Seviye",
+    "BEGINNER": "Başlangıç",
+    "INTERMEDIATE": "Orta",
+    "ADVANCED": "İleri",
+    "EXPERT": "Uzman"
+  },
+  "PROJECTS": {
+    "TITLE": "Projeler",
+    "ADD": "Proje Ekle",
+    "NAME": "Proje Adı",
+    "DESCRIPTION": "Açıklama",
+    "TECHNOLOGIES": "Kullanılan Teknolojiler",
+    "ADD_TECHNOLOGY": "Teknoloji Ekle",
+    "LINK": "Proje Bağlantısı"
+  },
+  "CERTIFICATIONS": {
+    "TITLE": "Sertifikalar",
+    "ADD": "Sertifika Ekle",
+    "NAME": "Sertifika Adı",
+    "ISSUER": "Veren Kurum",
+    "DATE": "Veriliş Tarihi",
+    "EXPIRY": "Geçerlilik Tarihi",
+    "CREDENTIAL_ID": "Sertifika No",
+    "CREDENTIAL_URL": "Sertifika URL"
+  },
+  "VALIDATION": {
+    "REQUIRED": "Bu alan zorunludur",
+    "EMAIL_INVALID": "Lütfen geçerli bir e-posta adresi girin",
+    "URL_INVALID": "Lütfen geçerli bir URL girin",
+    "PHONE_INVALID": "Lütfen geçerli bir telefon numarası girin",
+    "DATE_INVALID": "Lütfen geçerli bir tarih girin"
+  }
+} 

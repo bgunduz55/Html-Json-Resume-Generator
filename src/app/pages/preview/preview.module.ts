@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
 
-import { PreviewRoutingModule } from './preview-routing.module';
-import { PreviewComponent } from './preview/preview.component';
+import { PreviewComponent } from './preview.component';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: PreviewComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -11,7 +17,7 @@ import { PreviewComponent } from './preview/preview.component';
   ],
   imports: [
     CommonModule,
-    PreviewRoutingModule
+    RouterModule.forChild(routes)
   ]
 })
 export class PreviewModule { }

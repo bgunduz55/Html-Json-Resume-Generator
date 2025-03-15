@@ -211,3 +211,32 @@ app-function-view {
 .draw-line-class{
     border-top: 1px solid #fff13b;
 }
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: var(--surface-ground);
+}
+
+:root {
+  // Theme colors
+  --primary-color: #0d6efd;
+  --primary-color-text: #ffffff;
+  --surface-ground: #f8f9fa;
+  --surface-card: #ffffff;
+  --surface-border: #dee2e6;
+  --surface-hover: #e9ecef;
+  --text-color: #212529;
+  --text-color-secondary: #6c757d;
+  
+  // Additional colors
+  --red-500: #dc3545;
+  --red-600: #c82333;
+  
+  // Shadows
+  --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-4: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  // Border radius
+  --border-radius: 8px;
+}

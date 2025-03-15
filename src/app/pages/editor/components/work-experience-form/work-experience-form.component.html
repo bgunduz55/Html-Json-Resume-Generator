@@ -1,4 +1,4 @@
-<div class="work-experience-form" [formGroup]="form">
+<div class="work-experience-form" [formGroup]="workExperienceForm">
   <!-- Work Experience List -->
   <div class="mb-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
@@ -25,9 +25,6 @@
                   <span *ngIf="!experience.get('endDate')?.value"> - Devam Ediyor</span>
                 </small>
               </p>
-              <p class="card-text mb-1" *ngIf="experience.get('location')?.value">
-                <i class="bi bi-geo-alt"></i> {{experience.get('location')?.value}}
-              </p>
               <p class="card-text" *ngIf="experience.get('description')?.value">
                 {{experience.get('description')?.value}}
               </p>
@@ -38,6 +35,14 @@
                     {{achievement}}
                   </li>
                 </ul>
+              </div>
+              <div *ngIf="experience.get('technologies')?.value?.length" class="mt-2">
+                <strong>Teknolojiler:</strong>
+                <div class="d-flex flex-wrap gap-1 mt-1">
+                  <span class="badge bg-secondary" *ngFor="let tech of experience.get('technologies')?.value">
+                    {{tech}}
+                  </span>
+                </div>
               </div>
             </div>
             <div class="ms-3">
@@ -55,18 +60,18 @@
         <div class="card-body" *ngIf="i === editIndex && showForm" [formGroup]="getExperienceForm(i)">
           <div class="row g-3">
             <div class="col-md-6">
-              <label class="form-label">Şirket*</label>
-              <input type="text" class="form-control" formControlName="company" placeholder="Şirket adı">
-              <div class="invalid-feedback" *ngIf="getExperienceForm(i).get('company')?.invalid && getExperienceForm(i).get('company')?.touched">
-                Şirket adı gereklidir
+              <label class="form-label">Pozisyon*</label>
+              <input type="text" class="form-control" formControlName="title" placeholder="Pozisyon adı">
+              <div class="invalid-feedback" *ngIf="getExperienceForm(i).get('title')?.invalid && getExperienceForm(i).get('title')?.touched">
+                Pozisyon adı gereklidir
               </div>
             </div>
 
             <div class="col-md-6">
-              <label class="form-label">Pozisyon*</label>
-              <input type="text" class="form-control" formControlName="title" placeholder="Pozisyon/Unvan">
-              <div class="invalid-feedback" *ngIf="getExperienceForm(i).get('title')?.invalid && getExperienceForm(i).get('title')?.touched">
-                Pozisyon gereklidir
+              <label class="form-label">Şirket*</label>
+              <input type="text" class="form-control" formControlName="company" placeholder="Şirket adı">
+              <div class="invalid-feedback" *ngIf="getExperienceForm(i).get('company')?.invalid && getExperienceForm(i).get('company')?.touched">
+                Şirket adı gereklidir
               </div>
             </div>
 
@@ -83,17 +88,9 @@
               <input type="date" class="form-control" formControlName="endDate">
             </div>
 
-            <div class="col-md-6">
-              <label class="form-label">Lokasyon*</label>
-              <input type="text" class="form-control" formControlName="location" placeholder="Şehir, Ülke">
-              <div class="invalid-feedback" *ngIf="getExperienceForm(i).get('location')?.invalid && getExperienceForm(i).get('location')?.touched">
-                Lokasyon gereklidir
-              </div>
-            </div>
-
             <div class="col-12">
               <label class="form-label">Açıklama*</label>
-              <textarea class="form-control" formControlName="description" rows="3" placeholder="İş tanımı ve sorumluluklar"></textarea>
+              <textarea class="form-control" formControlName="description" rows="3" placeholder="İş deneyimi hakkında detaylı bilgi"></textarea>
               <div class="invalid-feedback" *ngIf="getExperienceForm(i).get('description')?.invalid && getExperienceForm(i).get('description')?.touched">
                 Açıklama gereklidir
               </div>
@@ -102,14 +99,31 @@
             <div class="col-12">
               <label class="form-label d-flex justify-content-between align-items-center">
                 <span>Başarılar</span>
-                <button type="button" class="btn btn-outline-primary btn-sm" (click)="addAchievement(getExperienceForm(i))">
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="addAchievement(i)">
                   <i class="bi bi-plus-lg"></i> Başarı Ekle
                 </button>
               </label>
-              <div class="achievements-list">
-                <div class="input-group mb-2" *ngFor="let achievement of getExperienceForm(i).get('achievements')?.value; let j = index">
-                  <input type="text" class="form-control" [(ngModel)]="getExperienceForm(i).get('achievements')?.value[j]" [ngModelOptions]="{standalone: true}" placeholder="Başarı açıklaması">
-                  <button class="btn btn-outline-danger" type="button" (click)="removeAchievement(getExperienceForm(i), j)">
+              <div formArrayName="achievements">
+                <div class="input-group mb-2" *ngFor="let achievement of getAchievements(i).controls; let j = index">
+                  <input type="text" class="form-control" [formControlName]="j" placeholder="Başarı açıklaması">
+                  <button class="btn btn-outline-danger" type="button" (click)="removeAchievement(i, j)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label d-flex justify-content-between align-items-center">
+                <span>Teknolojiler</span>
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="addTechnology(i)">
+                  <i class="bi bi-plus-lg"></i> Teknoloji Ekle
+                </button>
+              </label>
+              <div formArrayName="technologies">
+                <div class="input-group mb-2" *ngFor="let tech of getTechnologies(i).controls; let j = index">
+                  <input type="text" class="form-control" [formControlName]="j" placeholder="Teknoloji adı">
+                  <button class="btn btn-outline-danger" type="button" (click)="removeTechnology(i, j)">
                     <i class="bi bi-trash"></i>
                   </button>
                 </div>
@@ -118,7 +132,7 @@
 
             <div class="col-12 d-flex justify-content-end gap-2">
               <button type="button" class="btn btn-secondary" (click)="cancelEdit()">İptal</button>
-              <button type="button" class="btn btn-primary" (click)="saveExperience()" [disabled]="getExperienceForm(i).invalid">
+              <button type="button" class="btn btn-primary" (click)="saveChanges()" [disabled]="getExperienceForm(i).invalid">
                 Kaydet
               </button>
             </div>

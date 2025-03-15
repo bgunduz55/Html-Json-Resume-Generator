@@ -1,46 +1,129 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Resume } from '../models/resume.model';
+import { Resume, Education, WorkExperience, PersonalInfo, Skills, Project, Certification } from '../models/resume.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResumeService {
-  private resumeData = new BehaviorSubject<Resume | null>(null);
+  private resumeSubject = new BehaviorSubject<Resume | null>(null);
+  resume$: Observable<Resume | null> = this.resumeSubject.asObservable();
 
   constructor() {
-    // Load saved resume data from localStorage if exists
-    const savedResume = localStorage.getItem('resumeData');
+    this.initializeResume();
+  }
+
+  private initializeResume(): void {
+    const initialResume: Resume = {
+      personalInfo: {
+        fullName: '',
+        title: '',
+        email: '',
+        phone: '',
+        location: '',
+        website: '',
+        linkedin: '',
+        github: '',
+        photo: ''
+      },
+      summary: '',
+      workExperience: [],
+      education: [],
+      skills: {
+        technical: [],
+        soft: []
+      },
+      projects: [],
+      certifications: []
+    };
+    this.resumeSubject.next(initialResume);
+  }
+
+  getResume(): Observable<Resume | null> {
+    return this.resume$;
+  }
+
+  updatePersonalInfo(personalInfo: PersonalInfo): void {
+    const currentResume = this.resumeSubject.value;
+    if (currentResume) {
+      this.resumeSubject.next({
+        ...currentResume,
+        personalInfo
+      });
+    }
+  }
+
+  updateSummary(summary: string): void {
+    const currentResume = this.resumeSubject.value;
+    if (currentResume) {
+      this.resumeSubject.next({
+        ...currentResume,
+        summary
+      });
+    }
+  }
+
+  updateWorkExperience(workExperience: WorkExperience[]): void {
+    const currentResume = this.resumeSubject.value;
+    if (currentResume) {
+      this.resumeSubject.next({
+        ...currentResume,
+        workExperience
+      });
+    }
+  }
+
+  updateEducation(education: Education[]): void {
+    const currentResume = this.resumeSubject.value;
+    if (currentResume) {
+      this.resumeSubject.next({
+        ...currentResume,
+        education
+      });
+    }
+  }
+
+  updateSkills(skills: Skills): void {
+    const currentResume = this.resumeSubject.value;
+    if (currentResume) {
+      this.resumeSubject.next({
+        ...currentResume,
+        skills
+      });
+    }
+  }
+
+  updateProjects(projects: Project[]): void {
+    const currentResume = this.resumeSubject.value;
+    if (currentResume) {
+      this.resumeSubject.next({
+        ...currentResume,
+        projects
+      });
+    }
+  }
+
+  updateCertifications(certifications: Certification[]): void {
+    const currentResume = this.resumeSubject.value;
+    if (currentResume) {
+      this.resumeSubject.next({
+        ...currentResume,
+        certifications
+      });
+    }
+  }
+
+  saveResume(): void {
+    const resume = this.resumeSubject.value;
+    if (resume) {
+      localStorage.setItem('resume', JSON.stringify(resume));
+    }
+  }
+
+  loadResume(): void {
+    const savedResume = localStorage.getItem('resume');
     if (savedResume) {
-      this.resumeData.next(JSON.parse(savedResume));
+      this.resumeSubject.next(JSON.parse(savedResume));
     }
-  }
-
-  getResumeData(): Observable<Resume | null> {
-    return this.resumeData.asObservable();
-  }
-
-  updateResumeData(data: Resume): void {
-    this.resumeData.next(data);
-    localStorage.setItem('resumeData', JSON.stringify(data));
-  }
-
-  exportResumeJson(): string {
-    return JSON.stringify(this.resumeData.value, null, 2);
-  }
-
-  importResumeJson(jsonData: string): void {
-    try {
-      const data = JSON.parse(jsonData) as Resume;
-      this.updateResumeData(data);
-    } catch (error) {
-      console.error('Invalid JSON format:', error);
-      throw new Error('Invalid JSON format');
-    }
-  }
-
-  clearResumeData(): void {
-    this.resumeData.next(null);
-    localStorage.removeItem('resumeData');
   }
 }
