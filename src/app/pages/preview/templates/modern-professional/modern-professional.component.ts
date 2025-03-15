@@ -189,7 +189,7 @@ import { Resume } from '../../../../shared/models/resume.model';
     .modern-professional {
       max-width: 100%;
       margin: 0;
-      padding: 0.5rem;
+      padding: 0.4rem;
       font-family: 'Inter', sans-serif;
       color: #2c3e50;
       background: white;
@@ -197,41 +197,45 @@ import { Resume } from '../../../../shared/models/resume.model';
     }
 
     .header {
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.25rem;
       border-bottom: 1px solid #3498db;
-      padding-bottom: 0.15rem;
+      padding-bottom: 0.1rem;
     }
 
     .personal-info {
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.15rem;
     }
 
     .name {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #2c3e50;
       margin: 0;
-      line-height: 1.1;
+      line-height: 1;
+      display: inline-block;
+      margin-right: 0.5rem;
     }
 
     .title {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #7f8c8d;
-      margin: 0.15rem 0;
-      line-height: 1.1;
+      margin: 0;
+      line-height: 1;
+      display: inline-block;
     }
 
     .contact-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-      gap: 0.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
       font-size: 0.65rem;
-      line-height: 1.1;
+      line-height: 1;
+      margin-top: 0.15rem;
     }
 
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 0.2rem;
+      gap: 0.15rem;
       color: #34495e;
 
       i {
@@ -250,83 +254,118 @@ import { Resume } from '../../../../shared/models/resume.model';
     }
 
     section {
-      margin-bottom: 0.35rem;
-      padding-bottom: 0.15rem;
-      border-bottom: 1px solid #ecf0f1;
+      margin-bottom: 0.25rem;
+      padding-bottom: 0.1rem;
 
       h3 {
         color: #2c3e50;
-        font-size: 0.9rem;
-        margin-bottom: 0.25rem;
+        font-size: 0.8rem;
+        margin: 0 0 0.15rem 0;
         padding-bottom: 0.1rem;
         border-bottom: 1px solid #3498db;
-        line-height: 1.1;
+        line-height: 1;
+      }
+
+      &.summary-section {
+        margin-bottom: 0.2rem;
+        
+        .expertise-list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.15rem;
+          margin: 0.1rem 0;
+          
+          .expertise-item {
+            font-size: 0.7rem;
+            line-height: 1.1;
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+        .achievements-list {
+          margin: 0.1rem 0;
+          padding-left: 0.75rem;
+          
+          li {
+            font-size: 0.7rem;
+            line-height: 1.1;
+            margin-bottom: 0.05rem;
+            
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
       }
     }
 
     .timeline-item {
-      margin-bottom: 0.35rem;
-      padding-left: 0.75rem;
+      margin-bottom: 0.25rem;
+      padding-left: 0.4rem;
       border-left: 1px solid #3498db;
       position: relative;
 
       &:before {
         content: '';
         position: absolute;
-        left: -4px;
+        left: -3px;
         top: 0;
-        width: 6px;
-        height: 6px;
+        width: 4px;
+        height: 4px;
         border-radius: 50%;
         background: #3498db;
       }
 
       &:last-child {
-        margin-bottom: 0.15rem;
+        margin-bottom: 0.1rem;
       }
     }
 
     .role-header {
-      margin-bottom: 0.15rem;
-      line-height: 1.1;
+      margin-bottom: 0.1rem;
+      line-height: 1;
 
       h4 {
         color: #2c3e50;
         margin: 0;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        display: inline;
       }
 
       .company {
         color: #7f8c8d;
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+        display: inline;
+        margin-left: 0.2rem;
       }
 
       .date {
         color: #95a5a6;
         font-size: 0.65rem;
+        display: block;
+        margin-top: 0.05rem;
       }
     }
 
     .description {
-      color: #34495e;
-      line-height: 1.1;
-      margin: 0.15rem 0;
       font-size: 0.7rem;
+      line-height: 1.1;
+      margin: 0.1rem 0;
     }
 
     .achievements {
-      margin: 0.15rem 0;
-      padding-left: 0.75rem;
+      margin: 0.1rem 0;
+      padding-left: 0.5rem;
 
       li {
-        color: #34495e;
-        margin-bottom: 0.1rem;
         font-size: 0.7rem;
         line-height: 1.1;
-      }
+        margin-bottom: 0.05rem;
 
-      li:last-child {
-        margin-bottom: 0;
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
     }
 
@@ -382,28 +421,56 @@ import { Resume } from '../../../../shared/models/resume.model';
 
     @media print {
       @page {
-        margin: 0.3cm;
+        margin: 0.2cm 0.3cm !important;
         size: A4;
+        marks: none;
+      }
+
+      .modern-professional {
+        padding: 0.2rem 0.3rem !important;
+      }
+
+      .header {
+        margin-bottom: 0.2rem !important;
+      }
+
+      section {
+        &.summary-section {
+          margin-bottom: 0.15rem !important;
+          
+          .expertise-list {
+            column-count: 2;
+            column-gap: 1rem;
+          }
+        }
+
+        &.experience-section {
+          margin-top: 0.15rem !important;
+        }
+      }
+
+      .timeline-item {
+        break-inside: avoid;
       }
 
       .modern-professional {
         box-shadow: none;
-        padding: 0;
+        padding: 0.15rem 0 0 0 !important;
         font-size: 0.7rem !important;
         max-width: 100%;
-        margin: 0;
+        margin: 0 !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
 
-      .header {
-        margin-bottom: 0.25rem !important;
-        padding-bottom: 0.15rem !important;
+      .personal-info {
+        margin-bottom: 0.15rem !important;
       }
 
       .name {
         font-size: 1.1rem !important;
         line-height: 1 !important;
+        margin: 0 !important;
       }
 
       .title {
@@ -414,19 +481,20 @@ import { Resume } from '../../../../shared/models/resume.model';
 
       .contact-info {
         font-size: 0.65rem !important;
-        gap: 0.15rem !important;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
+        gap: 0.1rem !important;
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)) !important;
         line-height: 1 !important;
+        margin-bottom: 0 !important;
       }
 
       section {
         break-inside: avoid;
-        margin-bottom: 0.25rem !important;
-        padding-bottom: 0.15rem !important;
+        margin-bottom: 0.2rem !important;
+        padding-bottom: 0.1rem !important;
 
         h3 {
           font-size: 0.85rem !important;
-          margin-bottom: 0.2rem !important;
+          margin-bottom: 0.15rem !important;
           padding-bottom: 0.1rem !important;
           line-height: 1 !important;
         }
@@ -444,14 +512,18 @@ import { Resume } from '../../../../shared/models/resume.model';
 
         h4 {
           font-size: 0.75rem !important;
+          margin: 0 !important;
         }
 
         .company {
           font-size: 0.7rem !important;
+          display: inline-block !important;
+          margin-right: 0.3rem !important;
         }
 
         .date {
           font-size: 0.65rem !important;
+          display: inline-block !important;
         }
       }
 
@@ -463,18 +535,21 @@ import { Resume } from '../../../../shared/models/resume.model';
 
       .achievements {
         margin: 0.1rem 0 !important;
-        padding-left: 0.5rem !important;
+        padding-left: 0.4rem !important;
 
         li {
           font-size: 0.7rem !important;
           margin-bottom: 0.05rem !important;
           line-height: 1.1 !important;
+          &:last-child {
+            margin-bottom: 0 !important;
+          }
         }
       }
 
       .tech-tag, .skill-tag {
         font-size: 0.65rem !important;
-        padding: 0.05rem 0.2rem !important;
+        padding: 0.05rem 0.15rem !important;
         margin: 0.05rem !important;
         border: 1px solid #3498db;
         background: none;
@@ -482,13 +557,13 @@ import { Resume } from '../../../../shared/models/resume.model';
       }
 
       .timeline-item {
-        margin-bottom: 0.25rem !important;
-        padding-left: 0.5rem !important;
+        margin-bottom: 0.2rem !important;
+        padding-left: 0.4rem !important;
 
         &:before {
-          width: 5px !important;
-          height: 5px !important;
-          left: -3px !important;
+          width: 4px !important;
+          height: 4px !important;
+          left: -2.5px !important;
         }
 
         &:last-child {
@@ -497,14 +572,15 @@ import { Resume } from '../../../../shared/models/resume.model';
       }
 
       .education-item, .project-item, .certification-item {
-        padding: 0.15rem !important;
-        margin-bottom: 0.25rem !important;
+        padding: 0.1rem !important;
+        margin-bottom: 0.2rem !important;
         background: none !important;
         border: 1px solid #ecf0f1;
 
         h4 {
           font-size: 0.75rem !important;
           line-height: 1 !important;
+          margin: 0 !important;
         }
 
         &:last-child {
@@ -514,8 +590,8 @@ import { Resume } from '../../../../shared/models/resume.model';
 
       .skills-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
-        gap: 0.2rem !important;
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)) !important;
+        gap: 0.15rem !important;
 
         h4 {
           font-size: 0.75rem !important;
