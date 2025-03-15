@@ -7,7 +7,7 @@ import { Resume } from '../../../../shared/models/resume.model';
     <div class="classic-elegant" *ngIf="resume">
       <!-- Header Section -->
       <header class="header">
-        <div class="personal-info">
+        <div class="personal-info" style="text-align: center;">
           <h1 class="name">{{ resume.personalInfo.fullName || 'Your Name' }}</h1>
           <h2 class="title">{{ resume.personalInfo.title || 'Your Professional Title' }}</h2>
         </div>
@@ -89,6 +89,7 @@ import { Resume } from '../../../../shared/models/resume.model';
 
       <!-- Experience Section -->
       <section class="experience" *ngIf="resume.workExperience?.length">
+        <br>
         <h3>Work Experience</h3>
         <div class="experience-item" *ngFor="let exp of resume.workExperience">
           <div class="experience-header">
@@ -152,44 +153,61 @@ import { Resume } from '../../../../shared/models/resume.model';
   `,
   styles: [`
     .classic-elegant {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0.8rem;
-      font-family: 'Georgia', serif;
-      color: #333;
-      background: white;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      max-width: 100%;
+      margin: 0;
+      padding: 1.2rem 0.4rem 0.4rem 0.4rem;
+      font-family: 'Arial', sans-serif;
+      color: #2c3e50;
+      background: #ffffff;
+      font-size: 0.7rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .header {
+    .hero {
+      margin-bottom: 0.4rem;
       text-align: center;
-      margin-bottom: 0.8rem;
-      padding-bottom: 0.3rem;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid #2c3e50;
+      padding-bottom: 0.2rem;
     }
 
     .name {
-      font-size: 1.1rem;
-      color: #333;
+      font-size: 1.2rem;
+      color: #2c3e50;
       margin: 0;
-      font-weight: normal;
+      line-height: 1.2;
+      display: inline-block;
+      margin-right: 0.5rem;
+      font-weight: 600;
     }
 
     .title {
-      font-size: 0.8rem;
-      color: #666;
-      margin: 0.2rem 0;
+      font-size: 0.85rem;
+      color: #7f8c8d;
+      margin: 0;
+      line-height: 1.2;
+      display: inline-block;
       font-weight: normal;
-      font-style: italic;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      line-height: 1;
+      margin-top: 0.25rem;
     }
 
     .contact-info {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 0.3rem;
+      gap: 0.5rem;
+      padding: 0.25rem;
+      margin-bottom: 0.4rem;
       font-size: 0.7rem;
+      line-height: 1.2;
     }
 
     .contact-item {
@@ -305,57 +323,103 @@ import { Resume } from '../../../../shared/models/resume.model';
       margin: 0.2rem 0;
     }
 
-    @media print {
-      .classic-elegant {
-        box-shadow: none;
-        padding: 0;
-        max-width: 100%;
-        margin: 0;
+    .experience {
+      margin-top: 0.6rem !important;
+    }
+
+    .education-item {
+      margin-bottom: 0.15rem;
+      padding-bottom: 0.15rem;
+      border-bottom: 1px dotted #ccc;
+
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
       }
 
-      section {
-        margin-bottom: 0.4rem;
-        page-break-inside: avoid;
-      }
+      .education-header {
+        margin-bottom: 0.05rem;
 
-      .header {
-        margin-bottom: 0.4rem;
-        padding-bottom: 0.2rem;
-      }
+        h4 {
+          color: #333;
+          margin: 0;
+          font-size: 0.8rem;
+          font-weight: normal;
+          display: inline-block;
+        }
 
-      .experience-item, .education-item, .project-item, .certification-item {
-        page-break-inside: avoid;
-        margin-bottom: 0.4rem;
-        padding-bottom: 0.2rem;
-      }
+        .degree {
+          color: #666;
+          font-style: italic;
+          font-size: 0.75rem;
+          margin-left: 0.15rem;
+        }
 
-      .achievements {
-        margin: 0.15rem 0;
-        padding-left: 0.8rem;
-      }
-
-      .tech-tag, .skill-tag {
-        padding: 0.08rem 0.25rem;
-        margin: 0.08rem;
+        .date {
+          color: #999;
+          font-size: 0.7rem;
+          display: block;
+          margin-top: 0.05rem;
+        }
       }
 
       .description {
-        margin: 0.15rem 0;
+        margin: 0.1rem 0;
       }
 
-      h3 {
-        margin-bottom: 0.2rem;
-        padding-bottom: 0.15rem;
+      .achievements {
+        margin: 0.1rem 0;
+        padding-left: 0.8rem;
       }
+    }
 
-      .contact-info {
-        margin-top: 0.2rem;
-        gap: 0.6rem;
-      }
+    .education {
+      padding-top: 0.6rem !important;
+    }
 
+    @media print {
       @page {
-        margin: 0.3cm;
+        margin: 0.3cm !important;
         size: A4;
+        marks: none;
+      }
+
+      section {
+        margin-bottom: 0.3rem !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      .experience-item, .education-item, .project-item, .certification-item {
+        break-inside: avoid !important;
+      }
+
+      .experience {
+        break-before: auto !important;
+        break-after: auto !important;
+        margin-top: 0.6rem !important;
+      }
+
+      .education {
+        break-before: auto !important;
+        break-after: auto !important;
+        margin-top: 0.6rem !important;
+      }
+
+      .projects {
+        break-before: auto !important;
+        break-after: auto !important;
+      }
+
+      .skills {
+        break-before: auto !important;
+        break-after: auto !important;
+      }
+
+      .certifications {
+        break-before: auto !important;
+        break-after: auto !important;
       }
     }
   `]

@@ -118,6 +118,7 @@ import { Resume } from '../../../../shared/models/resume.model';
       <!-- Experience Section -->
       <section class="experience" *ngIf="resume.workExperience?.length">
         <div class="section-content">
+          <br>
           <h3>Work Experience</h3>
           <div class="timeline">
             <div class="timeline-item" *ngFor="let exp of resume.workExperience">
@@ -174,8 +175,8 @@ import { Resume } from '../../../../shared/models/resume.model';
     .creative-portfolio {
       max-width: 100%;
       margin: 0;
-      padding: 0.2rem;
-      font-family: 'Poppins', sans-serif;
+      padding: 1.2rem 0.4rem 0.4rem 0.4rem;
+      font-family: 'Arial', sans-serif;
       color: #2c3e50;
       background: #ffffff;
       font-size: 0.7rem;
@@ -184,42 +185,51 @@ import { Resume } from '../../../../shared/models/resume.model';
     }
 
     .hero {
-      background: linear-gradient(135deg, #6c5ce7, #a363d5);
-      color: white;
-      padding: 0.3rem 0.2rem;
+      margin-bottom: 0.4rem;
       text-align: center;
-      margin-bottom: 0.15rem;
+      border-bottom: 1px solid #3498db;
+      padding-bottom: 0.2rem;
     }
 
     .name {
-      font-size: 0.9rem;
+      font-size: 1.2rem;
+      color: #2c3e50;
       margin: 0;
-      font-weight: 700;
-      line-height: 1;
+      line-height: 1.2;
+      display: inline-block;
+      margin-right: 0.5rem;
+      font-weight: 600;
     }
 
     .title {
-      font-size: 0.75rem;
-      margin: 0.1rem 0;
-      font-weight: 300;
-      opacity: 0.9;
-      line-height: 1;
+      font-size: 0.85rem;
+      color: #7f8c8d;
+      margin: 0;
+      line-height: 1.2;
+      display: inline-block;
+      font-weight: normal;
     }
 
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 0.3rem;
-      margin-top: 0.15rem;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      line-height: 1;
+      margin-top: 0.25rem;
     }
 
     .social-link {
-      color: white;
-      font-size: 0.8rem;
-      transition: transform 0.3s ease;
+      color: #34495e;
+      text-decoration: none;
+      
+      i {
+        color: #3498db;
+        font-size: 0.7rem;
+      }
 
       &:hover {
-        transform: translateY(-2px);
+        color: #3498db;
       }
     }
 
@@ -227,22 +237,21 @@ import { Resume } from '../../../../shared/models/resume.model';
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 0.3rem;
-      padding: 0.15rem;
-      background: #f8f9fa;
-      margin-bottom: 0.15rem;
-      font-size: 0.65rem;
-      line-height: 1;
+      gap: 0.5rem;
+      padding: 0.25rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.7rem;
+      line-height: 1.2;
     }
 
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 0.1rem;
-      color: #2c3e50;
+      gap: 0.15rem;
+      color: #34495e;
 
       i {
-        color: #6c5ce7;
+        color: #3498db;
         font-size: 0.7rem;
       }
 
@@ -251,28 +260,28 @@ import { Resume } from '../../../../shared/models/resume.model';
         text-decoration: none;
         
         &:hover {
-          color: #6c5ce7;
+          color: #3498db;
         }
       }
     }
 
     section {
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.25rem;
+      padding-bottom: 0.1rem;
+
+      h3 {
+        color: #2c3e50;
+        font-size: 0.8rem;
+        margin: 0 0 0.15rem 0;
+        padding-bottom: 0.1rem;
+        border-bottom: 1px solid #3498db;
+        line-height: 1;
+        font-weight: 600;
+      }
     }
 
     .section-content {
-      padding: 0 0.15rem;
-    }
-
-    h3 {
-      font-size: 0.75rem;
-      color: #2c3e50;
-      margin: 0 0 0.1rem 0;
-      padding-bottom: 0.1rem;
-      border-bottom: 1px solid #6c5ce7;
-      line-height: 1;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      padding: 0;
     }
 
     .skills-grid {
@@ -287,34 +296,71 @@ import { Resume } from '../../../../shared/models/resume.model';
       gap: 0.15rem;
     }
 
-    .education-grid, .certifications-grid {
+    .education-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: 1fr;
       gap: 0.15rem;
+    }
+
+    .education-card {
+      padding: 0.15rem;
+      background: #f8f9fa;
+      border-radius: 3px;
+      margin-bottom: 0.15rem;
+
+      h4 {
+        color: #2c3e50;
+        margin: 0;
+        font-size: 0.75rem;
+        line-height: 1.1;
+        font-weight: 600;
+      }
+
+      .degree {
+        font-size: 0.7rem;
+        margin: 0.05rem 0;
+        line-height: 1.1;
+        color: #7f8c8d;
+      }
+
+      .date {
+        font-size: 0.65rem;
+        color: #95a5a6;
+        margin: 0.05rem 0;
+        line-height: 1;
+      }
+
+      .description {
+        margin: 0.05rem 0;
+      }
+
+      .achievements {
+        margin: 0.05rem 0;
+        padding-left: 0.4rem;
+      }
     }
 
     .skill-tag, .tech-tag {
       display: inline-block;
-      padding: 0.1rem 0.2rem;
+      padding: 0.1rem 0.25rem;
       margin: 0.05rem;
-      background: #f8f9fa;
-      border: 1px solid #ddd;
-      border-radius: 3px;
+      background: #ecf0f1;
+      border-radius: 4px;
       font-size: 0.65rem;
       color: #2c3e50;
       line-height: 1;
     }
 
-    .project-card, .education-card, .certification-card {
+    .project-card, .certification-card {
+      padding: 0.25rem;
       background: #f8f9fa;
-      padding: 0.15rem;
       border-radius: 3px;
-      margin-bottom: 0.1rem;
+      margin-bottom: 0.15rem;
 
       h4 {
         color: #2c3e50;
         margin: 0;
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         line-height: 1.1;
         font-weight: 600;
       }
@@ -328,33 +374,39 @@ import { Resume } from '../../../../shared/models/resume.model';
 
     .timeline {
       position: relative;
-      padding-left: 0.5rem;
+      padding-left: 0.4rem;
+      border-left: 1px solid #3498db;
     }
 
     .timeline-item {
       position: relative;
-      padding-bottom: 0.15rem;
-    }
+      padding-bottom: 0.25rem;
 
-    .timeline-marker {
-      position: absolute;
-      left: -0.5rem;
-      width: 0.25rem;
-      height: 0.25rem;
-      border-radius: 50%;
-      background: #6c5ce7;
-      border: 1px solid white;
+      &:before {
+        content: '';
+        position: absolute;
+        left: -3px;
+        top: 0;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #3498db;
+      }
+
+      &:last-child {
+        margin-bottom: 0.1rem;
+      }
     }
 
     .timeline-content {
       background: #f8f9fa;
-      padding: 0.15rem;
+      padding: 0.25rem;
       border-radius: 3px;
 
       h4 {
         color: #2c3e50;
         margin: 0;
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         line-height: 1.1;
         font-weight: 600;
       }
@@ -362,25 +414,15 @@ import { Resume } from '../../../../shared/models/resume.model';
 
     .achievements {
       margin: 0.1rem 0;
-      padding-left: 0.3rem;
-      list-style-type: none;
+      padding-left: 0.5rem;
 
       li {
         font-size: 0.7rem;
         line-height: 1.1;
         margin-bottom: 0.05rem;
-        position: relative;
-        padding-left: 0.3rem;
 
         &:last-child {
           margin-bottom: 0;
-        }
-
-        &:before {
-          content: "•";
-          position: absolute;
-          left: -0.15rem;
-          color: #6c5ce7;
         }
       }
     }
@@ -391,14 +433,15 @@ import { Resume } from '../../../../shared/models/resume.model';
     }
 
     .company {
+      color: #7f8c8d;
       font-size: 0.7rem;
-      color: #666;
-      font-style: italic;
+      display: inline;
+      margin-left: 0.2rem;
     }
 
     .date {
+      color: #95a5a6;
       font-size: 0.65rem;
-      color: #999;
       display: block;
       margin-top: 0.05rem;
     }
@@ -411,14 +454,14 @@ import { Resume } from '../../../../shared/models/resume.model';
     }
 
     .project-links {
-      margin-top: 0.1rem;
+      margin-top: 0.15rem;
     }
 
     .project-link {
       display: inline-flex;
       align-items: center;
       gap: 0.1rem;
-      color: #6c5ce7;
+      color: #3498db;
       text-decoration: none;
       font-weight: 500;
       font-size: 0.7rem;
@@ -428,87 +471,278 @@ import { Resume } from '../../../../shared/models/resume.model';
       }
     }
 
+    .experience {
+      margin-top: 0.6rem !important;
+    }
+
+    .education {
+      padding-top: 0.6rem !important;
+    }
+
     @media print {
       @page {
-        margin: 0.15cm !important;
+        margin: 0.3cm !important;
         size: A4;
         marks: none;
       }
 
+      section {
+        margin-bottom: 0.3rem !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      .section-content {
+        break-inside: avoid !important;
+      }
+
+      .timeline-item {
+        break-inside: avoid !important;
+      }
+
+      .project-card, .education-card, .certification-card {
+        break-inside: avoid !important;
+      }
+
+      .experience-item {
+        break-inside: avoid !important;
+      }
+
+      .experience {
+        break-before: auto !important;
+        break-after: auto !important;
+        margin-top: 0.6rem !important;
+      }
+
+      .education {
+        break-before: auto !important;
+        break-after: auto !important;
+        margin-top: 0.6rem !important;
+      }
+
+      .projects {
+        break-before: auto !important;
+        break-after: auto !important;
+      }
+
+      .skills {
+        break-before: auto !important;
+        break-after: auto !important;
+      }
+
+      .certifications {
+        break-before: auto !important;
+        break-after: auto !important;
+      }
+
       .creative-portfolio {
-        padding: 0.15rem !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        color-adjust: exact;
-        font-family: 'Poppins', sans-serif !important;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+        padding: 1.2rem 0.2rem 0.2rem 0.2rem !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        font-family: Arial, sans-serif !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        max-width: 100%;
+        margin: 0;
+        color: #000000 !important;
       }
 
       * {
-        text-rendering: geometricPrecision;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+        text-rendering: geometricPrecision !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        print-color-adjust: exact !important;
       }
 
       .hero {
-        background: white !important;
-        color: #2c3e50;
-        padding: 0.15rem;
-        margin-bottom: 0.1rem;
-        border-bottom: 1px solid #000000;
+        margin-bottom: 0.4rem !important;
+        padding-bottom: 0.2rem !important;
+        border-bottom: 1px solid #000000 !important;
+        text-align: center !important;
+      }
+
+      .name {
+        font-size: 1.2rem !important;
+        font-weight: 600 !important;
+        color: #000000 !important;
+        margin-right: 0.5rem !important;
+        line-height: 1.2 !important;
+      }
+
+      .title {
+        font-size: 0.85rem !important;
+        color: #000000 !important;
+        font-weight: normal !important;
+        line-height: 1.2 !important;
+      }
+
+      .social-links {
+        margin-top: 0.25rem !important;
+        gap: 0.5rem !important;
       }
 
       .social-link {
-        color: #2c3e50;
+        color: #000000 !important;
+        font-size: 0.7rem !important;
+        i {
+          color: #000000 !important;
+        }
       }
 
       .contact-info {
+        margin-bottom: 0.4rem !important;
+        padding: 0.25rem !important;
+        border-bottom: none !important;
+        
         * {
           color: #000000 !important;
         }
         
         a {
-          text-decoration: underline;
+          text-decoration: none !important;
         }
+
+        i {
+          color: #000000 !important;
+        }
+      }
+
+      .section-content {
+        padding: 0 !important;
+      }
+
+      h3 {
+        font-size: 0.8rem !important;
+        color: #000000 !important;
+        margin: 0 0 0.15rem 0 !important;
+        padding-bottom: 0.1rem !important;
+        border-bottom: 1px solid #000000 !important;
+        font-weight: 600 !important;
+      }
+
+      h4 {
+        color: #000000 !important;
+        font-size: 0.75rem !important;
+        font-weight: 600 !important;
       }
 
       .description, .achievements li {
         color: #000000 !important;
+        margin: 0.1rem 0 !important;
+        font-size: 0.7rem !important;
+      }
+
+      p {
+        color: #000000 !important;
+        font-size: 0.7rem !important;
+        line-height: 1.2 !important;
+        margin: 0.1rem 0 !important;
       }
 
       .tech-tag, .skill-tag {
         background: none !important;
         border: 1px solid #000000 !important;
         color: #000000 !important;
+        padding: 0.08rem 0.25rem !important;
+        margin: 0.08rem !important;
+        font-size: 0.65rem !important;
       }
 
-      section h3 {
-        border-bottom: 1px solid #000000 !important;
-        color: #000000 !important;
-      }
-
-      .name, .title, .company, .date {
-        color: #000000 !important;
-      }
-
-      .project-card, .education-card, .certification-card, .timeline-content {
+      .project-card, .certification-card, .timeline-content {
         border: 1px solid #000000 !important;
         background: none !important;
+        page-break-inside: avoid !important;
+        margin-bottom: 0.25rem !important;
+        padding: 0.2rem !important;
       }
 
       .project-link {
         color: #000000 !important;
-        text-decoration: underline;
+        text-decoration: none !important;
+        font-weight: normal !important;
       }
 
-      .timeline-marker {
-        background: #000000 !important;
-        border-color: #000000 !important;
+      .timeline {
+        position: relative !important;
+        padding-left: 0.4rem !important;
+        border-left: 1px solid #000000 !important;
       }
 
-      .achievements li:before {
+      .timeline-item {
+        position: relative !important;
+        padding-bottom: 0.25rem !important;
+        page-break-inside: avoid !important;
+
+        &:before {
+          content: '' !important;
+          position: absolute !important;
+          left: -3px !important;
+          top: 0 !important;
+          width: 4px !important;
+          height: 4px !important;
+          border-radius: 50% !important;
+          background: #000000 !important;
+        }
+      }
+
+      .achievements {
+        margin: 0.1rem 0 !important;
+        padding-left: 0.5rem !important;
+        list-style-type: none !important;
+
+        li {
+          position: relative !important;
+          
+          &:before {
+            content: "•" !important;
+            position: absolute !important;
+            left: -0.5rem !important;
+            color: #000000 !important;
+          }
+        }
+      }
+
+      .company {
+        font-size: 0.7rem !important;
         color: #000000 !important;
+        margin-left: 0.2rem !important;
+      }
+
+      .date {
+        font-size: 0.65rem !important;
+        color: #000000 !important;
+        margin-top: 0.05rem !important;
+      }
+
+      .projects-grid, .certifications-grid {
+        display: grid !important;
+        gap: 0.25rem !important;
+      }
+
+      .skills-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+        gap: 0.25rem !important;
+      }
+
+      .experience {
+        margin-top: 0.6rem !important;
+      }
+
+      .education-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 0.15rem !important;
+      }
+
+      .education-card {
+        padding: 0.15rem !important;
+        margin-bottom: 0.15rem !important;
+      }
+
+      .education {
+        padding-top: 0.6rem !important;
       }
     }
   `]
