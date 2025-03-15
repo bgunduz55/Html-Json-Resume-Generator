@@ -1,12 +1,24 @@
 <div class="preview-container">
   <div class="preview-actions">
+    <div class="template-selector">
+      <label for="template-select">Template:</label>
+      <select 
+        id="template-select" 
+        class="form-select" 
+        [(ngModel)]="selectedTemplate" 
+        (ngModelChange)="onTemplateChange($event)">
+        <option value="modern-professional">Modern Professional</option>
+        <option value="classic-elegant">Classic Elegant</option>
+        <option value="creative-portfolio">Creative Portfolio</option>
+      </select>
+    </div>
     <button class="btn btn-primary" (click)="downloadPDF()" [disabled]="isGeneratingPdf">
       {{ isGeneratingPdf ? 'Generating PDF...' : 'Download PDF' }}
     </button>
   </div>
 
   <div class="preview-content">
-    <div class="resume">
+    <div #previewContent class="resume">
       <ng-container [ngSwitch]="selectedTemplate">
         <app-modern-professional
           *ngSwitchCase="'modern-professional'"
@@ -46,6 +58,26 @@
   position: relative;
 }
 
+.preview-actions {
+  padding: 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.template-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-select {
+  min-width: 200px;
+}
+
 .preview-content {
   flex: 1;
   overflow: auto;
@@ -53,10 +85,9 @@
   background-color: #f8f9fa;
 }
 
-.preview-frame {
+.resume {
   background: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
   margin: 0 auto;
   max-width: 1200px;
 }
@@ -75,8 +106,24 @@
   z-index: 1000;
 }
 
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 @media print {
-  .navbar, .loading-overlay {
+  .preview-actions,
+  .navbar,
+  .loading-overlay {
     display: none !important;
   }
 
@@ -86,9 +133,8 @@
     background: none;
   }
 
-  .preview-frame {
+  .resume {
     box-shadow: none;
-    padding: 0;
   }
 }
 </style> 

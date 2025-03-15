@@ -1,7 +1,7 @@
 {
   "personalInfo": {
     "fullName": "Burak GÜNDÜZ",
-    "title": "Computer Engineer && Senior Fullstack developer",
+    "title": "Computer Engineer & Senior Fullstack developer",
     "email": "bgunduz_94@hotmail.com",
     "phone": "+905357193476",
     "location": "Turkey - Sakarya - Akyazı",
@@ -97,6 +97,12 @@
       "Python",
       "Swift"
     ],
+    "soft": [
+      "Leadership",
+      "Problem Solving",
+      "Communication",
+      "Team Management"
+    ],
     "databases": [
       "MySQL",
       "Oracle DB",
@@ -105,7 +111,8 @@
       "MS SQL",
       "Cassandra",
       "SQLite",
-      "PL/SQL"
+      "PL/SQL",
+      "Redis"
     ],
     "technologies": [
       "Spring Framework",
@@ -131,7 +138,10 @@
       "CodeIgniter",
       "Jenkins",
       "Unity3D",
-      "WordPress"
+      "WordPress",
+      "Kubernetes",
+      "AWS",
+      "Azure"
     ],
     "programs": [
       "Adobe Illustrator",
@@ -147,7 +157,11 @@
       "Audacity",
       "GIMP",
       "Inkscape",
-      "Krita"
+      "Krita",
+      "Adobe XD",
+      "Figma",
+      "Jira",
+      "Confluence"
     ]
   },
   "projects": [
@@ -175,9 +189,20 @@
       "name": "ToDo List App",
       "description": "A fullstack ToDo app with Angular and Java Spring Boot",
       "technologies": ["Angular", "Spring Boot", "Java"]
+    },
+    {
+      "name": "E-commerce Platform",
+      "description": "Developed a full-stack e-commerce solution with real-time inventory management",
+      "technologies": ["Angular", "Node.js", "MongoDB", "Redis"],
+      "link": "github.com/johndoe/ecommerce"
     }
   ],
   "certifications": [
-    
+    {
+      "name": "AWS Certified Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "date": "2022",
+      "link": "aws.amazon.com/verification/12345"
+    }
   ]
 } 

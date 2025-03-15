@@ -16,6 +16,7 @@
             class="form-control"
             [formControlName]="i"
             placeholder="Enter technical skill"
+            (blur)="saveChanges()"
           >
           <button type="button" class="btn btn-outline-danger" (click)="removeTechnicalSkill(i)">
             Remove
@@ -42,8 +43,90 @@
             class="form-control"
             [formControlName]="i"
             placeholder="Enter soft skill"
+            (blur)="saveChanges()"
           >
           <button type="button" class="btn btn-outline-danger" (click)="removeSoftSkill(i)">
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Database Skills -->
+  <div class="skills-section">
+    <div class="section-header">
+      <h2>Database Skills</h2>
+      <button type="button" class="btn btn-primary" (click)="addDatabaseSkill()">
+        Add Database Skill
+      </button>
+    </div>
+
+    <div class="skills-list" formArrayName="databases">
+      <div class="skill-item" *ngFor="let skill of databases.controls; let i = index">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            [formControlName]="i"
+            placeholder="Enter database skill"
+            (blur)="saveChanges()"
+          >
+          <button type="button" class="btn btn-outline-danger" (click)="removeDatabaseSkill(i)">
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Technology Skills -->
+  <div class="skills-section">
+    <div class="section-header">
+      <h2>Technologies</h2>
+      <button type="button" class="btn btn-primary" (click)="addTechnologySkill()">
+        Add Technology
+      </button>
+    </div>
+
+    <div class="skills-list" formArrayName="technologies">
+      <div class="skill-item" *ngFor="let skill of technologies.controls; let i = index">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            [formControlName]="i"
+            placeholder="Enter technology"
+            (blur)="saveChanges()"
+          >
+          <button type="button" class="btn btn-outline-danger" (click)="removeTechnologySkill(i)">
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Programs -->
+  <div class="skills-section">
+    <div class="section-header">
+      <h2>Programs & Tools</h2>
+      <button type="button" class="btn btn-primary" (click)="addProgramSkill()">
+        Add Program/Tool
+      </button>
+    </div>
+
+    <div class="skills-list" formArrayName="programs">
+      <div class="skill-item" *ngFor="let skill of programs.controls; let i = index">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            [formControlName]="i"
+            placeholder="Enter program or tool"
+            (blur)="saveChanges()"
+          >
+          <button type="button" class="btn btn-outline-danger" (click)="removeProgramSkill(i)">
             Remove
           </button>
         </div>
