@@ -145,4 +145,95 @@ export class ResumeService {
       localStorage.setItem('resume', JSON.stringify(resume));
     }
   }
+
+  createNewResume(): string {
+    const id = Date.now().toString();
+    const newResume: Resume = {
+      personalInfo: {
+        fullName: '',
+        title: '',
+        email: '',
+        phone: '',
+        location: '',
+        website: '',
+        linkedin: '',
+        github: '',
+        photo: ''
+      },
+      summary: '',
+      workExperience: [],
+      education: [],
+      skills: {
+        technical: [],
+        soft: []
+      },
+      projects: [],
+      certifications: []
+    };
+    this.updateCurrentResume(newResume);
+    return id;
+  }
+
+  deleteResume(id: string): void {
+    localStorage.removeItem(`resume_${id}`);
+  }
+
+  getSavedResumes(): SavedResume[] {
+    const resumes: SavedResume[] = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key?.startsWith('resume_')) {
+        const savedData = localStorage.getItem(key);
+        if (savedData) {
+          try {
+            const parsed = JSON.parse(savedData);
+            resumes.push({
+              id: key.replace('resume_', ''),
+              name: parsed.name || 'Untitled Resume',
+              resume: parsed,
+              lastModified: new Date(parsed.lastModified || Date.now())
+            });
+          } catch (e) {
+            console.error('Failed to parse resume:', e);
+          }
+        }
+      }
+    }
+    return resumes;
+  }
+
+  exportToJson(): string {
+    const resume = this.currentResume.value;
+    if (!resume) {
+      throw new Error('No resume data available to export');
+    }
+    return JSON.stringify(resume, null, 2);
+  }
+
+  importFromJson(jsonData: string): void {
+    try {
+      const resume = JSON.parse(jsonData) as Resume;
+      // Validate the imported data structure
+      if (!this.isValidResumeStructure(resume)) {
+        throw new Error('Invalid resume data structure');
+      }
+      this.updateCurrentResume(resume);
+    } catch (error) {
+      throw new Error('Failed to import resume: ' + (error as Error).message);
+    }
+  }
+
+  private isValidResumeStructure(resume: any): resume is Resume {
+    return (
+      resume &&
+      typeof resume === 'object' &&
+      'personalInfo' in resume &&
+      'summary' in resume &&
+      'workExperience' in resume &&
+      'education' in resume &&
+      'skills' in resume &&
+      'projects' in resume &&
+      'certifications' in resume
+    );
+  }
 } 

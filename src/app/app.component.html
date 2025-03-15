@@ -1,14 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand" routerLink="/">Resume Builder</a>
-    <div class="d-flex gap-3">
-      <app-theme-selector></app-theme-selector>
-      <app-template-selector></app-template-selector>
-      <app-language-selector></app-language-selector>
-    </div>
-  </div>
-</nav>
-
-<div class="container mt-4">
-  <router-outlet></router-outlet>
+<div class="app-container">
+  <app-header></app-header>
+  
+  <main class="app-main">
+    <section class="resume-content" id="resume-content">
+      <app-resume-manager></app-resume-manager>
+      <router-outlet></router-outlet>
+    </section>
+  </main>
 </div>

@@ -1,17 +1,16 @@
 .header {
-  background-color: #fff;
+  background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 1000;
+  margin-bottom: 1rem;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 
 .nav {
@@ -19,40 +18,71 @@
   justify-content: space-between;
   align-items: center;
   height: 64px;
+}
 
-  .nav-brand {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #2c3e50;
-    text-decoration: none;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: #3498db;
-    }
+.nav-brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #007bff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  i {
+    font-size: 1.25rem;
   }
+  
+  &:hover {
+    color: #0056b3;
+  }
+}
 
-  .nav-links {
-    display: flex;
-    gap: 1rem;
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
 
-    .nav-link {
-      padding: 0.5rem 1rem;
-      border: none;
-      background: none;
-      color: #7f8c8d;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: color 0.3s ease;
+.nav-link {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  color: #495057;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  
+  i {
+    font-size: 1.1rem;
+  }
+  
+  &:hover {
+    background-color: #f8f9fa;
+    color: #007bff;
+  }
+  
+  &.active {
+    background-color: #007bff;
+    color: white;
+  }
+}
 
-      &:hover {
-        color: #3498db;
-      }
-
-      &.active {
-        color: #3498db;
-      }
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .nav-brand {
+    font-size: 1.25rem;
+  }
+  
+  .nav-link {
+    padding: 0.5rem;
+    
+    span {
+      display: none;
     }
   }
 } 
