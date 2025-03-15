@@ -5,7 +5,7 @@ export interface Resume {
   education: Education[];
   skills: Skills;
   projects: Project[];
-  certifications: Certification[];
+  certifications?: Certification[];
 }
 
 export interface PersonalInfo {
@@ -14,10 +14,12 @@ export interface PersonalInfo {
   email: string;
   phone: string;
   location: string;
-  website: string;
-  linkedin: string;
-  github: string;
-  photo: string;
+  website?: string;
+  linkedin?: string;
+  github?: string;
+  playStore?: string;
+  appStore?: string;
+  languages?: string[];
 }
 
 export interface WorkExperience {
@@ -25,10 +27,10 @@ export interface WorkExperience {
   company: string;
   startDate: string;
   endDate?: string;
-  current: boolean;
+  current?: boolean;
   description: string;
-  achievements: string[];
-  technologies: string[];
+  achievements?: string[];
+  technologies?: string[];
 }
 
 export interface Education {
@@ -37,27 +39,29 @@ export interface Education {
   field: string;
   startDate: string;
   endDate?: string;
-  current: boolean;
+  current?: boolean;
   gpa?: string;
   description?: string;
-  achievements: string[];
-  relevantCourses: string[];
+  achievements?: string[];
 }
 
 export interface Skills {
-  technical: string[];
-  soft: string[];
+  technical?: string[];
+  soft?: string[];
+  databases?: string[];
+  technologies?: string[];
+  programs?: string[];
 }
 
 export interface Project {
   name: string;
   description: string;
-  startDate: string;
+  startDate?: string;
   endDate?: string;
-  current: boolean;
-  technologies: string[];
+  current?: boolean;
+  technologies?: string[];
+  achievements?: string[];
   link?: string;
-  achievements: string[];
 }
 
 export interface Certification {
@@ -65,7 +69,7 @@ export interface Certification {
   organization: string;
   issueDate: string;
   expiryDate?: string;
+  description?: string;
   credentialId?: string;
   credentialUrl?: string;
-  description?: string;
 } 

@@ -40,15 +40,17 @@ export class ResumeService {
         location: '',
         website: '',
         linkedin: '',
-        github: '',
-        photo: ''
+        github: ''
       },
       summary: '',
       workExperience: [],
       education: [],
       skills: {
         technical: [],
-        soft: []
+        soft: [],
+        databases: [],
+        technologies: [],
+        programs: []
       },
       projects: [],
       certifications: []
@@ -104,8 +106,7 @@ export class ResumeService {
         location: '',
         website: '',
         linkedin: '',
-        github: '',
-        photo: ''
+        github: ''
       };
     }
 
