@@ -1,0 +1,103 @@
+<div class="editor-container">
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Resume Builder</a>
+      
+      <div class="d-flex gap-2">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleImportExport()">
+            Import/Export
+          </button>
+          <ul class="dropdown-menu" [class.show]="showImportExport">
+            <li>
+              <label class="dropdown-item" style="cursor: pointer;">
+                Import JSON
+                <input type="file" accept=".json" (change)="importResume($event)" style="display: none;">
+              </label>
+            </li>
+            <li><a class="dropdown-item" href="#" (click)="exportResume()">Export JSON</a></li>
+          </ul>
+        </div>
+        
+        <button class="btn btn-outline-primary" (click)="previewResume()">
+          <i class="bi bi-eye"></i> Preview
+        </button>
+        
+        <button class="btn btn-primary" (click)="downloadPDF()">
+          <i class="bi bi-download"></i> Download PDF
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- Personal Info Form -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <app-personal-info-form [data]="resume.personalInfo"></app-personal-info-form>
+          </div>
+        </div>
+
+        <!-- Work Experience Form -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <app-work-experience-form [data]="resume.workExperience"></app-work-experience-form>
+          </div>
+        </div>
+
+        <!-- Education Form -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <app-education-form [data]="resume.education"></app-education-form>
+          </div>
+        </div>
+
+        <!-- Skills Form -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <app-skills-form [data]="resume.skills"></app-skills-form>
+          </div>
+        </div>
+
+        <!-- Projects Form -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <app-projects-form [data]="resume.projects"></app-projects-form>
+          </div>
+        </div>
+
+        <!-- Certifications Form -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <app-certifications-form [data]="resume.certifications"></app-certifications-form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.dropdown-menu.show {
+  display: block;
+  position: absolute;
+  margin-top: 0.5rem;
+}
+
+.editor-container {
+  padding-bottom: 2rem;
+}
+
+.card {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+</style> 

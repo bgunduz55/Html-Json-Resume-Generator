@@ -1,0 +1,151 @@
+<div class="projects-form" [formGroup]="form">
+  <!-- Projects List -->
+  <div class="mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="mb-0">Projeler</h3>
+      <button class="btn btn-primary" (click)="addProject()">
+        <i class="bi bi-plus-lg"></i> Proje Ekle
+      </button>
+    </div>
+
+    <!-- Project Cards -->
+    <div class="projects-list" formArrayName="projects">
+      <div *ngFor="let project of projects.controls; let i = index" class="card mb-3 hover-lift">
+        <div class="card-body" *ngIf="i !== editIndex">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h5 class="card-title mb-1">{{project.get('name')?.value}}</h5>
+              <p class="card-subtitle mb-2 text-muted" *ngIf="project.get('role')?.value">
+                {{project.get('role')?.value}}
+              </p>
+              <p class="card-text mb-1">
+                <small class="text-muted">
+                  {{project.get('startDate')?.value | date:'MMM yyyy'}}
+                  <span *ngIf="project.get('endDate')?.value"> - 
+                    {{project.get('endDate')?.value | date:'MMM yyyy'}}
+                  </span>
+                  <span *ngIf="!project.get('endDate')?.value"> - Devam Ediyor</span>
+                </small>
+              </p>
+              <p class="card-text" *ngIf="project.get('description')?.value">
+                {{project.get('description')?.value}}
+              </p>
+              <div *ngIf="project.get('technologies')?.value?.length" class="mt-2">
+                <strong>Teknolojiler:</strong>
+                <div class="d-flex flex-wrap gap-1 mt-1">
+                  <span class="badge bg-secondary" *ngFor="let tech of project.get('technologies')?.value">
+                    {{tech}}
+                  </span>
+                </div>
+              </div>
+              <div *ngIf="project.get('achievements')?.value?.length" class="mt-2">
+                <strong>Başarılar:</strong>
+                <ul class="mb-0">
+                  <li *ngFor="let achievement of project.get('achievements')?.value">
+                    {{achievement}}
+                  </li>
+                </ul>
+              </div>
+              <a *ngIf="project.get('url')?.value" [href]="project.get('url')?.value" target="_blank" class="mt-2 d-inline-block">
+                <i class="bi bi-link-45deg"></i> Proje Bağlantısı
+              </a>
+            </div>
+            <div class="ms-3">
+              <button class="btn btn-outline-primary btn-sm me-2" (click)="editProject(i)">
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button class="btn btn-outline-danger btn-sm" (click)="deleteProject(i)">
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Edit Form -->
+        <div class="card-body" *ngIf="i === editIndex && showForm" [formGroup]="getProjectForm(i)">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Proje Adı*</label>
+              <input type="text" class="form-control" formControlName="name" placeholder="Proje adı">
+              <div class="invalid-feedback" *ngIf="getProjectForm(i).get('name')?.invalid && getProjectForm(i).get('name')?.touched">
+                Proje adı gereklidir
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Rol</label>
+              <input type="text" class="form-control" formControlName="role" placeholder="Projedeki rolünüz">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Başlangıç Tarihi*</label>
+              <input type="date" class="form-control" formControlName="startDate">
+              <div class="invalid-feedback" *ngIf="getProjectForm(i).get('startDate')?.invalid && getProjectForm(i).get('startDate')?.touched">
+                Başlangıç tarihi gereklidir
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Bitiş Tarihi</label>
+              <input type="date" class="form-control" formControlName="endDate">
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Proje URL</label>
+              <input type="url" class="form-control" formControlName="url" placeholder="https://...">
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Açıklama*</label>
+              <textarea class="form-control" formControlName="description" rows="3" placeholder="Proje hakkında detaylı bilgi"></textarea>
+              <div class="invalid-feedback" *ngIf="getProjectForm(i).get('description')?.invalid && getProjectForm(i).get('description')?.touched">
+                Proje açıklaması gereklidir
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label d-flex justify-content-between align-items-center">
+                <span>Teknolojiler</span>
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="addTechnology(getProjectForm(i))">
+                  <i class="bi bi-plus-lg"></i> Teknoloji Ekle
+                </button>
+              </label>
+              <div class="technologies-list">
+                <div class="input-group mb-2" *ngFor="let tech of getProjectForm(i).get('technologies')?.value; let j = index">
+                  <input type="text" class="form-control" [(ngModel)]="getProjectForm(i).get('technologies')?.value[j]" [ngModelOptions]="{standalone: true}" placeholder="Teknoloji adı">
+                  <button class="btn btn-outline-danger" type="button" (click)="removeTechnology(getProjectForm(i), j)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label d-flex justify-content-between align-items-center">
+                <span>Başarılar</span>
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="addAchievement(getProjectForm(i))">
+                  <i class="bi bi-plus-lg"></i> Başarı Ekle
+                </button>
+              </label>
+              <div class="achievements-list">
+                <div class="input-group mb-2" *ngFor="let achievement of getProjectForm(i).get('achievements')?.value; let j = index">
+                  <input type="text" class="form-control" [(ngModel)]="getProjectForm(i).get('achievements')?.value[j]" [ngModelOptions]="{standalone: true}" placeholder="Başarı açıklaması">
+                  <button class="btn btn-outline-danger" type="button" (click)="removeAchievement(getProjectForm(i), j)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 d-flex justify-content-end gap-2">
+              <button type="button" class="btn btn-secondary" (click)="cancelEdit()">İptal</button>
+              <button type="button" class="btn btn-primary" (click)="saveProject()" [disabled]="getProjectForm(i).invalid">
+                Kaydet
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

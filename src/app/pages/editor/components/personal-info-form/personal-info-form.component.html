@@ -1,0 +1,123 @@
+<form [formGroup]="form" class="row g-3">
+  <!-- Full Name -->
+  <div class="col-md-6">
+    <label for="fullName" class="form-label">Full Name *</label>
+    <input type="text" 
+           class="form-control" 
+           id="fullName" 
+           formControlName="fullName"
+           [class.is-invalid]="form.get('fullName')?.invalid && form.get('fullName')?.touched">
+    <div class="invalid-feedback">
+      Full name is required
+    </div>
+  </div>
+
+  <!-- Professional Title -->
+  <div class="col-md-6">
+    <label for="title" class="form-label">Professional Title *</label>
+    <input type="text" 
+           class="form-control" 
+           id="title" 
+           formControlName="title"
+           [class.is-invalid]="form.get('title')?.invalid && form.get('title')?.touched">
+    <div class="invalid-feedback">
+      Professional title is required
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div class="col-md-6">
+    <label for="email" class="form-label">Email *</label>
+    <input type="email" 
+           class="form-control" 
+           id="email" 
+           formControlName="email"
+           [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched">
+    <div class="invalid-feedback">
+      Please enter a valid email address
+    </div>
+  </div>
+
+  <!-- Phone -->
+  <div class="col-md-6">
+    <label for="phone" class="form-label">Phone *</label>
+    <input type="tel" 
+           class="form-control" 
+           id="phone" 
+           formControlName="phone"
+           [class.is-invalid]="form.get('phone')?.invalid && form.get('phone')?.touched">
+    <div class="invalid-feedback">
+      Phone number is required
+    </div>
+  </div>
+
+  <!-- Location -->
+  <div class="col-12">
+    <label for="location" class="form-label">Location *</label>
+    <input type="text" 
+           class="form-control" 
+           id="location" 
+           formControlName="location"
+           placeholder="City, Country"
+           [class.is-invalid]="form.get('location')?.invalid && form.get('location')?.touched">
+    <div class="invalid-feedback">
+      Location is required
+    </div>
+  </div>
+
+  <!-- LinkedIn -->
+  <div class="col-md-4">
+    <label for="linkedIn" class="form-label">LinkedIn Profile</label>
+    <div class="input-group">
+      <span class="input-group-text"><i class="bi bi-linkedin"></i></span>
+      <input type="url" 
+             class="form-control" 
+             id="linkedIn" 
+             formControlName="linkedIn"
+             placeholder="Profile URL">
+    </div>
+  </div>
+
+  <!-- Website -->
+  <div class="col-md-4">
+    <label for="website" class="form-label">Personal Website</label>
+    <div class="input-group">
+      <span class="input-group-text"><i class="bi bi-globe"></i></span>
+      <input type="url" 
+             class="form-control" 
+             id="website" 
+             formControlName="website"
+             placeholder="Website URL">
+    </div>
+  </div>
+
+  <!-- GitHub -->
+  <div class="col-md-4">
+    <label for="github" class="form-label">GitHub Profile</label>
+    <div class="input-group">
+      <span class="input-group-text"><i class="bi bi-github"></i></span>
+      <input type="url" 
+             class="form-control" 
+             id="github" 
+             formControlName="github"
+             placeholder="Profile URL">
+    </div>
+  </div>
+
+  <!-- Professional Summary -->
+  <div class="col-12">
+    <label for="summary" class="form-label">Professional Summary *</label>
+    <textarea class="form-control" 
+              id="summary" 
+              formControlName="summary"
+              rows="4"
+              [class.is-invalid]="form.get('summary')?.invalid && form.get('summary')?.touched"
+              placeholder="Write a compelling summary of your professional background and goals"></textarea>
+    <div class="invalid-feedback">
+      Professional summary is required
+    </div>
+    <small class="form-text text-muted">
+      Pro tip: Use keywords from job descriptions you're targeting to make your summary ATS-friendly.
+    </small>
+  </div>
+</form>

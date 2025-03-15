@@ -1,0 +1,106 @@
+<div class="certifications-form" [formGroup]="form">
+  <!-- Certifications List -->
+  <div class="mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="mb-0">Sertifikalar</h3>
+      <button class="btn btn-primary" (click)="addCertification()">
+        <i class="bi bi-plus-lg"></i> Sertifika Ekle
+      </button>
+    </div>
+
+    <!-- Certification Cards -->
+    <div class="certifications-list" formArrayName="certifications">
+      <div *ngFor="let certification of certifications.controls; let i = index" class="card mb-3 hover-lift">
+        <div class="card-body" *ngIf="i !== editIndex">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h5 class="card-title mb-1">{{certification.get('name')?.value}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{certification.get('organization')?.value}}</h6>
+              <p class="card-text mb-1">
+                <small class="text-muted">
+                  Alınma Tarihi: {{certification.get('issueDate')?.value | date:'MMM yyyy'}}
+                  <span *ngIf="certification.get('expiryDate')?.value">
+                    - Son Geçerlilik: {{certification.get('expiryDate')?.value | date:'MMM yyyy'}}
+                  </span>
+                </small>
+              </p>
+              <p class="card-text mb-1" *ngIf="certification.get('credentialId')?.value">
+                <strong>Kimlik No:</strong> {{certification.get('credentialId')?.value}}
+              </p>
+              <p class="card-text" *ngIf="certification.get('description')?.value">
+                {{certification.get('description')?.value}}
+              </p>
+              <a *ngIf="certification.get('credentialUrl')?.value" [href]="certification.get('credentialUrl')?.value" target="_blank" class="mt-2 d-inline-block">
+                <i class="bi bi-link-45deg"></i> Doğrulama Bağlantısı
+              </a>
+            </div>
+            <div class="ms-3">
+              <button class="btn btn-outline-primary btn-sm me-2" (click)="editCertification(i)">
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button class="btn btn-outline-danger btn-sm" (click)="deleteCertification(i)">
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Edit Form -->
+        <div class="card-body" *ngIf="i === editIndex && showForm" [formGroup]="getCertificationForm(i)">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Sertifika Adı*</label>
+              <input type="text" class="form-control" formControlName="name" placeholder="Sertifika adı">
+              <div class="invalid-feedback" *ngIf="getCertificationForm(i).get('name')?.invalid && getCertificationForm(i).get('name')?.touched">
+                Sertifika adı gereklidir
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Kurum*</label>
+              <input type="text" class="form-control" formControlName="organization" placeholder="Sertifikayı veren kurum">
+              <div class="invalid-feedback" *ngIf="getCertificationForm(i).get('organization')?.invalid && getCertificationForm(i).get('organization')?.touched">
+                Kurum adı gereklidir
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Alınma Tarihi*</label>
+              <input type="date" class="form-control" formControlName="issueDate">
+              <div class="invalid-feedback" *ngIf="getCertificationForm(i).get('issueDate')?.invalid && getCertificationForm(i).get('issueDate')?.touched">
+                Alınma tarihi gereklidir
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Son Geçerlilik Tarihi</label>
+              <input type="date" class="form-control" formControlName="expiryDate">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Kimlik No</label>
+              <input type="text" class="form-control" formControlName="credentialId" placeholder="Sertifika kimlik numarası">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Doğrulama URL</label>
+              <input type="url" class="form-control" formControlName="credentialUrl" placeholder="https://...">
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Açıklama</label>
+              <textarea class="form-control" formControlName="description" rows="3" placeholder="Sertifika hakkında detaylı bilgi"></textarea>
+            </div>
+
+            <div class="col-12 d-flex justify-content-end gap-2">
+              <button type="button" class="btn btn-secondary" (click)="cancelEdit()">İptal</button>
+              <button type="button" class="btn btn-primary" (click)="saveCertification()" [disabled]="getCertificationForm(i).invalid">
+                Kaydet
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

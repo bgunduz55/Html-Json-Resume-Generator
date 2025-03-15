@@ -1,0 +1,112 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Left Sidebar Navigation -->
+    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" 
+               [class.active]="activeSection === 'personal'"
+               (click)="onSectionChange('personal')">
+              <i class="bi bi-person"></i>
+              Personal Information
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" 
+               [class.active]="activeSection === 'experience'"
+               (click)="onSectionChange('experience')">
+              <i class="bi bi-briefcase"></i>
+              Work Experience
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" 
+               [class.active]="activeSection === 'education'"
+               (click)="onSectionChange('education')">
+              <i class="bi bi-book"></i>
+              Education
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" 
+               [class.active]="activeSection === 'skills'"
+               (click)="onSectionChange('skills')">
+              <i class="bi bi-star"></i>
+              Skills
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" 
+               [class.active]="activeSection === 'projects'"
+               (click)="onSectionChange('projects')">
+              <i class="bi bi-folder"></i>
+              Projects
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" 
+               [class.active]="activeSection === 'certifications'"
+               (click)="onSectionChange('certifications')">
+              <i class="bi bi-award"></i>
+              Certifications
+            </a>
+          </li>
+        </ul>
+
+        <!-- Action Buttons -->
+        <div class="mt-4 p-3">
+          <button class="btn btn-primary w-100 mb-2" (click)="onPreview()">
+            <i class="bi bi-eye"></i> Preview
+          </button>
+          <button class="btn btn-outline-primary w-100 mb-2" (click)="onExportJson()">
+            <i class="bi bi-download"></i> Export JSON
+          </button>
+          <button class="btn btn-success w-100" (click)="onSave()">
+            <i class="bi bi-save"></i> Save
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">{{activeSection | titlecase}}</h1>
+      </div>
+
+      <!-- Form Components -->
+      <div [ngSwitch]="activeSection">
+        <app-personal-info-form 
+          *ngSwitchCase="'personal'"
+          [data]="resumeData?.personalInfo">
+        </app-personal-info-form>
+
+        <app-work-experience-form 
+          *ngSwitchCase="'experience'"
+          [data]="resumeData?.workExperience">
+        </app-work-experience-form>
+
+        <app-education-form 
+          *ngSwitchCase="'education'"
+          [data]="resumeData?.education">
+        </app-education-form>
+
+        <app-skills-form 
+          *ngSwitchCase="'skills'"
+          [data]="resumeData?.skills">
+        </app-skills-form>
+
+        <app-projects-form 
+          *ngSwitchCase="'projects'"
+          [data]="resumeData?.projects">
+        </app-projects-form>
+
+        <app-certifications-form 
+          *ngSwitchCase="'certifications'"
+          [data]="resumeData?.certifications">
+        </app-certifications-form>
+      </div>
+    </main>
+  </div>
+</div>
