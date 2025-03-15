@@ -1,76 +1,71 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Template } from '../models/template.model';
+
+export type TemplateType = 'modern-professional' | 'classic-elegant' | 'creative-portfolio';
+
+export interface Template {
+  id: TemplateType;
+  name: string;
+  description: string;
+  previewImageUrl: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class TemplateService {
-  private selectedTemplate = new BehaviorSubject<Template | null>(null);
-  private templates: Template[] = [
+  private readonly STORAGE_KEY = 'selectedTemplate';
+  private readonly templates: Template[] = [
     {
       id: 'modern-professional',
       name: 'Modern Professional',
-      description: 'A clean and professional template with a modern design',
-      thumbnail: 'assets/images/templates/modern-professional.png',
-      isAtsOptimized: true
+      description: 'A clean and modern design suitable for most professional fields.',
+      previewImageUrl: 'assets/images/templates/modern-professional.png'
     },
     {
-      id: 'creative',
-      name: 'Creative',
-      description: 'A creative template for designers and artists',
-      thumbnail: 'assets/images/templates/creative.png',
-      isAtsOptimized: false
+      id: 'classic-elegant',
+      name: 'Classic Elegant',
+      description: 'A timeless design with elegant typography and layout.',
+      previewImageUrl: 'assets/images/templates/classic-elegant.png'
     },
     {
-      id: 'minimal',
-      name: 'Minimal',
-      description: 'A minimalist template focusing on essential information',
-      thumbnail: 'assets/images/templates/minimal.png',
-      isAtsOptimized: true
+      id: 'creative-portfolio',
+      name: 'Creative Portfolio',
+      description: 'A creative design perfect for showcasing your portfolio.',
+      previewImageUrl: 'assets/images/templates/creative-portfolio.png'
     }
   ];
 
-  private currentTemplate: string = 'modern-professional';
-
-  private selectedTemplateSubject = new BehaviorSubject<string>('modern-professional');
-  selectedTemplate$: Observable<string> = this.selectedTemplateSubject.asObservable();
+  private selectedTemplateSubject = new BehaviorSubject<TemplateType>('modern-professional');
+  selectedTemplate$ = this.selectedTemplateSubject.asObservable();
 
   constructor() {
-    // Load saved template selection from localStorage if exists
-    const savedTemplate = localStorage.getItem('selectedTemplate');
-    if (savedTemplate) {
-      const template = this.templates.find(t => t.id === savedTemplate);
-      if (template) {
-        this.selectedTemplate.next(template);
-      }
+    this.loadSavedTemplate();
+  }
+
+  private loadSavedTemplate(): void {
+    const savedTemplate = localStorage.getItem(this.STORAGE_KEY);
+    if (savedTemplate && this.isValidTemplate(savedTemplate)) {
+      this.selectedTemplateSubject.next(savedTemplate as TemplateType);
     }
+  }
+
+  private isValidTemplate(template: string): boolean {
+    return this.templates.some(t => t.id === template);
   }
 
   getTemplates(): Template[] {
     return this.templates;
   }
 
-  getSelectedTemplate(): Observable<Template | null> {
-    return this.selectedTemplate.asObservable();
-  }
-
-  selectTemplate(templateId: string): void {
-    const template = this.templates.find(t => t.id === templateId);
-    if (template) {
-      this.selectedTemplate.next(template);
-      localStorage.setItem('selectedTemplate', templateId);
-      this.selectedTemplateSubject.next(templateId);
-    }
-  }
-
-  getCurrentTemplate(): string {
+  getCurrentTemplate(): TemplateType {
     return this.selectedTemplateSubject.value;
   }
 
-  setTemplate(templateId: string): void {
-    if (this.templates.some(t => t.id === templateId)) {
-      this.currentTemplate = templateId;
+  selectTemplate(templateId: TemplateType): void {
+    if (this.isValidTemplate(templateId)) {
+      this.selectedTemplateSubject.next(templateId);
+      localStorage.setItem(this.STORAGE_KEY, templateId);
     }
   }
 }

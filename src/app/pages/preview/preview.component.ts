@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { ResumeService } from '../../shared/services/resume.service';
-import { TemplateService } from '../../shared/services/template.service';
+import { TemplateService, TemplateType } from '../../shared/services/template.service';
 import { Resume } from '../../shared/models/resume.model';
 import { Subscription } from 'rxjs';
 import html2canvas from 'html2canvas';
@@ -14,7 +14,7 @@ import jsPDF from 'jspdf';
 export class PreviewComponent implements OnInit, OnDestroy {
   @ViewChild('previewContent') previewContent!: ElementRef;
   resume: Resume | null = null;
-  selectedTemplate: string = 'modern-professional';
+  selectedTemplate: TemplateType = 'modern-professional';
   isGeneratingPdf = false;
   private subscriptions: Subscription[] = [];
 
@@ -41,6 +41,10 @@ export class PreviewComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(sub => sub.unsubscribe());
+  }
+
+  onTemplateChange(templateId: TemplateType): void {
+    this.templateService.selectTemplate(templateId);
   }
 
   async downloadPDF(): Promise<void> {
