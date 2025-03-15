@@ -3,7 +3,6 @@ import { ResumeService } from '../../shared/services/resume.service';
 import { TemplateService, TemplateType } from '../../shared/services/template.service';
 import { Resume } from '../../shared/models/resume.model';
 import { Subscription } from 'rxjs';
-import html2pdf from 'html2pdf.js';
 
 @Component({
   selector: 'app-preview',
@@ -51,30 +50,84 @@ export class PreviewComponent implements OnInit, OnDestroy {
 
     this.isGeneratingPdf = true;
     try {
-      const content = this.previewContent.nativeElement;
-      const fileName = this.resume.personalInfo.fullName
-        ? `${this.resume.personalInfo.fullName.replace(/\s+/g, '_')}_Resume.pdf`
-        : 'resume.pdf';
+      const printWindow = window.open('', '_blank');
+      if (!printWindow) {
+        throw new Error('Could not open print window');
+      }
 
-      const opt = {
-        margin: 10,
-        filename: fileName,
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { 
-          scale: 2,
-          useCORS: true,
-          letterRendering: true
-        },
-        jsPDF: { 
-          unit: 'mm', 
-          format: 'a4', 
-          orientation: 'portrait' as const,
-          compress: true
-        },
-        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+      // Get the resume content
+      const content = this.previewContent.nativeElement;
+
+      // Write the content to the new window
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>${this.resume.personalInfo.fullName || 'Resume'}</title>
+          <style>
+            @page {
+              size: A4;
+              margin: 0.5cm;
+            }
+            
+            body {
+              margin: 0;
+              padding: 0;
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+            }
+
+            .resume {
+              width: 210mm;
+              min-height: 297mm;
+              padding: 0;
+              margin: 0 auto;
+              background: white;
+            }
+
+            a {
+              text-decoration: underline;
+            }
+
+            /* Copy existing styles from the main document */
+            ${Array.from(document.styleSheets)
+              .filter(sheet => {
+                try {
+                  return sheet.cssRules && !sheet.href; // Only include internal styles
+                } catch {
+                  return false;
+                }
+              })
+              .map(sheet => {
+                try {
+                  return Array.from(sheet.cssRules)
+                    .map(rule => rule.cssText)
+                    .join('\n');
+                } catch {
+                  return '';
+                }
+              })
+              .join('\n')}
+          </style>
+        </head>
+        <body>
+          <div class="resume">
+            ${content.innerHTML}
+          </div>
+        </body>
+        </html>
+      `);
+
+      // Wait for images to load
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Print and close the window
+      printWindow.document.close();
+      printWindow.print();
+      printWindow.onafterprint = () => {
+        printWindow.close();
       };
 
-      await html2pdf().set(opt).from(content).save();
     } catch (error) {
       console.error('Error generating PDF:', error);
     } finally {
