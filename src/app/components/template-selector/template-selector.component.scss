@@ -1,0 +1,111 @@
+.template-selector {
+  padding: 2rem 0;
+
+  .category-selector {
+    .btn-group {
+      .btn {
+        flex: 1;
+        padding: 0.75rem 1rem;
+        font-weight: 500;
+        
+        &:not(:last-child) {
+          border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+
+  .form-check-input {
+    cursor: pointer;
+  }
+
+  .progress {
+    height: 8px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.05);
+
+    .progress-bar {
+      transition: width 0.3s ease;
+    }
+  }
+
+  .template-card {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid transparent;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    &.active {
+      border-color: var(--bs-primary);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .template-preview {
+      height: 240px;
+      object-fit: cover;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .template-badges {
+      .badge {
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding: 0.5em 0.75em;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    .card-body {
+      padding: 1.25rem;
+
+      .card-title {
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      .card-text {
+        font-size: 0.875rem;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .list-group-item {
+    border: none;
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    
+    i {
+      font-size: 1rem;
+    }
+  }
+
+  .ats-score {
+    .progress {
+      height: 10px;
+      border-radius: 5px;
+    }
+
+    .progress-bar {
+      transition: width 0.3s ease;
+    }
+
+    .ats-tips {
+      margin-top: 1rem;
+      
+      li {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        
+        i {
+          color: var(--bs-primary);
+        }
+      }
+    }
+  }
+} 

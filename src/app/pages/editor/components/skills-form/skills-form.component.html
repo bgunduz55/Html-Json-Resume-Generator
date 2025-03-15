@@ -1,0 +1,60 @@
+<div class="skills-form" [formGroup]="skillsForm">
+  <!-- Technical Skills Section -->
+  <div class="skills-section">
+    <div class="section-header">
+      <h2>Technical Skills</h2>
+      <button type="button" class="btn btn-primary" (click)="addTechnicalSkill()">
+        Add Technical Skill
+      </button>
+    </div>
+
+    <div class="skills-list" formArrayName="technical">
+      <div class="skill-item" *ngFor="let skill of technical.controls; let i = index">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            [formControlName]="i"
+            placeholder="Enter technical skill"
+          >
+          <button type="button" class="btn btn-outline-danger" (click)="removeTechnicalSkill(i)">
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soft Skills Section -->
+  <div class="skills-section">
+    <div class="section-header">
+      <h2>Soft Skills</h2>
+      <button type="button" class="btn btn-primary" (click)="addSoftSkill()">
+        Add Soft Skill
+      </button>
+    </div>
+
+    <div class="skills-list" formArrayName="soft">
+      <div class="skill-item" *ngFor="let skill of soft.controls; let i = index">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            [formControlName]="i"
+            placeholder="Enter soft skill"
+          >
+          <button type="button" class="btn btn-outline-danger" (click)="removeSoftSkill(i)">
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Save Button -->
+  <div class="form-actions">
+    <button type="button" class="btn btn-primary" (click)="saveChanges()" [disabled]="!skillsForm.valid">
+      Save Changes
+    </button>
+  </div>
+</div>

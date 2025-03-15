@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
-import data from '../assets/my-resume-data.json';
-import { SpecialtyList } from './models/specialtyList';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `
+    <app-header></app-header>
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  `,
+  styles: [`
+    .main-content {
+      margin-top: 64px;
+      min-height: calc(100vh - 64px);
+      background-color: #f8f9fa;
+      padding: 2rem 1rem;
+    }
+  `]
 })
 export class AppComponent {
-  title = 'Html-Json-Resume';
-  specialtyList: SpecialtyList = data;
-  
-  constructor(){
-
-  }
-  ngOnInit(){
-    console.log(this.specialtyList);
-  }
+  title = 'Html-Json-Resume-Generator';
 }

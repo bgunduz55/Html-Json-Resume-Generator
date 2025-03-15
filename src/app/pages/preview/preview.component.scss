@@ -1,0 +1,377 @@
+// Component styles will be handled in the template for now 
+
+.preview-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #f8f9fa;
+}
+
+.preview-actions {
+  position: sticky;
+  top: 80px;
+  z-index: 100;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  text-align: right;
+}
+
+.preview-content {
+  flex: 1;
+  overflow: auto;
+  padding: 2rem;
+}
+
+.resume {
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 1000px;
+  border-radius: 8px;
+}
+
+.personal-info {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #f0f0f0;
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+
+    .text-content {
+      flex: 1;
+
+      h1 {
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        color: #7f8c8d;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+
+  .contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+
+    p {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0;
+      color: #34495e;
+
+      i {
+        color: #3498db;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        
+        &:hover {
+          color: #3498db;
+        }
+      }
+    }
+  }
+
+  .photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #3498db;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #f0f0f0;
+
+  h2 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: #3498db;
+    }
+  }
+}
+
+.empty-section {
+  background-color: #f8f9fa;
+  border: 2px dashed #dee2e6;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+
+  .placeholder-text {
+    color: #6c757d;
+    font-style: italic;
+    margin: 0;
+  }
+}
+
+.experience-item, .education-item, .project-item, .certification-item {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .experience-header, .education-header, .project-header, .certification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+
+    .title-company, .school-degree {
+      h3 {
+        color: #2c3e50;
+        font-size: 1.3rem;
+        margin-bottom: 0.3rem;
+      }
+
+      h4, .degree {
+        color: #7f8c8d;
+        font-size: 1.1rem;
+        margin: 0;
+      }
+    }
+
+    .date-location, .date {
+      color: #95a5a6;
+      font-size: 0.9rem;
+    }
+  }
+
+  .description {
+    color: #34495e;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .achievements {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
+
+    li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #34495e;
+
+      &:before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: #3498db;
+      }
+    }
+  }
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+
+  h3 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    .skill-tag {
+      background-color: #3498db;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      &.placeholder {
+        background-color: #e0e0e0;
+        color: #95a5a6;
+        border: 2px dashed #bdc3c7;
+      }
+    }
+  }
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+
+  .technology {
+    background-color: #e1f0fa;
+    color: #3498db;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+  }
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  p {
+    margin-top: 1rem;
+    color: #2c3e50;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+    color: #fff;
+
+    &:hover:not(:disabled) {
+      background-color: #2980b9;
+      border-color: #2980b9;
+    }
+
+    &:disabled {
+      background-color: #bdc3c7;
+      border-color: #bdc3c7;
+      cursor: not-allowed;
+    }
+  }
+}
+
+@media print {
+  .preview-actions,
+  .loading-overlay {
+    display: none;
+  }
+
+  .preview-container {
+    height: auto;
+    background: none;
+  }
+
+  .preview-content {
+    padding: 0;
+  }
+
+  .resume {
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .experience-item, .education-item, .project-item, .certification-item {
+    break-inside: avoid;
+    background: none;
+    padding: 0;
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  .skill-tags .skill-tag {
+    border: 1px solid #3498db;
+    background: none;
+    color: #2c3e50;
+  }
+
+  .technologies .technology {
+    border: 1px solid #3498db;
+    background: none;
+    color: #2c3e50;
+  }
+
+  .empty-section {
+    display: none;
+  }
+} 

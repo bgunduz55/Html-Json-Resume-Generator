@@ -1,51 +1,11 @@
-<router-outlet></router-outlet>
-<div id="resume-body">
-
-  <div id="top">
-      <h4 id="title">{{specialtyList.cvTitle}}</h4>
-      <div id="process">
-          <div id="y"></div>
-          <div id="s"></div>
-          <div id="k"></div>
-      </div>
-      <div class="clear"></div>
-  </div>
-
-  <div id="resume-center">
-
-      <div id="no">
-          <span *ngFor="let e of [].constructor(specialtyList.lineCount); let i = index" class="row-numbers">{{i+1}}</span>
-
-      </div>
-      <div class="">
-      <div class="row">
-      <div class="col-md-4 header-row">
-        <app-header></app-header>
-      </div>
-      <div id="" class="col-md-8 row-class">
-        
-          <span class="comment">/*<br>*&nbsp;&nbsp;&nbsp; Linkedin -> <a href="{{specialtyList.linkedinUrl}}">{{specialtyList.linkedinUrl}}</a> <br>
-            *&nbsp;&nbsp;&nbsp; Github -> <a href="{{specialtyList.githubUrl}}">{{specialtyList.githubUrl}}</a> <br>
-            *&nbsp;&nbsp;&nbsp; PlayStore -> <a href="{{specialtyList.playStoreUrl}}">{{specialtyList.playStoreUrl}}</a> <br>
-            *&nbsp;&nbsp;&nbsp; AppStore -> <a href="{{specialtyList.appStoreUrl}}">{{specialtyList.appStoreUrl}}</a> <br>
-            */</span>
-          <br>
-
-          <div class="row row-class class-view" *ngFor="let item of specialtyList.specialties">
-            <app-class-view [item]="item"></app-class-view>
-        </div>
-
-
-      </div>
+<div class="app-container">
+  <app-header></app-header>
+  
+  <main class="app-main">
+    <div class="content-wrapper">
+      <section class="resume-content" id="resume-content">
+        <router-outlet></router-outlet>
+      </section>
     </div>
-</div>
-
-      <div class="clear"></div>
-  </div>
-
-
-  <div id="resume-bottom">
-      &copy; <a href="{{specialtyList.linkedinUrl}}">Burak GÜNDÜZ</a>
-  </div>
-
+  </main>
 </div>

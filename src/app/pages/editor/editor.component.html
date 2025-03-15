@@ -1,0 +1,82 @@
+<div class="editor-container">
+  <app-resume-manager></app-resume-manager>
+  
+  <div class="editor-content">
+    <div class="editor-sections">
+      <nav class="section-nav">
+        <a routerLink="personal-info" routerLinkActive="active">
+          <i class="fas fa-user"></i>
+          <span>Personal Info</span>
+        </a>
+        <a routerLink="work-experience" routerLinkActive="active">
+          <i class="fas fa-briefcase"></i>
+          <span>Work Experience</span>
+        </a>
+        <a routerLink="education" routerLinkActive="active">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Education</span>
+        </a>
+        <a routerLink="skills" routerLinkActive="active">
+          <i class="fas fa-tools"></i>
+          <span>Skills</span>
+        </a>
+        <a routerLink="projects" routerLinkActive="active">
+          <i class="fas fa-project-diagram"></i>
+          <span>Projects</span>
+        </a>
+        <a routerLink="certifications" routerLinkActive="active">
+          <i class="fas fa-certificate"></i>
+          <span>Certifications</span>
+        </a>
+      </nav>
+      
+      <div class="section-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.editor-container {
+  display: flex;
+  min-height: calc(100vh - 56px);
+}
+
+.editor-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.section-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.section-nav a {
+  color: #495057;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #e9ecef;
+    color: #212529;
+  }
+  
+  &.active {
+    background-color: #0d6efd;
+    color: white;
+  }
+}
+
+.section-content {
+  padding: 2rem;
+}
+</style> 
