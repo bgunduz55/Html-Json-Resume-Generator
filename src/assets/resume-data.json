@@ -1,0 +1,183 @@
+{
+  "personalInfo": {
+    "fullName": "Burak GÜNDÜZ",
+    "title": "Computer Engineer && Senior Fullstack developer",
+    "email": "bgunduz_94@hotmail.com",
+    "phone": "+905357193476",
+    "location": "Turkey - Sakarya - Akyazı",
+    "github": "http://github.com/bgunduz55",
+    "linkedin": "https://www.linkedin.com/in/bgunduz/",
+    "playStore": "https://play.google.com/store/apps/dev?id=7410828019746719138",
+    "appStore": "https://apps.apple.com/ua/developer/burak-gunduz/id1552965916",
+    "languages": ["Turkish", "English"]
+  },
+  "summary": "I am a dedicated and adaptable full-stack developer with over nine years of experience working on diverse and impactful projects. My journey in software development has allowed me to touch every part of the stack—backend, frontend, and mobile—and contribute to creating end-to-end solutions that are both efficient and user-friendly.\n\nOn the backend, I have extensive experience with Java, Spring Boot, and RESTful APIs, building scalable and secure systems to power robust applications. My work often involves database design and management, leveraging technologies like PostgreSQL, MongoDB, and TimescaleDB to ensure reliability and performance.\n\nOn the frontend, I have developed clean, intuitive, and responsive user interfaces using React.js, Angular, and modern design principles. I take pride in ensuring the user experience is seamless, accessible, and aligned with business goals.\n\nFor mobile development, I have worked on native Android applications using Kotlin and Java and have delivered cross-platform solutions using Flutter. My projects have included everything from task management apps to fintech solutions, each requiring a mix of creativity, technical expertise, and attention to detail.\n\nWhat sets me apart is my curiosity and eagerness to explore new technologies and methodologies. I thrive on learning, whether it's diving into the latest tools, exploring cutting-edge frameworks, or tackling domains I haven't worked in before.\n\nSome career highlights include:\n✨ Leading full-stack projects from concept to deployment, ensuring quality and scalability.\n✨ Developing secure payment systems and POS applications, integrating APIs, and optimizing performance.\n✨ Collaborating with cross-functional teams to deliver user-focused solutions.\n✨ Mentoring junior developers and fostering a culture of continuous learning.",
+  "workExperience": [
+    {
+      "title": "Senior Fullstack Developer",
+      "company": "Dgpays",
+      "startDate": "2020/05/01",
+      "endDate": "2024/11/30",
+      "description": "I am responsible for development of mobile application software on payment systems. I also worked as a scrum master for about 1 year. I worked on Paycell Mpos, Tuvturk, Platform, Ptt Akıllı Esnaf... and more other projects. I made business and technical refactors on old code bases.",
+      "technologies": ["Java", "Spring Boot", "Angular", "Flutter", "Android", "iOS"]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Etiya",
+      "startDate": "2019/05/01",
+      "endDate": "2020/05/01",
+      "description": "I was responsible for frontend development of Videotron Bss project with Angular. I've used Ngxs for state management and used various javascript libraries, especially 'rxjs'. Angular 7 - ngxs - CSR ve WSC web dashboard projects. Also I've worked with JIRA, Bitbucket, Teams, Slack and 2 week sprints by Scrum.",
+      "technologies": ["Angular", "TypeScript", "NGXS", "RxJS"]
+    },
+    {
+      "title": "Senior Fullstack Developer",
+      "company": "Enderun Information Technologies",
+      "startDate": "2019/02/01",
+      "endDate": "2019/05/01",
+      "description": "I was responsible for full stack development of mobile hand terminal QR device app with Spring boot rest api and android development. I've used Oracle db, Tortoise svn, Gitlab. It was an application that managed all the buying and selling and tender processes of the Istanbul metropolitan municipality.",
+      "technologies": ["Spring Boot", "Android", "Oracle DB", "SVN", "GitLab"]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Verisoft",
+      "startDate": "2018/10/01",
+      "endDate": "2019/02/01",
+      "description": "I was responsible for mobile development of payment system's apps. I've used Java, Kotlin and .Net Core on there. I've worked on Mpos mobile app with FlyPOS(for CSOB bank), MyGini loyalty application(b2b and b2c), TapOnPhone mobile POS app, SoftPOS app.",
+      "technologies": ["Java", "Kotlin", ".NET Core", "Android", "iOS"]
+    },
+    {
+      "title": "Fullstack Developer",
+      "company": "JAVA Software Inc",
+      "startDate": "2016/12/01",
+      "endDate": "2018/10/01",
+      "description": "I was responsible for fullstack development of various projects including social media applications, ERP systems, and e-invoice integration.",
+      "achievements": [
+        "Developed Java JAX-RS REST APIs for social media applications",
+        "Created frontend with Angular 4+ with SSR and SEO optimizations",
+        "Implemented chat system with Openfire server and video conference capabilities",
+        "Developed hybrid database solutions using MySQL & MongoDB",
+        "Set up and configured LAMP servers and video streaming systems",
+        "Integrated E-Invoice GIB services with ERP system",
+        "Created Java Swing applet for e-signature integration"
+      ],
+      "technologies": ["Java", "JAX-RS", "Angular", "MySQL", "MongoDB", "Laravel", "PHP"]
+    }
+  ],
+  "education": [
+    {
+      "school": "Anadolu University",
+      "degree": "Bachelor's",
+      "field": "Management Information Systems",
+      "startDate": "2019/09/01",
+      "endDate": "2024/01/01",
+      "current": false
+    },
+    {
+      "school": "Anadolu University",
+      "degree": "Bachelor's",
+      "field": "Computer Engineering",
+      "startDate": "2011/09/01",
+      "endDate": "2017/02/01",
+      "current": false,
+      "description": "Completed 5-year program including 1 year English preparation"
+    }
+  ],
+  "skills": {
+    "technical": [
+      "Java",
+      "Kotlin",
+      "TypeScript",
+      "C#",
+      "JavaScript",
+      "Dart",
+      "HTML",
+      "PHP",
+      "CSS",
+      "Node.js",
+      "Python",
+      "Swift"
+    ],
+    "databases": [
+      "MySQL",
+      "Oracle DB",
+      "PostgreSQL",
+      "MongoDB",
+      "MS SQL",
+      "Cassandra",
+      "SQLite",
+      "PL/SQL"
+    ],
+    "technologies": [
+      "Spring Framework",
+      "Spring Boot",
+      "Hibernate",
+      "Docker",
+      "Flutter",
+      "Android Development",
+      "Angular",
+      "Vue.js",
+      "J2EE",
+      "Design Patterns",
+      "Linux System Management",
+      "MVC 4",
+      "Apache HTTP Server",
+      "Nginx",
+      "Git",
+      "NoSQL",
+      "Apache Tomcat",
+      "Scrum",
+      "Agile",
+      "Laravel",
+      "CodeIgniter",
+      "Jenkins",
+      "Unity3D",
+      "WordPress"
+    ],
+    "programs": [
+      "Adobe Illustrator",
+      "Photoshop",
+      "Blender",
+      "Unity3D",
+      "VS Code",
+      "IntelliJ IDEA",
+      "Eclipse",
+      "NetBeans",
+      "MS Office",
+      "Libre Office",
+      "Audacity",
+      "GIMP",
+      "Inkscape",
+      "Krita"
+    ]
+  },
+  "projects": [
+    {
+      "name": "Neumed",
+      "description": "Android, iOS and Web clients are native Fullstack, MongoDB - Medical Dictionary project.",
+      "technologies": ["Android", "iOS", "Web", "MongoDB"]
+    },
+    {
+      "name": "Yazbee",
+      "description": "Android, iOS and Web clients native Fullstack, WhatsApp-like chat application works with Openfire XMPP server",
+      "technologies": ["Android", "iOS", "Web", "XMPP", "Openfire"]
+    },
+    {
+      "name": "Osymedya",
+      "description": "A social media for students that studying exams. They can share tests and solve them on the platform, post, like and comment...",
+      "technologies": ["Web", "Social Media", "Education"]
+    },
+    {
+      "name": "Social Connection",
+      "description": "An Android project that works with XMPP server. And make the people able to use smartphones that who don't know how to use smartphones via controlling their phones remotely by the users that they want to connect",
+      "technologies": ["Android", "XMPP", "Remote Control"]
+    },
+    {
+      "name": "ToDo List App",
+      "description": "A fullstack ToDo app with Angular and Java Spring Boot",
+      "technologies": ["Angular", "Spring Boot", "Java"]
+    }
+  ],
+  "certifications": [
+    
+  ]
+} 

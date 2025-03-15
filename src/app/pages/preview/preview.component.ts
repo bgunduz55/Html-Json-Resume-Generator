@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { ResumeService } from '../../shared/services/resume.service';
-import { TemplateService } from '../../services/template.service';
+import { TemplateService } from '../../shared/services/template.service';
 import { Resume } from '../../shared/models/resume.model';
 import { Subscription } from 'rxjs';
 import html2canvas from 'html2canvas';
@@ -28,20 +28,19 @@ export class PreviewComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.resumeService.currentResume$.subscribe(resume => {
         this.resume = resume;
-        console.log('Resume updated in preview:', resume);
       })
     );
 
     // Subscribe to template changes
     this.subscriptions.push(
-      this.templateService.templateChange$.subscribe(templateId => {
-        this.selectedTemplate = templateId;
-        console.log('Template updated in preview:', templateId);
+      this.templateService.selectedTemplate$.subscribe(template => {
+        this.selectedTemplate = template;
       })
     );
   }
 
   ngOnDestroy(): void {
+    // Clean up subscriptions
     this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 

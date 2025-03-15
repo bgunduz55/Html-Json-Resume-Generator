@@ -5,163 +5,30 @@
     </button>
   </div>
 
-  <div class="preview-content" #previewContent>
-    <div class="resume" *ngIf="resume">
-      <!-- Personal Info Section -->
-      <header class="personal-info">
-        <div class="header-content">
-          <div class="text-content">
-            <h1>{{ resume.personalInfo.fullName || 'Your Name' }}</h1>
-            <h2>{{ resume.personalInfo.title || 'Your Professional Title' }}</h2>
-            <div class="contact-info">
-              <p>
-                <i class="bi bi-envelope"></i>
-                <a [href]="'mailto:' + resume.personalInfo.email">{{ resume.personalInfo.email || 'your.email@example.com' }}</a>
-              </p>
-              <p>
-                <i class="bi bi-telephone"></i>
-                <a [href]="'tel:' + resume.personalInfo.phone">{{ resume.personalInfo.phone || '+1 234 567 8900' }}</a>
-              </p>
-              <p>
-                <i class="bi bi-geo-alt"></i>
-                {{ resume.personalInfo.location }}
-              </p>
-              <p *ngIf="resume.personalInfo.website">
-                <i class="bi bi-globe"></i>
-                <a [href]="resume.personalInfo.website" target="_blank">{{ resume.personalInfo.website }}</a>
-              </p>
-              <p *ngIf="resume.personalInfo.linkedin">
-                <i class="bi bi-linkedin"></i>
-                <a [href]="resume.personalInfo.linkedin" target="_blank">LinkedIn</a>
-              </p>
-              <p *ngIf="resume.personalInfo.github">
-                <i class="bi bi-github"></i>
-                <a [href]="resume.personalInfo.github" target="_blank">GitHub</a>
-              </p>
-            </div>
-          </div>
-          <div class="photo" *ngIf="resume.personalInfo.photo">
-            <img [src]="resume.personalInfo.photo" alt="Profile Photo">
-          </div>
-        </div>
-      </header>
+  <div class="preview-content">
+    <div class="resume">
+      <ng-container [ngSwitch]="selectedTemplate">
+        <app-modern-professional
+          *ngSwitchCase="'modern-professional'"
+          [resume]="resume">
+        </app-modern-professional>
 
-      <!-- Summary Section -->
-      <section class="summary" *ngIf="resume.summary">
-        <h2>Professional Summary</h2>
-        <p>{{ resume.summary }}</p>
-      </section>
+        <app-classic-elegant
+          *ngSwitchCase="'classic-elegant'"
+          [resume]="resume">
+        </app-classic-elegant>
 
-      <!-- Work Experience Section -->
-      <section class="work-experience" *ngIf="resume.workExperience?.length">
-        <h2>Work Experience</h2>
-        <div class="experience-item" *ngFor="let experience of resume.workExperience">
-          <div class="experience-header">
-            <div class="title-company">
-              <h3>{{ experience.title }}</h3>
-              <h4>{{ experience.company }}</h4>
-            </div>
-            <div class="date-location">
-              <span>{{ experience.startDate | date:'MMM yyyy' }} - {{ experience.current ? 'Present' : (experience.endDate | date:'MMM yyyy') }}</span>
-            </div>
-          </div>
-          <p class="description">{{ experience.description }}</p>
-          <ul class="achievements" *ngIf="experience.achievements?.length">
-            <li *ngFor="let achievement of experience.achievements">{{ achievement }}</li>
-          </ul>
-          <div class="technologies" *ngIf="experience.technologies?.length">
-            <span class="technology" *ngFor="let tech of experience.technologies">{{ tech }}</span>
-          </div>
-        </div>
-      </section>
+        <app-creative-portfolio
+          *ngSwitchCase="'creative-portfolio'"
+          [resume]="resume">
+        </app-creative-portfolio>
 
-      <!-- Education Section -->
-      <section class="education" *ngIf="resume.education?.length">
-        <h2>Education</h2>
-        <div class="education-item" *ngFor="let education of resume.education">
-          <div class="education-header">
-            <div class="school-degree">
-              <h3>{{ education.school }}</h3>
-              <p class="degree">{{ education.degree }} in {{ education.field }}</p>
-            </div>
-            <div class="date">
-              <span>{{ education.startDate | date:'MMM yyyy' }} - {{ education.current ? 'Present' : (education.endDate | date:'MMM yyyy') }}</span>
-            </div>
-          </div>
-          <p *ngIf="education.gpa" class="gpa">GPA: {{ education.gpa }}</p>
-          <p *ngIf="education.description" class="description">{{ education.description }}</p>
-          <ul class="achievements" *ngIf="education.achievements?.length">
-            <li *ngFor="let achievement of education.achievements">{{ achievement }}</li>
-          </ul>
-          <div class="courses" *ngIf="education.relevantCourses?.length">
-            <h4>Relevant Courses:</h4>
-            <ul>
-              <li *ngFor="let course of education.relevantCourses">{{ course }}</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills Section -->
-      <section class="resume-section" *ngIf="resume.skills?.technical?.length || resume.skills?.soft?.length">
-        <h2>Skills</h2>
-        <div class="skills-container">
-          <div class="technical-skills" *ngIf="resume.skills.technical?.length">
-            <h3>Technical Skills</h3>
-            <div class="skill-tags">
-              <span class="skill-tag" *ngFor="let skill of resume.skills.technical">{{ skill }}</span>
-            </div>
-          </div>
-          <div class="soft-skills" *ngIf="resume.skills.soft?.length">
-            <h3>Soft Skills</h3>
-            <div class="skill-tags">
-              <span class="skill-tag" *ngFor="let skill of resume.skills.soft">{{ skill }}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects Section -->
-      <section class="resume-section" *ngIf="resume.projects?.length">
-        <h2>Projects</h2>
-        <div class="project-item" *ngFor="let project of resume.projects">
-          <div class="project-header">
-            <h3>{{ project.name }}</h3>
-            <p class="date">
-              {{ project.startDate }} - {{ project.current ? 'Present' : project.endDate }}
-            </p>
-          </div>
-          <p class="description">{{ project.description }}</p>
-          <ul class="achievements" *ngIf="project.achievements?.length">
-            <li *ngFor="let achievement of project.achievements">{{ achievement }}</li>
-          </ul>
-          <div class="technologies" *ngIf="project.technologies?.length">
-            <span class="technology" *ngFor="let tech of project.technologies">{{ tech }}</span>
-          </div>
-          <a class="project-link" *ngIf="project.link" [href]="project.link" target="_blank">View Project</a>
-        </div>
-      </section>
-
-      <!-- Certifications Section -->
-      <section class="resume-section" *ngIf="resume.certifications?.length">
-        <h2>Certifications</h2>
-        <div class="certification-item" *ngFor="let cert of resume.certifications">
-          <div class="certification-header">
-            <h3>{{ cert.name }}</h3>
-            <p class="organization">{{ cert.organization }}</p>
-            <p class="date">
-              Issued: {{ cert.issueDate }}
-              <span *ngIf="cert.expiryDate"> | Expires: {{ cert.expiryDate }}</span>
-            </p>
-          </div>
-          <p class="description" *ngIf="cert.description">{{ cert.description }}</p>
-          <p class="credential" *ngIf="cert.credentialId">
-            Credential ID: 
-            <a *ngIf="cert.credentialUrl" [href]="cert.credentialUrl" target="_blank">{{ cert.credentialId }}</a>
-            <span *ngIf="!cert.credentialUrl">{{ cert.credentialId }}</span>
-          </p>
-        </div>
-      </section>
+        <!-- Default template -->
+        <app-modern-professional
+          *ngSwitchDefault
+          [resume]="resume">
+        </app-modern-professional>
+      </ng-container>
     </div>
   </div>
 

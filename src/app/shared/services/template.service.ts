@@ -33,6 +33,9 @@ export class TemplateService {
 
   private currentTemplate: string = 'modern-professional';
 
+  private selectedTemplateSubject = new BehaviorSubject<string>('modern-professional');
+  selectedTemplate$: Observable<string> = this.selectedTemplateSubject.asObservable();
+
   constructor() {
     // Load saved template selection from localStorage if exists
     const savedTemplate = localStorage.getItem('selectedTemplate');
@@ -57,11 +60,12 @@ export class TemplateService {
     if (template) {
       this.selectedTemplate.next(template);
       localStorage.setItem('selectedTemplate', templateId);
+      this.selectedTemplateSubject.next(templateId);
     }
   }
 
   getCurrentTemplate(): string {
-    return this.currentTemplate;
+    return this.selectedTemplateSubject.value;
   }
 
   setTemplate(templateId: string): void {
