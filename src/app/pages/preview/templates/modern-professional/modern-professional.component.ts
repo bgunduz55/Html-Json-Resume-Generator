@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Resume } from '../../../../shared/models/resume.model';
+import { Resume, Skills } from '../../../../shared/models/resume.model';
 
 @Component({
   selector: 'app-modern-professional',
@@ -102,37 +102,41 @@ import { Resume } from '../../../../shared/models/resume.model';
       </section>
 
       <!-- Skills Section -->
-      <section class="skills" *ngIf="resume.skills?.technical?.length || resume.skills?.soft?.length">
+      <section class="skills" *ngIf="resume.skills && hasSkills(resume.skills)">
         <h3>Skills</h3>
         <div class="skills-container">
-          <div class="technical-skills" *ngIf="resume.skills.technical?.length">
-            <h4>Technical Skills</h4>
-            <div class="skill-tags">
-              <span class="skill-tag" *ngFor="let skill of resume.skills.technical">{{ skill }}</span>
+          <div class="skills-group" *ngIf="resume.skills.programming_languages?.length">
+            <h4>Programming Languages</h4>
+            <div class="skills-list">
+              <span class="skill-tag" *ngFor="let skill of resume.skills.programming_languages">{{ skill }}</span>
             </div>
           </div>
-          <div class="soft-skills" *ngIf="resume.skills.soft?.length">
-            <h4>Soft Skills</h4>
-            <div class="skill-tags">
-              <span class="skill-tag" *ngFor="let skill of resume.skills.soft">{{ skill }}</span>
+
+          <div class="skills-group" *ngIf="resume.skills.frameworks_platforms?.length">
+            <h4>Frameworks & Platforms</h4>
+            <div class="skills-list">
+              <span class="skill-tag" *ngFor="let skill of resume.skills.frameworks_platforms">{{ skill }}</span>
             </div>
           </div>
-          <div class="database-skills" *ngIf="resume.skills.databases?.length">
-            <h4>Database Skills</h4>
-            <div class="skill-tags">
+
+          <div class="skills-group" *ngIf="resume.skills.cloud_infrastructure?.length">
+            <h4>Cloud & Infrastructure</h4>
+            <div class="skills-list">
+              <span class="skill-tag" *ngFor="let skill of resume.skills.cloud_infrastructure">{{ skill }}</span>
+            </div>
+          </div>
+
+          <div class="skills-group" *ngIf="resume.skills.databases?.length">
+            <h4>Databases</h4>
+            <div class="skills-list">
               <span class="skill-tag" *ngFor="let skill of resume.skills.databases">{{ skill }}</span>
             </div>
           </div>
-          <div class="technology-skills" *ngIf="resume.skills.technologies?.length">
-            <h4>Technologies</h4>
-            <div class="skill-tags">
-              <span class="skill-tag" *ngFor="let skill of resume.skills.technologies">{{ skill }}</span>
-            </div>
-          </div>
-          <div class="program-skills" *ngIf="resume.skills.programs?.length">
-            <h4>Programs & Tools</h4>
-            <div class="skill-tags">
-              <span class="skill-tag" *ngFor="let skill of resume.skills.programs">{{ skill }}</span>
+
+          <div class="skills-group" *ngIf="resume.skills.methodologies_practices?.length">
+            <h4>Methodologies & Practices</h4>
+            <div class="skills-list">
+              <span class="skill-tag" *ngFor="let skill of resume.skills.methodologies_practices">{{ skill }}</span>
             </div>
           </div>
         </div>
@@ -497,7 +501,7 @@ import { Resume } from '../../../../shared/models/resume.model';
   `]
 })
 export class ModernProfessionalComponent {
-  @Input() resume: Resume | null = null;
+  @Input() resume!: Resume;
 
   formatUrl(url: string | undefined): string {
     if (!url) return '#';
@@ -517,5 +521,15 @@ export class ModernProfessionalComponent {
   formatText(text: string | undefined): string {
     if (!text) return '';
     return text.replace(/\n/g, '<br>');
+  }
+
+  hasSkills(skills: Skills): boolean {
+    return !!(
+      skills.programming_languages?.length ||
+      skills.frameworks_platforms?.length ||
+      skills.cloud_infrastructure?.length ||
+      skills.databases?.length ||
+      skills.methodologies_practices?.length
+    );
   }
 } 

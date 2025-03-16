@@ -9,7 +9,7 @@ import { Resume } from '../../../../shared/models/resume.model';
       <aside class="sidebar">
         <div class="profile">
           <h1 class="name">{{ resume.personalInfo.fullName }}</h1>
-          <h2 class="title">{{ resume.personalInfo.title || 'Professional Title' }}</h2>
+          <h2 class="title">{{ resume.personalInfo.title }}</h2>
         </div>
 
         <div class="contact-info">
@@ -42,22 +42,59 @@ import { Resume } from '../../../../shared/models/resume.model';
         <!-- Skills Section -->
         <section class="skills" *ngIf="resume.skills">
           <h3>Skills</h3>
-          <div class="skills-group" *ngIf="resume.skills.technical?.length">
-            <h4>Technical Skills</h4>
+          
+          <div class="skills-group" *ngIf="resume.skills.programming_languages?.length">
+            <h4>Programming Languages</h4>
             <div class="skills-list">
-              <div *ngFor="let skill of resume.skills.technical" class="skill-item">
-                <span class="skill-name">{{ skill }}</span>
-              </div>
+              <span *ngFor="let skill of resume.skills.programming_languages" class="skill-item">{{ skill }}</span>
             </div>
           </div>
 
-          <div class="skills-group" *ngIf="resume.skills.soft?.length">
-            <h4>Soft Skills</h4>
+          <div class="skills-group" *ngIf="resume.skills.frameworks_platforms?.length">
+            <h4>Frameworks & Platforms</h4>
             <div class="skills-list">
-              <div *ngFor="let skill of resume.skills.soft" class="skill-item">
-                <span class="skill-name">{{ skill }}</span>
-              </div>
+              <span *ngFor="let skill of resume.skills.frameworks_platforms" class="skill-item">{{ skill }}</span>
             </div>
+          </div>
+
+          <div class="skills-group" *ngIf="resume.skills.cloud_infrastructure?.length">
+            <h4>Cloud & Infrastructure</h4>
+            <div class="skills-list">
+              <span *ngFor="let skill of resume.skills.cloud_infrastructure" class="skill-item">{{ skill }}</span>
+            </div>
+          </div>
+
+          <div class="skills-group" *ngIf="resume.skills.databases?.length">
+            <h4>Databases</h4>
+            <div class="skills-list">
+              <span *ngFor="let skill of resume.skills.databases" class="skill-item">{{ skill }}</span>
+            </div>
+          </div>
+
+          <div class="skills-group" *ngIf="resume.skills.methodologies_practices?.length">
+            <h4>Methodologies & Practices</h4>
+            <div class="skills-list">
+              <span *ngFor="let skill of resume.skills.methodologies_practices" class="skill-item">{{ skill }}</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="education" *ngIf="resume.education?.length">
+          <h3>Education</h3>
+          <div class="education-item" *ngFor="let edu of resume.education">
+            <div class="education-header">
+              <h4>{{ edu.school }}</h4>
+              <p class="degree">{{ edu.degree }} in {{ edu.field }}</p>
+              <span class="date">
+                {{ edu.startDate }} - {{ edu.endDate || 'Present' }}
+              </span>
+            </div>
+            <p *ngIf="edu.gpa" class="gpa">GPA: {{ edu.gpa }}</p>
+            <p *ngIf="edu.description" class="description">{{ edu.description }}</p>
+            <!-- <ul class="achievements" *ngIf="edu.achievements?.length">
+              <li *ngFor="let achievement of edu.achievements">{{ achievement }}</li>
+            </ul> -->
           </div>
         </section>
       </aside>
@@ -78,13 +115,10 @@ import { Resume } from '../../../../shared/models/resume.model';
               <h4>{{ exp.title }}</h4>
               <span class="company">{{ exp.company }}</span>
               <span class="date">
-                {{ exp.startDate }} - {{ exp.endDate || 'Present' }}
+                {{ exp.startDate | date:'MMM yyyy' }} - {{ exp.endDate ? (exp.endDate | date:'MMM yyyy') : 'Present' }}
               </span>
             </div>
             <p class="description">{{ exp.description }}</p>
-            <ul class="achievements" *ngIf="exp.achievements?.length">
-              <li *ngFor="let achievement of exp.achievements">{{ achievement }}</li>
-            </ul>
             <div class="technologies" *ngIf="exp.technologies?.length">
               <span class="tech-tag" *ngFor="let tech of exp.technologies">{{ tech }}</span>
             </div>
@@ -109,25 +143,6 @@ import { Resume } from '../../../../shared/models/resume.model';
           </div>
         </section>
 
-        <!-- Education Section -->
-        <section class="education" *ngIf="resume.education?.length">
-          <h3>Education</h3>
-          <div class="education-item" *ngFor="let edu of resume.education">
-            <div class="education-header">
-              <h4>{{ edu.school }}</h4>
-              <span class="degree">{{ edu.degree }} in {{ edu.field }}</span>
-              <span class="date">
-                {{ edu.startDate }} - {{ edu.endDate || 'Present' }}
-              </span>
-            </div>
-            <p *ngIf="edu.gpa" class="gpa">GPA: {{ edu.gpa }}</p>
-            <p *ngIf="edu.description" class="description">{{ edu.description }}</p>
-            <ul class="achievements" *ngIf="edu.achievements?.length">
-              <li *ngFor="let achievement of edu.achievements">{{ achievement }}</li>
-            </ul>
-          </div>
-        </section>
-
         <!-- Certifications Section -->
         <section class="certifications" *ngIf="resume.certifications?.length">
           <h3>Certifications</h3>
@@ -135,17 +150,8 @@ import { Resume } from '../../../../shared/models/resume.model';
             <div class="certification-header">
               <h4>{{ cert.name }}</h4>
               <span class="organization">{{ cert.organization }}</span>
-              <span class="date">
-                Issued: {{ cert.issueDate }}
-                <span *ngIf="cert.expiryDate"> | Expires: {{ cert.expiryDate }}</span>
-              </span>
+              <span class="date">{{ cert.issueDate | date:'MMM yyyy' }}</span>
             </div>
-            <p class="description" *ngIf="cert.description">{{ cert.description }}</p>
-            <p class="credential" *ngIf="cert.credentialId">
-              Credential ID: 
-              <a *ngIf="cert.credentialUrl" [href]="cert.credentialUrl" target="_blank">{{ cert.credentialId }}</a>
-              <span *ngIf="!cert.credentialUrl">{{ cert.credentialId }}</span>
-            </p>
           </div>
         </section>
       </main>
@@ -153,354 +159,211 @@ import { Resume } from '../../../../shared/models/resume.model';
   `,
   styles: [`
     .professional-sidebar {
-      display: grid;
-      grid-template-columns: 250px 1fr;
-      gap: 1rem;
+      display: flex;
       max-width: 100%;
       margin: 0;
-      padding: 0.4rem;
-      font-family: 'Arial', sans-serif;
+      padding: 0;
+      font-family: 'Roboto', Arial, sans-serif;
       color: #2c3e50;
       background: #ffffff;
-      font-size: 0.7rem;
+      font-size: 0.62rem;
+      line-height: 1.2;
     }
 
     .sidebar {
+      width: 24%;
       background: #f8f9fa;
-      padding: 1rem;
+      padding: 0.5rem;
       border-right: 1px solid #e9ecef;
     }
 
+    .main-content {
+      width: 76%;
+      padding: 0.6rem;
+    }
+
     .profile {
-      text-align: center;
-      margin-bottom: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #dee2e6;
+      text-align: left;
+      margin-bottom: 0.3rem;
     }
 
     .name {
-      font-size: 1.1rem;
+      font-size: 0.85rem;
       color: #2c3e50;
       margin: 0;
       font-weight: 600;
     }
 
     .title {
-      font-size: 0.8rem;
+      font-size: 0.65rem;
       color: #6c757d;
-      margin: 0.2rem 0 0 0;
+      margin: 0.08rem 0;
+      font-weight: normal;
     }
 
     .contact-info {
-      margin-bottom: 1rem;
+      margin-bottom: 0.4rem;
     }
 
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
-      font-size: 0.7rem;
+      gap: 0.12rem;
+      margin-bottom: 0.12rem;
+      font-size: 0.6rem;
+      color: #495057;
 
       i {
-        color: #3498db;
-        width: 1rem;
-        text-align: center;
+        width: 0.65rem;
+        color: #6c757d;
       }
 
       a {
-        color: #2c3e50;
+        color: #495057;
         text-decoration: none;
-
+        
         &:hover {
-          color: #3498db;
+          color: #0056b3;
         }
       }
     }
 
-    .social-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #2c3e50;
-      text-decoration: none;
-      font-size: 0.7rem;
-
-      i {
-        color: #3498db;
-        width: 1rem;
-        text-align: center;
-      }
-
-      &:hover {
-        color: #3498db;
-      }
-    }
-
-    .skills-section, .languages-section {
-      margin-bottom: 1rem;
+    .skills {
+      margin-bottom: 0.4rem;
 
       h3 {
-        font-size: 0.8rem;
-        color: #2c3e50;
-        margin: 0 0 0.5rem 0;
-        padding-bottom: 0.2rem;
+        font-size: 0.68rem;
+        margin: 0 0 0.2rem 0;
+        padding-bottom: 0.08rem;
         border-bottom: 1px solid #dee2e6;
       }
+
+      h4 {
+        font-size: 0.6rem;
+        margin: 0.15rem 0 0.08rem 0;
+      }
+    }
+
+    .skills-group {
+      margin-bottom: 0.25rem;
+    }
+
+    .skills-list {
+      gap: 0.12rem;
+      margin-bottom: 0.12rem;
     }
 
     .skill-item {
-      margin-bottom: 0.5rem;
+      font-size: 0.6rem;
+      padding: 0.06rem 0.15rem;
     }
 
-    .skill-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.2rem;
-      font-size: 0.7rem;
-    }
-
-    .skill-bar {
-      height: 4px;
-      background: #e9ecef;
-      border-radius: 2px;
-      overflow: hidden;
-    }
-
-    .skill-progress {
-      height: 100%;
-      background: #3498db;
-      border-radius: 2px;
-    }
-
-    .language-item {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.3rem;
-      font-size: 0.7rem;
-    }
-
-    .main-content {
-      padding: 0 0.4rem;
-    }
-
-    section {
-      margin-bottom: 1rem;
-
+    .education {
       h3 {
-        font-size: 0.8rem;
-        color: #2c3e50;
-        margin: 0 0 0.5rem 0;
-        padding-bottom: 0.2rem;
-        border-bottom: 1px solid #3498db;
-      }
-    }
-
-    .summary-text {
-      font-size: 0.7rem;
-      line-height: 1.4;
-      color: #2c3e50;
-      margin: 0;
-    }
-
-    .timeline {
-      position: relative;
-      padding-left: 1rem;
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-bottom: 1rem;
-
-      &:before {
-        content: '';
-        position: absolute;
-        left: -0.5rem;
-        top: 0.25rem;
-        width: 0.5rem;
-        height: 0.5rem;
-        background: #3498db;
-        border-radius: 50%;
+        font-size: 0.68rem;
+        margin: 0 0 0.2rem 0;
+        padding-bottom: 0.08rem;
       }
 
-      &:after {
-        content: '';
-        position: absolute;
-        left: -0.25rem;
-        top: 0.5rem;
-        bottom: 0;
-        width: 1px;
-        background: #dee2e6;
+      .education-item {
+        margin-bottom: 0.25rem;
+        padding-bottom: 0.25rem;
       }
-
-      &:last-child {
-        padding-bottom: 0;
-
-        &:after {
-          display: none;
-        }
-      }
-    }
-
-    .timeline-content {
-      background: #f8f9fa;
-      padding: 0.5rem;
-      border-radius: 4px;
 
       h4 {
-        font-size: 0.75rem;
-        color: #2c3e50;
-        margin: 0;
-        font-weight: 600;
-      }
-    }
-
-    .company-info {
-      margin: 0.2rem 0;
-      font-size: 0.7rem;
-    }
-
-    .company {
-      color: #6c757d;
-    }
-
-    .date {
-      color: #6c757d;
-      margin-left: 0.5rem;
-    }
-
-    .description {
-      font-size: 0.7rem;
-      line-height: 1.4;
-      margin: 0.3rem 0;
-      color: #2c3e50;
-    }
-
-    .achievements {
-      margin: 0.3rem 0;
-      padding-left: 1rem;
-      list-style-type: none;
-
-      li {
-        font-size: 0.7rem;
-        line-height: 1.4;
-        margin-bottom: 0.2rem;
-        position: relative;
-
-        &:before {
-          content: "•";
-          position: absolute;
-          left: -0.8rem;
-          color: #3498db;
-        }
-      }
-    }
-
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem;
-      margin-top: 0.3rem;
-    }
-
-    .tech-tag {
-      font-size: 0.65rem;
-      padding: 0.1rem 0.3rem;
-      background: #e9ecef;
-      border-radius: 3px;
-      color: #2c3e50;
-    }
-
-    .projects-grid {
-      display: grid;
-      gap: 0.5rem;
-    }
-
-    .project-card {
-      background: #f8f9fa;
-      padding: 0.5rem;
-      border-radius: 4px;
-
-      h4 {
-        font-size: 0.75rem;
-        color: #2c3e50;
-        margin: 0;
-        font-weight: 600;
-      }
-    }
-
-    .project-links {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 0.3rem;
-    }
-
-    .project-link {
-      font-size: 0.7rem;
-      color: #3498db;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.2rem;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    .education-grid {
-      display: grid;
-      gap: 0.5rem;
-    }
-
-    .education-item {
-      background: #f8f9fa;
-      padding: 0.5rem;
-      border-radius: 4px;
-
-      h4 {
-        font-size: 0.75rem;
-        color: #2c3e50;
-        margin: 0;
-        font-weight: 600;
+        font-size: 0.65rem;
       }
 
       .degree {
-        font-size: 0.7rem;
-        color: #6c757d;
-        margin: 0.2rem 0;
+        font-size: 0.6rem;
+        margin: 0.06rem 0;
+        color: #495057;
+      }
+
+      .date {
+        font-size: 0.58rem;
+        margin: 0.06rem 0;
+      }
+
+      .description {
+        font-size: 0.6rem;
+        margin: 0.12rem 0;
+        line-height: 1.15;
       }
     }
 
-    .certifications-grid {
-      display: grid;
-      gap: 0.5rem;
-    }
+    section {
+      margin-bottom: 0.5rem;
 
-    .certification-card {
-      background: #f8f9fa;
-      padding: 0.5rem;
-      border-radius: 4px;
-
-      h4 {
-        font-size: 0.75rem;
+      h3 {
+        font-size: 0.7rem;
         color: #2c3e50;
-        margin: 0;
+        margin: 0 0 0.35rem 0;
         font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 0.1rem;
       }
+    }
 
-      .issuer {
-        font-size: 0.7rem;
-        color: #6c757d;
-        margin: 0.2rem 0;
+    .experience-item, .project-item, .education-item, .certification-item {
+      margin-bottom: 0.35rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid #f1f3f5;
+
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
       }
+    }
+
+    .experience-header, .project-header, .education-header, .certification-header {
+      margin-bottom: 0.15rem;
+    }
+
+    h4 {
+      font-size: 0.68rem;
+      color: #2c3e50;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .company, .organization, .school {
+      display: block;
+      font-size: 0.62rem;
+      color: #495057;
+      margin: 0.08rem 0;
+    }
+
+    .date {
+      display: block;
+      font-size: 0.62rem;
+      color: #6c757d;
+      margin: 0.08rem 0;
+    }
+
+    .description {
+      font-size: 0.62rem;
+      color: #495057;
+      margin: 0.15rem 0;
+      line-height: 1.2;
+    }
+
+    .technologies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.15rem;
+      margin-top: 0.15rem;
+    }
+
+    .tech-tag {
+      font-size: 0.62rem;
+      padding: 0.08rem 0.2rem;
+      background: #e9ecef;
+      border-radius: 2px;
+      color: #495057;
     }
 
     @media print {
@@ -511,28 +374,44 @@ import { Resume } from '../../../../shared/models/resume.model';
 
       .sidebar {
         background: #f8f9fa !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
+        width: 24% !important;
+        border-right: 1px solid #dee2e6 !important;
       }
 
-      .timeline-content, .project-card, .education-item, .certification-card {
-        background: #f8f9fa !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
+      .main-content {
+        width: 76% !important;
       }
 
-      .tech-tag {
+      .skill-item, .tech-tag {
         background: #e9ecef !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
+        border: 1px solid #dee2e6 !important;
+        color: black !important;
       }
 
       section {
         break-inside: avoid !important;
       }
 
-      .timeline-item, .project-card, .education-item, .certification-card {
+      .experience-item, .project-item, .education-item, .certification-item {
         break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        border-bottom: 1px solid #dee2e6 !important;
+      }
+
+      h3 {
+        border-bottom: 1px solid #dee2e6 !important;
+      }
+
+      h3, h4 {
+        color: black !important;
+      }
+
+      .company, .organization, .school, .description {
+        color: black !important;
+      }
+
+      .date {
+        color: #333 !important;
       }
     }
   `]

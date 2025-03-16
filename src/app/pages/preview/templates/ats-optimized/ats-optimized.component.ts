@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Resume } from '../../../../shared/models/resume.model';
+import { Resume, Skills } from '../../../../shared/models/resume.model';
 
 @Component({
   selector: 'app-ats-optimized',
@@ -45,25 +45,50 @@ import { Resume } from '../../../../shared/models/resume.model';
       </section>
 
       <!-- Skills -->
-      <section class="skills" *ngIf="resume.skills && (resume.skills.technical?.length || resume.skills.soft?.length)">
+      <section class="skills" *ngIf="resume.skills && hasSkills(resume.skills)">
         <h3>Skills</h3>
         
-        <!-- Technical Skills -->
-        <div class="skills-group" *ngIf="resume.skills.technical?.length">
-          <h4>Technical Skills</h4>
+        <div class="skills-group" *ngIf="resume.skills.programming_languages?.length">
+          <h4>Programming Languages</h4>
           <div class="skills-list">
-            <div *ngFor="let skill of resume.skills.technical" class="skill-item">
-              <span class="skill-name">{{ skill }}</span>
+            <div *ngFor="let skill of resume.skills.programming_languages" class="skill-item">
+              {{ skill }}
             </div>
           </div>
         </div>
 
-        <!-- Soft Skills -->
-        <div class="skills-group" *ngIf="resume.skills.soft?.length">
-          <h4>Soft Skills</h4>
+        <div class="skills-group" *ngIf="resume.skills.frameworks_platforms?.length">
+          <h4>Frameworks & Platforms</h4>
           <div class="skills-list">
-            <div *ngFor="let skill of resume.skills.soft" class="skill-item">
-              <span class="skill-name">{{ skill }}</span>
+            <div *ngFor="let skill of resume.skills.frameworks_platforms" class="skill-item">
+              {{ skill }}
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-group" *ngIf="resume.skills.cloud_infrastructure?.length">
+          <h4>Cloud & Infrastructure</h4>
+          <div class="skills-list">
+            <div *ngFor="let skill of resume.skills.cloud_infrastructure" class="skill-item">
+              {{ skill }}
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-group" *ngIf="resume.skills.databases?.length">
+          <h4>Databases</h4>
+          <div class="skills-list">
+            <div *ngFor="let skill of resume.skills.databases" class="skill-item">
+              {{ skill }}
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-group" *ngIf="resume.skills.methodologies_practices?.length">
+          <h4>Methodologies & Practices</h4>
+          <div class="skills-list">
+            <div *ngFor="let skill of resume.skills.methodologies_practices" class="skill-item">
+              {{ skill }}
             </div>
           </div>
         </div>
@@ -359,4 +384,14 @@ import { Resume } from '../../../../shared/models/resume.model';
 })
 export class AtsOptimizedComponent {
   @Input() resume!: Resume;
+
+  hasSkills(skills: Skills): boolean {
+    return !!(
+      skills.programming_languages?.length ||
+      skills.frameworks_platforms?.length ||
+      skills.cloud_infrastructure?.length ||
+      skills.databases?.length ||
+      skills.methodologies_practices?.length
+    );
+  }
 } 

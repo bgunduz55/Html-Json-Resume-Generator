@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { ResumeService } from '../../shared/services/resume.service';
-import { TemplateService } from '../../shared/services/template.service';
+import { TemplateService } from '../../services/template.service';
 import { Resume } from '../../shared/models/resume.model';
 import { Subscription } from 'rxjs';
 import { ModernProfessionalComponent } from './templates/modern-professional/modern-professional.component';
@@ -16,8 +16,8 @@ import { AtsOptimizedComponent } from './templates/ats-optimized/ats-optimized.c
 })
 export class PreviewComponent implements OnInit, OnDestroy {
   @ViewChild('previewContent') previewContent!: ElementRef;
-  resume!: Resume;
-  selectedTemplateId: string = 'classic-elegant';
+  resume: Resume | null = null;
+  selectedTemplateId: string;
   isGeneratingPdf = false;
   private subscriptions: Subscription[] = [];
 
@@ -26,32 +26,43 @@ export class PreviewComponent implements OnInit, OnDestroy {
     { id: 'creative-portfolio', name: 'Creative Portfolio' },
     { id: 'classic-elegant', name: 'Classic Elegant' },
     { id: 'ats-optimized', name: 'ATS Optimized' },
-    { id: 'professional-sidebar', name: 'Professional Sidebar' }
+    { id: 'professional-sidebar', name: 'Professional Sidebar' },
+    { id: 'minimal-clean', name: 'Minimal Clean' },
+    { id: 'tech-modern', name: 'Tech Modern' }
   ];
 
   constructor(
     private resumeService: ResumeService,
     private templateService: TemplateService
-  ) {}
+  ) {
+    // Get the last selected template from service
+    this.selectedTemplateId = this.templateService.getCurrentTemplate();
+  }
 
   ngOnInit(): void {
     // Subscribe to resume updates
     this.subscriptions.push(
-      this.resumeService.getResume().subscribe(resume => {
+      this.resumeService.currentResume$.subscribe(resume => {
         if (resume) {
           this.resume = resume;
         }
       })
     );
+
+    // Subscribe to template changes
+    this.templateService.templateChange$.subscribe(templateId => {
+      this.selectedTemplateId = templateId;
+    });
   }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
-  onTemplateChange() {
-    // Template değişikliği artık sadece local state'i güncelliyor
-    // Herhangi bir service çağrısına gerek yok
+  onTemplateChange(event: Event): void {
+    // const select = event.target as HTMLSelectElement;
+    this.templateService.setTemplate(this.selectedTemplateId);
+    console.log(this.selectedTemplateId);
   }
 
   downloadPDF() {

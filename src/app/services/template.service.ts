@@ -1,16 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Resume, Skills } from '../shared/models/resume.model';
-
-export interface Template {
-  id: string;
-  name: string;
-  description: string;
-  isAtsOptimized: boolean;
-  previewImageUrl: string;
-  keywords?: string[];
-  category: 'modern' | 'classic' | 'creative' | 'minimal';
-}
+import { Template } from '../shared/models/template.model';
 
 interface ValidationResult {
   isValid: boolean;
@@ -22,7 +13,7 @@ interface ValidationResult {
 })
 export class TemplateService {
   private readonly STORAGE_KEY = 'selectedTemplate';
-  private templateSubject = new BehaviorSubject<string>('modern-professional');
+  private templateSubject = new BehaviorSubject<string>('creative-portfolio');
   public readonly templateChange$: Observable<string> = this.templateSubject.asObservable();
 
   private templates: Template[] = [
@@ -74,10 +65,12 @@ export class TemplateService {
   ];
 
   constructor() {
-    // Load saved template from localStorage
     const savedTemplate = localStorage.getItem(this.STORAGE_KEY);
     if (savedTemplate) {
       this.templateSubject.next(savedTemplate);
+    } else {
+      // Set default template and save to localStorage
+      this.setTemplate('creative-portfolio');
     }
   }
 
@@ -100,7 +93,9 @@ export class TemplateService {
   }
 
   getCurrentTemplate(): string {
-    return this.templateSubject.value;
+    const templateId: string = localStorage.getItem(this.STORAGE_KEY) || 'classic-elegant';
+    this.templateSubject.next(templateId);
+    return templateId;
   }
 
   // ATS Optimization Methods
@@ -134,7 +129,7 @@ export class TemplateService {
     }
 
     // Skills check
-    if (resume.skills && resume.skills.technical && resume.skills.technical.length > 0) {
+    if (resume.skills && this.hasSkills(resume.skills)) {
       score += weights.skills;
     }
 
@@ -161,9 +156,9 @@ export class TemplateService {
       tips.push('Add education details to complete your profile');
     }
 
-    if (!resume.skills?.technical?.length && !resume.skills?.soft?.length) {
+    if (!resume.skills || !this.hasSkills(resume.skills)) {
       tips.push('Add more skills to improve keyword matching');
-    } else if (resume.skills?.technical && resume.skills.technical.length < 5) {
+    } else if (this.countSkills(resume.skills) < 5) {
       tips.push('Consider adding more relevant skills');
     }
 
@@ -227,10 +222,8 @@ export class TemplateService {
     }
 
     // Validate skills
-    const skillsValidation = this.validateSkills(resume);
-    if (!skillsValidation.isValid) {
-      errors.push(skillsValidation.message || 'Skills validation failed');
-    }
+    const skillsErrors = this.validateSkills(resume);
+    errors.push(...skillsErrors);
 
     // Validate work experience
     if (!resume.workExperience || resume.workExperience.length === 0) {
@@ -259,35 +252,42 @@ export class TemplateService {
     return errors;
   }
 
-  private validateSkills(resume: Resume): ValidationResult {
+  private validateSkills(resume: Resume): string[] {
+    const errors: string[] = [];
+    
     if (!resume.skills) {
-      return {
-        isValid: false,
-        message: 'Skills section is required'
-      };
+      errors.push('Skills section is missing');
+      return errors;
     }
 
-    const technicalSkills = resume.skills.technical || [];
-    const softSkills = resume.skills.soft || [];
-
-    if (technicalSkills.length === 0 && softSkills.length === 0) {
-      return {
-        isValid: false,
-        message: 'At least one skill is required'
-      };
+    const totalSkills = this.countSkills(resume.skills);
+    
+    if (totalSkills === 0) {
+      errors.push('Add at least 5 skills to showcase your expertise');
+    } else if (totalSkills < 5) {
+      errors.push(`Add ${5 - totalSkills} more skills to better represent your capabilities`);
     }
 
-    if (technicalSkills.length < 3) {
-      return {
-        isValid: false,
-        message: 'At least 3 technical skills are recommended'
-      };
-    }
-
-    return { isValid: true };
+    return errors;
   }
 
   private countSkills(skills: Skills): number {
-    return (skills.technical?.length || 0) + (skills.soft?.length || 0);
+    return (
+      (skills.programming_languages?.length || 0) +
+      (skills.frameworks_platforms?.length || 0) +
+      (skills.cloud_infrastructure?.length || 0) +
+      (skills.databases?.length || 0) +
+      (skills.methodologies_practices?.length || 0)
+    );
+  }
+
+  private hasSkills(skills: Skills): boolean {
+    return !!(
+      skills.programming_languages?.length ||
+      skills.frameworks_platforms?.length ||
+      skills.cloud_infrastructure?.length ||
+      skills.databases?.length ||
+      skills.methodologies_practices?.length
+    );
   }
 } 

@@ -11,22 +11,23 @@
     "appStore": "https://apps.apple.com/ua/developer/burak-gunduz/id1552965916",
     "languages": ["Turkish (Native)", "English (Professional Working)"]
   },
-  "summary": "Results-driven Senior Full Stack Software Engineer with 9+ years of expertise in enterprise software architecture and development. Proven track record of delivering high-performance, scalable solutions in fintech and enterprise systems. Core competencies include:\n\n• Software Architecture: Microservices design, distributed systems, high-availability solutions (99.99% uptime)\n• Backend Development: Java (Spring Boot, Spring Cloud), RESTful APIs, WebSocket, Enterprise Integration\n• Frontend Development: Angular, TypeScript, RxJS, State Management (NGXS/NgRx)\n• Mobile Development: Native (Android/Kotlin, iOS/Swift) and Cross-platform (Flutter/Dart)\n• DevOps & Cloud: Docker, Kubernetes, AWS, Azure, CI/CD automation\n• Database Engineering: PostgreSQL, MongoDB, Oracle, MySQL, Redis, TimescaleDB\n\nKey Achievements:\n• Architected and scaled payment processing platform handling $100M+ annual transactions\n• Reduced system response time by 45% through microservices implementation\n• Improved application performance by 60% through database optimization\n• Led and mentored teams of 8+ developers, achieving 95% sprint completion rate\n• Implemented secure payment solutions compliant with PCI-DSS standards",
+  "summary": "Results-driven Senior Full Stack Software Engineer with 9+ years of expertise in enterprise software architecture and development. Proven track record of delivering high-performance, scalable solutions in fintech and enterprise systems. Core competencies include:\n\n• Technical Leadership: Led and mentored development teams, driving innovation and best practices\n• Back-End Development: Java (Spring Boot, Spring Cloud), RESTful APIs, WebSocket, Enterprise Integration\n• Front-End Development: Angular, TypeScript, RxJS, State Management (NGXS/NgRx)\n• Computer Science Expertise: Distributed systems, algorithms, and advanced data structures\n• Data & Analytics: Machine Learning integration, AI solutions, Data Modeling\n• Mobile Development: Native (Android/Kotlin, iOS/Swift) and Cross-platform (Flutter/Dart)\n• DevOps & Cloud: Docker, Kubernetes, AWS, Azure, CI/CD automation, Monitoring\n• Database Engineering: PostgreSQL, MongoDB, Oracle, MySQL, Redis, TimescaleDB\n\nKey Achievements:\n• Led innovative solutions for payment processing platform handling $100M+ annual transactions\n• Collaborated with cross-functional teams to reduce system response time by 45% through microservices implementation\n• Improved application performance by 60% through technical optimization and coding best practices\n• Led and mentored teams of 8+ developers, achieving 95% sprint completion rate\n• Implemented secure payment solutions compliant with PCI-DSS standards",
   "workExperience": [
     {
       "title": "Senior Full Stack Engineer",
       "company": "Dgpays",
       "startDate": "2020/05/01",
       "endDate": "2024/11/30",
-      "description": "Lead architect and developer for enterprise payment processing systems and mobile applications, focusing on scalability, security, and performance optimization.",
+      "description": "Lead architect and developer for enterprise payment processing systems and mobile applications, demonstrating technical leadership in scalability, security, and performance optimization. Implemented advanced analytics and monitoring solutions.",
       "achievements": [
-        "Architected and implemented Paycell MPOS system processing $50M+ monthly transactions with 99.99% uptime",
-        "Designed and implemented microservices architecture reducing system latency by 45% and improving scalability by 300%",
-        "Led migration from monolithic to microservices architecture, improving system maintainability by 60%",
-        "Served as Scrum Master for an 8-person development team, achieving 95% sprint velocity",
+        "Led back-end architecture for Paycell MPOS system processing $50M+ monthly transactions with 99.99% uptime",
+        "Collaborated with teams to design and implement microservices architecture reducing system latency by 45%",
+        "Implemented AI-powered fraud detection and analytics system reducing fraud incidents by 70%",
+        "Developed comprehensive monitoring and analytics dashboard for real-time system performance",
+        "Led and mentored an 8-person development team, fostering collaboration and achieving 95% sprint velocity",
         "Implemented automated CI/CD pipelines reducing deployment time from 2 hours to 15 minutes",
-        "Developed and launched PTT Akıllı Esnaf platform, successfully onboarding 50K+ merchants with 98% satisfaction rate",
-        "Implemented PCI-DSS compliant payment processing system handling 100K+ daily transactions"
+        "Developed innovative middleware solutions for PTT Akıllı Esnaf platform, successfully onboarding 50K+ merchants",
+        "Applied computer science principles to implement PCI-DSS compliant payment processing system"
       ],
       "technologies": [
         "Java 11/17",
@@ -177,18 +178,20 @@
   "skills": {
     "programming_languages": [
       "Java (Expert - Spring Boot, Spring Cloud, JPA/Hibernate)",
+      "Python (Expert - Data Analysis, Machine Learning, AI)",
       "Kotlin (Advanced - Android, Coroutines)",
       "TypeScript (Expert - Angular, RxJS, NGXS)",
       "JavaScript (Expert - Node.js, Express, React)",
-      "Python (Proficient - Data Analysis)",
       "C# (Proficient - .NET Core)",
       "Dart (Advanced - Flutter, BLoC)",
       "Swift (Intermediate - iOS)",
       "PHP (Proficient - Laravel, CodeIgniter)"
     ],
     "frameworks_platforms": [
-      "Spring Framework (Boot, Cloud, Security)",
-      "Angular (2+ through 15+)",
+      "Back-End: Spring Framework (Boot, Cloud, Security)",
+      "Front-End: Angular (2+ through 15+)",
+      "Machine Learning: TensorFlow, scikit-learn",
+      "Middleware Systems: Apache Kafka, RabbitMQ",
       "Flutter (Mobile, Web)",
       "Node.js (Express, Socket.io)",
       "Laravel/CodeIgniter",
@@ -200,12 +203,13 @@
       "Azure (AKS, App Service)",
       "Docker (Containerization)",
       "Kubernetes (Orchestration)",
+      "System Monitoring & Analytics",
       "Linux System Administration",
       "Nginx/Apache",
       "CI/CD (Jenkins, GitLab)"
     ],
     "databases": [
-      "PostgreSQL (Expert - Performance Tuning)",
+      "PostgreSQL (Expert - Performance Tuning, Data Modeling)",
       "MongoDB (Expert - Aggregation, Sharding)",
       "Oracle DB (Advanced - PL/SQL)",
       "MySQL (Expert - Optimization, Replication)",
@@ -214,24 +218,30 @@
       "Cassandra (Distributed Systems)"
     ],
     "methodologies_practices": [
+      "Technical Leadership & Innovation",
+      "Computer Science Fundamentals",
+      "Modern Tech Stack Architecture",
+      "AI & Machine Learning Integration",
+      "Data Analytics & Modeling",
       "Microservices Architecture",
       "Domain-Driven Design",
       "Test-Driven Development",
       "Agile/Scrum (Certified)",
-      "DevOps Practices",
+      "DevOps & Coding Best Practices",
       "Security Best Practices",
-      "Design Patterns"
+      "Design Patterns",
+      "Cross-team Collaboration"
     ]
   },
   "projects": [
     {
       "name": "Paycell MPOS Payment System",
-      "description": "Architected and implemented a high-throughput payment processing system with emphasis on security, scalability, and reliability.",
+      "description": "Architected and implemented a high-throughput payment processing system with emphasis on security, scalability, and reliability. Integrated AI-powered analytics and monitoring solutions.",
       "achievements": [
         "Processed $50M+ monthly transactions with 99.99% uptime",
-        "Reduced transaction processing time by 45%",
-        "Achieved PCI-DSS compliance certification",
-        "Implemented real-time fraud detection reducing incidents by 60%"
+        "Implemented machine learning based fraud detection reducing incidents by 60%",
+        "Developed real-time monitoring and analytics dashboard",
+        "Achieved PCI-DSS compliance certification"
       ],
       "technologies": [
         "Java/Spring Boot",
@@ -239,7 +249,9 @@
         "PostgreSQL",
         "Redis",
         "Docker",
-        "Kubernetes"
+        "Kubernetes",
+        "Machine Learning",
+        "Analytics Dashboard"
       ]
     },
     {

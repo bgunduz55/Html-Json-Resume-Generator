@@ -46,11 +46,11 @@ export class ResumeService {
       workExperience: [],
       education: [],
       skills: {
-        technical: [],
-        soft: [],
+        programming_languages: [],
+        frameworks_platforms: [],
+        cloud_infrastructure: [],
         databases: [],
-        technologies: [],
-        programs: []
+        methodologies_practices: []
       },
       projects: [],
       certifications: []
@@ -93,7 +93,7 @@ export class ResumeService {
 
     // Initialize skills object if it doesn't exist
     if (!resume.skills || typeof resume.skills !== 'object') {
-      resume.skills = { technical: [], soft: [] };
+      resume.skills = { programming_languages: [], frameworks_platforms: [], cloud_infrastructure: [], databases: [], methodologies_practices: [] };
     }
 
     // Initialize personal info if it doesn't exist
@@ -197,5 +197,32 @@ export class ResumeService {
       };
       this.updateResume(updatedResume);
     }
+  }
+
+  private initializeResume(): Resume {
+    return {
+      personalInfo: {
+        fullName: '',
+        title: '',
+        email: '',
+        phone: '',
+        location: '',
+        website: '',
+        linkedin: '',
+        github: ''
+      },
+      summary: '',
+      workExperience: [],
+      education: [],
+      skills: {
+        programming_languages: [],
+        frameworks_platforms: [],
+        cloud_infrastructure: [],
+        databases: [],
+        methodologies_practices: []
+      },
+      projects: [],
+      certifications: []
+    };
   }
 }
