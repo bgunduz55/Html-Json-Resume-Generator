@@ -8,17 +8,17 @@ import { Resume } from '../../../../shared/models/resume.model';
       <!-- Hero Section -->
       <section class="hero">
         <div class="hero-content">
-          <h1 class="name">{{ resume.personalInfo?.fullName || 'Your Name' }}</h1>
-          <h2 class="title">{{ resume.personalInfo?.title || 'Your Professional Title' }}</h2>
+          <h1 class="name">{{ resume.personalInfo.fullName }}</h1>
+          <h2 class="title">{{ resume.personalInfo.title || 'Your Professional Title' }}</h2>
           <div class="social-links">
-            <a *ngIf="resume.personalInfo?.linkedin" [href]="formatUrl(resume.personalInfo?.linkedin)" target="_blank" class="social-link">
-              <i class="bi bi-linkedin"></i>
+            <a *ngIf="resume.personalInfo.linkedin" [href]="formatUrl(resume.personalInfo.linkedin)" target="_blank" class="social-link">
+              <i class="fab fa-linkedin"></i>
             </a>
-            <a *ngIf="resume.personalInfo?.github" [href]="formatUrl(resume.personalInfo?.github)" target="_blank" class="social-link">
-              <i class="bi bi-github"></i>
+            <a *ngIf="resume.personalInfo.github" [href]="formatUrl(resume.personalInfo.github)" target="_blank" class="social-link">
+              <i class="fab fa-github"></i>
             </a>
-            <a *ngIf="resume.personalInfo?.website" [href]="formatUrl(resume.personalInfo?.website)" target="_blank" class="social-link">
-              <i class="bi bi-globe"></i>
+            <a *ngIf="resume.personalInfo.website" [href]="formatUrl(resume.personalInfo.website)" target="_blank" class="social-link">
+              <i class="fas fa-globe"></i>
             </a>
           </div>
         </div>
@@ -26,146 +26,125 @@ import { Resume } from '../../../../shared/models/resume.model';
 
       <!-- Contact Info -->
       <section class="contact-info">
-        <div class="contact-item" *ngIf="resume.personalInfo?.email">
-          <i class="bi bi-envelope"></i>
-          <a [href]="'mailto:' + resume.personalInfo?.email">{{ resume.personalInfo?.email }}</a>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a [href]="'mailto:' + resume.personalInfo.email">{{ resume.personalInfo.email }}</a>
         </div>
-        <div class="contact-item" *ngIf="resume.personalInfo?.phone">
-          <i class="bi bi-telephone"></i>
-          <a [href]="'tel:' + resume.personalInfo?.phone">{{ resume.personalInfo?.phone }}</a>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <a [href]="'tel:' + resume.personalInfo.phone">{{ resume.personalInfo.phone }}</a>
         </div>
-        <div class="contact-item" *ngIf="resume.personalInfo?.location">
-          <i class="bi bi-geo-alt"></i>
-          <span>{{ resume.personalInfo?.location }}</span>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>{{ resume.personalInfo.location }}</span>
         </div>
       </section>
 
-      <!-- Summary Section -->
+      <!-- Summary -->
       <section class="summary" *ngIf="resume.summary">
-        <div class="section-content">
-          <h3>About Me</h3>
-          <p [innerHTML]="formatText(resume.summary)"></p>
-        </div>
+        <h3>Professional Summary</h3>
+        <p>{{ resume.summary }}</p>
       </section>
 
-      <!-- Skills Section -->
-      <section class="skills" *ngIf="resume.skills?.technical?.length || resume.skills?.soft?.length">
-        <div class="section-content">
-          <h3>Skills & Expertise</h3>
-          <div class="skills-grid">
-            <div class="technical-skills" *ngIf="resume.skills?.technical?.length">
-              <h4>Technical Skills</h4>
-              <div class="skill-tags">
-                <span class="skill-tag" *ngFor="let skill of resume.skills?.technical">{{ skill }}</span>
-              </div>
+      <!-- Skills -->
+      <section class="skills" *ngIf="resume.skills">
+        <h3>Skills</h3>
+        
+        <!-- Technical Skills -->
+        <div class="skills-group" *ngIf="resume.skills.technical && resume.skills.technical.length > 0">
+          <h4>Technical Skills</h4>
+          <div class="skills-list">
+            <div *ngFor="let skill of resume.skills.technical" class="skill-item">
+              <span class="skill-name">{{ skill }}</span>
             </div>
-            <div class="soft-skills" *ngIf="resume.skills?.soft?.length">
-              <h4>Soft Skills</h4>
-              <div class="skill-tags">
-                <span class="skill-tag" *ngFor="let skill of resume.skills?.soft">{{ skill }}</span>
-              </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skills-group" *ngIf="resume.skills.soft && resume.skills.soft.length > 0">
+          <h4>Soft Skills</h4>
+          <div class="skills-list">
+            <div *ngFor="let skill of resume.skills.soft" class="skill-item">
+              <span class="skill-name">{{ skill }}</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Projects Section -->
-      <section class="projects" *ngIf="resume.projects?.length">
-        <div class="section-content">
-          <h3>Featured Projects</h3>
-          <div class="projects-grid">
-            <div class="project-card" *ngFor="let project of resume.projects">
-              <h4>{{ project.name }}</h4>
-              <p class="description" [innerHTML]="formatText(project.description)"></p>
-              <div class="technologies" *ngIf="project.technologies?.length">
-                <span class="tech-tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
+      <!-- Experience -->
+      <section class="experience" *ngIf="resume.workExperience && resume.workExperience.length > 0">
+        <h3>Professional Experience</h3>
+        <div class="timeline">
+          <div *ngFor="let exp of resume.workExperience" class="timeline-item">
+            <div class="timeline-content">
+              <h4>{{ exp.title }}</h4>
+              <div class="company-info">
+                <span class="company">{{ exp.company }}</span>
               </div>
-              <ul class="achievements" *ngIf="project.achievements?.length">
-                <li *ngFor="let achievement of project.achievements">{{ achievement }}</li>
+              <span class="date">{{ exp.startDate }} - {{ exp.endDate || 'Present' }}</span>
+              <p class="description">{{ exp.description }}</p>
+              <ul class="achievements" *ngIf="exp.achievements && exp.achievements.length > 0">
+                <li *ngFor="let achievement of exp.achievements">{{ achievement }}</li>
               </ul>
-              <div class="project-links">
-                <a *ngIf="project.link" [href]="formatUrl(project.link)" target="_blank" class="project-link">
-                  <i class="bi bi-link-45deg"></i> View Project
-                </a>
+              <div class="tech-stack" *ngIf="exp.technologies && exp.technologies.length > 0">
+                <span class="tech-tag" *ngFor="let tech of exp.technologies">{{ tech }}</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Education Section -->
-      <section class="education" *ngIf="resume.education?.length">
-        <div class="section-content">
-          <h3>Education</h3>
-          <div class="education-grid">
-            <div class="education-card" *ngFor="let edu of resume.education">
-              <h4>{{ edu.school }}</h4>
-              <p class="degree">{{ edu.degree }} in {{ edu.field }}</p>
-              <p class="date">
-                {{ formatDate(edu.startDate) }} - 
-                {{ edu.current ? 'Present' : formatDate(edu.endDate) }}
-              </p>
-              <p *ngIf="edu.gpa" class="gpa">GPA: {{ edu.gpa }}</p>
-              <p *ngIf="edu.description" class="description" [innerHTML]="formatText(edu.description)"></p>
-              <ul class="achievements" *ngIf="edu.achievements?.length">
-                <li *ngFor="let achievement of edu.achievements">{{ achievement }}</li>
-              </ul>
+      <!-- Education -->
+      <section class="education" *ngIf="resume.education && resume.education.length > 0">
+        <h3>Education</h3>
+        <div class="education-grid">
+          <div *ngFor="let edu of resume.education" class="education-item">
+            <h4>{{ edu.school }}</h4>
+            <p class="degree">{{ edu.degree }} in {{ edu.field }}</p>
+            <span class="date">{{ edu.startDate }} - {{ edu.endDate || 'Present' }}</span>
+            <p class="gpa" *ngIf="edu.gpa">GPA: {{ edu.gpa }}</p>
+            <p class="description" *ngIf="edu.description">{{ edu.description }}</p>
+            <ul class="achievements" *ngIf="edu.achievements && edu.achievements.length > 0">
+              <li *ngFor="let achievement of edu.achievements">{{ achievement }}</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="projects" *ngIf="resume.projects && resume.projects.length > 0">
+        <h3>Featured Projects</h3>
+        <div class="projects-grid">
+          <div *ngFor="let project of resume.projects" class="project-card">
+            <h4>{{ project.name }}</h4>
+            <p class="description">{{ project.description }}</p>
+            <div class="tech-stack">
+              <span *ngFor="let tech of project.technologies" class="tech-tag">{{ tech }}</span>
+            </div>
+            <div class="project-links">
+              <a *ngIf="project.link" [href]="formatUrl(project.link)" target="_blank" class="project-link">
+                <i class="fas fa-external-link-alt"></i> View Project
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Experience Section -->
-      <section class="experience" *ngIf="resume.workExperience?.length">
-        <div class="section-content">
-          <br>
-          <h3>Work Experience</h3>
-          <div class="timeline">
-            <div class="timeline-item" *ngFor="let exp of resume.workExperience">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <h4>{{ exp.title }}</h4>
-                <div class="company-info">
-                  <span class="company">{{ exp.company }}</span>
-                  <span class="date">
-                    {{ formatDate(exp.startDate) }} - 
-                    {{ exp.current ? 'Present' : formatDate(exp.endDate) }}
-                  </span>
-                </div>
-                <p class="description" [innerHTML]="formatText(exp.description)"></p>
-                <ul class="achievements" *ngIf="exp.achievements?.length">
-                  <li *ngFor="let achievement of exp.achievements">{{ achievement }}</li>
-                </ul>
-                <div class="technologies" *ngIf="exp.technologies?.length">
-                  <span class="tech-tag" *ngFor="let tech of exp.technologies">{{ tech }}</span>
-                </div>
-              </div>
+      <!-- Certifications -->
+      <section class="certifications" *ngIf="resume.certifications && resume.certifications.length > 0">
+        <h3>Certifications</h3>
+        <div class="certifications-grid">
+          <div *ngFor="let cert of resume.certifications" class="certification-card">
+            <h4>{{ cert.name }}</h4>
+            <p class="issuer">{{ cert.organization }}</p>
+            <span class="date">{{ cert.issueDate }}</span>
+            <p class="credential" *ngIf="cert.credentialId">Credential ID: {{ cert.credentialId }}</p>
+            <div class="cert-links" *ngIf="cert.credentialUrl">
+              <a [href]="formatUrl(cert.credentialUrl)" target="_blank" class="cert-link">
+                <i class="fas fa-external-link-alt"></i> Verify
+              </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Certifications Section -->
-      <section class="certifications" *ngIf="resume.certifications?.length">
-        <div class="section-content">
-          <h3>Certifications</h3>
-          <div class="certifications-grid">
-            <div class="certification-card" *ngFor="let cert of resume.certifications">
-              <h4>{{ cert.name }}</h4>
-              <p class="organization">{{ cert.organization }}</p>
-              <p class="date">
-                Issued: {{ formatDate(cert.issueDate) }}
-                <span *ngIf="cert.expiryDate"> | Expires: {{ formatDate(cert.expiryDate) }}</span>
-              </p>
-              <p *ngIf="cert.description" class="description" [innerHTML]="formatText(cert.description)"></p>
-              <p *ngIf="cert.credentialId" class="credential">
-                Credential ID: 
-                <a *ngIf="cert.credentialUrl" [href]="formatUrl(cert.credentialUrl)" target="_blank">
-                  {{ cert.credentialId }}
-                </a>
-                <span *ngIf="!cert.credentialUrl">{{ cert.credentialId }}</span>
-              </p>
-            </div>
+            <p class="description" *ngIf="cert.description">{{ cert.description }}</p>
           </div>
         </div>
       </section>
@@ -748,7 +727,7 @@ import { Resume } from '../../../../shared/models/resume.model';
   `]
 })
 export class CreativePortfolioComponent {
-  @Input() resume: Resume | null = null;
+  @Input() resume!: Resume;
 
   formatUrl(url: string | undefined): string {
     if (!url) return '#';
