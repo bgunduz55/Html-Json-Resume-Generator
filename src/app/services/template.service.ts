@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Resume } from '../models/resume.model';
+import { Resume, Skills } from '../shared/models/resume.model';
 
 export interface Template {
   id: string;
@@ -10,6 +10,11 @@ export interface Template {
   previewImageUrl: string;
   keywords?: string[];
   category: 'modern' | 'classic' | 'creative' | 'minimal';
+}
+
+interface ValidationResult {
+  isValid: boolean;
+  message?: string;
 }
 
 @Injectable({
@@ -112,7 +117,7 @@ export class TemplateService {
     // Personal Info check
     if (resume.personalInfo) {
       const info = resume.personalInfo;
-      if (info.name) score += weights.personalInfo * 0.3;
+      if (info.fullName) score += weights.personalInfo * 0.3;
       if (info.email) score += weights.personalInfo * 0.3;
       if (info.phone) score += weights.personalInfo * 0.2;
       if (info.location) score += weights.personalInfo * 0.2;
@@ -129,7 +134,7 @@ export class TemplateService {
     }
 
     // Skills check
-    if (resume.skills && resume.skills.length > 0) {
+    if (resume.skills && resume.skills.technical && resume.skills.technical.length > 0) {
       score += weights.skills;
     }
 
@@ -144,7 +149,7 @@ export class TemplateService {
   getAtsOptimizationTips(resume: Resume): string[] {
     const tips: string[] = [];
 
-    if (!resume.personalInfo?.summary) {
+    if (!resume.summary) {
       tips.push('Add a professional summary to improve visibility');
     }
 
@@ -156,9 +161,9 @@ export class TemplateService {
       tips.push('Add education details to complete your profile');
     }
 
-    if (!resume.skills?.length) {
+    if (!resume.skills?.technical?.length && !resume.skills?.soft?.length) {
       tips.push('Add more skills to improve keyword matching');
-    } else if (resume.skills.length < 5) {
+    } else if (resume.skills?.technical && resume.skills.technical.length < 5) {
       tips.push('Consider adding more relevant skills');
     }
 
@@ -206,5 +211,83 @@ export class TemplateService {
   private generateTechModernTemplate(resume: Resume): string {
     // Template implementation
     return '';
+  }
+
+  validateResume(resume: Resume): string[] {
+    const errors: string[] = [];
+
+    // Validate personal info
+    if (!resume.personalInfo) {
+      errors.push('Personal information is required');
+    } else {
+      if (!resume.personalInfo.fullName) errors.push('Name is required');
+      if (!resume.personalInfo.email) errors.push('Email is required');
+      if (!resume.personalInfo.phone) errors.push('Phone number is required');
+      if (!resume.personalInfo.location) errors.push('Location is required');
+    }
+
+    // Validate skills
+    const skillsValidation = this.validateSkills(resume);
+    if (!skillsValidation.isValid) {
+      errors.push(skillsValidation.message || 'Skills validation failed');
+    }
+
+    // Validate work experience
+    if (!resume.workExperience || resume.workExperience.length === 0) {
+      errors.push('At least one work experience entry is required');
+    } else {
+      resume.workExperience.forEach((exp, index) => {
+        if (!exp.company) errors.push(`Work experience ${index + 1}: Company name is required`);
+        if (!exp.title) errors.push(`Work experience ${index + 1}: Title is required`);
+        if (!exp.startDate) errors.push(`Work experience ${index + 1}: Start date is required`);
+        if (!exp.description) errors.push(`Work experience ${index + 1}: Description is required`);
+      });
+    }
+
+    // Validate education
+    if (!resume.education || resume.education.length === 0) {
+      errors.push('At least one education entry is required');
+    } else {
+      resume.education.forEach((edu, index) => {
+        if (!edu.school) errors.push(`Education ${index + 1}: School name is required`);
+        if (!edu.degree) errors.push(`Education ${index + 1}: Degree is required`);
+        if (!edu.field) errors.push(`Education ${index + 1}: Field of study is required`);
+        if (!edu.startDate) errors.push(`Education ${index + 1}: Start date is required`);
+      });
+    }
+
+    return errors;
+  }
+
+  private validateSkills(resume: Resume): ValidationResult {
+    if (!resume.skills) {
+      return {
+        isValid: false,
+        message: 'Skills section is required'
+      };
+    }
+
+    const technicalSkills = resume.skills.technical || [];
+    const softSkills = resume.skills.soft || [];
+
+    if (technicalSkills.length === 0 && softSkills.length === 0) {
+      return {
+        isValid: false,
+        message: 'At least one skill is required'
+      };
+    }
+
+    if (technicalSkills.length < 3) {
+      return {
+        isValid: false,
+        message: 'At least 3 technical skills are recommended'
+      };
+    }
+
+    return { isValid: true };
+  }
+
+  private countSkills(skills: Skills): number {
+    return (skills.technical?.length || 0) + (skills.soft?.length || 0);
   }
 } 

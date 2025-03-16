@@ -5,11 +5,11 @@
       <select 
         id="template-select" 
         class="form-select" 
-        [(ngModel)]="selectedTemplate" 
-        (ngModelChange)="onTemplateChange($event)">
-        <option value="modern-professional">Modern Professional</option>
-        <option value="classic-elegant">Classic Elegant</option>
-        <option value="creative-portfolio">Creative Portfolio</option>
+        [(ngModel)]="selectedTemplateId" 
+        (ngModelChange)="onTemplateChange()">
+        <option *ngFor="let template of templates" [value]="template.id">
+          {{template.name}}
+        </option>
       </select>
     </div>
     <button class="btn btn-primary" (click)="downloadPDF()" [disabled]="isGeneratingPdf">
@@ -19,28 +19,14 @@
 
   <div class="preview-content">
     <div #previewContent class="resume">
-      <ng-container [ngSwitch]="selectedTemplate">
-        <app-modern-professional
-          *ngSwitchCase="'modern-professional'"
-          [resume]="resume">
-        </app-modern-professional>
-
-        <app-classic-elegant
-          *ngSwitchCase="'classic-elegant'"
-          [resume]="resume">
-        </app-classic-elegant>
-
-        <app-creative-portfolio
-          *ngSwitchCase="'creative-portfolio'"
-          [resume]="resume">
-        </app-creative-portfolio>
-
-        <!-- Default template -->
-        <app-modern-professional
-          *ngSwitchDefault
-          [resume]="resume">
-        </app-modern-professional>
-      </ng-container>
+      <div [ngSwitch]="selectedTemplateId">
+        <app-modern-professional *ngSwitchCase="'modern-professional'" [resume]="resume"></app-modern-professional>
+        <app-creative-portfolio *ngSwitchCase="'creative-portfolio'" [resume]="resume"></app-creative-portfolio>
+        <app-classic-elegant *ngSwitchCase="'classic-elegant'" [resume]="resume"></app-classic-elegant>
+        <app-ats-optimized *ngSwitchCase="'ats-optimized'" [resume]="resume"></app-ats-optimized>
+        <app-professional-sidebar *ngSwitchCase="'professional-sidebar'" [resume]="resume"></app-professional-sidebar>
+        <app-classic-elegant *ngSwitchDefault [resume]="resume"></app-classic-elegant>
+      </div>
     </div>
   </div>
 

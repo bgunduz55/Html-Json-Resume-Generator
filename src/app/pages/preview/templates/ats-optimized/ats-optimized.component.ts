@@ -2,9 +2,9 @@ import { Component, Input } from '@angular/core';
 import { Resume } from '../../../../shared/models/resume.model';
 
 @Component({
-  selector: 'app-classic-elegant',
+  selector: 'app-ats-optimized',
   template: `
-    <div class="classic-elegant" *ngIf="resume">
+    <div class="ats-optimized" *ngIf="resume">
       <!-- Header -->
       <header class="header">
         <h1 class="name">{{resume.personalInfo.fullName}}</h1>
@@ -40,8 +40,33 @@ import { Resume } from '../../../../shared/models/resume.model';
 
       <!-- Summary -->
       <section class="summary" *ngIf="resume.summary">
-        <h2>Professional Summary</h2>
+        <h3>Professional Summary</h3>
         <p>{{ resume.summary }}</p>
+      </section>
+
+      <!-- Skills -->
+      <section class="skills" *ngIf="resume.skills && (resume.skills.technical?.length || resume.skills.soft?.length)">
+        <h3>Skills</h3>
+        
+        <!-- Technical Skills -->
+        <div class="skills-group" *ngIf="resume.skills.technical?.length">
+          <h4>Technical Skills</h4>
+          <div class="skills-list">
+            <div *ngFor="let skill of resume.skills.technical" class="skill-item">
+              <span class="skill-name">{{ skill }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skills-group" *ngIf="resume.skills.soft?.length">
+          <h4>Soft Skills</h4>
+          <div class="skills-list">
+            <div *ngFor="let skill of resume.skills.soft" class="skill-item">
+              <span class="skill-name">{{ skill }}</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- Experience -->
@@ -67,6 +92,25 @@ import { Resume } from '../../../../shared/models/resume.model';
         </div>
       </section>
 
+      <!-- Projects -->
+      <section class="projects" *ngIf="resume.projects?.length">
+        <h2>Key Projects</h2>
+        <div class="projects-list">
+          <div *ngFor="let project of resume.projects" class="project-item">
+            <h3>{{project.name}}</h3>
+            <p class="description">{{project.description}}</p>
+            <div class="tech-stack" *ngIf="project.technologies?.length">
+              <span class="tech-tag" *ngFor="let tech of project.technologies">{{tech}}</span>
+            </div>
+            <div class="project-links" *ngIf="project.link">
+              <a [href]="project.link" class="project-link" target="_blank">
+                <i class="bi bi-link-45deg"></i> View Project
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Education -->
       <section class="education" *ngIf="resume.education?.length">
         <h2>Education</h2>
@@ -81,50 +125,6 @@ import { Resume } from '../../../../shared/models/resume.model';
             <ul class="achievements" *ngIf="edu.achievements?.length">
               <li *ngFor="let achievement of edu.achievements">{{achievement}}</li>
             </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills -->
-      <section class="skills" *ngIf="resume.skills && (resume.skills.technical?.length || resume.skills.soft?.length)">
-        <h2>Skills</h2>
-        
-        <!-- Technical Skills -->
-        <div class="skills-group" *ngIf="resume.skills.technical?.length">
-          <h3>Technical Skills</h3>
-          <div class="skills-list">
-            <div *ngFor="let skill of resume.skills.technical" class="skill-item">
-              <span class="skill-name">{{ skill }}</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Soft Skills -->
-        <div class="skills-group" *ngIf="resume.skills.soft?.length">
-          <h3>Soft Skills</h3>
-          <div class="skills-list">
-            <div *ngFor="let skill of resume.skills.soft" class="skill-item">
-              <span class="skill-name">{{ skill }}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects -->
-      <section class="projects" *ngIf="resume.projects?.length">
-        <h2>Projects</h2>
-        <div class="projects-list">
-          <div *ngFor="let project of resume.projects" class="project-item">
-            <h3>{{project.name}}</h3>
-            <p class="description">{{project.description}}</p>
-            <div class="tech-stack" *ngIf="project.technologies?.length">
-              <span class="tech-tag" *ngFor="let tech of project.technologies">{{tech}}</span>
-            </div>
-            <div class="project-links" *ngIf="project.link">
-              <a [href]="project.link" class="project-link" target="_blank">
-                <i class="bi bi-link-45deg"></i> View Project
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -152,11 +152,11 @@ import { Resume } from '../../../../shared/models/resume.model';
     </div>
   `,
   styles: [`
-    .classic-elegant {
+    .ats-optimized {
       max-width: 100%;
       margin: 0;
       padding: 0.4rem;
-      font-family: 'Times New Roman', Times, serif;
+      font-family: Arial, sans-serif;
       color: #000000;
       background: #ffffff;
       font-size: 0.7rem;
@@ -166,24 +166,21 @@ import { Resume } from '../../../../shared/models/resume.model';
     .header {
       text-align: center;
       margin-bottom: 1rem;
-      border-bottom: 2px solid #000000;
-      padding-bottom: 1rem;
     }
 
     .name {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: #000000;
       margin: 0;
       font-weight: bold;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
     }
 
     .title {
-      font-size: 1rem;
-      color: #333333;
+      font-size: 0.9rem;
+      color: #000000;
       margin: 0.2rem 0;
-      font-style: italic;
+      font-weight: normal;
     }
 
     .contact-info {
@@ -215,36 +212,48 @@ import { Resume } from '../../../../shared/models/resume.model';
     }
 
     h2 {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: #000000;
       margin: 0 0 0.5rem 0;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
       border-bottom: 1px solid #000000;
       padding-bottom: 0.2rem;
     }
 
     h3 {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       color: #000000;
       margin: 0;
       font-weight: bold;
     }
 
-    .summary {
-      text-align: justify;
+    .summary-text {
       font-size: 0.8rem;
-      margin-bottom: 1rem;
+      margin: 0;
+      text-align: justify;
     }
 
-    .experience-list, .education-list, .projects-list, .certifications-list {
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-item {
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .experience-list, .projects-list, .education-list, .certifications-list {
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
 
-    .experience-item, .education-item, .project-item, .certification-item {
-      margin-bottom: 0.8rem;
+    .experience-item, .project-item, .education-item, .certification-item {
+      margin-bottom: 0.5rem;
     }
 
     .experience-header, .education-header {
@@ -257,13 +266,12 @@ import { Resume } from '../../../../shared/models/resume.model';
     }
 
     .company {
-      font-weight: bold;
+      color: #000000;
     }
 
     .date {
       font-size: 0.75rem;
       color: #666666;
-      font-style: italic;
       display: block;
     }
 
@@ -285,17 +293,6 @@ import { Resume } from '../../../../shared/models/resume.model';
       }
     }
 
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 0.5rem 0;
-    }
-
-    .skill-item {
-      font-size: 0.8rem;
-    }
-
     .tech-stack {
       display: flex;
       flex-wrap: wrap;
@@ -309,7 +306,6 @@ import { Resume } from '../../../../shared/models/resume.model';
       background: #f0f0f0;
       border-radius: 2px;
       color: #000000;
-      font-style: italic;
     }
 
     .project-links {
@@ -338,17 +334,10 @@ import { Resume } from '../../../../shared/models/resume.model';
       font-size: 0.8rem;
       color: #000000;
       margin: 0.1rem 0;
-      font-weight: bold;
-    }
-
-    .credential {
-      font-size: 0.75rem;
-      color: #666666;
-      margin: 0.1rem 0;
     }
 
     @media print {
-      .classic-elegant {
+      .ats-optimized {
         padding: 0.2rem;
       }
 
@@ -368,6 +357,6 @@ import { Resume } from '../../../../shared/models/resume.model';
     }
   `]
 })
-export class ClassicElegantComponent {
+export class AtsOptimizedComponent {
   @Input() resume!: Resume;
 } 

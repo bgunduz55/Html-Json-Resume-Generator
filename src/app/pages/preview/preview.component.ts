@@ -1,8 +1,13 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { ResumeService } from '../../shared/services/resume.service';
-import { TemplateService, TemplateType } from '../../shared/services/template.service';
+import { TemplateService } from '../../shared/services/template.service';
 import { Resume } from '../../shared/models/resume.model';
 import { Subscription } from 'rxjs';
+import { ModernProfessionalComponent } from './templates/modern-professional/modern-professional.component';
+import { ClassicElegantComponent } from './templates/classic-elegant/classic-elegant.component';
+import { CreativePortfolioComponent } from './templates/creative-portfolio/creative-portfolio.component';
+import { ProfessionalSidebarComponent } from './templates/professional-sidebar/professional-sidebar.component';
+import { AtsOptimizedComponent } from './templates/ats-optimized/ats-optimized.component';
 
 @Component({
   selector: 'app-preview',
@@ -11,10 +16,18 @@ import { Subscription } from 'rxjs';
 })
 export class PreviewComponent implements OnInit, OnDestroy {
   @ViewChild('previewContent') previewContent!: ElementRef;
-  resume: Resume | null = null;
-  selectedTemplate: TemplateType = 'modern-professional';
+  resume!: Resume;
+  selectedTemplateId: string = 'classic-elegant';
   isGeneratingPdf = false;
   private subscriptions: Subscription[] = [];
+
+  templates = [
+    { id: 'modern-professional', name: 'Modern Professional' },
+    { id: 'creative-portfolio', name: 'Creative Portfolio' },
+    { id: 'classic-elegant', name: 'Classic Elegant' },
+    { id: 'ats-optimized', name: 'ATS Optimized' },
+    { id: 'professional-sidebar', name: 'Professional Sidebar' }
+  ];
 
   constructor(
     private resumeService: ResumeService,
@@ -25,14 +38,9 @@ export class PreviewComponent implements OnInit, OnDestroy {
     // Subscribe to resume updates
     this.subscriptions.push(
       this.resumeService.getResume().subscribe(resume => {
-        this.resume = resume;
-      })
-    );
-
-    // Subscribe to template selection updates
-    this.subscriptions.push(
-      this.templateService.selectedTemplate$.subscribe(template => {
-        this.selectedTemplate = template;
+        if (resume) {
+          this.resume = resume;
+        }
       })
     );
   }
@@ -41,8 +49,9 @@ export class PreviewComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
-  onTemplateChange(templateId: TemplateType): void {
-    this.templateService.selectTemplate(templateId);
+  onTemplateChange() {
+    // Template değişikliği artık sadece local state'i güncelliyor
+    // Herhangi bir service çağrısına gerek yok
   }
 
   downloadPDF() {
@@ -157,6 +166,21 @@ export class PreviewComponent implements OnInit, OnDestroy {
       };
 
       // html2pdf().set(options).from(element).save();
+    }
+  }
+
+  getTemplateComponent(templateId: string): any {
+    switch (templateId) {
+      case 'creative-portfolio':
+        return CreativePortfolioComponent;
+      case 'classic-elegant':
+        return ClassicElegantComponent;
+      case 'ats-optimized':
+        return AtsOptimizedComponent;
+      case 'professional-sidebar':
+        return ProfessionalSidebarComponent;
+      default:
+        return ClassicElegantComponent;
     }
   }
 } 
