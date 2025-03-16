@@ -11,13 +11,13 @@ import { Resume } from '../../../../shared/models/resume.model';
           <h1 class="name">{{ resume.personalInfo?.fullName || 'Your Name' }}</h1>
           <h2 class="title">{{ resume.personalInfo?.title || 'Your Professional Title' }}</h2>
           <div class="social-links">
-            <a *ngIf="resume.personalInfo?.linkedin" [href]="resume.personalInfo?.linkedin" target="_blank" class="social-link">
+            <a *ngIf="resume.personalInfo?.linkedin" [href]="formatUrl(resume.personalInfo?.linkedin)" target="_blank" class="social-link">
               <i class="bi bi-linkedin"></i>
             </a>
-            <a *ngIf="resume.personalInfo?.github" [href]="resume.personalInfo?.github" target="_blank" class="social-link">
+            <a *ngIf="resume.personalInfo?.github" [href]="formatUrl(resume.personalInfo?.github)" target="_blank" class="social-link">
               <i class="bi bi-github"></i>
             </a>
-            <a *ngIf="resume.personalInfo?.website" [href]="resume.personalInfo?.website" target="_blank" class="social-link">
+            <a *ngIf="resume.personalInfo?.website" [href]="formatUrl(resume.personalInfo?.website)" target="_blank" class="social-link">
               <i class="bi bi-globe"></i>
             </a>
           </div>
@@ -44,7 +44,7 @@ import { Resume } from '../../../../shared/models/resume.model';
       <section class="summary" *ngIf="resume.summary">
         <div class="section-content">
           <h3>About Me</h3>
-          <p>{{ resume.summary }}</p>
+          <p [innerHTML]="formatText(resume.summary)"></p>
         </div>
       </section>
 
@@ -76,7 +76,7 @@ import { Resume } from '../../../../shared/models/resume.model';
           <div class="projects-grid">
             <div class="project-card" *ngFor="let project of resume.projects">
               <h4>{{ project.name }}</h4>
-              <p class="description">{{ project.description }}</p>
+              <p class="description" [innerHTML]="formatText(project.description)"></p>
               <div class="technologies" *ngIf="project.technologies?.length">
                 <span class="tech-tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
               </div>
@@ -84,38 +84,9 @@ import { Resume } from '../../../../shared/models/resume.model';
                 <li *ngFor="let achievement of project.achievements">{{ achievement }}</li>
               </ul>
               <div class="project-links">
-                <a *ngIf="project.link" [href]="project.link" target="_blank" class="project-link">
+                <a *ngIf="project.link" [href]="formatUrl(project.link)" target="_blank" class="project-link">
                   <i class="bi bi-link-45deg"></i> View Project
                 </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Experience Section -->
-      <section class="experience" *ngIf="resume.workExperience?.length">
-        <div class="section-content">
-          <h3>Work Experience</h3>
-          <div class="timeline">
-            <div class="timeline-item" *ngFor="let exp of resume.workExperience">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <h4>{{ exp.title }}</h4>
-                <div class="company-info">
-                  <span class="company">{{ exp.company }}</span>
-                  <span class="date">
-                    {{ exp.startDate | date:'MMM yyyy' }} - 
-                    {{ exp.current ? 'Present' : (exp.endDate | date:'MMM yyyy') }}
-                  </span>
-                </div>
-                <p class="description">{{ exp.description }}</p>
-                <ul class="achievements" *ngIf="exp.achievements?.length">
-                  <li *ngFor="let achievement of exp.achievements">{{ achievement }}</li>
-                </ul>
-                <div class="technologies" *ngIf="exp.technologies?.length">
-                  <span class="tech-tag" *ngFor="let tech of exp.technologies">{{ tech }}</span>
-                </div>
               </div>
             </div>
           </div>
@@ -131,14 +102,44 @@ import { Resume } from '../../../../shared/models/resume.model';
               <h4>{{ edu.school }}</h4>
               <p class="degree">{{ edu.degree }} in {{ edu.field }}</p>
               <p class="date">
-                {{ edu.startDate | date:'MMM yyyy' }} - 
-                {{ edu.current ? 'Present' : (edu.endDate | date:'MMM yyyy') }}
+                {{ formatDate(edu.startDate) }} - 
+                {{ edu.current ? 'Present' : formatDate(edu.endDate) }}
               </p>
               <p *ngIf="edu.gpa" class="gpa">GPA: {{ edu.gpa }}</p>
-              <p *ngIf="edu.description" class="description">{{ edu.description }}</p>
+              <p *ngIf="edu.description" class="description" [innerHTML]="formatText(edu.description)"></p>
               <ul class="achievements" *ngIf="edu.achievements?.length">
                 <li *ngFor="let achievement of edu.achievements">{{ achievement }}</li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section class="experience" *ngIf="resume.workExperience?.length">
+        <div class="section-content">
+          <br>
+          <h3>Work Experience</h3>
+          <div class="timeline">
+            <div class="timeline-item" *ngFor="let exp of resume.workExperience">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <h4>{{ exp.title }}</h4>
+                <div class="company-info">
+                  <span class="company">{{ exp.company }}</span>
+                  <span class="date">
+                    {{ formatDate(exp.startDate) }} - 
+                    {{ exp.current ? 'Present' : formatDate(exp.endDate) }}
+                  </span>
+                </div>
+                <p class="description" [innerHTML]="formatText(exp.description)"></p>
+                <ul class="achievements" *ngIf="exp.achievements?.length">
+                  <li *ngFor="let achievement of exp.achievements">{{ achievement }}</li>
+                </ul>
+                <div class="technologies" *ngIf="exp.technologies?.length">
+                  <span class="tech-tag" *ngFor="let tech of exp.technologies">{{ tech }}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -153,13 +154,13 @@ import { Resume } from '../../../../shared/models/resume.model';
               <h4>{{ cert.name }}</h4>
               <p class="organization">{{ cert.organization }}</p>
               <p class="date">
-                Issued: {{ cert.issueDate }}
-                <span *ngIf="cert.expiryDate"> | Expires: {{ cert.expiryDate }}</span>
+                Issued: {{ formatDate(cert.issueDate) }}
+                <span *ngIf="cert.expiryDate"> | Expires: {{ formatDate(cert.expiryDate) }}</span>
               </p>
-              <p *ngIf="cert.description" class="description">{{ cert.description }}</p>
+              <p *ngIf="cert.description" class="description" [innerHTML]="formatText(cert.description)"></p>
               <p *ngIf="cert.credentialId" class="credential">
                 Credential ID: 
-                <a *ngIf="cert.credentialUrl" [href]="cert.credentialUrl" target="_blank">
+                <a *ngIf="cert.credentialUrl" [href]="formatUrl(cert.credentialUrl)" target="_blank">
                   {{ cert.credentialId }}
                 </a>
                 <span *ngIf="!cert.credentialUrl">{{ cert.credentialId }}</span>
@@ -172,48 +173,63 @@ import { Resume } from '../../../../shared/models/resume.model';
   `,
   styles: [`
     .creative-portfolio {
-      max-width: 1200px;
-      margin: 0 auto;
-      font-family: 'Poppins', sans-serif;
+      max-width: 100%;
+      margin: 0;
+      padding: 1.2rem 0.4rem 0.4rem 0.4rem;
+      font-family: 'Arial', sans-serif;
       color: #2c3e50;
       background: #ffffff;
+      font-size: 0.7rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .hero {
-      background: linear-gradient(135deg, #6c5ce7, #a363d5);
-      color: white;
-      padding: 4rem 2rem;
+      margin-bottom: 0.4rem;
       text-align: center;
-      margin-bottom: 2rem;
+      border-bottom: 1px solid #3498db;
+      padding-bottom: 0.2rem;
     }
 
     .name {
-      font-size: 3rem;
+      font-size: 1.2rem;
+      color: #2c3e50;
       margin: 0;
-      font-weight: 700;
+      line-height: 1.2;
+      display: inline-block;
+      margin-right: 0.5rem;
+      font-weight: 600;
     }
 
     .title {
-      font-size: 1.5rem;
-      margin: 1rem 0;
-      font-weight: 300;
-      opacity: 0.9;
+      font-size: 0.85rem;
+      color: #7f8c8d;
+      margin: 0;
+      line-height: 1.2;
+      display: inline-block;
+      font-weight: normal;
     }
 
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      line-height: 1;
+      margin-top: 0.25rem;
     }
 
     .social-link {
-      color: white;
-      font-size: 1.5rem;
-      transition: transform 0.3s ease;
+      color: #34495e;
+      text-decoration: none;
+      
+      i {
+        color: #3498db;
+        font-size: 0.7rem;
+      }
 
       &:hover {
-        transform: translateY(-3px);
+        color: #3498db;
       }
     }
 
@@ -221,20 +237,22 @@ import { Resume } from '../../../../shared/models/resume.model';
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 2rem;
-      padding: 1rem;
-      background: #f8f9fa;
-      margin-bottom: 2rem;
+      gap: 0.5rem;
+      padding: 0.25rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.7rem;
+      line-height: 1.2;
     }
 
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      color: #2c3e50;
+      gap: 0.15rem;
+      color: #34495e;
 
       i {
-        color: #6c5ce7;
+        color: #3498db;
+        font-size: 0.7rem;
       }
 
       a {
@@ -242,230 +260,513 @@ import { Resume } from '../../../../shared/models/resume.model';
         text-decoration: none;
         
         &:hover {
-          color: #6c5ce7;
+          color: #3498db;
         }
       }
     }
 
     section {
-      margin-bottom: 3rem;
+      margin-bottom: 0.25rem;
+      padding-bottom: 0.1rem;
+
+      h3 {
+        color: #2c3e50;
+        font-size: 0.8rem;
+        margin: 0 0 0.15rem 0;
+        padding-bottom: 0.1rem;
+        border-bottom: 1px solid #3498db;
+        line-height: 1;
+        font-weight: 600;
+      }
     }
 
     .section-content {
-      padding: 0 2rem;
-    }
-
-    h3 {
-      font-size: 2rem;
-      color: #2c3e50;
-      margin-bottom: 2rem;
-      position: relative;
-      padding-bottom: 0.5rem;
-
-      &:after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 50px;
-        height: 3px;
-        background: #6c5ce7;
-      }
+      padding: 0;
     }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .skill-tag {
-      padding: 0.5rem 1rem;
-      background: #f8f9fa;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      color: #2c3e50;
-      transition: transform 0.3s ease;
-
-      &:hover {
-        transform: translateY(-2px);
-        background: #6c5ce7;
-        color: white;
-      }
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.15rem;
     }
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: 1fr;
+      gap: 0.15rem;
     }
 
-    .project-card {
-      background: #f8f9fa;
-      padding: 1.5rem;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
+    .education-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.15rem;
+    }
 
-      &:hover {
-        transform: translateY(-5px);
-      }
+    .education-card {
+      padding: 0.15rem;
+      background: #f8f9fa;
+      border-radius: 3px;
+      margin-bottom: 0.15rem;
 
       h4 {
         color: #2c3e50;
-        margin: 0 0 1rem 0;
+        margin: 0;
+        font-size: 0.75rem;
+        line-height: 1.1;
+        font-weight: 600;
+      }
+
+      .degree {
+        font-size: 0.7rem;
+        margin: 0.05rem 0;
+        line-height: 1.1;
+        color: #7f8c8d;
+      }
+
+      .date {
+        font-size: 0.65rem;
+        color: #95a5a6;
+        margin: 0.05rem 0;
+        line-height: 1;
+      }
+
+      .description {
+        margin: 0.05rem 0;
+      }
+
+      .achievements {
+        margin: 0.05rem 0;
+        padding-left: 0.4rem;
+      }
+    }
+
+    .skill-tag, .tech-tag {
+      display: inline-block;
+      padding: 0.1rem 0.25rem;
+      margin: 0.05rem;
+      background: #ecf0f1;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      color: #2c3e50;
+      line-height: 1;
+    }
+
+    .project-card, .certification-card {
+      padding: 0.25rem;
+      background: #f8f9fa;
+      border-radius: 3px;
+      margin-bottom: 0.15rem;
+
+      h4 {
+        color: #2c3e50;
+        margin: 0;
+        font-size: 0.75rem;
+        line-height: 1.1;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 0.7rem;
+        margin: 0.1rem 0;
+        line-height: 1.1;
       }
     }
 
     .timeline {
       position: relative;
-      padding-left: 2rem;
-
-      &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 2px;
-        background: #e9ecef;
-      }
+      padding-left: 0.4rem;
+      border-left: 1px solid #3498db;
     }
 
     .timeline-item {
       position: relative;
-      padding-bottom: 2rem;
-    }
+      padding-bottom: 0.25rem;
 
-    .timeline-marker {
-      position: absolute;
-      left: -2rem;
-      width: 1rem;
-      height: 1rem;
-      border-radius: 50%;
-      background: #6c5ce7;
-      border: 2px solid white;
+      &:before {
+        content: '';
+        position: absolute;
+        left: -3px;
+        top: 0;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #3498db;
+      }
+
+      &:last-child {
+        margin-bottom: 0.1rem;
+      }
     }
 
     .timeline-content {
       background: #f8f9fa;
-      padding: 1.5rem;
-      border-radius: 10px;
-    }
+      padding: 0.25rem;
+      border-radius: 3px;
 
-    .education-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .education-card {
-      background: #f8f9fa;
-      padding: 1.5rem;
-      border-radius: 10px;
-    }
-
-    .certifications-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .certification-card {
-      background: #f8f9fa;
-      padding: 1.5rem;
-      border-radius: 10px;
-    }
-
-    .tech-tag {
-      display: inline-block;
-      padding: 0.3rem 0.8rem;
-      margin: 0.2rem;
-      background: #e9ecef;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      color: #2c3e50;
+      h4 {
+        color: #2c3e50;
+        margin: 0;
+        font-size: 0.75rem;
+        line-height: 1.1;
+        font-weight: 600;
+      }
     }
 
     .achievements {
-      list-style-type: none;
-      padding-left: 0;
+      margin: 0.1rem 0;
+      padding-left: 0.5rem;
 
       li {
-        position: relative;
-        padding-left: 1.5rem;
-        margin-bottom: 0.5rem;
+        font-size: 0.7rem;
+        line-height: 1.1;
+        margin-bottom: 0.05rem;
 
-        &:before {
-          content: '→';
-          position: absolute;
-          left: 0;
-          color: #6c5ce7;
+        &:last-child {
+          margin-bottom: 0;
         }
       }
     }
 
+    .company-info {
+      margin: 0.1rem 0;
+      line-height: 1;
+    }
+
+    .company {
+      color: #7f8c8d;
+      font-size: 0.7rem;
+      display: inline;
+      margin-left: 0.2rem;
+    }
+
+    .date {
+      color: #95a5a6;
+      font-size: 0.65rem;
+      display: block;
+      margin-top: 0.05rem;
+    }
+
+    .description {
+      font-size: 0.7rem;
+      line-height: 1.1;
+      margin: 0.1rem 0;
+      color: #444;
+    }
+
     .project-links {
-      margin-top: 1rem;
+      margin-top: 0.15rem;
     }
 
     .project-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      color: #6c5ce7;
+      gap: 0.1rem;
+      color: #3498db;
       text-decoration: none;
       font-weight: 500;
+      font-size: 0.7rem;
 
       &:hover {
         text-decoration: underline;
       }
     }
 
-    @media (max-width: 768px) {
-      .hero {
-        padding: 3rem 1rem;
-      }
+    .experience {
+      margin-top: 0.6rem !important;
+    }
 
-      .name {
-        font-size: 2.5rem;
-      }
-
-      .section-content {
-        padding: 0 1rem;
-      }
-
-      .timeline {
-        padding-left: 1.5rem;
-      }
-
-      .timeline-marker {
-        left: -1.5rem;
-      }
+    .education {
+      padding-top: 0.6rem !important;
     }
 
     @media print {
-      .hero {
-        background: white !important;
-        color: #2c3e50;
-        padding: 2rem;
-      }
-
-      .social-link {
-        color: #2c3e50;
+      @page {
+        margin: 0.3cm !important;
+        size: A4;
+        marks: none;
       }
 
       section {
-        break-inside: avoid;
+        margin-bottom: 0.3rem !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      .section-content {
+        break-inside: avoid !important;
+      }
+
+      .timeline-item {
+        break-inside: avoid !important;
+      }
+
+      .project-card, .education-card, .certification-card {
+        break-inside: avoid !important;
+      }
+
+      .experience-item {
+        break-inside: avoid !important;
+      }
+
+      .experience {
+        break-before: auto !important;
+        break-after: auto !important;
+        margin-top: 0.6rem !important;
+      }
+
+      .education {
+        break-before: auto !important;
+        break-after: auto !important;
+        margin-top: 0.6rem !important;
+      }
+
+      .projects {
+        break-before: auto !important;
+        break-after: auto !important;
+      }
+
+      .skills {
+        break-before: auto !important;
+        break-after: auto !important;
+      }
+
+      .certifications {
+        break-before: auto !important;
+        break-after: auto !important;
+      }
+
+      .creative-portfolio {
+        padding: 1.2rem 0.2rem 0.2rem 0.2rem !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        font-family: Arial, sans-serif !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        max-width: 100%;
+        margin: 0;
+        color: #000000 !important;
+      }
+
+      * {
+        text-rendering: geometricPrecision !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        print-color-adjust: exact !important;
+      }
+
+      .hero {
+        margin-bottom: 0.4rem !important;
+        padding-bottom: 0.2rem !important;
+        border-bottom: 1px solid #000000 !important;
+        text-align: center !important;
+      }
+
+      .name {
+        font-size: 1.2rem !important;
+        font-weight: 600 !important;
+        color: #000000 !important;
+        margin-right: 0.5rem !important;
+        line-height: 1.2 !important;
+      }
+
+      .title {
+        font-size: 0.85rem !important;
+        color: #000000 !important;
+        font-weight: normal !important;
+        line-height: 1.2 !important;
+      }
+
+      .social-links {
+        margin-top: 0.25rem !important;
+        gap: 0.5rem !important;
+      }
+
+      .social-link {
+        color: #000000 !important;
+        font-size: 0.7rem !important;
+        i {
+          color: #000000 !important;
+        }
+      }
+
+      .contact-info {
+        margin-bottom: 0.4rem !important;
+        padding: 0.25rem !important;
+        border-bottom: none !important;
+        
+        * {
+          color: #000000 !important;
+        }
+        
+        a {
+          text-decoration: none !important;
+        }
+
+        i {
+          color: #000000 !important;
+        }
+      }
+
+      .section-content {
+        padding: 0 !important;
+      }
+
+      h3 {
+        font-size: 0.8rem !important;
+        color: #000000 !important;
+        margin: 0 0 0.15rem 0 !important;
+        padding-bottom: 0.1rem !important;
+        border-bottom: 1px solid #000000 !important;
+        font-weight: 600 !important;
+      }
+
+      h4 {
+        color: #000000 !important;
+        font-size: 0.75rem !important;
+        font-weight: 600 !important;
+      }
+
+      .description, .achievements li {
+        color: #000000 !important;
+        margin: 0.1rem 0 !important;
+        font-size: 0.7rem !important;
+      }
+
+      p {
+        color: #000000 !important;
+        font-size: 0.7rem !important;
+        line-height: 1.2 !important;
+        margin: 0.1rem 0 !important;
+      }
+
+      .tech-tag, .skill-tag {
+        background: none !important;
+        border: 1px solid #000000 !important;
+        color: #000000 !important;
+        padding: 0.08rem 0.25rem !important;
+        margin: 0.08rem !important;
+        font-size: 0.65rem !important;
+      }
+
+      .project-card, .certification-card, .timeline-content {
+        border: 1px solid #000000 !important;
+        background: none !important;
+        page-break-inside: avoid !important;
+        margin-bottom: 0.25rem !important;
+        padding: 0.2rem !important;
+      }
+
+      .project-link {
+        color: #000000 !important;
+        text-decoration: none !important;
+        font-weight: normal !important;
+      }
+
+      .timeline {
+        position: relative !important;
+        padding-left: 0.4rem !important;
+        border-left: 1px solid #000000 !important;
+      }
+
+      .timeline-item {
+        position: relative !important;
+        padding-bottom: 0.25rem !important;
+        page-break-inside: avoid !important;
+
+        &:before {
+          content: '' !important;
+          position: absolute !important;
+          left: -3px !important;
+          top: 0 !important;
+          width: 4px !important;
+          height: 4px !important;
+          border-radius: 50% !important;
+          background: #000000 !important;
+        }
+      }
+
+      .achievements {
+        margin: 0.1rem 0 !important;
+        padding-left: 0.5rem !important;
+        list-style-type: none !important;
+
+        li {
+          position: relative !important;
+          
+          &:before {
+            content: "•" !important;
+            position: absolute !important;
+            left: -0.5rem !important;
+            color: #000000 !important;
+          }
+        }
+      }
+
+      .company {
+        font-size: 0.7rem !important;
+        color: #000000 !important;
+        margin-left: 0.2rem !important;
+      }
+
+      .date {
+        font-size: 0.65rem !important;
+        color: #000000 !important;
+        margin-top: 0.05rem !important;
+      }
+
+      .projects-grid, .certifications-grid {
+        display: grid !important;
+        gap: 0.25rem !important;
+      }
+
+      .skills-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+        gap: 0.25rem !important;
+      }
+
+      .experience {
+        margin-top: 0.6rem !important;
+      }
+
+      .education-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 0.15rem !important;
+      }
+
+      .education-card {
+        padding: 0.15rem !important;
+        margin-bottom: 0.15rem !important;
+      }
+
+      .education {
+        padding-top: 0.6rem !important;
       }
     }
   `]
 })
 export class CreativePortfolioComponent {
   @Input() resume: Resume | null = null;
+
+  formatUrl(url: string | undefined): string {
+    if (!url) return '#';
+    return url.startsWith('http') ? url : `https://${url}`;
+  }
+
+  formatDate(date: string | undefined): string {
+    if (!date) return '';
+    try {
+      const d = new Date(date);
+      return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+    } catch {
+      return date;
+    }
+  }
+
+  formatText(text: string | undefined): string {
+    if (!text) return '';
+    return text.replace(/\n/g, '<br>');
+  }
 } 

@@ -3,8 +3,6 @@ import { ResumeService } from '../../shared/services/resume.service';
 import { TemplateService, TemplateType } from '../../shared/services/template.service';
 import { Resume } from '../../shared/models/resume.model';
 import { Subscription } from 'rxjs';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-preview',
@@ -47,64 +45,118 @@ export class PreviewComponent implements OnInit, OnDestroy {
     this.templateService.selectTemplate(templateId);
   }
 
-  async downloadPDF(): Promise<void> {
-    if (!this.previewContent || !this.resume) return;
-
-    this.isGeneratingPdf = true;
-    try {
-      const content = this.previewContent.nativeElement;
-      
-      // Wait for a moment to ensure all styles are applied
-      await new Promise(resolve => setTimeout(resolve, 500));
-
-      const canvas = await html2canvas(content, {
-        scale: 2,
-        useCORS: true,
-        logging: false,
-        allowTaint: true,
-        backgroundColor: '#ffffff'
-      });
-
-      const contentWidth = content.offsetWidth;
-      const contentHeight = content.offsetHeight;
-      const aspectRatio = contentHeight / contentWidth;
-
-      // A4 dimensions in pts (72 pts = 1 inch)
-      const pageWidth = 595.28;
-      const pageHeight = 841.89;
-      const pdf = new jsPDF('p', 'pt', 'a4');
-
-      const imgWidth = pageWidth;
-      const imgHeight = pageWidth * aspectRatio;
-      const numPages = Math.ceil(imgHeight / pageHeight);
-
-      for (let i = 0; i < numPages; i++) {
-        if (i > 0) pdf.addPage();
-
-        const sourceY = i * (pageHeight / (imgHeight / canvas.height));
-        const destY = 0;
-
-        pdf.addImage(
-          canvas.toDataURL('image/jpeg', 1.0),
-          'JPEG',
-          0,
-          destY - (i * pageHeight),
-          imgWidth,
-          imgHeight,
-          undefined,
-          'FAST'
-        );
+  downloadPDF() {
+    const printWindow = window.open('', '', 'width=800,height=800');
+    if (printWindow) {
+      const content = document.querySelector('.preview-container')?.innerHTML;
+      if (content) {
+        printWindow.document.write(`
+          <html>
+            <head>
+              <title>Resume</title>
+              <style>
+                @page {
+                  size: A4;
+                  margin: 0.5cm;
+                }
+                body {
+                  margin: 0;
+                  padding: 0;
+                  width: 100%;
+                  font-size: 9px;
+                  line-height: 1.15;
+                  -webkit-print-color-adjust: exact;
+                  print-color-adjust: exact;
+                }
+                .preview-container {
+                  width: 100%;
+                  max-width: 100%;
+                  margin: 0;
+                  padding: 0;
+                }
+                .resume {
+                  padding: 0.5rem;
+                  width: 100%;
+                  max-width: 100%;
+                  margin: 0;
+                  box-sizing: border-box;
+                }
+                section {
+                  page-break-inside: avoid;
+                  margin-bottom: 0.4rem;
+                  padding-bottom: 0.3rem;
+                }
+                .experience-item, .education-item, .project-item, .certification-item {
+                  page-break-inside: avoid;
+                  margin-bottom: 0.4rem;
+                  padding: 0.3rem;
+                }
+                .personal-info {
+                  margin-bottom: 0.4rem;
+                  padding-bottom: 0.4rem;
+                }
+                h1 { font-size: 1.2rem; margin-bottom: 0.15rem; }
+                h2 { font-size: 0.95rem; margin-bottom: 0.3rem; }
+                h3 { font-size: 0.85rem; margin-bottom: 0.15rem; }
+                h4 { font-size: 0.8rem; margin-bottom: 0.15rem; }
+                p, li { font-size: 0.75rem; margin: 0.12rem 0; line-height: 1.15; }
+                .contact-info p { font-size: 0.7rem; }
+                .tech-tag, .skill-tag { font-size: 0.7rem; padding: 0.1rem 0.3rem; margin: 0.1rem; }
+                * { box-sizing: border-box; }
+              </style>
+              ${document.head.innerHTML}
+            </head>
+            <body>
+              <div class="preview-container">${content}</div>
+            </body>
+          </html>
+        `);
+        printWindow.document.close();
+        printWindow.focus();
+        setTimeout(() => {
+          printWindow.print();
+          printWindow.close();
+        }, 500);
       }
+    }
+  }
 
-      const fileName = this.resume.personalInfo.fullName
-        ? `${this.resume.personalInfo.fullName.replace(/\s+/g, '_')}_Resume.pdf`
-        : 'resume.pdf';
+  generatePdf() {
+    const element = document.querySelector('.preview-container');
+    if (element) {
+      const options = {
+        margin: [5, 5, 5, 5], // top, right, bottom, left margins in mm
+        filename: 'resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { 
+          scale: 2,
+          useCORS: true,
+          letterRendering: true,
+          scrollY: 0,
+          windowWidth: 1200, // Force consistent width
+        },
+        jsPDF: { 
+          unit: 'mm', 
+          format: 'a4', 
+          orientation: 'portrait',
+          compress: true,
+          precision: 2
+        },
+        pagebreak: { 
+          mode: ['avoid-all', 'css', 'legacy'],
+          before: '.page-break',
+          avoid: [
+            'h3', 'h4', 
+            '.experience-item', 
+            '.education-item', 
+            '.project-item', 
+            '.certification-item',
+            '.timeline-item'
+          ]
+        }
+      };
 
-      pdf.save(fileName);
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-    } finally {
-      this.isGeneratingPdf = false;
+      // html2pdf().set(options).from(element).save();
     }
   }
 } 
