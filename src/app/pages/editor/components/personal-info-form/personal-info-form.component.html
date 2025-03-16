@@ -18,6 +18,11 @@
   </div>
 
   <div class="form-group mb-3">
+    <label for="summary">Summary</label>
+    <textarea id="summary" class="form-control" formControlName="summary" placeholder="Software Engineer"></textarea>
+  </div>
+
+  <div class="form-group mb-3">
     <label for="email">Email Address *</label>
     <input type="email" id="email" class="form-control" formControlName="email" placeholder="john.doe@example.com">
     <div class="invalid-feedback" *ngIf="personalInfoForm.get('email')?.invalid && personalInfoForm.get('email')?.touched">

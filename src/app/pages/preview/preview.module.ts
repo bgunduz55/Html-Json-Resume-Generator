@@ -10,7 +10,7 @@ import { ProfessionalSidebarComponent } from './templates/professional-sidebar/p
 import { AtsOptimizedComponent } from './templates/ats-optimized/ats-optimized.component';
 import { MinimalCleanComponent } from './templates/minimal-clean/minimal-clean.component';
 import { TechModernComponent } from './templates/tech-modern/tech-modern.component';
-
+import { TerminalModernComponent } from './templates/terminal-modern/terminal-modern.component';
 @NgModule({
   declarations: [
     PreviewComponent,
@@ -20,7 +20,8 @@ import { TechModernComponent } from './templates/tech-modern/tech-modern.compone
     ProfessionalSidebarComponent,
     AtsOptimizedComponent,
     MinimalCleanComponent,
-    TechModernComponent
+    TechModernComponent,
+    TerminalModernComponent
   ],
   imports: [
     CommonModule,

@@ -10,10 +10,10 @@ import { Component } from '@angular/core';
   `,
   styles: [`
     .main-content {
-      margin-top: 64px;
+      margin-top: 5px;
       min-height: calc(100vh - 64px);
       background-color: #f8f9fa;
-      padding: 2rem 1rem;
+      padding: 0rem 1rem;
     }
   `]
 })
