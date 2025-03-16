@@ -12,6 +12,7 @@
         <option value="ats-optimized">ATS Optimized</option>
         <option value="minimal-clean">Minimal Clean</option>
         <option value="tech-modern">Tech Modern</option>
+        <option value="terminal-modern">Terminal Modern</option>
       </select>
     </div>
     <button class="btn btn-primary" (click)="downloadPDF()" [disabled]="!resume">
@@ -28,6 +29,7 @@
       <app-professional-sidebar *ngIf="selectedTemplateId === 'professional-sidebar'" [resume]="resume"></app-professional-sidebar>
       <app-minimal-clean *ngIf="selectedTemplateId === 'minimal-clean'" [resume]="resume"></app-minimal-clean>
       <app-tech-modern *ngIf="selectedTemplateId === 'tech-modern'" [resume]="resume"></app-tech-modern>
+      <app-terminal-modern *ngIf="selectedTemplateId === 'terminal-modern'" [resume]="resume"></app-terminal-modern>
     </ng-container>
   </div>
 

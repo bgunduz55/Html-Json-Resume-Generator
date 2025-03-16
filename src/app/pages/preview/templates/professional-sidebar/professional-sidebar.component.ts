@@ -175,6 +175,7 @@ import { Resume } from '../../../../shared/models/resume.model';
       background: #f8f9fa;
       padding: 0.5rem;
       border-right: 1px solid #e9ecef;
+      line-height: 1.5 !important;
     }
 
     .main-content {

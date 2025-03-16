@@ -1,0 +1,341 @@
+:host {
+  display: block;
+  background-color: #282c34;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.terminal-modern {
+  padding: 1rem;
+  font-family: 'Consolas', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: #abb2bf;
+  background: #282c34;
+  min-height: 100vh;
+  width: 100%;
+
+  h1, h2, h3 {
+    color: #61afef;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 { font-size: 1.2rem; }
+  h2 { font-size: 1rem; border-bottom: 1px solid #3e4451; padding-bottom: 0.25rem; }
+  h3 { font-size: 0.9rem; }
+
+  section {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #3e4451;
+    border-radius: 4px;
+  }
+
+  .social-links {
+    margin: 0.5rem 0;
+    a {
+      color: #98c379;
+      text-decoration: none;
+      &:hover { text-decoration: underline; }
+    }
+  }
+  .summary-text {
+    color: #e0e0e0;
+  }
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.5rem;
+    
+    .info-item {
+      .label {
+        color: #e06c75;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .skills-group {
+    margin-bottom: 0.75rem;
+    
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      color: gold;
+      
+      .skill-item {
+        background: #3e4451;
+        padding: 0.15rem 0.5rem;
+        border-radius: 3px;
+        font-size: 0.7rem;
+        color: gold !important;
+      }
+    }
+  }
+
+  .experience-item, .education-item, .project-item {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #3e4451;
+    border-radius: 4px;
+
+    .duration {
+      color: #98c379;
+      font-size: 0.7rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .description {
+      margin: 0.5rem 0;
+    }
+
+    .achievements {
+      ul {
+        margin: 0.5rem 0;
+        padding-left: 1.5rem;
+        li {
+          margin-bottom: 0.25rem;
+          color: #d19a66;
+        }
+      }
+    }
+
+    .technologies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-top: 0.5rem;
+
+      .tech-tag {
+        background: #3e4451;
+        color: #56b6c2;
+        padding: 0.15rem 0.5rem;
+        border-radius: 3px;
+        font-size: 0.7rem;
+      }
+    }
+  }
+
+  @media print {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    background: #282c34 !important;
+    padding: 0.3cm !important;
+    margin: 0 !important;
+    font-family: 'Consolas', 'Fira Code', monospace !important;
+    font-size: 7.5pt !important;
+    line-height: 1.15 !important;
+    width: 100% !important;
+    color: #abb2bf !important;
+    min-height: 100vh !important;
+    position: relative !important;
+    z-index: 1 !important;
+
+    &::before {
+      content: '' !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: #282c34 !important;
+      z-index: -1 !important;
+    }
+
+    * {
+      -webkit-print-color-adjust: exact !important;
+      color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      forced-color-adjust: none !important;
+    }
+
+    h1 { 
+      font-size: 11pt !important;
+      margin-bottom: 3pt !important;
+      color: #61afef !important;
+      font-weight: bold !important;
+    }
+    
+    h2 { 
+      font-size: 9pt !important;
+      margin-bottom: 2pt !important;
+      padding-bottom: 1pt !important;
+      border-bottom: 0.5pt solid #3e4451 !important;
+      color: #61afef !important;
+      font-weight: bold !important;
+    }
+    
+    h3 { 
+      font-size: 8pt !important;
+      margin-bottom: 1pt !important;
+      color: #61afef !important;
+      font-weight: bold !important;
+    }
+
+    section {
+      margin-bottom: 4pt !important;
+      padding: 3pt !important;
+      border: 0.5pt solid #3e4451 !important;
+      page-break-inside: avoid !important;
+      background-color: #282c34 !important;
+    }
+
+    .summary-text {
+      color: #e0e0e0 !important;
+    }
+
+    .social-links {
+      margin: 2pt 0 !important;
+      a {
+        color: #98c379 !important;
+        text-decoration: none !important;
+        background-color: transparent !important;
+        font-size: 7.5pt !important;
+      }
+    }
+
+    .info-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(150pt, 1fr)) !important;
+      gap: 2pt !important;
+      
+      .info-item {
+        .label {
+          color: #e06c75 !important;
+          font-weight: bold !important;
+          margin-right: 3pt !important;
+          background-color: transparent !important;
+          font-size: 7.5pt !important;
+        }
+        .value {
+          color: #abb2bf !important;
+          background-color: transparent !important;
+          font-size: 7.5pt !important;
+        }
+      }
+    }
+
+    .skills-group {
+      margin-bottom: 4pt !important;
+      background-color: #282c34 !important;
+      
+      .skill-items {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 1.5pt !important;
+        
+        .skill-item {
+          background-color: #3e4451 !important;
+          color: #abb2bf !important;
+          border: 0.5pt solid #3e4451 !important;
+          padding: 0.5pt 3pt !important;
+          font-size: 7pt !important;
+          border-radius: 1.5pt !important;
+          color: gold !important;
+        }
+      }
+    }
+
+    .education-projects-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 4pt !important;
+      margin-top: 4pt !important;
+    }
+
+    .experience-item, .education-item, .project-item {
+      margin-bottom: 4pt !important;
+      padding: 3pt !important;
+      border: 0.5pt solid #3e4451 !important;
+      page-break-inside: avoid !important;
+      background-color: #282c34 !important;
+
+      h3 {
+        color: #61afef !important;
+        font-weight: bold !important;
+        margin-bottom: 1pt !important;
+        font-size: 8pt !important;
+      }
+
+      .duration {
+        color: #98c379 !important;
+        font-size: 7pt !important;
+        margin-bottom: 1pt !important;
+        font-style: italic !important;
+        background-color: transparent !important;
+      }
+
+      .description {
+        margin: 1.5pt 0 !important;
+        font-size: 7.5pt !important;
+        color: #abb2bf !important;
+        background-color: transparent !important;
+      }
+
+      .achievements {
+        ul {
+          margin: 1.5pt 0 !important;
+          padding-left: 8pt !important;
+          li {
+            margin-bottom: 0.5pt !important;
+            color: #d19a66 !important;
+            font-size: 7.5pt !important;
+            background-color: transparent !important;
+            &::marker {
+              color: #d19a66 !important;
+            }
+          }
+        }
+      }
+
+      .technologies {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 1.5pt !important;
+        margin-top: 1.5pt !important;
+
+        .tech-tag {
+          background-color: #3e4451 !important;
+          color: #56b6c2 !important;
+          border: 0.5pt solid #3e4451 !important;
+          padding: 0.5pt 3pt !important;
+          font-size: 7pt !important;
+          border-radius: 1.5pt !important;
+        }
+      }
+    }
+  }
+}
+
+// Global print styles
+@page {
+  margin: 0;
+  size: A4;
+}
+
+@media print {
+  @page {
+    margin: 0;
+    background: #282c34;
+  }
+
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+    background: #282c34 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+    background: #282c34 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+} 
