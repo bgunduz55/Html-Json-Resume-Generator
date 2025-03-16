@@ -1,11 +1,11 @@
 <div class="terminal-modern">
 
     <section class="personal-info" *ngIf="resume.personalInfo">
-        <h2>Personal Information</h2>
+        <h2>{{resume.personalInfo.fullName}} - Personal Information</h2>
         <div class="info-grid">
-          <div class="info-item" *ngIf="resume.personalInfo.location">
-            <span class="label">Name</span>
-            <span class="value">{{resume.personalInfo.fullName}}</span>
+          <div class="info-item" *ngIf="resume.personalInfo.title">
+            <span class="label">Title</span>
+            <span class="value">{{resume.personalInfo.title}}</span>
           </div>
           <div class="info-item" *ngIf="resume.personalInfo.languages?.length">
             <span class="label">Languages</span>

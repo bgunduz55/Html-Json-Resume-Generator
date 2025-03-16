@@ -20,6 +20,7 @@ export class PersonalInfoFormComponent implements OnInit {
       title: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
+      summary: [''],
       location: ['', Validators.required],
       website: [''],
       linkedin: [''],
@@ -32,6 +33,10 @@ export class PersonalInfoFormComponent implements OnInit {
     this.resumeService.getResume().subscribe((resume: Resume | null) => {
       if (resume?.personalInfo) {
         this.personalInfoForm.patchValue(resume.personalInfo);
+        this.personalInfoForm.patchValue({
+          summary: resume.summary
+        });
+        console.log(resume.personalInfo);
       }
     });
   }
