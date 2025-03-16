@@ -36,7 +36,7 @@ import { Subscription } from 'rxjs';
   `,
   styles: [`
     .resume-actions {
-      margin-bottom: 2rem;
+      // margin-bottom: 2rem;
       padding: 1rem;
       background-color: #f8f9fa;
       border-radius: 8px;
