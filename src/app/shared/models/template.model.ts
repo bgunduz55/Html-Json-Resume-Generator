@@ -3,6 +3,7 @@ export interface Template {
     name: string;
     description: string;
     isAtsOptimized: boolean;
-    previewImageUrl?: string;
-    thumbnail: string;
+    previewImageUrl: string;
+    keywords?: string[];
+    category: 'modern' | 'classic' | 'creative' | 'minimal';
 } 

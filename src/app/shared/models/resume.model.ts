@@ -46,11 +46,11 @@ export interface Education {
 }
 
 export interface Skills {
-  technical?: string[];
-  soft?: string[];
+  programming_languages?: string[];
+  frameworks_platforms?: string[];
+  cloud_infrastructure?: string[];
   databases?: string[];
-  technologies?: string[];
-  programs?: string[];
+  methodologies_practices?: string[];
 }
 
 export interface Project {

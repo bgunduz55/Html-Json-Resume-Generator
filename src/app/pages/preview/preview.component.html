@@ -1,33 +1,34 @@
 <div class="preview-container">
-  <div class="preview-actions">
+  <div class="controls">
     <div class="template-selector">
-      <label for="template-select">Template:</label>
       <select 
-        id="template-select" 
         class="form-select" 
         [(ngModel)]="selectedTemplateId" 
-        (ngModelChange)="onTemplateChange()">
-        <option *ngFor="let template of templates" [value]="template.id">
-          {{template.name}}
-        </option>
+        (ngModelChange)="onTemplateChange($event)">
+        <option value="modern-professional">Modern Professional</option>
+        <option value="classic-elegant">Classic Elegant</option>
+        <option value="creative-portfolio">Creative Portfolio</option>
+        <option value="professional-sidebar">Professional Sidebar</option>
+        <option value="ats-optimized">ATS Optimized</option>
+        <option value="minimal-clean">Minimal Clean</option>
+        <option value="tech-modern">Tech Modern</option>
       </select>
     </div>
-    <button class="btn btn-primary" (click)="downloadPDF()" [disabled]="isGeneratingPdf">
-      {{ isGeneratingPdf ? 'Generating PDF...' : 'Download PDF' }}
+    <button class="btn btn-primary" (click)="downloadPDF()" [disabled]="!resume">
+      <i class="fas fa-download"></i> Download PDF
     </button>
   </div>
 
-  <div class="preview-content">
-    <div #previewContent class="resume">
-      <div [ngSwitch]="selectedTemplateId">
-        <app-modern-professional *ngSwitchCase="'modern-professional'" [resume]="resume"></app-modern-professional>
-        <app-creative-portfolio *ngSwitchCase="'creative-portfolio'" [resume]="resume"></app-creative-portfolio>
-        <app-classic-elegant *ngSwitchCase="'classic-elegant'" [resume]="resume"></app-classic-elegant>
-        <app-ats-optimized *ngSwitchCase="'ats-optimized'" [resume]="resume"></app-ats-optimized>
-        <app-professional-sidebar *ngSwitchCase="'professional-sidebar'" [resume]="resume"></app-professional-sidebar>
-        <app-classic-elegant *ngSwitchDefault [resume]="resume"></app-classic-elegant>
-      </div>
-    </div>
+  <div class="preview-content" #previewContent>
+    <ng-container *ngIf="resume">
+      <app-modern-professional *ngIf="selectedTemplateId === 'modern-professional'" [resume]="resume"></app-modern-professional>
+      <app-classic-elegant *ngIf="selectedTemplateId === 'classic-elegant'" [resume]="resume"></app-classic-elegant>
+      <app-creative-portfolio *ngIf="selectedTemplateId === 'creative-portfolio'" [resume]="resume"></app-creative-portfolio>
+      <app-ats-optimized *ngIf="selectedTemplateId === 'ats-optimized'" [resume]="resume"></app-ats-optimized>
+      <app-professional-sidebar *ngIf="selectedTemplateId === 'professional-sidebar'" [resume]="resume"></app-professional-sidebar>
+      <app-minimal-clean *ngIf="selectedTemplateId === 'minimal-clean'" [resume]="resume"></app-minimal-clean>
+      <app-tech-modern *ngIf="selectedTemplateId === 'tech-modern'" [resume]="resume"></app-tech-modern>
+    </ng-container>
   </div>
 
   <div class="loading-overlay" *ngIf="isGeneratingPdf">
@@ -44,7 +45,7 @@
   position: relative;
 }
 
-.preview-actions {
+.controls {
   padding: 1rem;
   background-color: #fff;
   border-bottom: 1px solid #dee2e6;
@@ -107,7 +108,7 @@
 }
 
 @media print {
-  .preview-actions,
+  .controls,
   .navbar,
   .loading-overlay {
     display: none !important;

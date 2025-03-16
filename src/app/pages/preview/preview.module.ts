@@ -8,6 +8,8 @@ import { ClassicElegantComponent } from './templates/classic-elegant/classic-ele
 import { CreativePortfolioComponent } from './templates/creative-portfolio/creative-portfolio.component';
 import { ProfessionalSidebarComponent } from './templates/professional-sidebar/professional-sidebar.component';
 import { AtsOptimizedComponent } from './templates/ats-optimized/ats-optimized.component';
+import { MinimalCleanComponent } from './templates/minimal-clean/minimal-clean.component';
+import { TechModernComponent } from './templates/tech-modern/tech-modern.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,17 @@ import { AtsOptimizedComponent } from './templates/ats-optimized/ats-optimized.c
     ClassicElegantComponent,
     CreativePortfolioComponent,
     ProfessionalSidebarComponent,
-    AtsOptimizedComponent
+    AtsOptimizedComponent,
+    MinimalCleanComponent,
+    TechModernComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     PreviewRoutingModule
+  ],
+  exports: [
+    PreviewComponent
   ]
 })
 export class PreviewModule { }

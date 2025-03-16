@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ResumeService } from '../../../../shared/services/resume.service';
 import { Skills } from '../../../../shared/models/resume.model';
 
@@ -16,11 +16,11 @@ export class SkillsFormComponent implements OnInit {
     private resumeService: ResumeService
   ) {
     this.skillsForm = this.fb.group({
-      technical: this.fb.array([]),
-      soft: this.fb.array([]),
+      programming_languages: this.fb.array([]),
+      frameworks_platforms: this.fb.array([]),
+      cloud_infrastructure: this.fb.array([]),
       databases: this.fb.array([]),
-      technologies: this.fb.array([]),
-      programs: this.fb.array([])
+      methodologies_practices: this.fb.array([])
     });
   }
 
@@ -31,126 +31,74 @@ export class SkillsFormComponent implements OnInit {
   private loadSkills(): void {
     this.resumeService.currentResume$.subscribe(resume => {
       if (resume?.skills) {
-        const technicalArray = this.skillsForm.get('technical') as FormArray;
-        const softArray = this.skillsForm.get('soft') as FormArray;
-        const databasesArray = this.skillsForm.get('databases') as FormArray;
-        const technologiesArray = this.skillsForm.get('technologies') as FormArray;
-        const programsArray = this.skillsForm.get('programs') as FormArray;
-
-        technicalArray.clear();
-        softArray.clear();
-        databasesArray.clear();
-        technologiesArray.clear();
-        programsArray.clear();
-
-        if (resume.skills.technical?.length) {
-          resume.skills.technical.forEach(skill => {
-            technicalArray.push(this.fb.control(skill));
-          });
-        }
-
-        if (resume.skills.soft?.length) {
-          resume.skills.soft.forEach(skill => {
-            softArray.push(this.fb.control(skill));
-          });
-        }
-
-        if (resume.skills.databases?.length) {
-          resume.skills.databases.forEach(skill => {
-            databasesArray.push(this.fb.control(skill));
-          });
-        }
-
-        if (resume.skills.technologies?.length) {
-          resume.skills.technologies.forEach(skill => {
-            technologiesArray.push(this.fb.control(skill));
-          });
-        }
-
-        if (resume.skills.programs?.length) {
-          resume.skills.programs.forEach(skill => {
-            programsArray.push(this.fb.control(skill));
-          });
-        }
+        const skills = resume.skills;
+        
+        Object.keys(skills).forEach(key => {
+          const skillArray = this.skillsForm.get(key) as FormArray;
+          skillArray.clear();
+          
+          if (skills[key as keyof Skills]?.length) {
+            skills[key as keyof Skills]?.forEach(skill => {
+              skillArray.push(this.fb.control(skill));
+            });
+          }
+        });
       }
     });
   }
 
-  get technical(): FormArray {
-    return this.skillsForm.get('technical') as FormArray;
+  get programming_languages(): FormArray<FormControl<string | null>> {
+    return this.skillsForm.get('programming_languages') as FormArray<FormControl<string | null>>;
   }
 
-  get soft(): FormArray {
-    return this.skillsForm.get('soft') as FormArray;
+  get frameworks_platforms(): FormArray<FormControl<string | null>> {
+    return this.skillsForm.get('frameworks_platforms') as FormArray<FormControl<string | null>>;
   }
 
-  get databases(): FormArray {
-    return this.skillsForm.get('databases') as FormArray;
+  get cloud_infrastructure(): FormArray<FormControl<string | null>> {
+    return this.skillsForm.get('cloud_infrastructure') as FormArray<FormControl<string | null>>;
   }
 
-  get technologies(): FormArray {
-    return this.skillsForm.get('technologies') as FormArray;
+  get databases(): FormArray<FormControl<string | null>> {
+    return this.skillsForm.get('databases') as FormArray<FormControl<string | null>>;
   }
 
-  get programs(): FormArray {
-    return this.skillsForm.get('programs') as FormArray;
+  get methodologies_practices(): FormArray<FormControl<string | null>> {
+    return this.skillsForm.get('methodologies_practices') as FormArray<FormControl<string | null>>;
   }
 
-  addTechnicalSkill(): void {
-    this.technical.push(this.fb.control(''));
-  }
-
-  addSoftSkill(): void {
-    this.soft.push(this.fb.control(''));
-  }
-
-  addDatabaseSkill(): void {
-    this.databases.push(this.fb.control(''));
-  }
-
-  addTechnologySkill(): void {
-    this.technologies.push(this.fb.control(''));
-  }
-
-  addProgramSkill(): void {
-    this.programs.push(this.fb.control(''));
-  }
-
-  removeTechnicalSkill(index: number): void {
-    this.technical.removeAt(index);
+  addSkill(skillType: keyof Skills, skill: string): void {
+    const skillArray = this.skillsForm.get(skillType) as FormArray<FormControl<string | null>>;
+    skillArray.push(this.fb.control(skill));
     this.saveChanges();
   }
 
-  removeSoftSkill(index: number): void {
-    this.soft.removeAt(index);
-    this.saveChanges();
-  }
-
-  removeDatabaseSkill(index: number): void {
-    this.databases.removeAt(index);
-    this.saveChanges();
-  }
-
-  removeTechnologySkill(index: number): void {
-    this.technologies.removeAt(index);
-    this.saveChanges();
-  }
-
-  removeProgramSkill(index: number): void {
-    this.programs.removeAt(index);
+  removeSkill(skillType: keyof Skills, index: number): void {
+    const skillArray = this.skillsForm.get(skillType) as FormArray<FormControl<string | null>>;
+    skillArray.removeAt(index);
     this.saveChanges();
   }
 
   saveChanges(): void {
     if (this.skillsForm.valid) {
       const skills: Skills = {
-        technical: this.technical.value,
-        soft: this.soft.value,
-        databases: this.databases.value,
-        technologies: this.technologies.value,
-        programs: this.programs.value
+        programming_languages: this.programming_languages.value.filter((skill): skill is string => skill !== null),
+        frameworks_platforms: this.frameworks_platforms.value.filter((skill): skill is string => skill !== null),
+        cloud_infrastructure: this.cloud_infrastructure.value.filter((skill): skill is string => skill !== null),
+        databases: this.databases.value.filter((skill): skill is string => skill !== null),
+        methodologies_practices: this.methodologies_practices.value.filter((skill): skill is string => skill !== null)
       };
       this.resumeService.updateSkills(skills);
     }
+  }
+
+  getSkillsData(): Skills {
+    return {
+      programming_languages: this.programming_languages.value.filter((skill): skill is string => skill !== null),
+      frameworks_platforms: this.frameworks_platforms.value.filter((skill): skill is string => skill !== null),
+      cloud_infrastructure: this.cloud_infrastructure.value.filter((skill): skill is string => skill !== null),
+      databases: this.databases.value.filter((skill): skill is string => skill !== null),
+      methodologies_practices: this.methodologies_practices.value.filter((skill): skill is string => skill !== null)
+    };
   }
 }
