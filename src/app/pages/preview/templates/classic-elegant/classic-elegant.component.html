@@ -14,7 +14,7 @@
 
   <section class="summary" *ngIf="resume.summary">
     <h2>Professional Summary</h2>
-    <p>{{ resume.summary }}</p>
+    <p style="white-space: pre-line">{{ resume.summary }}</p>
   </section>
 
   <section class="skills" *ngIf="resume.skills">
@@ -54,16 +54,6 @@
   </section>
 
   <div class="content-grid">
-    <section class="experience" *ngIf="resume.workExperience?.length">
-      <h2>Work Experience</h2>
-      <div class="item" *ngFor="let exp of resume.workExperience">
-        <h3>{{ exp.title }}</h3>
-        <div class="company">{{ exp.company }}</div>
-        <div class="dates">{{ exp.startDate | date:'MMM yyyy' }} - {{ exp.endDate ? (exp.endDate | date:'MMM yyyy') : 'Present' }}</div>
-        <p class="description">{{ exp.description }}</p>
-      </div>
-    </section>
-
     <div class="education-projects">
       <section class="education" *ngIf="resume.education?.length">
         <h2>Education</h2>
@@ -71,6 +61,11 @@
           <h3>{{ edu.degree }}</h3>
           <div class="school">{{ edu.school }}</div>
           <div class="dates">{{ edu.startDate | date:'MMM yyyy' }} - {{ edu.endDate ? (edu.endDate | date:'MMM yyyy') : 'Present' }}</div>
+          <div class="achievements" *ngIf="edu.achievements?.length">
+            <ul>
+              <li *ngFor="let achievement of edu.achievements">{{ achievement }}</li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -79,6 +74,11 @@
         <div class="item" *ngFor="let project of resume.projects">
           <h3>{{ project.name }}</h3>
           <p class="description">{{ project.description }}</p>
+          <div class="achievements" *ngIf="project.achievements?.length">
+            <ul>
+              <li *ngFor="let achievement of project.achievements">{{ achievement }}</li>
+            </ul>
+          </div>
           <div class="technologies" *ngIf="project.technologies?.length">
             <span class="technology" *ngFor="let tech of project.technologies">{{ tech }}</span>
           </div>
@@ -86,6 +86,24 @@
       </section>
     </div>
   </div>
+
+  <section class="experience" *ngIf="resume.workExperience?.length">
+    <h2>Work Experience</h2>
+    <div class="item" *ngFor="let exp of resume.workExperience">
+      <h3>{{ exp.title }}</h3>
+      <div class="company">{{ exp.company }}</div>
+      <div class="dates">{{ exp.startDate | date:'MMM yyyy' }} - {{ exp.endDate ? (exp.endDate | date:'MMM yyyy') : 'Present' }}</div>
+      <p class="description">{{ exp.description }}</p>
+      <div class="achievements" *ngIf="exp.achievements?.length">
+        <ul>
+          <li *ngFor="let achievement of exp.achievements">{{ achievement }}</li>
+        </ul>
+      </div>
+      <div class="technologies" *ngIf="exp.technologies?.length">
+        <span class="technology" *ngFor="let tech of exp.technologies">{{ tech }}</span>
+      </div>
+    </div>
+  </section>
 
   <section class="certifications" *ngIf="resume.certifications?.length">
     <h2>Certifications</h2>

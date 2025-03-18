@@ -61,6 +61,10 @@
     color: #444;
     margin-bottom: 0.75rem;
     line-height: 1.2;
+
+    p {
+      white-space: pre-line;
+    }
   }
 
   .skills {
@@ -162,6 +166,31 @@
         line-height: 1.2;
       }
 
+      .achievements {
+        margin-top: 0.25rem;
+        
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            font-size: 0.6rem;
+            color: #555;
+            margin-bottom: 0.15rem;
+            padding-left: 0.5rem;
+            position: relative;
+
+            &:before {
+              content: "•";
+              position: absolute;
+              left: 0;
+              color: #666;
+            }
+          }
+        }
+      }
+
       .technologies {
         display: flex;
         flex-wrap: wrap;
@@ -261,6 +290,13 @@
           color: black !important;
         }
 
+        .achievements {
+          ul li {
+            font-size: 0.6rem !important;
+            color: black !important;
+          }
+        }
+
         .technologies {
           .technology {
             background: white !important;
@@ -269,6 +305,10 @@
           }
         }
       }
+    }
+
+    .experience {
+      padding-top: 10px;
     }
   }
 } 

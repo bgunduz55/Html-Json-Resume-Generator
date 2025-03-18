@@ -1,0 +1,248 @@
+{
+  "personalInfo": {
+    "fullName": "Burak GÜNDÜZ",
+    "title": "Senior Frontend Developer & UI Architect",
+    "email": "bgunduz_94@hotmail.com",
+    "phone": "+905357193476",
+    "location": "Turkey - Sakarya - Akyazı",
+    "github": "http://github.com/bgunduz55",
+    "linkedin": "https://www.linkedin.com/in/bgunduz/"
+  },
+  "summary": "Innovative Senior Frontend Developer with 9+ years of experience specializing in modern web applications and enterprise-scale UI architectures. Expert in Angular ecosystem with a strong focus on performance optimization and user experience. Core competencies include:\n\n• Technical Leadership: Led frontend architecture decisions and mentored development teams\n• Angular Expertise: Advanced implementation of Angular (2+ through 16+) and its ecosystem\n• State Management: Expert in NGXS/NgRx, RxJS, and complex state architectures\n• Performance Optimization: Bundle optimization, lazy loading, and rendering performance\n• UI/UX Development: Responsive design, accessibility (WCAG), and modern UI patterns\n• Testing & Quality: E2E testing, unit testing, and continuous integration\n• Component Architecture: Scalable and reusable component design patterns\n• Modern Web: Progressive Web Apps (PWA), Server-Side Rendering (SSR)\n\nKey Achievements:\n• Reduced initial load time by 45% through advanced optimization techniques\n• Improved application stability by 50% using state management\n• Created reusable component library reducing development time by 40%\n• Led frontend architecture for enterprise applications serving millions of users",
+  "workExperience": [
+    {
+      "title": "Senior Frontend Developer",
+      "company": "Dgpays",
+      "startDate": "2020/05/01",
+      "endDate": "2024/11/30",
+      "description": "Lead frontend architect for enterprise payment solutions, focusing on performance optimization and user experience.",
+      "achievements": [
+        "Architected and implemented frontend for payment processing platform serving millions of transactions",
+        "Reduced initial load time by 45% through advanced optimization techniques",
+        "Developed comprehensive analytics dashboard with real-time monitoring",
+        "Led and mentored frontend team of 8 developers, achieving 95% sprint velocity",
+        "Created reusable component library reducing development time by 40%",
+        "Implemented automated CI/CD pipelines improving deployment efficiency by 85%"
+      ],
+      "technologies": [
+        "Angular 12+",
+        "TypeScript 4.x",
+        "NGXS/NgRx",
+        "RxJS",
+        "Material Design",
+        "SCSS/SASS",
+        "Jest/Jasmine",
+        "Cypress",
+        "Webpack",
+        "Azure DevOps"
+      ]
+    },
+    {
+      "title": "Senior Frontend Developer",
+      "company": "Etiya",
+      "startDate": "2019/05/01",
+      "endDate": "2020/05/01",
+      "description": "Led frontend architecture and development for Videotron BSS telecommunications platform, focusing on performance optimization and user experience.",
+      "achievements": [
+        "Developed responsive dashboard reducing customer service response time by 40% for 1M+ subscribers",
+        "Implemented NGXS state management improving application stability by 50%",
+        "Created reusable component library reducing development time by 40% across 3 enterprise projects",
+        "Optimized Angular bundle size achieving 45% reduction in initial load time",
+        "Implemented comprehensive testing framework achieving 85% code coverage"
+      ],
+      "technologies": [
+        "Angular 8+",
+        "TypeScript 3.x/4.x",
+        "NGXS/RxJS",
+        "SCSS/SASS",
+        "Jest/Cypress",
+        "Webpack 5",
+        "Material Design",
+        "REST APIs",
+        "Git/Bitbucket",
+        "JIRA"
+      ]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Enderun Information Technologies",
+      "startDate": "2019/02/01",
+      "endDate": "2019/05/01",
+      "description": "Developed frontend components for enterprise procurement system with focus on user experience and accessibility.",
+      "achievements": [
+        "Implemented responsive UI for procurement management system",
+        "Developed QR-based authentication interface",
+        "Created mobile-first design for inventory management",
+        "Improved user experience reducing training time by 50%"
+      ],
+      "technologies": [
+        "Angular",
+        "TypeScript",
+        "Material Design",
+        "SCSS",
+        "REST APIs",
+        "GitLab"
+      ]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Verisoft",
+      "startDate": "2018/10/01",
+      "endDate": "2019/02/01",
+      "description": "Developed user interfaces for payment processing applications with emphasis on security and usability.",
+      "achievements": [
+        "Designed intuitive UI for MPOS application",
+        "Implemented secure payment interfaces",
+        "Created cross-platform UI components",
+        "Developed MyGini loyalty application UI"
+      ],
+      "technologies": [
+        "Angular",
+        "TypeScript",
+        "SCSS",
+        "Material Design",
+        "Payment UI Components",
+        "Cross-platform UI"
+      ]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "JAVA Software Inc",
+      "startDate": "2016/12/01",
+      "endDate": "2018/10/01",
+      "description": "Led frontend development for social media platform and enterprise applications.",
+      "achievements": [
+        "Developed SSR-enabled Angular application improving SEO metrics by 80%",
+        "Created real-time chat interface supporting 10K+ concurrent users",
+        "Implemented video conferencing UI using WebRTC",
+        "Designed responsive e-Invoice system interface"
+      ],
+      "technologies": [
+        "Angular 4+",
+        "TypeScript",
+        "SCSS",
+        "WebRTC",
+        "Socket.io",
+        "Material Design"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "Karabuk University",
+      "degree": "Bachelor of Science",
+      "field": "Computer Engineering",
+      "startDate": "2011/09/01",
+      "endDate": "2017/02/01",
+      "achievements": [
+        "Focus on Web Technologies and UI Development",
+        "Key courses: Web Development, UI/UX Design",
+        "Specialized in frontend architecture and performance optimization"
+      ]
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "TypeScript (Expert - Angular, RxJS, NGXS/NgRx)",
+      "JavaScript (Expert - ES6+, Node.js, WebPack)",
+      "HTML5/CSS3 (Expert - Semantic HTML, Web Components)",
+      "Dart (Intermediate - Flutter Web)"
+    ],
+    "frameworks_platforms": [
+      "Angular (2+ through 16+)",
+      "NGXS/NgRx (State Management)",
+      "RxJS (Reactive Programming)",
+      "Material Design",
+      "Bootstrap 5",
+      "TailwindCSS",
+      "Jest/Jasmine",
+      "Cypress/Protractor",
+      "Storybook",
+      "Web Components"
+    ],
+    "development_tools": [
+      "Webpack/Vite",
+      "npm/yarn/pnpm",
+      "Git/GitHub",
+      "VS Code",
+      "Chrome DevTools",
+      "Lighthouse",
+      "Azure DevOps",
+      "ESLint/Prettier",
+      "SonarQube"
+    ],
+    "ui_ux": [
+      "Responsive Design",
+      "Material Design",
+      "CSS Grid/Flexbox",
+      "SCSS/SASS/Less",
+      "Accessibility (WCAG 2.1)",
+      "Progressive Web Apps",
+      "Cross-browser Compatibility",
+      "Mobile-First Design",
+      "CSS-in-JS",
+      "CSS Modules"
+    ],
+    "performance": [
+      "Lazy Loading",
+      "Code Splitting",
+      "Bundle Optimization",
+      "Tree Shaking",
+      "Memory Management",
+      "Virtual Scrolling",
+      "Web Workers",
+      "Service Workers",
+      "Browser Caching",
+      "Image Optimization"
+    ],
+    "methodologies_practices": [
+      "Component-Driven Development",
+      "Atomic Design",
+      "BEM Methodology",
+      "Mobile-First Design",
+      "Test-Driven Development",
+      "Performance Optimization",
+      "CI/CD",
+      "Agile/Scrum",
+      "Code Review",
+      "Pair Programming"
+    ]
+  },
+  "projects": [
+    {
+      "name": "Enterprise Dashboard Platform",
+      "description": "Developed comprehensive dashboard system for payment processing with real-time updates and analytics.",
+      "achievements": [
+        "Reduced load time by 45% through optimization",
+        "Implemented real-time updates for 1000+ concurrent users",
+        "Created reusable component library",
+        "Achieved 95% test coverage"
+      ],
+      "technologies": [
+        "Angular 15",
+        "NGXS",
+        "RxJS",
+        "Material Design",
+        "Chart.js",
+        "WebSocket"
+      ]
+    },
+    {
+      "name": "Video Conferencing Platform",
+      "description": "Built modern video conferencing interface with real-time features.",
+      "achievements": [
+        "Supported 100+ concurrent video streams",
+        "Implemented responsive design for all devices",
+        "Reduced initial load time by 40%",
+        "Improved UI performance by 60%"
+      ],
+      "technologies": [
+        "Angular",
+        "WebRTC",
+        "Socket.io",
+        "SCSS",
+        "RxJS"
+      ]
+    }
+  ]
+} 
