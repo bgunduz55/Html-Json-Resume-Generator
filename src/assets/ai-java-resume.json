@@ -1,0 +1,214 @@
+{
+  "personalInfo": {
+    "fullName": "Burak GÜNDÜZ",
+    "title": "Senior Java Software Engineer - AI/ML Systems",
+    "email": "bgunduz_94@hotmail.com",
+    "phone": "+905357193476",
+    "location": "Turkey - Sakarya - Akyazı",
+    "github": "http://github.com/bgunduz55",
+    "linkedin": "https://www.linkedin.com/in/bgunduz/"
+  },
+  "summary": "Senior Java Software Engineer with 9+ years of expertise in enterprise software architecture and AI/ML systems integration. Proven track record in designing and implementing high-performance, scalable AI-driven solutions. Core competencies include:\n\n• Java Development: Advanced implementation of Java 11+ applications and microservices\n• AI/ML Integration: Experience in implementing and deploying machine learning models in production\n• Architecture Design: Expertise in designing distributed AI systems and scalable backends\n• Performance Optimization: Deep knowledge of JVM optimization and concurrent programming\n• Big Data & Analytics: Experience with large-scale data processing and analytics pipelines\n• Cloud & DevOps: Extensive experience with AWS services and CI/CD practices\n• Technical Leadership: Strong track record in mentoring teams and driving innovation\n\nKey Achievements:\n• Led development of AI-powered fraud detection system processing $100M+ annual transactions\n• Implemented machine learning models reducing false positives by 60%\n• Achieved 99.99% uptime for critical AI services\n• Optimized JVM performance resulting in 45% reduction in processing time",
+  "workExperience": [
+    {
+      "title": "Senior Java Software Engineer - AI Systems",
+      "company": "Dgpays",
+      "startDate": "2020/05/01",
+      "endDate": "2024/11/30",
+      "description": "Lead architect for AI-powered payment processing systems, focusing on machine learning integration, scalability, and high-availability solutions.",
+      "achievements": [
+        "Architected and implemented AI-powered fraud detection system processing $50M+ monthly transactions",
+        "Designed and deployed microservices architecture for ML model serving using Spring Boot and Spring Cloud",
+        "Integrated real-time machine learning predictions using Apache Kafka and custom ML pipelines",
+        "Optimized JVM performance and concurrent processing, reducing latency by 45%",
+        "Implemented comprehensive testing framework for AI components achieving 90% coverage",
+        "Led collaboration with data science team for model deployment and monitoring",
+        "Mentored team of 5 mid-level engineers in AI integration practices"
+      ],
+      "technologies": [
+        "Java 11/17",
+        "Spring Boot 2.7/3.x",
+        "Spring Cloud",
+        "TensorFlow Java",
+        "Apache Kafka",
+        "MongoDB 5.0",
+        "PostgreSQL 14",
+        "Docker",
+        "Kubernetes",
+        "AWS (SageMaker, ECS, EKS)",
+        "JUnit 5",
+        "Mockito"
+      ]
+    },
+    {
+      "title": "Senior Java Developer - ML Systems",
+      "company": "BNP Paribas Cardiff",
+      "startDate": "2019/08/01",
+      "endDate": "2019/11/01",
+      "description": "Developed AI-enhanced backend services for insurance risk assessment system.",
+      "achievements": [
+        "Implemented machine learning models for risk assessment with 95% accuracy",
+        "Developed REST APIs and GraphQL endpoints for ML model serving",
+        "Integrated automated decision-making system using predictive models",
+        "Optimized model inference performance for real-time predictions"
+      ],
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "GraphQL",
+        "Oracle DB",
+        "REST APIs",
+        "Machine Learning",
+        "JUnit"
+      ]
+    },
+    {
+      "title": "Senior Java Developer",
+      "company": "Etiya",
+      "startDate": "2019/05/01",
+      "endDate": "2019/08/01",
+      "description": "Led development of AI-enhanced customer analytics platform for telecommunications.",
+      "achievements": [
+        "Implemented predictive analytics system serving 1M+ subscribers",
+        "Developed real-time recommendation engine using machine learning",
+        "Optimized big data processing pipelines reducing analysis time by 40%",
+        "Created comprehensive monitoring system for ML model performance"
+      ],
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "Oracle DB",
+        "Apache Spark",
+        "Hadoop",
+        "Machine Learning",
+        "REST APIs"
+      ]
+    },
+    {
+      "title": "Java Backend Developer",
+      "company": "Enderun Information Technologies",
+      "startDate": "2019/02/01",
+      "endDate": "2019/05/01",
+      "description": "Developed AI-enhanced procurement system for Istanbul Metropolitan Municipality.",
+      "achievements": [
+        "Implemented predictive analytics for procurement optimization",
+        "Developed secure REST APIs with ML integration",
+        "Optimized database queries for large-scale data processing",
+        "Implemented automated testing for ML components"
+      ],
+      "technologies": [
+        "Spring Boot",
+        "Oracle DB",
+        "Machine Learning",
+        "REST APIs",
+        "JUnit",
+        "Spring Security"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "Karabuk University",
+      "degree": "Bachelor of Science",
+      "field": "Computer Engineering",
+      "startDate": "2011/09/01",
+      "endDate": "2017/02/01",
+      "achievements": [
+        "Focus on Machine Learning and AI Applications",
+        "Key courses: Artificial Intelligence, Data Mining, Advanced Algorithms",
+        "Specialized in Java development and ML systems"
+      ]
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Java (Expert - Java 11+, Spring Boot, Concurrent Programming)",
+      "Python (ML Model Integration)",
+      "SQL (Expert - Performance Tuning)"
+    ],
+    "ai_ml_technologies": [
+      "Machine Learning Integration",
+      "TensorFlow Java API",
+      "Model Deployment",
+      "Feature Engineering",
+      "ML Pipeline Design",
+      "Real-time Predictions"
+    ],
+    "frameworks_platforms": [
+      "Spring Framework (Boot, Cloud, Data)",
+      "GraphQL",
+      "REST APIs",
+      "JPA/Hibernate",
+      "JUnit/Mockito",
+      "Maven/Gradle"
+    ],
+    "big_data_technologies": [
+      "Apache Spark",
+      "Hadoop Ecosystem",
+      "Data Processing Pipelines",
+      "Stream Processing"
+    ],
+    "cloud_infrastructure": [
+      "AWS (SageMaker, EC2, S3)",
+      "Docker",
+      "Kubernetes",
+      "CI/CD (Jenkins, GitLab)"
+    ],
+    "messaging_systems": [
+      "Apache Kafka",
+      "RabbitMQ",
+      "Event Streaming"
+    ],
+    "architecture_patterns": [
+      "Distributed AI Systems",
+      "Microservices Architecture",
+      "Event-Driven Architecture",
+      "ML Model Serving Patterns"
+    ],
+    "performance_optimization": [
+      "JVM Tuning",
+      "Multithreading",
+      "Concurrency Control",
+      "Memory Management",
+      "Performance Monitoring"
+    ]
+  },
+  "projects": [
+    {
+      "name": "AI-Powered Fraud Detection System",
+      "description": "Designed and implemented real-time fraud detection system using machine learning models and distributed processing.",
+      "achievements": [
+        "Processed 1000+ transactions per second with ML predictions",
+        "Reduced false positives by 60% using advanced ML models",
+        "Achieved sub-100ms response time for real-time predictions",
+        "Implemented automated model retraining pipeline"
+      ],
+      "technologies": [
+        "Java/Spring Boot",
+        "TensorFlow",
+        "Kafka",
+        "PostgreSQL",
+        "AWS SageMaker",
+        "Docker"
+      ]
+    },
+    {
+      "name": "Distributed ML Model Serving Platform",
+      "description": "Built scalable platform for serving multiple machine learning models in production.",
+      "achievements": [
+        "Supported 50+ concurrent ML models in production",
+        "Implemented automatic model versioning and A/B testing",
+        "Achieved 99.99% model serving availability",
+        "Reduced model deployment time by 70%"
+      ],
+      "technologies": [
+        "Spring Boot",
+        "GraphQL",
+        "Kubernetes",
+        "MongoDB",
+        "Redis",
+        "AWS"
+      ]
+    }
+  ]
+} 
