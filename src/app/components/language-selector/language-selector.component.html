@@ -1,0 +1,14 @@
+<div class="dropdown">
+  <button class="btn btn-light dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+    <ng-container *ngIf="selectedLanguage">
+      {{ selectedLanguage.flag }} {{ selectedLanguage.name }}
+    </ng-container>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+    <li *ngFor="let lang of languages">
+      <button class="dropdown-item" (click)="onLanguageChange(lang.code)">
+        {{ lang.flag }} {{ lang.name }}
+      </button>
+    </li>
+  </ul>
+</div> 

@@ -1,0 +1,125 @@
+:host {
+  display: block;
+}
+
+h2 {
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+h3 {
+  color: var(--text-color);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.experience-item {
+  background-color: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form-label {
+  color: var(--text-color);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  background-color: var(--surface-ground);
+  border: 1px solid var(--surface-border);
+  color: var(--text-color);
+  transition: all 0.2s;
+
+  &:focus {
+    background-color: var(--surface-ground);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25);
+  }
+
+  &.is-invalid {
+    border-color: var(--red-500);
+    box-shadow: none;
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(var(--red-500-rgb), 0.25);
+    }
+  }
+}
+
+.form-check {
+  .form-check-input {
+    background-color: var(--surface-ground);
+    border-color: var(--surface-border);
+
+    &:checked {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+  }
+
+  .form-check-label {
+    color: var(--text-color);
+  }
+}
+
+.invalid-feedback {
+  color: var(--red-500);
+}
+
+.achievements-list,
+.technologies-list {
+  .achievement-item,
+  .technology-item {
+    margin-bottom: 0.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.btn {
+  &.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--primary-color-text);
+
+    &:hover {
+      background-color: var(--primary-600);
+      border-color: var(--primary-600);
+    }
+
+    &:disabled {
+      background-color: var(--primary-300);
+      border-color: var(--primary-300);
+    }
+  }
+
+  &.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+
+    &:hover {
+      background-color: var(--primary-color);
+      color: var(--primary-color-text);
+    }
+  }
+
+  &.btn-outline-danger {
+    color: var(--red-500);
+    border-color: var(--red-500);
+
+    &:hover {
+      background-color: var(--red-500);
+      color: var(--surface-0);
+    }
+  }
+}

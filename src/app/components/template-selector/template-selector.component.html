@@ -1,0 +1,79 @@
+<div class="template-selector container">
+  <!-- Template Category Selection -->
+  <div class="category-selector mb-4">
+    <div class="btn-group w-100" role="group">
+      <button *ngFor="let category of categories"
+              class="btn"
+              [class.btn-primary]="selectedCategory === category"
+              [class.btn-outline-primary]="selectedCategory !== category"
+              (click)="onCategoryChange(category)">
+        {{ category | titlecase }}
+      </button>
+    </div>
+  </div>
+
+  <!-- ATS Filter -->
+  <div class="form-check form-switch mb-4">
+    <input class="form-check-input" type="checkbox"
+           [checked]="showAtsOnly"
+           (change)="toggleAtsFilter()"
+           id="atsFilter">
+    <label class="form-check-label" for="atsFilter">
+      Show ATS-Optimized Templates Only
+    </label>
+  </div>
+
+  <!-- ATS Score Card -->
+  <div class="card mb-4" *ngIf="currentTemplate?.isAtsOptimized">
+    <div class="card-body">
+      <h5 class="card-title d-flex align-items-center gap-2">
+        <i class="bi bi-shield-check text-success"></i>
+        ATS Score: {{ atsScore }}%
+      </h5>
+      <div class="progress mb-3">
+        <div class="progress-bar" role="progressbar"
+             [style.width.%]="atsScore"
+             [class.bg-danger]="atsScore < 50"
+             [class.bg-warning]="atsScore >= 50 && atsScore < 80"
+             [class.bg-success]="atsScore >= 80">
+        </div>
+      </div>
+      <div class="ats-tips" *ngIf="atsTips.length > 0">
+        <h6 class="mb-3">Optimization Tips:</h6>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngFor="let tip of atsTips">
+            <i class="bi bi-info-circle me-2 text-primary"></i>
+            {{ tip }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Template Grid -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="col" *ngFor="let template of templates">
+      <div class="card h-100 template-card"
+           [class.active]="currentTemplate.id === template.id"
+           (click)="onTemplateChange(template.id)">
+        <div class="position-relative">
+          <img [src]="template.previewImageUrl" 
+               [alt]="template.name"
+               class="card-img-top template-preview">
+          <div class="template-badges position-absolute top-0 end-0 p-2">
+            <span class="badge bg-success me-1" *ngIf="template.isAtsOptimized">
+              ATS Optimized
+            </span>
+            <span class="badge bg-primary">
+              {{ template.category | titlecase }}
+            </span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ template.name }}</h5>
+          <p class="card-text text-muted">{{ template.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

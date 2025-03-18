@@ -1,0 +1,325 @@
+.creative-portfolio {
+  font-size: 0.65rem;
+  padding: 0.75rem;
+  color: #333;
+
+  header {
+    text-align: center;
+    margin-bottom: 0.75rem;
+
+    h1 {
+      font-size: 1.1rem;
+      margin: 0;
+      color: #2c3e50;
+    }
+
+    .title {
+      font-size: 0.75rem;
+      color: #7f8c8d;
+      margin: 0.25rem 0;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+
+      span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        i {
+          color: #3498db;
+        }
+      }
+    }
+  }
+
+  section {
+    margin-bottom: 0.75rem;
+
+    h2 {
+      font-size: 0.85rem;
+      color: #2c3e50;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .summary {
+    p {
+      margin: 0;
+      line-height: 1.2;
+    }
+  }
+
+  .skills {
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.5rem;
+    }
+
+    .skill-category {
+      background: #f8f9fa;
+      padding: 0.5rem;
+      border-radius: 4px;
+
+      h3 {
+        font-size: 0.7rem;
+        margin: 0 0 0.25rem 0;
+        color: #2c3e50;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          font-size: 0.6rem;
+          margin-bottom: 0.15rem;
+          color: #555;
+        }
+      }
+    }
+  }
+
+  .education-projects-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+
+    .education, .projects {
+      h2 {
+        margin-top: 0;
+      }
+    }
+
+    .education {
+      .education-item {
+        margin-bottom: 0.5rem;
+
+        h3 {
+          font-size: 0.7rem;
+          margin: 0;
+          color: #2c3e50;
+        }
+
+        .school {
+          font-size: 0.65rem;
+          color: #555;
+        }
+
+        .dates {
+          font-size: 0.6rem;
+          color: #7f8c8d;
+        }
+      }
+    }
+
+    .projects {
+      .project-item {
+        margin-bottom: 0.5rem;
+
+        h3 {
+          font-size: 0.7rem;
+          margin: 0;
+          color: #2c3e50;
+        }
+
+        .description {
+          font-size: 0.65rem;
+          margin: 0.25rem 0;
+          color: #555;
+          line-height: 1.2;
+        }
+
+        .technologies {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.25rem;
+
+          .technology {
+            font-size: 0.6rem;
+            background: #e1f5fe;
+            color: #0288d1;
+            padding: 0.1rem 0.25rem;
+            border-radius: 2px;
+          }
+        }
+      }
+    }
+  }
+
+  .experience {
+    .experience-item {
+      margin-bottom: 0.35rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid #f1f3f5;
+
+      &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .experience-header {
+        margin-bottom: 0.15rem;
+      }
+
+      h4 {
+        font-size: 0.68rem;
+        color: #2c3e50;
+        margin: 0;
+        font-weight: 600;
+      }
+
+      .company {
+        font-size: 0.62rem;
+        color: #495057;
+        margin: 0.08rem 0;
+      }
+
+      .date {
+        font-size: 0.62rem;
+        color: #6c757d;
+        margin: 0.08rem 0;
+      }
+
+      .description {
+        font-size: 0.62rem;
+        color: #495057;
+        margin: 0.15rem 0;
+        line-height: 1.2;
+      }
+
+      .achievements {
+        margin: 0.15rem 0;
+        
+        ul {
+          margin: 0;
+          padding-left: 1rem;
+          
+          li {
+            font-size: 0.62rem;
+            color: #495057;
+            margin: 0.08rem 0;
+            line-height: 1.2;
+          }
+        }
+      }
+
+      .technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.15rem;
+        margin-top: 0.15rem;
+      }
+
+      .tech-tag {
+        font-size: 0.62rem;
+        padding: 0.08rem 0.2rem;
+        background: #e9ecef;
+        border-radius: 2px;
+        color: #495057;
+      }
+    }
+  }
+
+  .certifications {
+    .certification-item {
+      margin-bottom: 0.5rem;
+
+      h3 {
+        font-size: 0.7rem;
+        margin: 0;
+        color: #2c3e50;
+      }
+
+      .organization {
+        font-size: 0.65rem;
+        color: #555;
+      }
+
+      .dates {
+        font-size: 0.6rem;
+        color: #7f8c8d;
+      }
+    }
+  }
+
+  @media print {
+    font-size: 0.65rem !important;
+    padding: 0.75rem !important;
+    color: black !important;
+
+    header {
+      h1 {
+        color: black !important;
+      }
+
+      .title {
+        color: #333 !important;
+      }
+
+      .contact-info span i {
+        color: #333 !important;
+      }
+    }
+
+    section h2 {
+      color: black !important;
+      border-bottom-color: #ccc !important;
+    }
+
+    .skill-category {
+      background: white !important;
+      border: 1px solid #ccc !important;
+
+      h3 {
+        color: black !important;
+      }
+
+      li {
+        color: #333 !important;
+      }
+    }
+
+    .education-item, .project-item, .experience-item, .certification-item {
+      h3 {
+        color: black !important;
+      }
+
+      .school, .company, .organization, .description {
+        color: #333 !important;
+      }
+
+      .dates {
+        color: #555 !important;
+      }
+    }
+
+    .technologies .technology {
+      background: white !important;
+      border: 1px solid #ccc !important;
+      color: #333 !important;
+    }
+
+    .experience-item {
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+      
+      .tech-tag {
+        background: #e9ecef !important;
+        border: 1px solid #dee2e6 !important;
+        color: black !important;
+      }
+    }
+  }
+} 

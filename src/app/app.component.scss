@@ -211,3 +211,80 @@ app-function-view {
 .draw-line-class{
     border-top: 1px solid #fff13b;
 }
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.app-header {
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+}
+
+.app-main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.content-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.resume-content {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  min-height: 800px;
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    padding: 1rem;
+  }
+
+  .resume-content {
+    padding: 1rem;
+  }
+}
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: var(--surface-ground);
+}
+
+:root {
+  // Theme colors
+  --primary-color: #0d6efd;
+  --primary-color-text: #ffffff;
+  --surface-ground: #f8f9fa;
+  --surface-card: #ffffff;
+  --surface-border: #dee2e6;
+  --surface-hover: #e9ecef;
+  --text-color: #212529;
+  --text-color-secondary: #6c757d;
+  
+  // Additional colors
+  --red-500: #dc3545;
+  --red-600: #c82333;
+  
+  // Shadows
+  --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-4: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  // Border radius
+  --border-radius: 8px;
+}

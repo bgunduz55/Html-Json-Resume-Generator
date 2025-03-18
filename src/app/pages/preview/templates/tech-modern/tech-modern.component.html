@@ -1,0 +1,109 @@
+<div class="tech-modern">
+  <header>
+    <div class="header-content">
+      <div class="name-title">
+        <h1>{{ resume.personalInfo.fullName }}</h1>
+        <p class="title">{{ resume.personalInfo.title }}</p>
+      </div>
+      <div class="contact-info">
+        <span><i class="fas fa-envelope"></i> {{ resume.personalInfo.email }}</span>
+        <span><i class="fas fa-phone"></i> {{ resume.personalInfo.phone }}</span>
+        <span><i class="fas fa-map-marker-alt"></i> {{ resume.personalInfo.location }}</span>
+        <span *ngIf="resume.personalInfo.website"><i class="fas fa-globe"></i> {{ resume.personalInfo.website }}</span>
+        <span *ngIf="resume.personalInfo.linkedin"><i class="fab fa-linkedin"></i> {{ resume.personalInfo.linkedin }}</span>
+        <span *ngIf="resume.personalInfo.github"><i class="fab fa-github"></i> {{ resume.personalInfo.github }}</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="left-column">
+      <section class="summary" *ngIf="resume.summary">
+        <h2><i class="fas fa-user-circle"></i> Professional Summary</h2>
+        <p>{{ resume.summary }}</p>
+      </section>
+
+      <section class="experience" *ngIf="resume.workExperience?.length">
+        <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+        <div class="experience-item" *ngFor="let exp of resume.workExperience">
+          <div class="job-header">
+            <h3>{{ exp.title }}</h3>
+            <span class="company">{{ exp.company }}</span>
+            <span class="dates">{{ exp.startDate | date:'MMM yyyy' }} - {{ exp.endDate ? (exp.endDate | date:'MMM yyyy') : 'Present' }}</span>
+          </div>
+          <p class="description">{{ exp.description }}</p>
+        </div>
+      </section>
+
+      <section class="projects" *ngIf="resume.projects?.length">
+        <h2><i class="fas fa-code"></i> Projects</h2>
+        <div class="project-item" *ngFor="let project of resume.projects">
+          <h3>
+            <a *ngIf="project.link" [href]="project.link" target="_blank">{{ project.name }}</a>
+            <span *ngIf="!project.link">{{ project.name }}</span>
+          </h3>
+          <p class="description">{{ project.description }}</p>
+          <div class="technologies" *ngIf="project.technologies?.length">
+            <span class="technology" *ngFor="let tech of project.technologies">{{ tech }}</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="right-column">
+      <section class="skills" *ngIf="resume.skills">
+        <h2><i class="fas fa-tools"></i> Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category" *ngIf="resume.skills.programming_languages?.length">
+            <h3><i class="fas fa-code"></i> Programming Languages</h3>
+            <div class="skill-tags">
+              <span class="skill-tag" *ngFor="let skill of resume.skills.programming_languages">{{ skill }}</span>
+            </div>
+          </div>
+          <div class="skill-category" *ngIf="resume.skills.frameworks_platforms?.length">
+            <h3><i class="fas fa-layer-group"></i> Frameworks & Platforms</h3>
+            <div class="skill-tags">
+              <span class="skill-tag" *ngFor="let skill of resume.skills.frameworks_platforms">{{ skill }}</span>
+            </div>
+          </div>
+          <div class="skill-category" *ngIf="resume.skills.cloud_infrastructure?.length">
+            <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
+            <div class="skill-tags">
+              <span class="skill-tag" *ngFor="let skill of resume.skills.cloud_infrastructure">{{ skill }}</span>
+            </div>
+          </div>
+          <div class="skill-category" *ngIf="resume.skills.databases?.length">
+            <h3><i class="fas fa-database"></i> Databases</h3>
+            <div class="skill-tags">
+              <span class="skill-tag" *ngFor="let skill of resume.skills.databases">{{ skill }}</span>
+            </div>
+          </div>
+          <div class="skill-category" *ngIf="resume.skills.methodologies_practices?.length">
+            <h3><i class="fas fa-sitemap"></i> Methodologies & Practices</h3>
+            <div class="skill-tags">
+              <span class="skill-tag" *ngFor="let skill of resume.skills.methodologies_practices">{{ skill }}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="education" *ngIf="resume.education?.length">
+        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+        <div class="education-item" *ngFor="let edu of resume.education">
+          <h3>{{ edu.degree }} in {{ edu.field }}</h3>
+          <div class="school">{{ edu.school }}</div>
+          <div class="dates">{{ edu.startDate | date:'MMM yyyy' }} - {{ edu.endDate ? (edu.endDate | date:'MMM yyyy') : 'Present' }}</div>
+        </div>
+      </section>
+
+      <section class="certifications" *ngIf="resume.certifications?.length">
+        <h2><i class="fas fa-certificate"></i> Certifications</h2>
+        <div class="certification-item" *ngFor="let cert of resume.certifications">
+          <h3>{{ cert.name }}</h3>
+          <div class="organization">{{ cert.organization }}</div>
+          <div class="dates">{{ cert.issueDate | date:'MMM yyyy' }}</div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div> 

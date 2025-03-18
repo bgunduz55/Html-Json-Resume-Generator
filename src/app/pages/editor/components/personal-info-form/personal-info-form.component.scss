@@ -1,0 +1,121 @@
+:host {
+  display: block;
+}
+
+h2 {
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.form-group {
+  label {
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-control {
+    background-color: var(--surface-ground);
+    border: 1px solid var(--surface-border);
+    color: var(--text-color);
+    transition: all 0.2s;
+
+    &:focus {
+      background-color: var(--surface-ground);
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25);
+    }
+
+    &.is-invalid {
+      border-color: var(--red-500);
+      box-shadow: none;
+
+      &:focus {
+        box-shadow: 0 0 0 0.2rem rgba(var(--red-500-rgb), 0.25);
+      }
+    }
+  }
+
+  .invalid-feedback {
+    color: var(--red-500);
+  }
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #e9ecef;
+}
+
+.photo-upload-container {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 2px dashed #e9ecef;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  
+  &:hover {
+    border-color: #0d6efd;
+    background-color: #f1f3f5;
+  }
+}
+#summary {
+  height: 200px;
+  border: 1px solid #e9ecef;
+}
+.upload-placeholder {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+  font-size: 2rem;
+}
+
+.btn-photo {
+  min-width: 120px;
+}
+
+.btn {
+  &.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--primary-color-text);
+
+    &:hover {
+      background-color: var(--primary-600);
+      border-color: var(--primary-600);
+    }
+
+    &:disabled {
+      background-color: var(--primary-300);
+      border-color: var(--primary-300);
+    }
+  }
+
+  &.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+
+    &:hover {
+      background-color: var(--primary-color);
+      color: var(--primary-color-text);
+    }
+  }
+
+  &.btn-outline-danger {
+    color: var(--red-500);
+    border-color: var(--red-500);
+
+    &:hover {
+      background-color: var(--red-500);
+      color: var(--surface-0);
+    }
+  }
+}

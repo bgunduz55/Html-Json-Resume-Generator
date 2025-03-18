@@ -1,0 +1,98 @@
+<div class="skills-form" [formGroup]="skillsForm">
+  <!-- Programming Languages -->
+  <div class="form-group">
+    <h4>Programming Languages</h4>
+    <button type="button" class="btn btn-primary" (click)="addSkill('programming_languages', '')">
+      <i class="bi bi-plus"></i> Add Programming Language
+    </button>
+    <div class="skills-list">
+      <div class="skill-item" *ngFor="let skill of programming_languages.controls; let i = index">
+        <div class="input-group">
+          <input type="text" class="form-control" [formControl]="skill" (blur)="saveChanges()">
+          <button type="button" class="btn btn-outline-danger" (click)="removeSkill('programming_languages', i)">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Frameworks & Platforms -->
+  <div class="form-group">
+    <h4>Frameworks & Platforms</h4>
+    <button type="button" class="btn btn-primary" (click)="addSkill('frameworks_platforms', '')">
+      <i class="bi bi-plus"></i> Add Framework/Platform
+    </button>
+    <div class="skills-list">
+      <div class="skill-item" *ngFor="let skill of frameworks_platforms.controls; let i = index">
+        <div class="input-group">
+          <input type="text" class="form-control" [formControl]="skill" (blur)="saveChanges()">
+          <button type="button" class="btn btn-outline-danger" (click)="removeSkill('frameworks_platforms', i)">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cloud & Infrastructure -->
+  <div class="form-group">
+    <h4>Cloud & Infrastructure</h4>
+    <button type="button" class="btn btn-primary" (click)="addSkill('cloud_infrastructure', '')">
+      <i class="bi bi-plus"></i> Add Cloud/Infrastructure Skill
+    </button>
+    <div class="skills-list">
+      <div class="skill-item" *ngFor="let skill of cloud_infrastructure.controls; let i = index">
+        <div class="input-group">
+          <input type="text" class="form-control" [formControl]="skill" (blur)="saveChanges()">
+          <button type="button" class="btn btn-outline-danger" (click)="removeSkill('cloud_infrastructure', i)">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Databases -->
+  <div class="form-group">
+    <h4>Databases</h4>
+    <button type="button" class="btn btn-primary" (click)="addSkill('databases', '')">
+      <i class="bi bi-plus"></i> Add Database Skill
+    </button>
+    <div class="skills-list">
+      <div class="skill-item" *ngFor="let skill of databases.controls; let i = index">
+        <div class="input-group">
+          <input type="text" class="form-control" [formControl]="skill" (blur)="saveChanges()">
+          <button type="button" class="btn btn-outline-danger" (click)="removeSkill('databases', i)">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Methodologies & Practices -->
+  <div class="form-group">
+    <h4>Methodologies & Practices</h4>
+    <button type="button" class="btn btn-primary" (click)="addSkill('methodologies_practices', '')">
+      <i class="bi bi-plus"></i> Add Methodology/Practice
+    </button>
+    <div class="skills-list">
+      <div class="skill-item" *ngFor="let skill of methodologies_practices.controls; let i = index">
+        <div class="input-group">
+          <input type="text" class="form-control" [formControl]="skill" (blur)="saveChanges()">
+          <button type="button" class="btn btn-outline-danger" (click)="removeSkill('methodologies_practices', i)">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Save Button -->
+  <div class="form-actions">
+    <button type="button" class="btn btn-primary" (click)="saveChanges()" [disabled]="!skillsForm.valid">
+      Save Changes
+    </button>
+  </div>
+</div>

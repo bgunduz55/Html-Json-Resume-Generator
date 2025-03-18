@@ -1,0 +1,296 @@
+{
+  "personalInfo": {
+    "fullName": "Burak GÜNDÜZ",
+    "title": "Senior Full Stack Developer & Solutions Architect",
+    "email": "bgunduz_94@hotmail.com",
+    "phone": "+905357193476",
+    "location": "Turkey - Sakarya - Akyazı",
+    "github": "http://github.com/bgunduz55",
+    "linkedin": "https://www.linkedin.com/in/bgunduz/",
+    "playStore": "https://play.google.com/store/apps/dev?id=7410828019746719138",
+    "appStore": "https://apps.apple.com/ua/developer/burak-gunduz/id1552965916",
+    "languages": ["Turkish (Native)", "English (Professional Working)"]
+  },
+  "summary": "Results-driven Senior Full Stack Software Engineer with 9+ years of expertise in enterprise software architecture and development. Proven track record of delivering high-performance, scalable solutions in fintech and enterprise systems. Core competencies include:\n\n• Technical Leadership: Led and mentored development teams, driving innovation and best practices\n• Back-End Development: Java (Spring Boot, Spring Cloud), RESTful APIs, WebSocket, Enterprise Integration\n• Front-End Development: Angular, TypeScript, RxJS, State Management (NGXS/NgRx)\n• Computer Science Expertise: Distributed systems, algorithms, and advanced data structures\n• Data & Analytics: Machine Learning integration, AI solutions, Data Modeling\n• Mobile Development: Native (Android/Kotlin, iOS/Swift) and Cross-platform (Flutter/Dart)\n• DevOps & Cloud: Docker, Kubernetes, AWS, Azure, CI/CD automation, Monitoring\n• Database Engineering: PostgreSQL, MongoDB, Oracle, MySQL, Redis, TimescaleDB\n\nKey Achievements:\n• Led innovative solutions for payment processing platform handling $100M+ annual transactions\n• Collaborated with cross-functional teams to reduce system response time by 45% through microservices implementation\n• Improved application performance by 60% through technical optimization and coding best practices\n• Led and mentored teams of 8+ developers, achieving 95% sprint completion rate\n• Implemented secure payment solutions compliant with PCI-DSS standards",
+  "workExperience": [
+    {
+      "title": "Senior Full Stack Engineer",
+      "company": "Dgpays",
+      "startDate": "2020/05/01",
+      "endDate": "2024/11/30",
+      "description": "Lead architect and developer for enterprise payment processing systems and mobile applications, demonstrating technical leadership in scalability, security, and performance optimization. Implemented advanced analytics and monitoring solutions.",
+      "achievements": [
+        "Led back-end architecture for Paycell MPOS system processing $50M+ monthly transactions with 99.99% uptime",
+        "Collaborated with teams to design and implement microservices architecture reducing system latency by 45%",
+        "Implemented AI-powered fraud detection and analytics system reducing fraud incidents by 70%",
+        "Developed comprehensive monitoring and analytics dashboard for real-time system performance",
+        "Led and mentored an 8-person development team, fostering collaboration and achieving 95% sprint velocity",
+        "Implemented automated CI/CD pipelines reducing deployment time from 2 hours to 15 minutes",
+        "Developed innovative middleware solutions for PTT Akıllı Esnaf platform, successfully onboarding 50K+ merchants",
+        "Applied computer science principles to implement PCI-DSS compliant payment processing system"
+      ],
+      "technologies": [
+        "Java 11/17",
+        "Spring Boot 2.7/3.x",
+        "Spring Cloud",
+        "Angular 12+",
+        "TypeScript 4.x",
+        "Flutter 3.x",
+        "Kotlin 1.8+",
+        "PostgreSQL 14",
+        "MongoDB 5.0",
+        "AWS (ECS, EKS, RDS)",
+        "Azure DevOps",
+        "Docker",
+        "Kubernetes",
+        "Jenkins",
+        "JUnit 5",
+        "Mockito"
+      ]
+    },
+    {
+      "title": "Senior Frontend Engineer",
+      "company": "Etiya",
+      "startDate": "2019/05/01",
+      "endDate": "2020/05/01",
+      "description": "Led frontend architecture and development for Videotron BSS telecommunications platform, focusing on performance optimization and user experience.",
+      "achievements": [
+        "Developed responsive dashboard reducing customer service response time by 40% for 1M+ subscribers",
+        "Implemented NGXS state management improving application stability by 50% and reducing bug reports by 65%",
+        "Created reusable component library reducing development time by 40% across 3 enterprise projects",
+        "Optimized Angular bundle size achieving 45% reduction in initial load time",
+        "Implemented comprehensive testing framework achieving 85% code coverage"
+      ],
+      "technologies": [
+        "Angular 8+",
+        "TypeScript 3.x/4.x",
+        "NGXS/RxJS",
+        "SCSS/SASS",
+        "Jest/Cypress",
+        "Webpack 5",
+        "Material Design",
+        "REST APIs",
+        "Git/Bitbucket",
+        "JIRA"
+      ]
+    },
+    {
+      "title": "Senior Full Stack Engineer",
+      "company": "Enderun Information Technologies",
+      "startDate": "2019/02/01",
+      "endDate": "2019/05/01",
+      "description": "Architected and developed enterprise procurement system for Istanbul Metropolitan Municipality, focusing on security and scalability.",
+      "achievements": [
+        "Designed and implemented REST API handling 10K+ daily requests with 99.9% uptime",
+        "Developed secure QR-based authentication system for 1000+ users",
+        "Optimized Oracle database queries reducing response time by 30%",
+        "Implemented mobile hand terminal integration for inventory management"
+      ],
+      "technologies": [
+        "Spring Boot",
+        "Android/Kotlin",
+        "Oracle DB",
+        "REST API",
+        "GitLab",
+        "SVN"
+      ]
+    },
+    {
+      "title": "Senior Mobile Engineer",
+      "company": "Verisoft",
+      "startDate": "2018/10/01",
+      "endDate": "2019/02/01",
+      "description": "Led development of secure payment processing mobile applications for international banks and financial institutions.",
+      "achievements": [
+        "Developed MPOS application for CSOB bank processing 50K+ daily transactions",
+        "Implemented cross-platform payment solution reducing development time by 40%",
+        "Created PCI-DSS compliant TapOnPhone and SoftPOS solutions",
+        "Developed MyGini loyalty application improving customer engagement by 35%"
+      ],
+      "technologies": [
+        "Java/Kotlin",
+        ".NET Core",
+        "Android SDK",
+        "iOS SDK",
+        "Payment Systems",
+        "Security Protocols"
+      ]
+    },
+    {
+      "title": "Full Stack Engineer",
+      "company": "JAVA Software Inc",
+      "startDate": "2016/12/01",
+      "endDate": "2018/10/01",
+      "description": "Developed full-stack solutions for social media platforms and enterprise systems, focusing on scalability and real-time communication.",
+      "achievements": [
+        "Architected and implemented scalable REST APIs serving 100K+ daily active users",
+        "Developed real-time chat system supporting 10K+ concurrent users using XMPP/Openfire",
+        "Implemented hybrid database architecture reducing query time by 50%",
+        "Integrated e-Invoice system processing 5K+ monthly transactions",
+        "Developed SSR-enabled Angular application improving SEO metrics by 80%",
+        "Implemented video conferencing system using WebRTC and Openfire",
+        "Set up high-availability database clusters with master-master replication"
+      ],
+      "technologies": [
+        "Java/Spring",
+        "JAX-RS",
+        "Angular 4+",
+        "MySQL",
+        "MongoDB",
+        "Laravel/PHP",
+        "Node.js",
+        "Express.js",
+        "WebRTC",
+        "XMPP",
+        "SSL/TLS"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "Anadolu University",
+      "degree": "Bachelor of Science",
+      "field": "Management Information Systems",
+      "startDate": "2019/09/01",
+      "endDate": "2024/01/01",
+      "current": false,
+      "achievements": [
+        "Focus on IT Management and Business Process Analysis",
+        "Key courses: Database Management, System Analysis, IT Project Management",
+        "Applied business analytics and enterprise systems management"
+      ]
+    },
+    {
+      "school": "Karabuk University",
+      "degree": "Bachelor of Science",
+      "field": "Computer Engineering",
+      "startDate": "2011/09/01",
+      "endDate": "2017/02/01",
+      "current": false,
+      "description": "Core focus on Software Engineering and System Design",
+      "achievements": [
+        "Completed intensive English preparation program",
+        "Key courses: Data Structures, Algorithms, Software Engineering, Database Systems",
+        "Specialized in software architecture and distributed systems"
+      ]
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Java (Expert - Spring Boot, Spring Cloud, JPA/Hibernate)",
+      "Python (Expert - Data Analysis, Machine Learning, AI)",
+      "Kotlin (Advanced - Android, Coroutines)",
+      "TypeScript (Expert - Angular, RxJS, NGXS)",
+      "JavaScript (Expert - Node.js, Express, React)",
+      "C# (Proficient - .NET Core)",
+      "Dart (Advanced - Flutter, BLoC)",
+      "Swift (Intermediate - iOS)",
+      "PHP (Proficient - Laravel, CodeIgniter)"
+    ],
+    "frameworks_platforms": [
+      "Back-End: Spring Framework (Boot, Cloud, Security)",
+      "Front-End: Angular (2+ through 15+)",
+      "Machine Learning: TensorFlow, scikit-learn",
+      "Middleware Systems: Apache Kafka, RabbitMQ",
+      "Flutter (Mobile, Web)",
+      "Node.js (Express, Socket.io)",
+      "Laravel/CodeIgniter",
+      ".NET Core",
+      "Unity3D"
+    ],
+    "cloud_infrastructure": [
+      "AWS (ECS, EKS, Lambda, RDS)",
+      "Azure (AKS, App Service)",
+      "Docker (Containerization)",
+      "Kubernetes (Orchestration)",
+      "System Monitoring & Analytics",
+      "Linux System Administration",
+      "Nginx/Apache",
+      "CI/CD (Jenkins, GitLab)"
+    ],
+    "databases": [
+      "PostgreSQL (Expert - Performance Tuning, Data Modeling)",
+      "MongoDB (Expert - Aggregation, Sharding)",
+      "Oracle DB (Advanced - PL/SQL)",
+      "MySQL (Expert - Optimization, Replication)",
+      "Redis (Advanced - Caching, Pub/Sub)",
+      "TimescaleDB (Time-series Data)",
+      "Cassandra (Distributed Systems)"
+    ],
+    "methodologies_practices": [
+      "Technical Leadership & Innovation",
+      "Computer Science Fundamentals",
+      "Modern Tech Stack Architecture",
+      "AI & Machine Learning Integration",
+      "Data Analytics & Modeling",
+      "Microservices Architecture",
+      "Domain-Driven Design",
+      "Test-Driven Development",
+      "Agile/Scrum (Certified)",
+      "DevOps & Coding Best Practices",
+      "Security Best Practices",
+      "Design Patterns",
+      "Cross-team Collaboration"
+    ]
+  },
+  "projects": [
+    {
+      "name": "Paycell MPOS Payment System",
+      "description": "Architected and implemented a high-throughput payment processing system with emphasis on security, scalability, and reliability. Integrated AI-powered analytics and monitoring solutions.",
+      "achievements": [
+        "Processed $50M+ monthly transactions with 99.99% uptime",
+        "Implemented machine learning based fraud detection reducing incidents by 60%",
+        "Developed real-time monitoring and analytics dashboard",
+        "Achieved PCI-DSS compliance certification"
+      ],
+      "technologies": [
+        "Java/Spring Boot",
+        "Angular",
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "Kubernetes",
+        "Machine Learning",
+        "Analytics Dashboard"
+      ]
+    },
+    {
+      "name": "PTT Akıllı Esnaf Platform",
+      "description": "Developed comprehensive merchant platform for PTT, enabling digital transformation for small businesses.",
+      "achievements": [
+        "Onboarded 50K+ merchants nationwide",
+        "Processed $10M+ in transactions",
+        "Achieved 98% merchant satisfaction rate",
+        "Reduced merchant onboarding time by 60%"
+      ],
+      "technologies": [
+        "Flutter",
+        "Spring Boot",
+        "PostgreSQL",
+        "Firebase",
+        "AWS"
+      ]
+    },
+    {
+      "name": "Enterprise Social Media Platform",
+      "description": "Architected and developed scalable social media platform with real-time features and video conferencing.",
+      "achievements": [
+        "Supported 100K+ daily active users",
+        "Implemented real-time chat for 10K+ concurrent users",
+        "Achieved sub-second message delivery",
+        "Reduced infrastructure costs by 40%"
+      ],
+      "technologies": [
+        "Java/Spring",
+        "Angular",
+        "MongoDB",
+        "WebRTC",
+        "XMPP",
+        "Redis"
+      ]
+    }
+  ],
+  "certifications": [
+    
+  ]
+} 

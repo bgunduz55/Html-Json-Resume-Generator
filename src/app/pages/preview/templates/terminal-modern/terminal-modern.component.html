@@ -1,0 +1,114 @@
+<div class="terminal-modern">
+
+    <section class="personal-info" *ngIf="resume.personalInfo">
+        <h2>{{resume.personalInfo.fullName}} - Personal Information</h2>
+        <div class="info-grid">
+          <div class="info-item" *ngIf="resume.personalInfo.title">
+            <span class="label">Title</span>
+            <span class="value">{{resume.personalInfo.title}}</span>
+          </div>
+          <div class="info-item" *ngIf="resume.personalInfo.languages?.length">
+            <span class="label">Languages</span>
+            <span class="value">{{resume.personalInfo.languages?.join(', ')}}</span>    
+          </div>
+          <div class="info-item" *ngIf="resume.personalInfo.location">
+            <span class="label">Location</span>
+            <span class="value">{{resume.personalInfo.location}}</span>
+          </div>
+          <div class="info-item" *ngIf="resume.personalInfo.email">
+            <span class="label">Email</span>
+            <span class="value">{{resume.personalInfo.email}}</span>
+          </div>
+          <div class="info-item" *ngIf="resume.personalInfo.website">
+            <span class="label">Website</span>
+            <span class="value"><a [href]="resume.personalInfo.website" target="_blank">{{resume.personalInfo.website}}</a></span>
+          </div>
+          <div class="info-item" *ngIf="resume.personalInfo.playStore">
+            <span class="label">Play Store</span>
+            <span class="value"><a [href]="resume.personalInfo.playStore" target="_blank">{{resume.personalInfo.playStore}}</a></span>
+          </div>
+          <div class="info-item" *ngIf="resume.personalInfo.appStore">
+            <span class="label">App Store</span>
+            <span class="value"><a [href]="resume.personalInfo.appStore" target="_blank">{{resume.personalInfo.appStore}}</a></span>
+          </div>
+          <div class="info-item" *ngIf="resume.personalInfo.linkedin">
+            <span class="label">LinkedIn</span>
+            <span class="value"><a [href]="resume.personalInfo.linkedin" target="_blank">{{resume.personalInfo.linkedin}}</a></span>
+          </div>
+          <div class="info-item" *ngIf="resume.personalInfo.github">
+            <span class="label">GitHub</span>
+            <span class="value"><a [href]="resume.personalInfo.github" target="_blank">{{resume.personalInfo.github}}</a></span>
+          </div>
+        </div>
+      </section>
+
+  <section class="summary" *ngIf="resume.summary">
+    <h2>Summary</h2>
+    <div class="summary-text">{{ resume.summary }}</div>
+  </section>
+
+  <section class="skills" *ngIf="getSkillCategories().length > 0">
+    <h2>Skills</h2>
+    <div class="skills-group" *ngFor="let category of getSkillCategories()">
+      <h3>{{formatCategoryName(category)}}</h3>
+      <div class="skill-items">
+        <div class="skill-item" *ngFor="let skill of getSkills(category)">{{skill}}</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="education-projects-grid">
+    <section class="education" *ngIf="resume.education?.length">
+      <h2>Education</h2>
+      <div class="education-item" *ngFor="let edu of resume.education">
+        <h3>{{ edu.degree }}</h3>
+        <div class="duration">
+          {{ formatDate(edu.startDate) }} - {{ edu.endDate ? formatDate(edu.endDate) : 'Present' }}
+          ({{ calculateDuration(edu.startDate, edu.endDate) }})
+        </div>
+        <div class="description">{{ edu.school }}</div>
+        <div class="achievements" *ngIf="edu.achievements?.length">
+          <ul>
+            <li *ngFor="let achievement of edu.achievements">{{ achievement }}</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" *ngIf="resume.projects?.length">
+      <h2>Projects</h2>
+      <div class="project-item" *ngFor="let project of resume.projects">
+        <h3>{{ project.name }}</h3>
+        <div class="description">{{ project.description }}</div>
+        <div class="achievements" *ngIf="project.achievements?.length">
+          <ul>
+            <li *ngFor="let achievement of project.achievements">{{ achievement }}</li>
+          </ul>
+        </div>
+        <div class="technologies" *ngIf="project.technologies?.length">
+          <div class="tech-tag" *ngFor="let tech of project.technologies">{{ tech }}</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="experience" *ngIf="resume.workExperience?.length">
+    <h2>Experience</h2>
+    <div class="experience-item" *ngFor="let exp of resume.workExperience">
+      <h3>{{ exp.title }} at {{ exp.company }}</h3>
+      <div class="duration">
+        {{ formatDate(exp.startDate) }} - {{ exp.endDate ? formatDate(exp.endDate) : 'Present' }}
+        ({{ calculateDuration(exp.startDate, exp.endDate) }})
+      </div>
+      <div class="description">{{ exp.description }}</div>
+      <div class="achievements" *ngIf="exp.achievements?.length">
+        <ul>
+          <li *ngFor="let achievement of exp.achievements">{{ achievement }}</li>
+        </ul>
+      </div>
+      <div class="technologies" *ngIf="exp.technologies?.length">
+        <div class="tech-tag" *ngFor="let tech of exp.technologies">{{ tech }}</div>
+      </div>
+    </div>
+  </section>
+</div> 

@@ -1,0 +1,110 @@
+<div class="creative-portfolio">
+  <!-- Header Section -->
+  <header>
+    <h1>{{ resume.personalInfo.fullName }}</h1>
+    <div class="title">{{ resume.personalInfo.title }}</div>
+    <div class="contact-info">
+      <span><i class="fas fa-envelope"></i> {{ resume.personalInfo.email }}</span>
+      <span><i class="fas fa-phone"></i> {{ resume.personalInfo.phone }}</span>
+      <span><i class="fas fa-map-marker-alt"></i> {{ resume.personalInfo.location }}</span>
+      <span *ngIf="resume.personalInfo.linkedin"><i class="fab fa-linkedin"></i> {{ resume.personalInfo.linkedin }}</span>
+      <span *ngIf="resume.personalInfo.github"><i class="fab fa-github"></i> {{ resume.personalInfo.github }}</span>
+    </div>
+  </header>
+
+  <!-- Summary Section -->
+  <section class="summary" *ngIf="resume.summary">
+    <h2>Professional Summary</h2>
+    <p>{{ resume.summary }}</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills" *ngIf="resume.skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-category" *ngIf="resume.skills.programming_languages?.length">
+        <h3>Programming Languages</h3>
+        <ul>
+          <li *ngFor="let skill of resume.skills.programming_languages">{{ skill }}</li>
+        </ul>
+      </div>
+      <div class="skill-category" *ngIf="resume.skills.frameworks_platforms?.length">
+        <h3>Frameworks & Platforms</h3>
+        <ul>
+          <li *ngFor="let skill of resume.skills.frameworks_platforms">{{ skill }}</li>
+        </ul>
+      </div>
+      <div class="skill-category" *ngIf="resume.skills.cloud_infrastructure?.length">
+        <h3>Cloud & Infrastructure</h3>
+        <ul>
+          <li *ngFor="let skill of resume.skills.cloud_infrastructure">{{ skill }}</li>
+        </ul>
+      </div>
+      <div class="skill-category" *ngIf="resume.skills.databases?.length">
+        <h3>Databases</h3>
+        <ul>
+          <li *ngFor="let skill of resume.skills.databases">{{ skill }}</li>
+        </ul>
+      </div>
+      <div class="skill-category" *ngIf="resume.skills.methodologies_practices?.length">
+        <h3>Methodologies & Practices</h3>
+        <ul>
+          <li *ngFor="let skill of resume.skills.methodologies_practices">{{ skill }}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="education-projects-grid">
+    <section class="education" *ngIf="resume.education?.length">
+      <h2>Education</h2>
+      <div class="education-item" *ngFor="let edu of resume.education">
+        <h3>{{ edu.degree }}</h3>
+        <div class="school">{{ edu.school }}</div>
+        <div class="dates">{{ edu.startDate | date:'MMM yyyy' }} - {{ edu.endDate ? (edu.endDate | date:'MMM yyyy') : 'Present' }}</div>
+      </div>
+    </section>
+
+    <section class="projects" *ngIf="resume.projects?.length">
+      <h2>Projects</h2>
+      <div class="project-item" *ngFor="let project of resume.projects">
+        <h3>{{ project.name }}</h3>
+        <p class="description">{{ project.description }}</p>
+        <div class="technologies" *ngIf="project.technologies?.length">
+          <span class="technology" *ngFor="let tech of project.technologies">{{ tech }}</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="experience" *ngIf="resume.workExperience && resume.workExperience.length > 0">
+    <h2>Experience</h2>
+    <div class="experience-item" *ngFor="let exp of resume.workExperience">
+      <div class="experience-header">
+        <h4>{{exp.title}}</h4>
+        <div class="company">{{exp.company}}</div>
+        <div class="date">{{formatDate(exp.startDate)}} - {{exp.endDate ? formatDate(exp.endDate) : 'Present'}}</div>
+      </div>
+      <div class="description">{{exp.description}}</div>
+      
+      <div class="achievements" *ngIf="exp.achievements && exp.achievements.length > 0">
+        <ul>
+          <li *ngFor="let achievement of exp.achievements">{{achievement}}</li>
+        </ul>
+      </div>
+
+      <div class="technologies" *ngIf="exp.technologies && exp.technologies.length > 0">
+        <div class="tech-tag" *ngFor="let tech of exp.technologies">{{tech}}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="certifications" *ngIf="resume.certifications?.length">
+    <h2>Certifications</h2>
+    <div class="certification-item" *ngFor="let cert of resume.certifications">
+      <h3>{{ cert.name }}</h3>
+      <div class="organization">{{ cert.organization }}</div>
+      <div class="dates">{{ cert.issueDate | date:'MMM yyyy' }}</div>
+    </div>
+  </section>
+</div> 

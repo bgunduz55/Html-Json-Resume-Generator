@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="400" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Pattern -->
+  <rect x="0" y="0" width="300" height="400" fill="#f8f9fa"/>
+  <path d="M0,0 L300,0 L250,50 L0,50 Z" fill="#6c5ce7"/>
+  <path d="M300,400 L0,400 L50,350 L300,350 Z" fill="#6c5ce7"/>
+  
+  <!-- Header -->
+  <rect x="30" y="70" width="240" height="80" fill="#ffffff" rx="10"/>
+  <rect x="50" y="90" width="140" height="20" fill="#6c5ce7"/>
+  <rect x="50" y="120" width="100" height="10" fill="#a8a8a8"/>
+  
+  <!-- Content Sections -->
+  <rect x="30" y="170" width="115" height="100" fill="#ffffff" rx="10"/>
+  <rect x="155" y="170" width="115" height="100" fill="#ffffff" rx="10"/>
+  <rect x="30" y="280" width="240" height="100" fill="#ffffff" rx="10"/>
+  
+  <!-- Section Content -->
+  <rect x="45" y="185" width="85" height="10" fill="#6c5ce7"/>
+  <rect x="45" y="205" width="65" height="5" fill="#a8a8a8"/>
+  <rect x="45" y="215" width="75" height="5" fill="#a8a8a8"/>
+  
+  <rect x="170" y="185" width="85" height="10" fill="#6c5ce7"/>
+  <rect x="170" y="205" width="65" height="5" fill="#a8a8a8"/>
+  <rect x="170" y="215" width="75" height="5" fill="#a8a8a8"/>
+  
+  <rect x="45" y="295" width="210" height="10" fill="#6c5ce7"/>
+  <rect x="45" y="315" width="180" height="5" fill="#a8a8a8"/>
+  <rect x="45" y="325" width="160" height="5" fill="#a8a8a8"/>
+  <rect x="45" y="335" width="190" height="5" fill="#a8a8a8"/>
+</svg> 

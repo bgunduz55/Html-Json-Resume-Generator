@@ -1,0 +1,98 @@
+<div class="container">
+  <header class="text-center my-5">
+    <h1>Resume Builder</h1>
+    <p class="lead">Create a professional resume in minutes</p>
+  </header>
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <!-- Import Resume Section -->
+      <div class="card mb-4">
+        <div class="card-body text-center">
+          <h5 class="card-title">Have an existing resume?</h5>
+          <p class="card-text">Import your previous resume data</p>
+          <input type="file" 
+                 class="d-none" 
+                 #fileInput 
+                 accept=".json"
+                 (change)="onFileSelected($event)">
+          <button class="btn btn-outline-primary" 
+                  (click)="fileInput.click()">
+            Import Resume
+          </button>
+        </div>
+      </div>
+
+      <!-- Template Selection -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Choose a Template</h5>
+          <div class="form-check mb-3">
+            <input class="form-check-input" 
+                   type="checkbox" 
+                   id="atsCheck" 
+                   [checked]="showAtsOnly"
+                   (change)="onAtsToggle()">
+            <label class="form-check-label" for="atsCheck">
+              Show ATS-Optimized Templates Only
+            </label>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3" *ngFor="let template of templates">
+              <div class="card h-100" 
+                   [class.border-primary]="selectedTemplateId === template.id"
+                   (click)="onTemplateSelect(template.id)">
+                <img [src]="template.previewImageUrl" 
+                     class="card-img-top" 
+                     [alt]="template.name">
+                <div class="card-body">
+                  <h6 class="card-title">{{template.name}}</h6>
+                  <p class="card-text small">{{template.description}}</p>
+                  <span class="badge" 
+                        [class.bg-success]="template.isAtsOptimized"
+                        [class.bg-secondary]="!template.isAtsOptimized">
+                    {{template.isAtsOptimized ? 'ATS-Optimized' : 'Creative'}}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme Selection -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Choose a Theme</h5>
+          <div class="row">
+            <div class="col-md-4 mb-3" *ngFor="let theme of themes">
+              <div class="card h-100"
+                   [class.border-primary]="selectedThemeId === theme.id"
+                   (click)="onThemeSelect(theme.id)"
+                   [style.background-color]="theme.backgroundColor">
+                <div class="card-body text-center">
+                  <h6 class="card-title" [style.color]="theme.textColor">
+                    {{theme.name}}
+                  </h6>
+                  <div class="theme-preview">
+                    <div class="color-sample" [style.background-color]="theme.primaryColor"></div>
+                    <div class="color-sample" [style.background-color]="theme.secondaryColor"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create Button -->
+      <div class="text-center mb-5">
+        <button class="btn btn-primary btn-lg"
+                [disabled]="!selectedTemplateId || !selectedThemeId"
+                (click)="onCreateNew()">
+          Create New Resume
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

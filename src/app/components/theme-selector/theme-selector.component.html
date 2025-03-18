@@ -1,0 +1,150 @@
+<div class="theme-selector">
+  <div class="dropdown">
+    <button class="btn btn-light dropdown-toggle" type="button" id="themeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-palette"></i>
+      {{ currentTheme.name }}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="themeDropdown">
+      <li *ngFor="let theme of themes">
+        <button class="dropdown-item" (click)="onThemeChange(theme.id)">
+          {{ theme.name }}
+        </button>
+      </li>
+      <li><hr class="dropdown-divider"></li>
+      <li>
+        <button class="dropdown-item" (click)="toggleCustomizer()">
+          <i class="bi bi-sliders"></i>
+          Customize Theme
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Theme Customizer Modal -->
+  <div class="modal" [class.show]="showCustomizer" [style.display]="showCustomizer ? 'block' : 'none'" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Customize Theme</h5>
+          <button type="button" class="btn-close" (click)="toggleCustomizer()"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Colors -->
+          <div class="mb-4">
+            <h6>Colors</h6>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label class="form-label">Primary Color</label>
+                <input type="color" class="form-control form-control-color w-100" 
+                       [(ngModel)]="customTheme.colors!.primary" 
+                       (change)="updateCustomTheme()">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Secondary Color</label>
+                <input type="color" class="form-control form-control-color w-100" 
+                       [(ngModel)]="customTheme.colors!.secondary" 
+                       (change)="updateCustomTheme()">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Accent Color</label>
+                <input type="color" class="form-control form-control-color w-100" 
+                       [(ngModel)]="customTheme.colors!.accent" 
+                       (change)="updateCustomTheme()">
+              </div>
+            </div>
+          </div>
+
+          <!-- Typography -->
+          <div class="mb-4">
+            <h6>Typography</h6>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Font Family</label>
+                <select class="form-select" 
+                        [(ngModel)]="customTheme.typography!.fontFamily" 
+                        (change)="updateCustomTheme()">
+                  <option value="Roboto, sans-serif">Roboto</option>
+                  <option value="Inter, sans-serif">Inter</option>
+                  <option value="Times New Roman, serif">Times New Roman</option>
+                  <option value="Arial, sans-serif">Arial</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Heading Font</label>
+                <select class="form-select" 
+                        [(ngModel)]="customTheme.typography!.headingFont" 
+                        (change)="updateCustomTheme()">
+                  <option value="Montserrat, sans-serif">Montserrat</option>
+                  <option value="Georgia, serif">Georgia</option>
+                  <option value="Arial, sans-serif">Arial</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Font Size</label>
+                <select class="form-select" 
+                        [(ngModel)]="customTheme.typography!.fontSize" 
+                        (change)="updateCustomTheme()">
+                  <option value="14px">Small</option>
+                  <option value="16px">Medium</option>
+                  <option value="18px">Large</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Line Height</label>
+                <select class="form-select" 
+                        [(ngModel)]="customTheme.typography!.lineHeight" 
+                        (change)="updateCustomTheme()">
+                  <option value="1.4">Compact</option>
+                  <option value="1.6">Normal</option>
+                  <option value="1.8">Relaxed</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Spacing -->
+          <div class="mb-4">
+            <h6>Spacing</h6>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label class="form-label">Section Gap</label>
+                <select class="form-select" 
+                        [(ngModel)]="customTheme.spacing!.sectionGap" 
+                        (change)="updateCustomTheme()">
+                  <option value="1.5rem">Small</option>
+                  <option value="2rem">Medium</option>
+                  <option value="2.5rem">Large</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Element Gap</label>
+                <select class="form-select" 
+                        [(ngModel)]="customTheme.spacing!.elementGap" 
+                        (change)="updateCustomTheme()">
+                  <option value="0.75rem">Small</option>
+                  <option value="1rem">Medium</option>
+                  <option value="1.25rem">Large</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Content Padding</label>
+                <select class="form-select" 
+                        [(ngModel)]="customTheme.spacing!.contentPadding" 
+                        (change)="updateCustomTheme()">
+                  <option value="1.5rem">Small</option>
+                  <option value="2rem">Medium</option>
+                  <option value="2.5rem">Large</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="resetTheme()">Reset</button>
+          <button type="button" class="btn btn-primary" (click)="toggleCustomizer()">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade show" *ngIf="showCustomizer"></div>
+</div> 

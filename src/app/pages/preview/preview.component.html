@@ -1,0 +1,129 @@
+<div class="preview-container">
+  <div class="controls">
+    <div class="template-selector">
+      <select 
+        class="form-select" 
+        [(ngModel)]="selectedTemplateId" 
+        (ngModelChange)="onTemplateChange($event)">
+        <option value="modern-professional">Modern Professional</option>
+        <option value="classic-elegant">Classic Elegant</option>
+        <option value="creative-portfolio">Creative Portfolio</option>
+        <option value="professional-sidebar">Professional Sidebar</option>
+        <option value="ats-optimized">ATS Optimized</option>
+        <option value="minimal-clean">Minimal Clean</option>
+        <option value="tech-modern">Tech Modern</option>
+        <option value="terminal-modern">Terminal Modern</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" (click)="downloadPDF()" [disabled]="!resume">
+      <i class="fas fa-download"></i> Download PDF
+    </button>
+  </div>
+
+  <div class="preview-content" #previewContent>
+    <ng-container *ngIf="resume">
+      <app-modern-professional *ngIf="selectedTemplateId === 'modern-professional'" [resume]="resume"></app-modern-professional>
+      <app-classic-elegant *ngIf="selectedTemplateId === 'classic-elegant'" [resume]="resume"></app-classic-elegant>
+      <app-creative-portfolio *ngIf="selectedTemplateId === 'creative-portfolio'" [resume]="resume"></app-creative-portfolio>
+      <app-ats-optimized *ngIf="selectedTemplateId === 'ats-optimized'" [resume]="resume"></app-ats-optimized>
+      <app-professional-sidebar *ngIf="selectedTemplateId === 'professional-sidebar'" [resume]="resume"></app-professional-sidebar>
+      <app-minimal-clean *ngIf="selectedTemplateId === 'minimal-clean'" [resume]="resume"></app-minimal-clean>
+      <app-tech-modern *ngIf="selectedTemplateId === 'tech-modern'" [resume]="resume"></app-tech-modern>
+      <app-terminal-modern *ngIf="selectedTemplateId === 'terminal-modern'" [resume]="resume"></app-terminal-modern>
+    </ng-container>
+  </div>
+
+  <div class="loading-overlay" *ngIf="isGeneratingPdf">
+    <div class="spinner"></div>
+    <p>Generating PDF...</p>
+  </div>
+</div>
+
+<style>
+.preview-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.controls {
+  padding: 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.template-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-select {
+  min-width: 200px;
+}
+
+.preview-content {
+  flex: 1;
+  overflow: auto;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.resume {
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media print {
+  .controls,
+  .navbar,
+  .loading-overlay {
+    display: none !important;
+  }
+
+  .preview-content {
+    padding: 0;
+    overflow: visible;
+    background: none;
+  }
+
+  .resume {
+    box-shadow: none;
+  }
+}
+</style> 

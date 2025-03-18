@@ -1,0 +1,174 @@
+<div class="projects-form" [formGroup]="projectsForm">
+  <!-- Header Section -->
+  <div class="section-header">
+    <h2>Projects</h2>
+    <button type="button" class="btn btn-primary" (click)="addProject()">
+      Add Project
+    </button>
+  </div>
+
+  <!-- Projects List -->
+  <div class="projects-list" formArrayName="projects">
+    <div *ngFor="let project of projects.controls; let i = index" class="project-item">
+      <!-- View Mode -->
+      <div class="card-body" *ngIf="i !== editIndex">
+        <div class="project-header">
+          <h3>{{ project.get('name')?.value }}</h3>
+          <div class="project-actions">
+            <button type="button" class="btn btn-outline-primary btn-sm me-2" (click)="editProject(i)">
+              Edit
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteProject(i)">
+              Delete
+            </button>
+          </div>
+        </div>
+        <p class="date">
+          {{ project.get('startDate')?.value }} - 
+          {{ project.get('current')?.value ? 'Present' : project.get('endDate')?.value }}
+        </p>
+        <p class="description">{{ project.get('description')?.value }}</p>
+        <div class="technologies" *ngIf="project.get('technologies')?.value?.length">
+          <h4>Technologies Used:</h4>
+          <div class="technology-tags">
+            <span class="technology-tag" *ngFor="let tech of project.get('technologies')?.value">
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+        <div class="achievements" *ngIf="project.get('achievements')?.value?.length">
+          <h4>Key Achievements:</h4>
+          <ul>
+            <li *ngFor="let achievement of project.get('achievements')?.value">
+              {{ achievement }}
+            </li>
+          </ul>
+        </div>
+        <a *ngIf="project.get('link')?.value" [href]="project.get('link')?.value" target="_blank" class="project-link">
+          View Project
+        </a>
+      </div>
+
+      <!-- Edit Mode -->
+      <div class="card-body" *ngIf="i === editIndex && showForm" [formGroup]="getProjectForm(i)">
+        <div class="form-group">
+          <label for="name">Project Name *</label>
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            class="form-control"
+            placeholder="Enter project name"
+          >
+          <div class="invalid-feedback" *ngIf="getProjectForm(i).get('name')?.invalid && getProjectForm(i).get('name')?.touched">
+            Project name is required
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="startDate">Start Date *</label>
+            <input
+              type="date"
+              id="startDate"
+              formControlName="startDate"
+              class="form-control"
+            >
+            <div class="invalid-feedback" *ngIf="getProjectForm(i).get('startDate')?.invalid && getProjectForm(i).get('startDate')?.touched">
+              Start date is required
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="endDate">End Date</label>
+            <input
+              type="date"
+              id="endDate"
+              formControlName="endDate"
+              class="form-control"
+              [disabled]="getProjectForm(i).get('current')?.value"
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="custom-control custom-checkbox">
+            <input
+              type="checkbox"
+              id="current"
+              formControlName="current"
+              class="custom-control-input"
+            >
+            <label class="custom-control-label" for="current">Current Project</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description *</label>
+          <textarea
+            id="description"
+            formControlName="description"
+            class="form-control"
+            rows="3"
+            placeholder="Enter project description"
+          ></textarea>
+          <div class="invalid-feedback" *ngIf="getProjectForm(i).get('description')?.invalid && getProjectForm(i).get('description')?.touched">
+            Description is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="link">Project Link</label>
+          <input
+            type="url"
+            id="link"
+            formControlName="link"
+            class="form-control"
+            placeholder="Enter project URL"
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Technologies Used</label>
+          <div class="mb-2">
+            <button type="button" class="btn btn-outline-primary btn-sm" (click)="addTechnology(i)">
+              Add Technology
+            </button>
+          </div>
+          <div formArrayName="technologies">
+            <div class="input-group mb-2" *ngFor="let tech of getTechnologies(i).controls; let j = index">
+              <input type="text" class="form-control" [formControlName]="j" placeholder="Enter technology name">
+              <button class="btn btn-outline-danger" type="button" (click)="removeTechnology(i, j)">
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Key Achievements</label>
+          <div class="mb-2">
+            <button type="button" class="btn btn-outline-primary btn-sm" (click)="addAchievement(i)">
+              Add Achievement
+            </button>
+          </div>
+          <div formArrayName="achievements">
+            <div class="input-group mb-2" *ngFor="let achievement of getAchievements(i).controls; let j = index">
+              <input type="text" class="form-control" [formControlName]="j" placeholder="Enter achievement">
+              <button class="btn btn-outline-danger" type="button" (click)="removeAchievement(i, j)">
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+          <button type="button" class="btn btn-primary" (click)="saveChanges()" [disabled]="getProjectForm(i).invalid">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

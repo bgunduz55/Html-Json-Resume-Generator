@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="400" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Header -->
+  <rect x="0" y="0" width="300" height="100" fill="#2c3e50"/>
+  <rect x="20" y="30" width="160" height="25" fill="#ffffff"/>
+  <rect x="20" y="65" width="120" height="15" fill="#ecf0f1"/>
+  
+  <!-- Sidebar -->
+  <rect x="0" y="100" width="100" height="300" fill="#34495e"/>
+  <rect x="20" y="120" width="60" height="10" fill="#ffffff"/>
+  <rect x="20" y="140" width="40" height="5" fill="#bdc3c7"/>
+  
+  <!-- Skills -->
+  <rect x="20" y="170" width="60" height="10" fill="#ffffff"/>
+  <rect x="20" y="190" width="60" height="5" fill="#bdc3c7"/>
+  <rect x="20" y="200" width="40" height="5" fill="#bdc3c7"/>
+  <rect x="20" y="210" width="50" height="5" fill="#bdc3c7"/>
+  
+  <!-- Main Content -->
+  <rect x="120" y="120" width="160" height="260" fill="#ffffff"/>
+  <rect x="140" y="140" width="120" height="15" fill="#2c3e50"/>
+  <rect x="140" y="165" width="100" height="10" fill="#7f8c8d"/>
+  
+  <!-- Experience -->
+  <rect x="140" y="195" width="120" height="15" fill="#2c3e50"/>
+  <rect x="140" y="220" width="100" height="10" fill="#7f8c8d"/>
+  <rect x="140" y="235" width="80" height="10" fill="#7f8c8d"/>
+  
+  <!-- Education -->
+  <rect x="140" y="275" width="120" height="15" fill="#2c3e50"/>
+  <rect x="140" y="300" width="100" height="10" fill="#7f8c8d"/>
+  <rect x="140" y="315" width="80" height="10" fill="#7f8c8d"/>
+</svg> 

@@ -1,0 +1,314 @@
+.classic-elegant {
+  padding: 0.75rem;
+  font-family: 'Georgia', serif;
+  max-width: 100%;
+  margin: 0 auto;
+  background: white;
+  font-size: 0.65rem;
+
+  header {
+    text-align: center;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #333;
+
+    h1 {
+      font-size: 1.1rem;
+      margin: 0 0 0.25rem;
+      color: #333;
+    }
+
+    .title {
+      font-size: 0.75rem;
+      color: #666;
+      margin: 0 0 0.5rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+
+      span {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        color: #555;
+
+        i {
+          color: #333;
+        }
+      }
+    }
+  }
+
+  section {
+    margin-bottom: 0.75rem;
+
+    h2 {
+      font-size: 0.85rem;
+      color: #333;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .summary {
+    font-size: 0.65rem;
+    color: #444;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+
+    p {
+      white-space: pre-line;
+    }
+  }
+
+  .skills {
+    margin-top: 0.5rem;
+    page-break-inside: avoid;
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+
+      .skill-category {
+        background: #f9f9f9;
+        padding: 0.5rem;
+        border-radius: 4px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+
+        h3 {
+          font-size: 0.7rem;
+          color: #444;
+          margin: 0 0 0.25rem;
+          padding-bottom: 0.15rem;
+          border-bottom: 1px solid #eee;
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            font-size: 0.6rem;
+            color: #555;
+            margin-bottom: 0.15rem;
+            padding-left: 0.5rem;
+            position: relative;
+
+            &:before {
+              content: "•";
+              position: absolute;
+              left: 0;
+              color: #666;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+
+    .experience {
+      margin-bottom: 0;
+    }
+
+    .education-projects {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 0.75rem;
+
+      .education, .projects {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .experience, .education, .projects, .certifications {
+    .item {
+      margin-bottom: 0.5rem;
+      page-break-inside: avoid;
+
+      h3 {
+        font-size: 0.7rem;
+        color: #333;
+        margin: 0 0 0.15rem;
+      }
+
+      .company, .school, .organization {
+        font-weight: 500;
+        color: #555;
+        font-size: 0.65rem;
+      }
+
+      .dates {
+        font-size: 0.6rem;
+        color: #666;
+        font-style: italic;
+      }
+
+      .description {
+        margin-top: 0.25rem;
+        color: #444;
+        font-size: 0.65rem;
+        line-height: 1.2;
+      }
+
+      .achievements {
+        margin-top: 0.25rem;
+        
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            font-size: 0.6rem;
+            color: #555;
+            margin-bottom: 0.15rem;
+            padding-left: 0.5rem;
+            position: relative;
+
+            &:before {
+              content: "•";
+              position: absolute;
+              left: 0;
+              color: #666;
+            }
+          }
+        }
+      }
+
+      .technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        margin-top: 0.25rem;
+
+        .technology {
+          font-size: 0.6rem;
+          background: #f0f0f0;
+          color: #444;
+          padding: 0.1rem 0.25rem;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+
+  @media print {
+    padding: 0.5rem;
+    font-size: 0.65rem !important;
+
+    header {
+      margin-bottom: 0.5rem;
+      
+      h1 {
+        font-size: 1.1rem !important;
+      }
+
+      .title {
+        font-size: 0.75rem !important;
+      }
+
+      .contact-info {
+        font-size: 0.65rem !important;
+      }
+    }
+
+    section {
+      margin-bottom: 0.5rem;
+
+      h2 {
+        font-size: 0.85rem !important;
+      }
+    }
+
+    .skills {
+      .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+
+        .skill-category {
+          padding: 0.4rem;
+          background: white !important;
+          border: 1px solid #ddd !important;
+          box-shadow: none !important;
+
+          h3 {
+            font-size: 0.7rem !important;
+            color: black !important;
+          }
+
+          ul li {
+            font-size: 0.6rem !important;
+            color: black !important;
+          }
+        }
+      }
+    }
+
+    .content-grid {
+      gap: 0.5rem;
+
+      .education-projects {
+        gap: 0.5rem;
+      }
+    }
+
+    .experience, .education, .projects, .certifications {
+      .item {
+        margin-bottom: 0.5rem;
+
+        h3 {
+          font-size: 0.7rem !important;
+          color: black !important;
+        }
+
+        .company, .school, .organization {
+          color: black !important;
+        }
+
+        .dates {
+          color: #333 !important;
+        }
+
+        .description {
+          font-size: 0.65rem !important;
+          color: black !important;
+        }
+
+        .achievements {
+          ul li {
+            font-size: 0.6rem !important;
+            color: black !important;
+          }
+        }
+
+        .technologies {
+          .technology {
+            background: white !important;
+            border: 1px solid #ddd !important;
+            color: black !important;
+          }
+        }
+      }
+    }
+
+    .experience {
+      padding-top: 10px;
+    }
+  }
+} 
