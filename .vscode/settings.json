@@ -1,4 +1,10 @@
 {
     "editor.fontFamily": "Source Code Pro, 'monospace', monospace",
-    "editor.fontSize": 13
+    "editor.fontSize": 13,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    }
 }
