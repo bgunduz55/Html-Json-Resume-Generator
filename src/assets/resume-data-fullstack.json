@@ -1,8 +1,8 @@
 {
   "personalInfo": {
     "fullName": "Burak GÜNDÜZ",
-    "title": "Senior Full Stack Developer & Solutions Architect",
-    "email": "bgunduz_94@hotmail.com",
+    "title": "Senior Software Developer",
+    "email": "bgburakgunduz@gmail.com",
     "phone": "+905357193476",
     "location": "Turkey - Sakarya - Arifiye",
     "github": "http://github.com/bgunduz55",
@@ -11,21 +11,21 @@
     "appStore": "https://apps.apple.com/ua/developer/burak-gunduz/id1552965916",
     "languages": ["Turkish (Native)", "English (Professional Working)"]
   },
-  "summary": "Results-driven Senior Full Stack Software Engineer with 9+ years of expertise in enterprise software architecture and development. Proven track record of delivering high-performance, scalable solutions in fintech and enterprise systems. Core competencies include:\n\n• Technical Leadership: Led and mentored development teams, driving innovation and best practices\n• Back-End Development: Java (Spring Boot, Spring Cloud), RESTful APIs, WebSocket, Enterprise Integration\n• Front-End Development: Angular, TypeScript, RxJS, State Management (NGXS/NgRx)\n• Computer Science Expertise: Distributed systems, algorithms, and advanced data structures\n• Data & Analytics: Machine Learning integration, AI solutions, Data Modeling\n• Mobile Development: Native (Android/Kotlin, iOS/Swift) and Cross-platform (Flutter/Dart)\n• DevOps & Cloud: Docker, Kubernetes, AWS, Azure, CI/CD automation, Monitoring\n• Database Engineering: PostgreSQL, MongoDB, Oracle, MySQL, Redis, TimescaleDB\n\nKey Achievements:\n• Led innovative solutions for payment processing platform handling $100M+ annual transactions\n• Collaborated with cross-functional teams to reduce system response time by 45% through microservices implementation\n• Improved application performance by 60% through technical optimization and coding best practices\n• Led and mentored teams of 8+ developers, achieving 95% sprint completion rate\n• Implemented secure payment solutions compliant with PCI-DSS standards",
+  "summary": "Results-driven Senior Full Stack Software Developer with 9+ years of expertise in enterprise software development across the entire technology stack. Proven track record of delivering high-performance, scalable full-stack solutions in fintech and enterprise systems. Core competencies include:\n\n• Full Stack Development: Expert in Java (Spring Boot, Spring Cloud) backend and Angular (primary), React.js, Vue.js frontend development\n• Back-End Expertise: RESTful APIs, GraphQL, WebSocket, Microservices Architecture, Enterprise Integration Patterns\n• Front-End Expertise: Angular 2-15+, TypeScript, RxJS, State Management (NGXS/NgRx for Angular, Redux for React, Pinia for Vue), React.js, Next.js, Vue.js\n• Testing & Quality: Comprehensive testing with Jest, Cypress, Playwright, React Testing Library achieving high code coverage\n• Database Engineering: PostgreSQL, MongoDB, Oracle, MySQL, Redis with optimization and performance tuning\n• DevOps & Cloud: Docker, Kubernetes, AWS, Azure, CI/CD automation, Monitoring and Analytics\n• Technical Leadership: Led and mentored development teams, driving innovation and best practices\n\nKey Achievements:\n• Developed full-stack solutions for payment processing platform handling $100M+ annual transactions\n• Collaborated with cross-functional teams to reduce system response time by 45% through microservices implementation\n• Improved application performance by 60% through technical optimization and coding best practices\n• Led and mentored teams of 8+ developers, achieving 95% sprint completion rate\n• Implemented secure payment solutions compliant with PCI-DSS standards",
   "workExperience": [
     {
       "title": "Senior Software Developer",
       "company": "Oteller.com",
       "startDate": "2025/08/01",
       "endDate": "2025/12/19",
-      "description": "Working as a Senior Java Backend Developer at Oteller.com, developing and maintaining backend services for hotel search, pricing, and reservation workflows. Primarily using Java, Spring Boot, PostgreSQL, Redis, and Kafka to build scalable and reliable microservices. Focus on improving system performance, handling third-party API integrations, fixing data inconsistencies across services, and reducing technical debt when needed. Contributing to CI/CD improvements and supporting overall stability of the backend platform.",
+      "description": "Working as a Senior Full Stack Developer at Oteller.com, developing and maintaining both backend services and frontend applications for hotel search, pricing, and reservation workflows. Backend development using Java, Spring Boot, PostgreSQL, Redis, and Kafka to build scalable microservices. Frontend development using React.js and Next.js to create responsive user interfaces. Focus on improving system performance, handling third-party API integrations, fixing data inconsistencies across services, and reducing technical debt. Contributing to CI/CD improvements and supporting overall stability of the platform.",
       "achievements": [
-        "Optimizing pricing and availability services for improved performance",
-        "Improving reservation flow reliability and user experience",
-        "Enhancing integrations with external hotel providers",
-        "Refactoring legacy components for better maintainability",
-        "Addressing challenges like high traffic, unpredictable provider responses, and older code parts",
-        "Maintaining backend stability, efficiency, and maintainability"
+        "Developed responsive React.js and Next.js frontend applications for hotel booking platform",
+        "Optimized pricing and availability services for improved performance on backend",
+        "Improved reservation flow reliability and user experience across full stack",
+        "Enhanced integrations with external hotel providers through RESTful APIs",
+        "Refactored legacy components for better maintainability in both frontend and backend",
+        "Maintained full stack stability, efficiency, and maintainability"
       ],
       "technologies": [
         "Java",
@@ -33,26 +33,31 @@
         "PostgreSQL",
         "Redis",
         "Apache Kafka",
-        "Jira",
-        "GitLab",
         "React.js",
         "Next.js",
+        "TypeScript",
+        "RESTful APIs",
+        "Jira",
+        "GitLab",
         "Software Architecture",
         "Technical Project Leadership"
       ]
     },
     {
-      "title": "Senior Full Stack Engineer",
+      "title": "Senior Software Developer",
       "company": "Dgpays",
       "startDate": "2020/05/01",
       "endDate": "2025/04/01",
-      "description": "Lead architect and developer for enterprise payment processing systems and mobile applications, demonstrating technical leadership in scalability, security, and performance optimization. Implemented advanced analytics and monitoring solutions.",
+      "description": "Lead full stack architect and developer for enterprise payment processing systems, demonstrating technical leadership in scalability, security, and performance optimization. Developed both backend microservices using Java/Spring Boot and frontend applications using Angular. Implemented advanced analytics and monitoring solutions across the full stack.",
       "achievements": [
-        "Led back-end architecture for Paycell MPOS system processing $50M+ monthly transactions with 99.99% uptime",
+        "Led full stack architecture for Paycell MPOS system processing $50M+ monthly transactions with 99.99% uptime",
+        "Developed Angular-based admin dashboard and monitoring interfaces for real-time system performance",
         "Collaborated with teams to design and implement microservices architecture reducing system latency by 45%",
         "Implemented AI-powered fraud detection and analytics system reducing fraud incidents by 70%",
-        "Developed comprehensive monitoring and analytics dashboard for real-time system performance",
-        "Led and mentored an 8-person development team, fostering collaboration and achieving 95% sprint velocity",
+        "Developed comprehensive monitoring and analytics dashboard using Angular and TypeScript",
+        "Implemented GraphQL APIs for efficient data fetching and reduced API response times",
+        "Established comprehensive testing framework using Playwright and Jest achieving 85%+ code coverage",
+        "Led and mentored an 8-person full stack development team, fostering collaboration and achieving 95% sprint velocity",
         "Implemented automated CI/CD pipelines reducing deployment time from 2 hours to 15 minutes",
         "Developed innovative middleware solutions for PTT Akıllı Esnaf platform, successfully onboarding 50K+ merchants",
         "Applied computer science principles to implement PCI-DSS compliant payment processing system"
@@ -63,8 +68,11 @@
         "Spring Cloud",
         "Angular 12+",
         "TypeScript 4.x",
-        "Flutter 3.x",
-        "Kotlin 1.8+",
+        "RxJS",
+        "NGXS",
+        "GraphQL",
+        "Playwright",
+        "Jest",
         "PostgreSQL 14",
         "MongoDB 5.0",
         "AWS (ECS, EKS, RDS)",
@@ -77,16 +85,17 @@
       ]
     },
     {
-      "title": "Senior Frontend Engineer",
+      "title": "Senior Software Developer",
       "company": "Etiya",
       "startDate": "2019/05/01",
       "endDate": "2020/05/01",
-      "description": "Led frontend architecture and development for Videotron BSS telecommunications platform, focusing on performance optimization and user experience.",
+      "description": "Led full stack frontend architecture and development for Videotron BSS telecommunications platform, focusing on performance optimization and user experience. Primary focus on Angular frontend development with backend API integration.",
       "achievements": [
-        "Developed responsive dashboard reducing customer service response time by 40% for 1M+ subscribers",
+        "Developed responsive Angular dashboard reducing customer service response time by 40% for 1M+ subscribers",
         "Implemented NGXS state management improving application stability by 50% and reducing bug reports by 65%",
-        "Created reusable component library reducing development time by 40% across 3 enterprise projects",
+        "Created reusable Angular component library reducing development time by 40% across 3 enterprise projects",
         "Optimized Angular bundle size achieving 45% reduction in initial load time",
+        "Integrated with RESTful backend APIs ensuring seamless data flow",
         "Implemented comprehensive testing framework achieving 85% code coverage"
       ],
       "technologies": [
@@ -103,11 +112,11 @@
       ]
     },
     {
-      "title": "Senior Full Stack Engineer",
+      "title": "Senior Software Developer",
       "company": "Enderun Information Technologies",
       "startDate": "2019/02/01",
       "endDate": "2019/05/01",
-      "description": "Architected and developed enterprise procurement system for Istanbul Metropolitan Municipality, focusing on security and scalability.",
+      "description": "Architected and developed full stack enterprise procurement system for Istanbul Metropolitan Municipality, focusing on security and scalability. Developed Spring Boot backend REST APIs and Android mobile applications.",
       "achievements": [
         "Designed and implemented REST API handling 10K+ daily requests with 99.9% uptime",
         "Developed secure QR-based authentication system for 1000+ users",
@@ -124,32 +133,11 @@
       ]
     },
     {
-      "title": "Senior Mobile Engineer",
-      "company": "Verisoft",
-      "startDate": "2018/10/01",
-      "endDate": "2019/02/01",
-      "description": "Led development of secure payment processing mobile applications for international banks and financial institutions.",
-      "achievements": [
-        "Developed MPOS application for CSOB bank processing 50K+ daily transactions",
-        "Implemented cross-platform payment solution reducing development time by 40%",
-        "Created PCI-DSS compliant TapOnPhone and SoftPOS solutions",
-        "Developed MyGini loyalty application improving customer engagement by 35%"
-      ],
-      "technologies": [
-        "Java/Kotlin",
-        ".NET Core",
-        "Android SDK",
-        "iOS SDK",
-        "Payment Systems",
-        "Security Protocols"
-      ]
-    },
-    {
-      "title": "Full Stack Engineer",
+      "title": "Senior Software Developer",
       "company": "JAVA Software Inc",
       "startDate": "2016/12/01",
       "endDate": "2018/10/01",
-      "description": "Developed full-stack solutions for social media platforms and enterprise systems, focusing on scalability and real-time communication.",
+      "description": "Developed full-stack solutions for social media platforms and enterprise systems, focusing on scalability and real-time communication. Built Java/Spring backend services and Angular frontend applications.",
       "achievements": [
         "Architected and implemented scalable REST APIs serving 100K+ daily active users",
         "Developed real-time chat system supporting 10K+ concurrent users using XMPP/Openfire",
@@ -163,6 +151,7 @@
         "Java/Spring",
         "JAX-RS",
         "Angular 4+",
+        "TypeScript",
         "MySQL",
         "MongoDB",
         "Laravel/PHP",
@@ -206,25 +195,24 @@
   "skills": {
     "programming_languages": [
       "Java (Expert - Spring Boot, Spring Cloud, JPA/Hibernate)",
+      "TypeScript (Expert - Angular, RxJS, NGXS)",
+      "JavaScript (Expert - Node.js, Express, React, Vue)",
       "Python (Expert - Data Analysis, Machine Learning, AI)",
       "Kotlin (Advanced - Android, Coroutines)",
-      "TypeScript (Expert - Angular, RxJS, NGXS)",
-      "JavaScript (Expert - Node.js, Express, React)",
       "C# (Proficient - .NET Core)",
-      "Dart (Advanced - Flutter, BLoC)",
-      "Swift (Intermediate - iOS)",
       "PHP (Proficient - Laravel, CodeIgniter)"
     ],
     "frameworks_platforms": [
       "Back-End: Spring Framework (Boot, Cloud, Security)",
-      "Front-End: Angular (2+ through 15+)",
-      "Machine Learning: TensorFlow, scikit-learn",
+      "Front-End: Angular (2+ through 15+) - Primary, NGXS/NgRx State Management",
+      "Front-End: React.js (Expert - Hooks, Context, Redux Toolkit)",
+      "Front-End: Vue.js (Proficient - Composition API, Pinia State Management)",
+      "Front-End: Next.js (SSR, SSG)",
+      "GraphQL (Apollo Client/Server, GraphQL Java)",
       "Middleware Systems: Apache Kafka, RabbitMQ",
-      "Flutter (Mobile, Web)",
       "Node.js (Express, Socket.io)",
       "Laravel/CodeIgniter",
-      ".NET Core",
-      "Unity3D"
+      ".NET Core"
     ],
     "cloud_infrastructure": [
       "AWS (ECS, EKS, Lambda, RDS)",
@@ -242,18 +230,16 @@
       "Oracle DB (Advanced - PL/SQL)",
       "MySQL (Expert - Optimization, Replication)",
       "Redis (Advanced - Caching, Pub/Sub)",
-      "TimescaleDB (Time-series Data)",
-      "Cassandra (Distributed Systems)"
+      "TimescaleDB (Time-series Data)"
     ],
     "methodologies_practices": [
-      "Technical Leadership & Innovation",
-      "Computer Science Fundamentals",
-      "Modern Tech Stack Architecture",
-      "AI & Machine Learning Integration",
-      "Data Analytics & Modeling",
+      "Full Stack Architecture",
       "Microservices Architecture",
+      "RESTful API Design",
+      "GraphQL API Design",
       "Domain-Driven Design",
       "Test-Driven Development",
+      "Testing: Jest, Cypress, Playwright, React Testing Library",
       "Agile/Scrum (Certified)",
       "DevOps & Coding Best Practices",
       "Security Best Practices",
@@ -264,16 +250,18 @@
   "projects": [
     {
       "name": "Paycell MPOS Payment System",
-      "description": "Architected and implemented a high-throughput payment processing system with emphasis on security, scalability, and reliability. Integrated AI-powered analytics and monitoring solutions.",
+      "description": "Architected and implemented a high-throughput full stack payment processing system with emphasis on security, scalability, and reliability. Developed Java/Spring Boot backend microservices and Angular frontend dashboard with integrated AI-powered analytics and monitoring solutions.",
       "achievements": [
         "Processed $50M+ monthly transactions with 99.99% uptime",
+        "Developed Angular-based admin dashboard for real-time monitoring",
         "Implemented machine learning based fraud detection reducing incidents by 60%",
-        "Developed real-time monitoring and analytics dashboard",
+        "Developed real-time monitoring and analytics dashboard using Angular and TypeScript",
         "Achieved PCI-DSS compliance certification"
       ],
       "technologies": [
         "Java/Spring Boot",
-        "Angular",
+        "Angular 12+",
+        "TypeScript",
         "PostgreSQL",
         "Redis",
         "Docker",
@@ -283,34 +271,19 @@
       ]
     },
     {
-      "name": "PTT Akıllı Esnaf Platform",
-      "description": "Developed comprehensive merchant platform for PTT, enabling digital transformation for small businesses.",
-      "achievements": [
-        "Onboarded 50K+ merchants nationwide",
-        "Processed $10M+ in transactions",
-        "Achieved 98% merchant satisfaction rate",
-        "Reduced merchant onboarding time by 60%"
-      ],
-      "technologies": [
-        "Flutter",
-        "Spring Boot",
-        "PostgreSQL",
-        "Firebase",
-        "AWS"
-      ]
-    },
-    {
       "name": "Enterprise Social Media Platform",
-      "description": "Architected and developed scalable social media platform with real-time features and video conferencing.",
+      "description": "Architected and developed scalable full stack social media platform with real-time features and video conferencing. Built Java/Spring backend services and Angular frontend applications.",
       "achievements": [
         "Supported 100K+ daily active users",
         "Implemented real-time chat for 10K+ concurrent users",
+        "Developed SSR-enabled Angular application improving SEO metrics by 80%",
         "Achieved sub-second message delivery",
         "Reduced infrastructure costs by 40%"
       ],
       "technologies": [
         "Java/Spring",
-        "Angular",
+        "Angular 4+",
+        "TypeScript",
         "MongoDB",
         "WebRTC",
         "XMPP",
@@ -321,4 +294,5 @@
   "certifications": [
     
   ]
-} 
+}
+

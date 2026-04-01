@@ -1,0 +1,307 @@
+{
+  "personalInfo": {
+    "fullName": "Burak GÜNDÜZ",
+    "title": "Senior Software Developer",
+    "email": "bgburakgunduz@gmail.com",
+    "phone": "+905357193476",
+    "location": "Turkey - Sakarya - Arifiye",
+    "github": "http://github.com/bgunduz55",
+    "linkedin": "https://www.linkedin.com/in/bgunduz/",
+    "playStore": "https://play.google.com/store/apps/dev?id=7410828019746719138",
+    "appStore": "https://apps.apple.com/ua/developer/burak-gunduz/id1552965916",
+    "languages": ["Turkish (Native)", "English (Professional Working)"]
+  },
+  "summary": "Results-driven Senior Android Software Developer with 9+ years of expertise in native and cross-platform mobile application development. Proven track record of delivering high-performance, secure mobile solutions in fintech and enterprise systems. Core competencies include:\n\n• Native Android Development: Expert in Java and Kotlin, Android SDK, Material Design, Jetpack Components\n• Cross-Platform Development: Flutter/Dart for iOS and Android, BLoC pattern, state management\n• Mobile Architecture: MVVM, Clean Architecture, Repository Pattern, Dependency Injection\n• Payment Systems: PCI-DSS compliant mobile payment solutions, MPOS, TapOnPhone, SoftPOS\n• Security & Compliance: Secure payment processing, encryption, biometric authentication\n• Performance Optimization: Memory management, battery optimization, app size reduction\n• Technical Leadership: Led and mentored mobile development teams, driving innovation and best practices\n\nKey Achievements:\n• Developed MPOS applications processing $50M+ monthly transactions with 99.99% uptime\n• Implemented PCI-DSS compliant payment solutions for international banks\n• Led development of merchant platform applications onboarding 50K+ users\n• Improved application performance by 60% through technical optimization\n• Published multiple applications on Google Play Store with high user ratings",
+  "workExperience": [
+    {
+      "title": "Senior Software Developer",
+      "company": "Oteller.com",
+      "startDate": "2025/08/01",
+      "endDate": "2025/12/19",
+      "description": "Working as a Senior Java Backend Developer at Oteller.com, developing and maintaining backend services for hotel search, pricing, and reservation workflows. Primarily using Java, Spring Boot, PostgreSQL, Redis, and Kafka to build scalable and reliable microservices. Focus on improving system performance, handling third-party API integrations, fixing data inconsistencies across services, and reducing technical debt when needed. Contributing to CI/CD improvements and supporting overall stability of the backend platform.",
+      "achievements": [
+        "Optimized pricing and availability services for improved performance and scalability",
+        "Improved reservation flow reliability through robust backend service design",
+        "Enhanced integrations with external hotel providers via RESTful APIs",
+        "Refactored legacy backend components for better maintainability",
+        "Implemented caching strategies using Redis to reduce database load",
+        "Maintained backend stability, efficiency, and maintainability"
+      ],
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "Spring Cloud",
+        "PostgreSQL",
+        "Redis",
+        "Apache Kafka",
+        "RESTful APIs",
+        "Microservices",
+        "Jira",
+        "GitLab"
+      ]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Dgpays",
+      "startDate": "2020/05/01",
+      "endDate": "2025/04/01",
+      "description": "Lead mobile architect and developer for enterprise payment processing mobile applications, demonstrating technical leadership in scalability, security, and performance optimization. Developed native Android applications using Java/Kotlin and cross-platform applications using Flutter. Started adopting Jetpack Compose for modern UI development, migrating existing screens to improve development efficiency. Implemented secure payment processing solutions for financial institutions.",
+      "achievements": [
+        "Developed Flutter-based PTT Akıllı Esnaf mobile application successfully onboarding 50K+ merchants",
+        "Implemented secure payment processing features in mobile applications processing $50M+ monthly transactions",
+        "Developed PCI-DSS compliant mobile payment solutions for financial institutions",
+        "Migrated UI components to Jetpack Compose improving development efficiency and code maintainability",
+        "Optimized mobile application performance reducing crash rate by 70% and improving user experience",
+        "Implemented biometric authentication and secure token storage in mobile applications",
+        "Led and mentored mobile development team, fostering collaboration and achieving 95% sprint velocity",
+        "Reduced mobile app size by 40% through optimization and code refactoring",
+        "Implemented automated CI/CD pipelines for mobile applications reducing deployment time by 60%"
+      ],
+      "technologies": [
+        "Kotlin 1.8+",
+        "Java 11/17",
+        "Flutter 3.x",
+        "Dart",
+        "Android SDK",
+        "Material Design",
+        "Jetpack Compose",
+        "Jetpack Components",
+        "BLoC Pattern",
+        "Firebase",
+        "REST APIs",
+        "Payment Systems",
+        "Security Protocols"
+      ]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Etiya",
+      "startDate": "2019/05/01",
+      "endDate": "2020/05/01",
+      "description": "Developed mobile applications for Videotron BSS telecommunications platform, focusing on performance optimization and user experience. Built native Android applications and cross-platform mobile solutions.",
+      "achievements": [
+        "Developed responsive mobile dashboard reducing customer service response time by 40% for 1M+ subscribers",
+        "Implemented efficient state management in mobile applications improving application stability by 50% and reducing bug reports by 65%",
+        "Created reusable mobile component library reducing development time by 40% across 3 enterprise projects",
+        "Optimized mobile application bundle size achieving 45% reduction in initial load time",
+        "Implemented comprehensive testing framework for mobile applications achieving 85% code coverage"
+      ],
+      "technologies": [
+        "Java/Kotlin",
+        "Android SDK",
+        "Material Design",
+        "REST APIs",
+        "Git/Bitbucket",
+        "JIRA"
+      ]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Enderun Information Technologies",
+      "startDate": "2019/02/01",
+      "endDate": "2019/05/01",
+      "description": "Developed Android mobile applications for enterprise procurement system for Istanbul Metropolitan Municipality, focusing on security and user experience. Built native Android applications using Kotlin.",
+      "achievements": [
+        "Developed secure Android application for inventory management system",
+        "Implemented QR-based authentication system in mobile application for 1000+ users",
+        "Optimized mobile application performance and battery usage",
+        "Implemented mobile hand terminal integration for inventory management"
+      ],
+      "technologies": [
+        "Android/Kotlin",
+        "Android SDK",
+        "Material Design",
+        "REST API",
+        "GitLab"
+      ]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Verisoft",
+      "startDate": "2018/10/01",
+      "endDate": "2019/02/01",
+      "description": "Led development of secure payment processing mobile applications for international banks and financial institutions. Developed native Android applications using Java and Kotlin.",
+      "achievements": [
+        "Developed MPOS Android application for CSOB bank processing 50K+ daily transactions",
+        "Implemented cross-platform payment solution reducing development time by 40%",
+        "Created PCI-DSS compliant TapOnPhone and SoftPOS Android solutions",
+        "Developed MyGini loyalty Android application improving customer engagement by 35%",
+        "Implemented secure payment processing with encryption and tokenization",
+        "Optimized Android application performance and memory usage"
+      ],
+      "technologies": [
+        "Java/Kotlin",
+        "Android SDK",
+        "Material Design",
+        "Payment Systems",
+        "Security Protocols",
+        "Encryption",
+        "Biometric Authentication"
+      ]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "JAVA Software Inc",
+      "startDate": "2016/12/01",
+      "endDate": "2018/10/01",
+      "description": "Developed mobile applications for social media platforms and enterprise systems, focusing on real-time communication and user experience. Built Android applications with backend integration.",
+      "achievements": [
+        "Developed Android social media application supporting 100K+ daily active users",
+        "Implemented real-time chat features in mobile application",
+        "Integrated video conferencing capabilities using WebRTC in Android app",
+        "Optimized mobile application performance and network usage",
+        "Implemented push notifications and offline support"
+      ],
+      "technologies": [
+        "Java",
+        "Android SDK",
+        "REST APIs",
+        "WebRTC",
+        "XMPP",
+        "Push Notifications",
+        "SQLite"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "Anadolu University",
+      "degree": "Bachelor of Science",
+      "field": "Management Information Systems",
+      "startDate": "2019/09/01",
+      "endDate": "2024/01/01",
+      "current": false,
+      "achievements": [
+        "Focus on IT Management and Business Process Analysis",
+        "Key courses: Database Management, System Analysis, IT Project Management",
+        "Applied business analytics and enterprise systems management"
+      ]
+    },
+    {
+      "school": "Karabuk University",
+      "degree": "Bachelor of Science",
+      "field": "Computer Engineering",
+      "startDate": "2011/09/01",
+      "endDate": "2017/02/01",
+      "current": false,
+      "description": "Core focus on Software Engineering and System Design",
+      "achievements": [
+        "Completed intensive English preparation program",
+        "Key courses: Data Structures, Algorithms, Software Engineering, Database Systems",
+        "Specialized in software architecture and distributed systems"
+      ]
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Java (Expert - Android SDK, Multithreading, Concurrency)",
+      "Kotlin (Expert - Android, Coroutines, Flow, Ktor)",
+      "Dart (Expert - Flutter, BLoC, State Management)",
+      "Python (Proficient - Scripting, Automation)",
+      "C# (Proficient - Xamarin)"
+    ],
+    "frameworks_platforms": [
+      "Android SDK (Expert - Native Development)",
+      "Flutter (Expert - Cross-platform Mobile Development)",
+      "Jetpack Compose (Modern UI Toolkit, State Management)",
+      "Jetpack Components (ViewModel, LiveData, Room, Navigation)",
+      "Material Design",
+      "Android Architecture Components",
+      "BLoC Pattern",
+      "RxJava/RxKotlin",
+      "Retrofit",
+      "Dagger/Hilt",
+      "Firebase (Analytics, Crashlytics, Push Notifications)"
+    ],
+    "cloud_infrastructure": [
+      "Firebase (Analytics, Crashlytics, Cloud Messaging)",
+      "AWS (Mobile SDK, S3, Cognito)",
+      "Azure (App Service, Mobile Apps)",
+      "CI/CD (Jenkins, GitLab CI, Fastlane)",
+      "Google Play Console",
+      "App Store Connect"
+    ],
+    "databases": [
+      "SQLite (Android Native)",
+      "Room Database (Android)",
+      "Firebase Realtime Database",
+      "Firebase Firestore",
+      "SharedPreferences",
+      "DataStore"
+    ],
+    "methodologies_practices": [
+      "Mobile Architecture (MVVM, Clean Architecture)",
+      "Repository Pattern",
+      "Dependency Injection",
+      "Test-Driven Development",
+      "Agile/Scrum (Certified)",
+      "Mobile Security Best Practices",
+      "Performance Optimization",
+      "Memory Management",
+      "Battery Optimization",
+      "Design Patterns",
+      "Payment Systems Integration"
+    ]
+  },
+  "projects": [
+    {
+      "name": "PTT Akıllı Esnaf Mobile Application",
+      "description": "Developed comprehensive Flutter-based merchant platform mobile application for PTT, enabling digital transformation for small businesses. Implemented secure payment processing and merchant management features.",
+      "achievements": [
+        "Onboarded 50K+ merchants nationwide through mobile application",
+        "Processed $10M+ in transactions through mobile app",
+        "Achieved 98% merchant satisfaction rate",
+        "Reduced merchant onboarding time by 60% through mobile optimization",
+        "Published on Google Play Store with 4.5+ rating"
+      ],
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "BLoC Pattern",
+        "Firebase",
+        "REST APIs",
+        "Payment Integration"
+      ]
+    },
+    {
+      "name": "Paycell MPOS Mobile Application",
+      "description": "Developed secure Android MPOS payment processing mobile application with emphasis on security, reliability, and PCI-DSS compliance. Implemented TapOnPhone and SoftPOS solutions.",
+      "achievements": [
+        "Processed $50M+ monthly transactions through mobile application",
+        "Achieved PCI-DSS compliance certification",
+        "Implemented secure payment processing with encryption",
+        "Reduced transaction processing time by 40%",
+        "Published on Google Play Store"
+      ],
+      "technologies": [
+        "Java/Kotlin",
+        "Android SDK",
+        "Material Design",
+        "Payment Systems",
+        "Security Protocols",
+        "Encryption"
+      ]
+    },
+    {
+      "name": "MyGini Loyalty Mobile Application",
+      "description": "Developed Android loyalty application for customer engagement and rewards management. Implemented real-time synchronization and push notifications.",
+      "achievements": [
+        "Improved customer engagement by 35%",
+        "Implemented real-time rewards synchronization",
+        "Achieved 4.0+ rating on Google Play Store",
+        "Reduced app crash rate by 60%"
+      ],
+      "technologies": [
+        "Java/Kotlin",
+        "Android SDK",
+        "Firebase",
+        "REST APIs",
+        "Push Notifications"
+      ]
+    }
+  ],
+  "certifications": [
+    
+  ]
+}
+

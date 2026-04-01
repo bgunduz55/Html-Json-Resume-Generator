@@ -1,0 +1,352 @@
+{
+  "personalInfo": {
+    "fullName": "Burak GÜNDÜZ",
+    "title": "Senior Software Developer",
+    "email": "bgburakgunduz@gmail.com",
+    "phone": "+905357193476",
+    "location": "Turkey - Sakarya - Arifiye",
+    "github": "http://github.com/bgunduz55",
+    "linkedin": "https://www.linkedin.com/in/bgunduz/",
+    "playStore": "https://play.google.com/store/apps/dev?id=7410828019746719138",
+    "appStore": "https://apps.apple.com/ua/developer/burak-gunduz/id1552965916",
+    "languages": ["Turkish (Native)", "English (Professional Working)"]
+  },
+  "summary": "Results-driven Senior Software Developer with 9+ years of expertise in leading enterprise backend architecture and development teams. Proven track record of delivering high-performance, scalable backend solutions in fintech and enterprise systems while mentoring and leading development teams. Holds a Bachelor's degree in Management Information Systems, combining technical expertise with business acumen for effective team leadership and strategic decision-making. Core competencies include:\n\n• Technical Leadership: Led and mentored backend development teams of 8+ developers, driving innovation, best practices, and achieving 95% sprint completion rates\n• Back-End Architecture: Expert in Java (Spring Boot, Spring Cloud), Microservices Architecture, Distributed Systems Design\n• System Design: RESTful APIs, GraphQL, gRPC, WebSocket, Enterprise Integration Patterns, Event-Driven Architecture\n• Database Engineering: PostgreSQL, MongoDB, Oracle, MySQL, Redis with advanced performance tuning and optimization\n• DevOps & Cloud: Docker, Kubernetes, AWS, Azure, CI/CD automation, Monitoring and Analytics\n• Security & Compliance: PCI-DSS compliant systems, secure payment processing, authentication and authorization\n• Team Management: Cross-functional collaboration, code reviews, technical mentoring, architecture decisions\n• Business Acumen: Management Information Systems background enabling effective alignment of technical solutions with business objectives\n\nKey Achievements:\n• Led backend architecture and development team for payment processing platform handling $100M+ annual transactions with 99.99% uptime\n• Collaborated with cross-functional teams to reduce system response time by 45% through microservices implementation\n• Led and mentored teams of 8+ backend developers, achieving 95% sprint completion rate and fostering technical growth\n• Improved backend application performance by 60% through technical optimization and coding best practices\n• Implemented automated CI/CD pipelines reducing deployment time from 2 hours to 15 minutes\n• Established coding standards, best practices, and architectural patterns across backend teams",
+  "workExperience": [
+    {
+      "title": "Senior Software Developer",
+      "company": "Oteller.com",
+      "startDate": "2025/08/01",
+      "endDate": "2025/12/19",
+      "description": "Leading backend development initiatives at Oteller.com, developing and maintaining backend services for hotel search, pricing, and reservation workflows. Providing technical leadership and mentoring junior developers. Primarily using Java, Spring Boot, PostgreSQL, Redis, and Kafka to build scalable and reliable microservices. Leading efforts to improve system performance, handle third-party API integrations, fix data inconsistencies across services, and reduce technical debt. Driving CI/CD improvements and supporting overall stability of the backend platform.",
+      "achievements": [
+        "Led backend architecture decisions and technical design for pricing and availability services",
+        "Mentored junior backend developers on best practices and code quality",
+        "Implemented gRPC services for high-performance inter-service communication in microservices architecture",
+        "Optimized pricing and availability services for improved performance and scalability",
+        "Improved reservation flow reliability through robust backend service design",
+        "Enhanced integrations with external hotel providers via RESTful APIs",
+        "Led refactoring efforts for legacy backend components for better maintainability",
+        "Established coding standards and architectural patterns for backend team",
+        "Maintained backend stability, efficiency, and maintainability"
+      ],
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "Spring Cloud",
+        "gRPC",
+        "Protocol Buffers",
+        "PostgreSQL",
+        "Redis",
+        "Apache Kafka",
+        "RESTful APIs",
+        "Microservices",
+        "Technical Leadership",
+        "Jira",
+        "GitLab",
+        "Software Architecture",
+        "Team Management"
+      ]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Dgpays",
+      "startDate": "2020/05/01",
+      "endDate": "2025/04/01",
+      "description": "Lead backend architect and team leader for enterprise payment processing systems, demonstrating technical leadership in scalability, security, and performance optimization. Led a team of 8+ backend developers, making architectural decisions and mentoring team members. Designed and implemented microservices architecture using Java/Spring Boot. Implemented advanced analytics and monitoring solutions for backend services.",
+      "achievements": [
+        "Led backend architecture and development team for Paycell MPOS system processing $50M+ monthly transactions with 99.99% uptime",
+        "Led and mentored an 8-person backend development team, fostering collaboration and achieving 95% sprint velocity",
+        "Collaborated with teams to design and implement microservices architecture reducing system latency by 45%",
+        "Made critical architectural decisions for scalable backend systems including GraphQL implementation for efficient API design",
+        "Implemented AI-powered fraud detection backend system reducing fraud incidents by 70%",
+        "Developed comprehensive backend monitoring and analytics services for real-time system performance",
+        "Optimized database queries and implemented caching strategies reducing response time by 50%",
+        "Implemented automated CI/CD pipelines reducing deployment time from 2 hours to 15 minutes",
+        "Established code review processes and technical standards for backend team",
+        "Developed innovative backend middleware solutions for PTT Akıllı Esnaf platform, successfully onboarding 50K+ merchants",
+        "Applied computer science principles to implement PCI-DSS compliant payment processing backend system"
+      ],
+      "technologies": [
+        "Java 11/17",
+        "Spring Boot 2.7/3.x",
+        "Spring Cloud",
+        "GraphQL",
+        "PostgreSQL 14",
+        "MongoDB 5.0",
+        "Redis",
+        "Apache Kafka",
+        "AWS (ECS, EKS, RDS)",
+        "Azure DevOps",
+        "Docker",
+        "Kubernetes",
+        "Jenkins",
+        "JUnit 5",
+        "Mockito",
+        "RESTful APIs",
+        "Microservices",
+        "Technical Leadership",
+        "Team Management"
+      ]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Etiya",
+      "startDate": "2019/05/01",
+      "endDate": "2020/05/01",
+      "description": "Led backend Java development for Videotron BSS telecommunications platform, focusing on RESTful API development and performance optimization. Made architectural decisions and provided technical guidance. Built Java/Spring Boot backend services supporting frontend applications.",
+      "achievements": [
+        "Led backend architecture for telecommunications platform",
+        "Developed RESTful backend APIs reducing customer service response time by 40% for 1M+ subscribers",
+        "Implemented efficient backend services improving application stability by 50% and reducing bug reports by 65%",
+        "Created reusable backend service components reducing development time by 40% across 3 enterprise projects",
+        "Optimized backend API response times achieving 45% reduction in latency",
+        "Provided technical leadership for backend development team",
+        "Implemented comprehensive testing framework for backend services achieving 85% code coverage"
+      ],
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "REST APIs",
+        "PostgreSQL",
+        "Technical Leadership",
+        "Git/Bitbucket",
+        "JIRA"
+      ]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Enderun Information Technologies",
+      "startDate": "2019/02/01",
+      "endDate": "2019/05/01",
+      "description": "Led backend architecture and development for enterprise procurement system for Istanbul Metropolitan Municipality, focusing on security and scalability. Made architectural decisions and provided technical guidance. Developed Spring Boot REST APIs and backend services.",
+      "achievements": [
+        "Led backend architecture design for enterprise procurement system",
+        "Designed and implemented REST API handling 10K+ daily requests with 99.9% uptime",
+        "Developed secure QR-based authentication backend system for 1000+ users",
+        "Optimized Oracle database queries reducing response time by 30%",
+        "Provided technical leadership for backend development team",
+        "Implemented backend services for mobile hand terminal integration for inventory management"
+      ],
+      "technologies": [
+        "Spring Boot",
+        "Java",
+        "Oracle DB",
+        "REST API",
+        "JPA/Hibernate",
+        "Technical Leadership",
+        "GitLab",
+        "SVN"
+      ]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Verisoft",
+      "startDate": "2018/10/01",
+      "endDate": "2019/02/01",
+      "description": "Led backend development for secure payment processing systems for international banks and financial institutions. Made architectural decisions and mentored junior developers. Built backend services supporting mobile payment applications.",
+      "achievements": [
+        "Led backend architecture for secure payment processing systems",
+        "Developed backend services for MPOS application processing 50K+ daily transactions",
+        "Made architectural decisions for secure backend APIs for payment processing",
+        "Created backend services for PCI-DSS compliant TapOnPhone and SoftPOS solutions",
+        "Developed backend APIs for loyalty application improving customer engagement by 35%",
+        "Mentored junior backend developers on best practices",
+        "Implemented secure payment processing backend with encryption and tokenization"
+      ],
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "REST APIs",
+        "Payment Systems",
+        "Security Protocols",
+        "Encryption",
+        "Technical Leadership"
+      ]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "JAVA Software Inc",
+      "startDate": "2016/12/01",
+      "endDate": "2018/10/01",
+      "description": "Led backend development for social media platforms and enterprise systems, focusing on scalability and real-time communication. Made architectural decisions and mentored junior developers. Built Java/Spring backend services and REST APIs.",
+      "achievements": [
+        "Led backend architecture for scalable social media platform",
+        "Architected and implemented scalable REST APIs serving 100K+ daily active users",
+        "Developed real-time chat backend system supporting 10K+ concurrent users using XMPP/Openfire",
+        "Implemented hybrid database architecture reducing query time by 50%",
+        "Integrated e-Invoice backend system processing 5K+ monthly transactions",
+        "Mentored junior backend developers on best practices",
+        "Implemented video conferencing backend services using WebRTC and Openfire",
+        "Set up high-availability database clusters with master-master replication"
+      ],
+      "technologies": [
+        "Java/Spring",
+        "JAX-RS",
+        "MySQL",
+        "MongoDB",
+        "Node.js",
+        "Express.js",
+        "WebRTC",
+        "XMPP",
+        "SSL/TLS",
+        "REST APIs",
+        "Technical Leadership"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "Anadolu University",
+      "degree": "Bachelor of Science",
+      "field": "Management Information Systems",
+      "startDate": "2019/09/01",
+      "endDate": "2024/01/01",
+      "current": false,
+      "achievements": [
+        "Focus on IT Management and Business Process Analysis",
+        "Key courses: Database Management, System Analysis, IT Project Management",
+        "Applied business analytics and enterprise systems management"
+      ]
+    },
+    {
+      "school": "Karabuk University",
+      "degree": "Bachelor of Science",
+      "field": "Computer Engineering",
+      "startDate": "2011/09/01",
+      "endDate": "2017/02/01",
+      "current": false,
+      "description": "Core focus on Software Engineering and System Design",
+      "achievements": [
+        "Completed intensive English preparation program",
+        "Key courses: Data Structures, Algorithms, Software Engineering, Database Systems",
+        "Specialized in software architecture and distributed systems"
+      ]
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Java (Expert - Spring Boot, Spring Cloud, JPA/Hibernate)",
+      "Python (Expert - Data Analysis, Machine Learning, AI)",
+      "Kotlin (Advanced - Backend Services, Coroutines)",
+      "C# (Proficient - .NET Core)",
+      "PHP (Proficient - Laravel, CodeIgniter)"
+    ],
+    "frameworks_platforms": [
+      "Back-End: Spring Framework (Boot, Cloud, Security, Data)",
+      "Back-End: Spring Boot (Expert - Microservices, REST APIs)",
+      "Back-End: Spring Cloud (Service Discovery, Config, Gateway)",
+      "GraphQL (Apollo Server, GraphQL Java)",
+      "gRPC (Protocol Buffers, gRPC Java)",
+      "Machine Learning: TensorFlow, scikit-learn",
+      "Middleware Systems: Apache Kafka, RabbitMQ",
+      "Node.js (Express, Socket.io)",
+      "Laravel/CodeIgniter",
+      ".NET Core"
+    ],
+    "cloud_infrastructure": [
+      "AWS (ECS, EKS, Lambda, RDS, S3)",
+      "Azure (AKS, App Service, Functions)",
+      "Docker (Containerization)",
+      "Kubernetes (Orchestration)",
+      "System Monitoring & Analytics",
+      "Linux System Administration",
+      "Nginx/Apache",
+      "CI/CD (Jenkins, GitLab)"
+    ],
+    "databases": [
+      "PostgreSQL (Expert - Performance Tuning, Data Modeling, Indexing)",
+      "MongoDB (Expert - Aggregation, Sharding, Replication)",
+      "Oracle DB (Advanced - PL/SQL, Optimization)",
+      "MySQL (Expert - Optimization, Replication, Clustering)",
+      "Redis (Advanced - Caching, Pub/Sub, Clustering)",
+      "TimescaleDB (Time-series Data)",
+      "Cassandra (Distributed Systems)"
+    ],
+    "methodologies_practices": [
+      "Technical Leadership & Team Management",
+      "Microservices Architecture",
+      "Domain-Driven Design",
+      "RESTful API Design",
+      "Event-Driven Architecture",
+      "System Architecture Design",
+      "Code Review & Mentoring",
+      "Test-Driven Development",
+      "Agile/Scrum (Certified)",
+      "DevOps & Coding Best Practices",
+      "Security Best Practices",
+      "Design Patterns",
+      "Database Optimization",
+      "Performance Tuning",
+      "Cross-team Collaboration"
+    ]
+  },
+  "projects": [
+    {
+      "name": "Paycell MPOS Payment System",
+      "description": "Led backend architecture and development team for high-throughput payment processing system with emphasis on security, scalability, and reliability. Designed microservices architecture and led team to develop Java/Spring Boot microservices with integrated AI-powered analytics and monitoring solutions.",
+      "achievements": [
+        "Led team to process $50M+ monthly transactions with 99.99% uptime",
+        "Made architectural decisions for scalable microservices architecture",
+        "Led team to implement machine learning based fraud detection backend reducing incidents by 60%",
+        "Developed real-time monitoring and analytics backend services",
+        "Achieved PCI-DSS compliance certification",
+        "Led optimization efforts reducing database latency by 45%"
+      ],
+      "technologies": [
+        "Java/Spring Boot",
+        "Spring Cloud",
+        "PostgreSQL",
+        "Redis",
+        "Apache Kafka",
+        "Docker",
+        "Kubernetes",
+        "Machine Learning",
+        "Microservices",
+        "Technical Leadership"
+      ]
+    },
+    {
+      "name": "PTT Akıllı Esnaf Platform",
+      "description": "Led backend development team for comprehensive merchant platform, enabling digital transformation for small businesses. Designed architecture and led team to build Spring Boot microservices and REST APIs.",
+      "achievements": [
+        "Led team to onboard 50K+ merchants nationwide through backend services",
+        "Processed $10M+ in transactions with high reliability",
+        "Achieved 98% merchant satisfaction rate",
+        "Led optimization efforts reducing merchant onboarding time by 60% through API optimization"
+      ],
+      "technologies": [
+        "Spring Boot",
+        "PostgreSQL",
+        "Redis",
+        "AWS",
+        "REST APIs",
+        "Microservices",
+        "Technical Leadership"
+      ]
+    },
+    {
+      "name": "Enterprise Social Media Platform",
+      "description": "Led backend architecture and development team for scalable social media platform with real-time features and video conferencing. Made architectural decisions and led team to build Java/Spring backend microservices.",
+      "achievements": [
+        "Led team to support 100K+ daily active users with scalable backend",
+        "Implemented real-time chat backend for 10K+ concurrent users",
+        "Achieved sub-second message delivery",
+        "Led optimization efforts reducing infrastructure costs by 40%"
+      ],
+      "technologies": [
+        "Java/Spring",
+        "MongoDB",
+        "Redis",
+        "WebRTC",
+        "XMPP",
+        "REST APIs",
+        "Technical Leadership"
+      ]
+    }
+  ],
+  "certifications": [
+    
+  ]
+}
+
