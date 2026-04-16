@@ -1,0 +1,90 @@
+{
+  "personalInfo": {
+    "fullName": "Burak GUNDUZ",
+    "title": "Senior Java Backend Developer (ATS Focused)",
+    "email": "bgburakgunduz@gmail.com",
+    "phone": "+905357193476",
+    "location": "Turkey",
+    "github": "https://github.com/bgunduz55",
+    "linkedin": "https://www.linkedin.com/in/bgunduz/",
+    "languages": ["Turkish (Native)", "English (Professional Working)"]
+  },
+  "summary": "Senior Java Backend Developer with 9+ years of experience in Spring Boot microservices, distributed systems, and high-traffic transactional platforms. Strong track record in fintech-grade reliability, API design, data consistency, and performance tuning. Uses AI-assisted engineering workflows for faster delivery, automated testing support, and refactoring while maintaining clean architecture and SOLID principles.",
+  "workExperience": [
+    {
+      "title": "Senior Software Developer",
+      "company": "Oteller.com",
+      "startDate": "2025/08/01",
+      "endDate": "2025/12/19",
+      "description": "Developed and maintained Java backend microservices for hotel search, pricing, and reservation workflows.",
+      "achievements": [
+        "Improved reliability of reservation and availability services",
+        "Built robust provider integration layers with retry and timeout strategies",
+        "Reduced operational issues by refactoring legacy service boundaries"
+      ],
+      "technologies": ["Java", "Spring Boot", "PostgreSQL", "Redis", "Apache Kafka", "REST APIs", "Microservices"]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Dgpays",
+      "startDate": "2020/05/01",
+      "endDate": "2025/04/01",
+      "description": "Led backend engineering for enterprise payment systems with strong focus on scalability, compliance, and observability.",
+      "achievements": [
+        "Contributed to payment platform processing $50M+ monthly transactions",
+        "Reduced service latency by 45% through microservice architecture improvements",
+        "Implemented AI-supported fraud analysis services and monitoring flows",
+        "Reduced deployment duration from 2 hours to 15 minutes with CI/CD automation"
+      ],
+      "technologies": ["Java 11/17", "Spring Boot", "Spring Cloud", "PostgreSQL", "MongoDB", "Redis", "Docker", "Kubernetes"]
+    }
+  ],
+  "education": [
+    {
+      "school": "Anadolu University",
+      "degree": "Bachelor of Science",
+      "field": "Management Information Systems",
+      "startDate": "2019/09/01",
+      "endDate": "2024/01/01",
+      "current": false
+    },
+    {
+      "school": "Karabuk University",
+      "degree": "Bachelor of Science",
+      "field": "Computer Engineering",
+      "startDate": "2011/09/01",
+      "endDate": "2017/02/01",
+      "current": false
+    }
+  ],
+  "skills": {
+    "programming_languages": ["Java", "Kotlin", "Python"],
+    "frameworks_platforms": ["Spring Boot", "Spring Cloud", "Hibernate/JPA", "GraphQL", "Apache Kafka"],
+    "cloud_infrastructure": ["AWS", "Azure", "Docker", "Kubernetes", "CI/CD"],
+    "databases": ["PostgreSQL", "MongoDB", "MySQL", "Oracle", "Redis"],
+    "methodologies_practices": ["Microservices Architecture", "Domain-Driven Design", "Clean Architecture", "SOLID", "Test Automation"]
+  },
+  "projects": [
+    {
+      "name": "PriceSync (GitHub + Live: pricesync.com.tr)",
+      "description": "Backend services contribution for the live pricesync.com.tr platform providing ERP-backed real-time price and stock query.",
+      "achievements": [
+        "Implemented resilient Fastify/Node.js synchronization for product, pricing, and stock consistency",
+        "Built stable integration and API layers (HMAC connector auth, bulk sync, fallback query scenarios)",
+        "Applied AI-assisted refactoring and test generation to accelerate delivery"
+      ],
+      "technologies": ["Node.js 20", "Fastify", "TypeScript", "Supabase (PostgreSQL)", "Railway", "WebSocket", "HMAC"]
+    },
+    {
+      "name": "vetran (GitHub + Live: vetran.com.tr)",
+      "description": "Backend and API contribution for the live vetran.com.tr veterinary clinic management platform.",
+      "achievements": [
+        "Delivered maintainable backend services for appointment, patient, vaccination, inventory, and reporting modules",
+        "Implemented Supabase-backed role-aware data workflows for clinic operations",
+        "Increased developer productivity using AI tools while preserving code quality"
+      ],
+      "technologies": ["Next.js 15", "TypeScript", "Supabase (PostgreSQL)", "RLS", "Railway", "GitHub Actions", "Resend"]
+    }
+  ],
+  "certifications": []
+}

@@ -1,0 +1,114 @@
+{
+  "personalInfo": {
+    "fullName": "Burak GUNDUZ",
+    "title": "Senior Java Backend Developer",
+    "email": "bgburakgunduz@gmail.com",
+    "phone": "+905357193476",
+    "location": "Turkey",
+    "github": "https://github.com/bgunduz55",
+    "linkedin": "https://www.linkedin.com/in/bgunduz/",
+    "languages": ["Turkish (Native)", "English (Professional Working)"]
+  },
+  "summary": "Senior Java Backend Developer with 9+ years of experience in Spring Boot microservices, API architecture, and distributed systems in fintech and enterprise domains. Strong focus on reliability, performance, and maintainable code. Actively applies AI-assisted engineering for faster delivery, safer refactoring, and improved test coverage.",
+  "workExperience": [
+    {
+      "title": "Senior Software Developer",
+      "company": "Oteller.com",
+      "startDate": "2025/08/01",
+      "endDate": "2025/12/19",
+      "description": "Developed and maintained backend services for hotel search, pricing, and reservation workflows.",
+      "achievements": [
+        "Improved reservation and availability service reliability under high load",
+        "Built robust external provider integrations with safer retry and timeout strategies",
+        "Reduced technical debt by refactoring legacy service boundaries"
+      ],
+      "technologies": ["Java", "Spring Boot", "PostgreSQL", "Redis", "Apache Kafka", "REST APIs", "Microservices"]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Dgpays",
+      "startDate": "2020/05/01",
+      "endDate": "2025/04/01",
+      "description": "Led backend development for enterprise payment systems with focus on scalability, compliance, and observability.",
+      "achievements": [
+        "Contributed to payment platform processing $50M+ monthly transactions",
+        "Reduced service latency by 45% with microservice and data-path optimizations",
+        "Implemented AI-supported fraud analysis and monitoring services",
+        "Reduced deployment duration from 2 hours to 15 minutes using CI/CD automation"
+      ],
+      "technologies": ["Java 11/17", "Spring Boot", "Spring Cloud", "PostgreSQL", "MongoDB", "Redis", "Docker", "Kubernetes"]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Etiya",
+      "startDate": "2019/05/01",
+      "endDate": "2020/05/01",
+      "description": "Built backend APIs for telecom domain products and improved service response quality.",
+      "achievements": [
+        "Developed REST services supporting large subscriber operations",
+        "Improved stability and reduced defect rate through service-level optimizations"
+      ],
+      "technologies": ["Java", "Spring Boot", "REST APIs", "PostgreSQL"]
+    }
+  ],
+  "education": [
+    {
+      "school": "Anadolu University",
+      "degree": "Bachelor of Science",
+      "field": "Management Information Systems",
+      "startDate": "2019/09/01",
+      "endDate": "2024/01/01",
+      "current": false,
+      "achievements": [
+        "Focus on IT Management and Business Process Analysis",
+        "Key courses: Database Management, System Analysis, IT Project Management",
+        "Applied business analytics and enterprise systems management"
+      ]
+    },
+    {
+      "school": "Karabuk University",
+      "degree": "Bachelor of Science",
+      "field": "Computer Engineering",
+      "startDate": "2011/09/01",
+      "endDate": "2017/02/01",
+      "current": false,
+      "description": "Core focus on Software Engineering and System Design",
+      "achievements": [
+        "Completed intensive English preparation program",
+        "Key courses: Data Structures, Algorithms, Software Engineering, Database Systems",
+        "Specialized in software architecture and distributed systems"
+      ]
+    }
+  ],
+  "skills": {
+    "programming_languages": ["Java", "Kotlin", "Python"],
+    "frameworks_platforms": ["Spring Boot", "Spring Cloud", "Hibernate/JPA", "GraphQL", "Apache Kafka"],
+    "cloud_infrastructure": ["AWS", "Azure", "Docker", "Kubernetes", "CI/CD"],
+    "databases": ["PostgreSQL", "MongoDB", "MySQL", "Oracle", "Redis"],
+    "methodologies_practices": ["Microservices Architecture", "Domain-Driven Design", "Clean Architecture", "SOLID", "Test Automation"]
+  },
+  "projects": [
+    {
+      "name": "PriceSync (GitHub + Live: pricesync.com.tr)",
+      "description": "Backend contribution for the live pricesync.com.tr platform enabling real-time barcode-based price/stock query with ERP-connected synchronization.",
+      "achievements": [
+        "Implemented Fastify/Node.js backend synchronization flows for product, pricing, and stock data",
+        "Designed reliable API and integration patterns (HMAC-secured connector flows, DB-first query with ERP fallback)",
+        "Applied AI-assisted refactoring and test generation to accelerate backend delivery"
+      ],
+      "technologies": ["Node.js 20", "Fastify", "TypeScript", "Supabase (PostgreSQL)", "Railway", "WebSocket", "HMAC"]
+    },
+    {
+      "name": "vetran (GitHub + Live: vetran.com.tr)",
+      "description": "Backend and API contribution for the live vetran.com.tr veterinary clinic management system.",
+      "achievements": [
+        "Delivered maintainable backend services for appointment, patient, vaccination, inventory, and reporting domains",
+        "Implemented Supabase-backed role-aware data access and operational workflow support",
+        "Increased developer productivity using AI tools while preserving clean code quality"
+      ],
+      "technologies": ["Next.js 15", "TypeScript", "Supabase (PostgreSQL)", "RLS", "Railway", "GitHub Actions", "Resend"]
+    }
+  ],
+  "certifications": []
+}
+

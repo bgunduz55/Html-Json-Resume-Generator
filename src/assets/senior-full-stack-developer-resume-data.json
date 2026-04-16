@@ -1,7 +1,7 @@
 {
   "personalInfo": {
     "fullName": "Burak GÜNDÜZ",
-    "title": "Senior Software Developer",
+    "title": "Senior Full Stack Developer",
     "email": "bgburakgunduz@gmail.com",
     "phone": "+905357193476",
     "location": "Turkey - Sakarya - Arifiye",
@@ -11,7 +11,7 @@
     "appStore": "https://apps.apple.com/ua/developer/burak-gunduz/id1552965916",
     "languages": ["Turkish (Native)", "English (Professional Working)"]
   },
-  "summary": "Results-driven Senior Full Stack Software Developer with 9+ years of expertise in enterprise software development across the entire technology stack. Proven track record of delivering high-performance, scalable full-stack solutions in fintech and enterprise systems. Core competencies include:\n\n• Full Stack Development: Expert in Java (Spring Boot, Spring Cloud) backend and Angular (primary), React.js, Vue.js frontend development\n• Back-End Expertise: RESTful APIs, GraphQL, WebSocket, Microservices Architecture, Enterprise Integration Patterns\n• Front-End Expertise: Angular 2-15+, TypeScript, RxJS, State Management (NGXS/NgRx for Angular, Redux for React, Pinia for Vue), React.js, Next.js, Vue.js\n• Testing & Quality: Comprehensive testing with Jest, Cypress, Playwright, React Testing Library achieving high code coverage\n• Database Engineering: PostgreSQL, MongoDB, Oracle, MySQL, Redis with optimization and performance tuning\n• DevOps & Cloud: Docker, Kubernetes, AWS, Azure, CI/CD automation, Monitoring and Analytics\n• Technical Leadership: Led and mentored development teams, driving innovation and best practices\n\nKey Achievements:\n• Developed full-stack solutions for payment processing platform handling $100M+ annual transactions\n• Collaborated with cross-functional teams to reduce system response time by 45% through microservices implementation\n• Improved application performance by 60% through technical optimization and coding best practices\n• Led and mentored teams of 8+ developers, achieving 95% sprint completion rate\n• Implemented secure payment solutions compliant with PCI-DSS standards",
+  "summary": "Senior Full Stack Software Developer with 9+ years of experience building enterprise web platforms with Java/Spring Boot on the backend and Angular/React/Next.js on the frontend. Delivers scalable, maintainable systems in fintech and high-traffic domains with strong ownership from architecture to production operations. Actively uses modern AI-assisted engineering workflows for code generation, refactoring, test acceleration, and developer productivity.\n\nCore Focus Areas:\n- Full Stack Engineering: Java, Spring Boot, Spring Cloud, Angular, React.js, Next.js, TypeScript\n- Backend Architecture: REST APIs, GraphQL, Microservices, Event-Driven Systems, Redis/Kafka integration\n- Frontend Engineering: Angular and React component architecture, state management, performance optimization\n- Quality and Delivery: Playwright, Jest, Cypress, CI/CD, Docker, Kubernetes, cloud-native deployments\n- Leadership: Mentoring engineers, improving standards, and reducing delivery risk in cross-functional teams",
   "workExperience": [
     {
       "title": "Senior Software Developer",
@@ -249,8 +249,50 @@
   },
   "projects": [
     {
+      "name": "PriceSync (GitHub + Live: pricesync.com.tr)",
+      "description": "Developed and maintained the live SaaS platform at pricesync.com.tr for real-time barcode-based price and stock query, with ERP-connected product and inventory synchronization.",
+      "achievements": [
+        "Implemented Node.js/Fastify API modules and Supabase-backed data flows for pricing and stock queries",
+        "Built connector-oriented sync workflows (HMAC auth, bulk sync, and ERP fallback patterns) for up-to-date product data",
+        "Delivered production features across React dashboard, API layer, and operational store workflows",
+        "Used AI-assisted development for refactoring, test generation, and faster release iterations"
+      ],
+      "technologies": [
+        "Node.js 20",
+        "Fastify",
+        "TypeScript",
+        "Supabase (PostgreSQL)",
+        "React 18",
+        "Flutter",
+        "Railway",
+        "Cloudflare Pages",
+        "pnpm Monorepo"
+      ]
+    },
+    {
+      "name": "vetran (GitHub + Live: vetran.com.tr)",
+      "description": "Developed and maintained the live veterinary clinic management platform at vetran.com.tr covering appointment, patient, vaccination, stock, reporting, and notification workflows.",
+      "achievements": [
+        "Implemented full-stack modules for appointment, patient, vaccination, and inventory management workflows",
+        "Built Next.js App Router features and Supabase-backed data models with role-based access patterns",
+        "Contributed to deployment and delivery workflow on Railway with CI/typecheck/lint guardrails",
+        "Applied AI-assisted engineering with clean architecture and SOLID principles to sustain delivery speed"
+      ],
+      "technologies": [
+        "Next.js 15",
+        "TypeScript",
+        "Supabase (PostgreSQL)",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Railway",
+        "Cloudflare",
+        "GitHub Actions",
+        "Resend"
+      ]
+    },
+    {
       "name": "Paycell MPOS Payment System",
-      "description": "Architected and implemented a high-throughput full stack payment processing system with emphasis on security, scalability, and reliability. Developed Java/Spring Boot backend microservices and Angular frontend dashboard with integrated AI-powered analytics and monitoring solutions.",
+      "description": "Architected and implemented a high-throughput full stack payment processing system with emphasis on security, scalability, and reliability.",
       "achievements": [
         "Processed $50M+ monthly transactions with 99.99% uptime",
         "Developed Angular-based admin dashboard for real-time monitoring",
@@ -268,26 +310,6 @@
         "Kubernetes",
         "Machine Learning",
         "Analytics Dashboard"
-      ]
-    },
-    {
-      "name": "Enterprise Social Media Platform",
-      "description": "Architected and developed scalable full stack social media platform with real-time features and video conferencing. Built Java/Spring backend services and Angular frontend applications.",
-      "achievements": [
-        "Supported 100K+ daily active users",
-        "Implemented real-time chat for 10K+ concurrent users",
-        "Developed SSR-enabled Angular application improving SEO metrics by 80%",
-        "Achieved sub-second message delivery",
-        "Reduced infrastructure costs by 40%"
-      ],
-      "technologies": [
-        "Java/Spring",
-        "Angular 4+",
-        "TypeScript",
-        "MongoDB",
-        "WebRTC",
-        "XMPP",
-        "Redis"
       ]
     }
   ],

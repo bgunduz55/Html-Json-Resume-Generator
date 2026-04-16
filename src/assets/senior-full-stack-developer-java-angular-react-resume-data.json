@@ -1,0 +1,90 @@
+{
+  "personalInfo": {
+    "fullName": "Burak GUNDUZ",
+    "title": "Senior Full Stack Developer (Java + Angular/React)",
+    "email": "bgburakgunduz@gmail.com",
+    "phone": "+905357193476",
+    "location": "Turkey",
+    "github": "https://github.com/bgunduz55",
+    "linkedin": "https://www.linkedin.com/in/bgunduz/",
+    "languages": ["Turkish (Native)", "English (Professional Working)"]
+  },
+  "summary": "Senior Full Stack Developer with 9+ years of experience delivering enterprise products with Java/Spring Boot backends and Angular/React frontends. Strong in API-first architecture, scalable UI systems, and production delivery. Actively uses modern AI tools for rapid prototyping, code generation, refactoring, and automated test support while keeping maintainability and clean architecture standards.",
+  "workExperience": [
+    {
+      "title": "Senior Software Developer",
+      "company": "Oteller.com",
+      "startDate": "2025/08/01",
+      "endDate": "2025/12/19",
+      "description": "Worked across backend and frontend domains for booking workflows, pricing, and integrations.",
+      "achievements": [
+        "Improved end-to-end reservation reliability and user experience",
+        "Delivered React/Next.js UI features integrated with Java services",
+        "Reduced technical debt by modernizing legacy modules"
+      ],
+      "technologies": ["Java", "Spring Boot", "PostgreSQL", "Redis", "React.js", "Next.js", "TypeScript"]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Dgpays",
+      "startDate": "2020/05/01",
+      "endDate": "2025/04/01",
+      "description": "Built full-stack payment solutions, analytics panels, and platform-wide monitoring capabilities.",
+      "achievements": [
+        "Contributed to platform serving $50M+ monthly payment volume",
+        "Built Angular dashboards for operational analytics and support teams",
+        "Reduced system latency by 45% through architecture and optimization work",
+        "Improved engineering throughput using AI-assisted workflows and automated checks"
+      ],
+      "technologies": ["Java", "Spring Boot", "Angular", "TypeScript", "GraphQL", "PostgreSQL", "Docker", "Kubernetes"]
+    }
+  ],
+  "education": [
+    {
+      "school": "Anadolu University",
+      "degree": "Bachelor of Science",
+      "field": "Management Information Systems",
+      "startDate": "2019/09/01",
+      "endDate": "2024/01/01",
+      "current": false
+    },
+    {
+      "school": "Karabuk University",
+      "degree": "Bachelor of Science",
+      "field": "Computer Engineering",
+      "startDate": "2011/09/01",
+      "endDate": "2017/02/01",
+      "current": false
+    }
+  ],
+  "skills": {
+    "programming_languages": ["Java", "TypeScript", "JavaScript", "Kotlin"],
+    "frameworks_platforms": ["Spring Boot", "Spring Cloud", "Angular", "React.js", "Next.js", "GraphQL"],
+    "cloud_infrastructure": ["Docker", "Kubernetes", "AWS", "Azure", "CI/CD"],
+    "databases": ["PostgreSQL", "MongoDB", "MySQL", "Redis"],
+    "methodologies_practices": ["Clean Architecture", "SOLID", "Microservices", "Test Automation", "Agile/Scrum"]
+  },
+  "projects": [
+    {
+      "name": "PriceSync (GitHub + Live: pricesync.com.tr)",
+      "description": "Live full-stack SaaS at pricesync.com.tr for real-time barcode-based price and stock lookup with ERP-backed synchronization.",
+      "achievements": [
+        "Implemented Fastify/Node.js synchronization and query services for current price and stock visibility",
+        "Delivered frontend and backend modules for store operations, analytics, and branch-level management",
+        "Applied AI-assisted engineering to speed up implementation and improve test coverage"
+      ],
+      "technologies": ["Node.js 20", "Fastify", "TypeScript", "Supabase (PostgreSQL)", "React 18", "Railway", "Cloudflare Pages"]
+    },
+    {
+      "name": "vetran (GitHub + Live: vetran.com.tr)",
+      "description": "Live full-stack veterinary clinic management platform at vetran.com.tr with operational modules for clinics.",
+      "achievements": [
+        "Delivered production-ready features for appointment, patient, vaccination, stock, and reporting workflows",
+        "Implemented Next.js and Supabase-backed workflows with role-aware clinic operations",
+        "Used AI tools effectively for faster implementation and sustained code quality"
+      ],
+      "technologies": ["Next.js 15", "TypeScript", "Supabase (PostgreSQL)", "Tailwind CSS", "shadcn/ui", "Railway", "GitHub Actions"]
+    }
+  ],
+  "certifications": []
+}

@@ -1,17 +1,17 @@
 {
   "personalInfo": {
-    "fullName": "Burak GÜNDÜZ",
-    "title": "Senior Software Developer",
+    "fullName": "Burak GUNDUZ",
+    "title": "Android Engineering Lead (Native + Flutter)",
     "email": "bgburakgunduz@gmail.com",
     "phone": "+905357193476",
-    "location": "Turkey - Sakarya - Arifiye",
-    "github": "http://github.com/bgunduz55",
+    "location": "Turkey",
+    "github": "https://github.com/bgunduz55",
     "linkedin": "https://www.linkedin.com/in/bgunduz/",
     "playStore": "https://play.google.com/store/apps/dev?id=7410828019746719138",
     "appStore": "https://apps.apple.com/ua/developer/burak-gunduz/id1552965916",
     "languages": ["Turkish (Native)", "English (Professional Working)"]
   },
-  "summary": "Results-driven Senior Software Developer with 9+ years of expertise in leading mobile application development teams. Proven track record of delivering high-performance, secure mobile solutions in fintech and enterprise systems while mentoring and leading development teams. Holds a Bachelor's degree in Management Information Systems, combining technical expertise with business acumen for effective team leadership and strategic decision-making. Core competencies include:\n\n• Technical Leadership: Led and mentored mobile development teams, driving innovation, best practices, and achieving 95% sprint completion rates\n• Native Android Development: Expert in Java and Kotlin, Android SDK, Material Design, Jetpack Compose, Jetpack Components\n• Cross-Platform Development: Flutter/Dart for iOS and Android, BLoC pattern, state management\n• Mobile Architecture: MVVM, Clean Architecture, Repository Pattern, Dependency Injection\n• Payment Systems: PCI-DSS compliant mobile payment solutions, MPOS, TapOnPhone, SoftPOS\n• Security & Compliance: Secure payment processing, encryption, biometric authentication\n• Team Management: Cross-functional collaboration, code reviews, technical mentoring, architecture decisions\n• Business Acumen: Management Information Systems background enabling effective alignment of technical solutions with business objectives\n\nKey Achievements:\n• Led mobile development team for applications processing $50M+ monthly transactions with 99.99% uptime\n• Led and mentored mobile development teams, achieving 95% sprint completion rate and fostering technical growth\n• Implemented PCI-DSS compliant payment solutions for international banks\n• Led development of merchant platform applications onboarding 50K+ users\n• Improved application performance by 60% through technical optimization\n• Established mobile development standards, best practices, and architectural patterns across teams",
+  "summary": "Android Engineering Lead with 9+ years of experience leading native and cross-platform mobile teams in fintech and enterprise products. Strong in team mentoring, architecture decisions, secure payment flows, and production delivery. Actively drives AI-assisted engineering practices to improve velocity, test quality, and code maintainability.",
   "workExperience": [
     {
       "title": "Senior Software Developer",
@@ -215,79 +215,23 @@
     }
   ],
   "skills": {
-    "programming_languages": [
-      "Java (Expert - Android SDK, Multithreading, Concurrency)",
-      "Kotlin (Expert - Android, Coroutines, Flow, Ktor)",
-      "Dart (Expert - Flutter, BLoC, State Management)",
-      "Python (Proficient - Scripting, Automation)",
-      "C# (Proficient - Xamarin)"
-    ],
-    "frameworks_platforms": [
-      "Android SDK (Expert - Native Development)",
-      "Flutter (Expert - Cross-platform Mobile Development)",
-      "Jetpack Compose (Modern UI Toolkit, State Management, Migration Strategies)",
-      "Jetpack Components (ViewModel, LiveData, Room, Navigation)",
-      "Material Design",
-      "Android Architecture Components",
-      "BLoC Pattern",
-      "RxJava/RxKotlin",
-      "Retrofit",
-      "Dagger/Hilt",
-      "Firebase (Analytics, Crashlytics, Push Notifications)"
-    ],
-    "cloud_infrastructure": [
-      "Firebase (Analytics, Crashlytics, Cloud Messaging)",
-      "AWS (Mobile SDK, S3, Cognito)",
-      "Azure (App Service, Mobile Apps)",
-      "CI/CD (Jenkins, GitLab CI, Fastlane)",
-      "Google Play Console",
-      "App Store Connect"
-    ],
-    "databases": [
-      "SQLite (Android Native)",
-      "Room Database (Android)",
-      "Firebase Realtime Database",
-      "Firebase Firestore",
-      "SharedPreferences",
-      "DataStore"
-    ],
-    "methodologies_practices": [
-      "Technical Leadership & Team Management",
-      "Mobile Architecture (MVVM, Clean Architecture)",
-      "Repository Pattern",
-      "Dependency Injection",
-      "Code Review & Mentoring",
-      "Test-Driven Development",
-      "Agile/Scrum (Certified)",
-      "Mobile Security Best Practices",
-      "Performance Optimization",
-      "Memory Management",
-      "Battery Optimization",
-      "Design Patterns",
-      "Payment Systems Integration",
-      "Cross-team Collaboration"
-    ]
+    "programming_languages": ["Kotlin", "Java", "Dart"],
+    "frameworks_platforms": ["Android SDK", "Jetpack Compose", "Jetpack Components", "Flutter", "Firebase"],
+    "cloud_infrastructure": ["Firebase", "AWS", "CI/CD", "Google Play Console", "App Store Connect"],
+    "databases": ["SQLite", "Room", "Firestore", "DataStore"],
+    "methodologies_practices": ["Technical Leadership", "Mobile Architecture", "Clean Architecture", "SOLID", "Mentoring", "Agile Delivery"]
   },
   "projects": [
     {
-      "name": "PTT Akıllı Esnaf Mobile Application",
-      "description": "Led mobile development team for comprehensive Flutter-based merchant platform mobile application for PTT, enabling digital transformation for small businesses. Designed architecture and led team to implement secure payment processing and merchant management features.",
+      "name": "PriceSync (GitHub + Live: pricesync.com.tr)",
+      "description": "Led engineering direction and quality practices supporting the live pricesync.com.tr product experience.",
       "achievements": [
-        "Led team to onboard 50K+ merchants nationwide through mobile application",
-        "Processed $10M+ in transactions through mobile app",
-        "Achieved 98% merchant satisfaction rate",
-        "Led optimization efforts reducing merchant onboarding time by 60% through mobile optimization",
-        "Published on Google Play Store with 4.5+ rating"
+        "Aligned delivery with real-time barcode-based price/stock query and ERP-synced product data scenarios",
+        "Coordinated mobile-facing and integration requirements with Fastify API and Supabase-backed data flows",
+        "Established maintainable coding patterns and review standards",
+        "Adopted AI-enabled workflows to improve speed without sacrificing quality"
       ],
-      "technologies": [
-        "Flutter",
-        "Dart",
-        "BLoC Pattern",
-        "Firebase",
-        "REST APIs",
-        "Payment Integration",
-        "Technical Leadership"
-      ]
+      "technologies": ["Flutter", "Kotlin/Java", "Node.js/Fastify", "TypeScript", "Supabase (PostgreSQL)", "Railway", "GitHub"]
     },
     {
       "name": "Paycell MPOS Mobile Application",
@@ -311,26 +255,17 @@
       ]
     },
     {
-      "name": "MyGini Loyalty Mobile Application",
-      "description": "Led mobile development team for Android loyalty application for customer engagement and rewards management. Designed architecture and led team to implement real-time synchronization and push notifications.",
+      "name": "vetran (GitHub + Live: vetran.com.tr)",
+      "description": "Led quality and delivery direction for the live vetran.com.tr veterinary clinic management platform.",
       "achievements": [
-        "Led team to improve customer engagement by 35%",
-        "Implemented real-time rewards synchronization",
-        "Achieved 4.0+ rating on Google Play Store",
-        "Led optimization efforts reducing app crash rate by 60%"
+        "Drove implementation quality for appointment, patient tracking, vaccination, stock, and reminder workflows",
+        "Aligned responsive product and mobile roadmap outputs with clinic-first operational requirements",
+        "Drove clean code and SOLID adoption in daily development",
+        "Improved team productivity with practical AI-assisted engineering usage"
       ],
-      "technologies": [
-        "Java/Kotlin",
-        "Android SDK",
-        "Firebase",
-        "REST APIs",
-        "Push Notifications",
-        "Technical Leadership"
-      ]
+      "technologies": ["Next.js 15", "TypeScript", "Supabase", "Flutter roadmap/spec", "Railway", "Cloudflare", "GitHub Actions"]
     }
   ],
-  "certifications": [
-    
-  ]
+  "certifications": []
 }
 

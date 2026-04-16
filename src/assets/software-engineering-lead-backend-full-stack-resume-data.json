@@ -1,0 +1,90 @@
+{
+  "personalInfo": {
+    "fullName": "Burak GUNDUZ",
+    "title": "Software Engineering Lead (Backend/Full Stack)",
+    "email": "bgburakgunduz@gmail.com",
+    "phone": "+905357193476",
+    "location": "Turkey",
+    "github": "https://github.com/bgunduz55",
+    "linkedin": "https://www.linkedin.com/in/bgunduz/",
+    "languages": ["Turkish (Native)", "English (Professional Working)"]
+  },
+  "summary": "Engineering Lead with 9+ years of experience leading teams that deliver scalable backend and full-stack products in fintech and enterprise domains. Strong in architecture governance, technical mentorship, and delivery execution. Actively drives AI-enabled engineering practices to improve team velocity, coding standards, and test quality while preserving clean architecture principles.",
+  "workExperience": [
+    {
+      "title": "Senior Software Developer",
+      "company": "Dgpays",
+      "startDate": "2020/05/01",
+      "endDate": "2025/04/01",
+      "description": "Led architecture and execution for payment domain services and related full-stack capabilities.",
+      "achievements": [
+        "Led an 8-person engineering team with high sprint completion and predictable delivery",
+        "Contributed to resilient payment systems processing $50M+ monthly transaction volume",
+        "Reduced latency by 45% and deployment time from 2 hours to 15 minutes",
+        "Established engineering practices for AI-assisted development, code review quality, and test automation"
+      ],
+      "technologies": ["Java", "Spring Boot", "Spring Cloud", "Angular", "TypeScript", "PostgreSQL", "Kubernetes"]
+    },
+    {
+      "title": "Senior Software Developer",
+      "company": "Oteller.com",
+      "startDate": "2025/08/01",
+      "endDate": "2025/12/19",
+      "description": "Led technical improvements for booking and pricing services with cross-team coordination.",
+      "achievements": [
+        "Improved service quality and operational stability of core reservation flows",
+        "Drove architectural cleanup and maintainability improvements in legacy domains",
+        "Mentored developers in design decisions, code quality, and production readiness"
+      ],
+      "technologies": ["Java", "Spring Boot", "Redis", "Kafka", "React.js", "Next.js"]
+    }
+  ],
+  "education": [
+    {
+      "school": "Anadolu University",
+      "degree": "Bachelor of Science",
+      "field": "Management Information Systems",
+      "startDate": "2019/09/01",
+      "endDate": "2024/01/01",
+      "current": false
+    },
+    {
+      "school": "Karabuk University",
+      "degree": "Bachelor of Science",
+      "field": "Computer Engineering",
+      "startDate": "2011/09/01",
+      "endDate": "2017/02/01",
+      "current": false
+    }
+  ],
+  "skills": {
+    "programming_languages": ["Java", "TypeScript", "Kotlin", "Python"],
+    "frameworks_platforms": ["Spring Boot", "Spring Cloud", "Angular", "React.js", "GraphQL"],
+    "cloud_infrastructure": ["AWS", "Azure", "Docker", "Kubernetes", "CI/CD"],
+    "databases": ["PostgreSQL", "MongoDB", "MySQL", "Redis", "Oracle"],
+    "methodologies_practices": ["Technical Leadership", "System Design", "Clean Architecture", "SOLID", "Mentoring", "Agile Delivery"]
+  },
+  "projects": [
+    {
+      "name": "PriceSync (GitHub + Live: pricesync.com.tr)",
+      "description": "Led engineering direction for the live pricesync.com.tr platform delivering ERP-integrated, real-time price and stock query capabilities.",
+      "achievements": [
+        "Established architecture and delivery standards for synchronization, pricing, and stock domains across Fastify API and connector flows",
+        "Improved product reliability through production-focused engineering practices (Supabase + Railway + Cloudflare delivery)",
+        "Adopted AI-enabled workflows to accelerate implementation and reduce repetitive effort"
+      ],
+      "technologies": ["Node.js 20", "Fastify", "TypeScript", "Supabase (PostgreSQL)", "React 18", "Flutter", "Railway", "Cloudflare Pages"]
+    },
+    {
+      "name": "vetran (GitHub + Live: vetran.com.tr)",
+      "description": "Led engineering for the live vetran.com.tr veterinary clinic management product across backend and full-stack concerns.",
+      "achievements": [
+        "Directed delivery of clinic modules for appointment, patient tracking, vaccination, stock, reporting, and notifications",
+        "Drove clean code and SOLID adoption in daily development",
+        "Improved team productivity using AI tooling integrated into engineering workflow"
+      ],
+      "technologies": ["Next.js 15", "TypeScript", "Supabase (PostgreSQL)", "Tailwind CSS", "shadcn/ui", "Railway", "GitHub Actions", "Resend"]
+    }
+  ],
+  "certifications": []
+}

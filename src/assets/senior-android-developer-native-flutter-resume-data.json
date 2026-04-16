@@ -1,17 +1,17 @@
 {
   "personalInfo": {
-    "fullName": "Burak GÜNDÜZ",
-    "title": "Senior Software Developer",
+    "fullName": "Burak GUNDUZ",
+    "title": "Senior Android Developer (Native + Flutter)",
     "email": "bgburakgunduz@gmail.com",
     "phone": "+905357193476",
-    "location": "Turkey - Sakarya - Arifiye",
-    "github": "http://github.com/bgunduz55",
+    "location": "Turkey",
+    "github": "https://github.com/bgunduz55",
     "linkedin": "https://www.linkedin.com/in/bgunduz/",
     "playStore": "https://play.google.com/store/apps/dev?id=7410828019746719138",
     "appStore": "https://apps.apple.com/ua/developer/burak-gunduz/id1552965916",
     "languages": ["Turkish (Native)", "English (Professional Working)"]
   },
-  "summary": "Results-driven Senior Android Software Developer with 9+ years of expertise in native and cross-platform mobile application development. Proven track record of delivering high-performance, secure mobile solutions in fintech and enterprise systems. Core competencies include:\n\n• Native Android Development: Expert in Java and Kotlin, Android SDK, Material Design, Jetpack Components\n• Cross-Platform Development: Flutter/Dart for iOS and Android, BLoC pattern, state management\n• Mobile Architecture: MVVM, Clean Architecture, Repository Pattern, Dependency Injection\n• Payment Systems: PCI-DSS compliant mobile payment solutions, MPOS, TapOnPhone, SoftPOS\n• Security & Compliance: Secure payment processing, encryption, biometric authentication\n• Performance Optimization: Memory management, battery optimization, app size reduction\n• Technical Leadership: Led and mentored mobile development teams, driving innovation and best practices\n\nKey Achievements:\n• Developed MPOS applications processing $50M+ monthly transactions with 99.99% uptime\n• Implemented PCI-DSS compliant payment solutions for international banks\n• Led development of merchant platform applications onboarding 50K+ users\n• Improved application performance by 60% through technical optimization\n• Published multiple applications on Google Play Store with high user ratings",
+  "summary": "Senior Android Developer with 9+ years of experience in native Android (Kotlin/Java) and Flutter applications for fintech and enterprise products. Strong in secure payment flows, mobile performance, and production reliability. Uses modern AI-assisted development to speed up implementation, testing, and code quality improvements while preserving clean architecture.",
   "workExperience": [
     {
       "title": "Senior Software Developer",
@@ -193,75 +193,23 @@
     }
   ],
   "skills": {
-    "programming_languages": [
-      "Java (Expert - Android SDK, Multithreading, Concurrency)",
-      "Kotlin (Expert - Android, Coroutines, Flow, Ktor)",
-      "Dart (Expert - Flutter, BLoC, State Management)",
-      "Python (Proficient - Scripting, Automation)",
-      "C# (Proficient - Xamarin)"
-    ],
-    "frameworks_platforms": [
-      "Android SDK (Expert - Native Development)",
-      "Flutter (Expert - Cross-platform Mobile Development)",
-      "Jetpack Compose (Modern UI Toolkit, State Management)",
-      "Jetpack Components (ViewModel, LiveData, Room, Navigation)",
-      "Material Design",
-      "Android Architecture Components",
-      "BLoC Pattern",
-      "RxJava/RxKotlin",
-      "Retrofit",
-      "Dagger/Hilt",
-      "Firebase (Analytics, Crashlytics, Push Notifications)"
-    ],
-    "cloud_infrastructure": [
-      "Firebase (Analytics, Crashlytics, Cloud Messaging)",
-      "AWS (Mobile SDK, S3, Cognito)",
-      "Azure (App Service, Mobile Apps)",
-      "CI/CD (Jenkins, GitLab CI, Fastlane)",
-      "Google Play Console",
-      "App Store Connect"
-    ],
-    "databases": [
-      "SQLite (Android Native)",
-      "Room Database (Android)",
-      "Firebase Realtime Database",
-      "Firebase Firestore",
-      "SharedPreferences",
-      "DataStore"
-    ],
-    "methodologies_practices": [
-      "Mobile Architecture (MVVM, Clean Architecture)",
-      "Repository Pattern",
-      "Dependency Injection",
-      "Test-Driven Development",
-      "Agile/Scrum (Certified)",
-      "Mobile Security Best Practices",
-      "Performance Optimization",
-      "Memory Management",
-      "Battery Optimization",
-      "Design Patterns",
-      "Payment Systems Integration"
-    ]
+    "programming_languages": ["Kotlin", "Java", "Dart"],
+    "frameworks_platforms": ["Android SDK", "Jetpack Compose", "Jetpack Components", "Flutter", "Firebase"],
+    "cloud_infrastructure": ["Firebase", "AWS", "CI/CD", "Google Play Console"],
+    "databases": ["SQLite", "Room", "Firestore", "DataStore"],
+    "methodologies_practices": ["MVVM", "Clean Architecture", "SOLID", "Mobile Security", "Test Automation", "Performance Optimization"]
   },
   "projects": [
     {
-      "name": "PTT Akıllı Esnaf Mobile Application",
-      "description": "Developed comprehensive Flutter-based merchant platform mobile application for PTT, enabling digital transformation for small businesses. Implemented secure payment processing and merchant management features.",
+      "name": "PriceSync (GitHub + Live: pricesync.com.tr)",
+      "description": "Contributed to mobile and integration flows for the live pricesync.com.tr platform.",
       "achievements": [
-        "Onboarded 50K+ merchants nationwide through mobile application",
-        "Processed $10M+ in transactions through mobile app",
-        "Achieved 98% merchant satisfaction rate",
-        "Reduced merchant onboarding time by 60% through mobile optimization",
-        "Published on Google Play Store with 4.5+ rating"
+        "Supported Flutter/mobile-facing barcode query flows aligned with real-time price and stock use cases",
+        "Worked with API integration patterns backed by Fastify services and Supabase data",
+        "Improved delivery quality with clean architecture and modular code practices",
+        "Used AI-assisted development for faster implementation and safer refactoring"
       ],
-      "technologies": [
-        "Flutter",
-        "Dart",
-        "BLoC Pattern",
-        "Firebase",
-        "REST APIs",
-        "Payment Integration"
-      ]
+      "technologies": ["Flutter 3.x", "Dart", "TypeScript APIs", "Node.js/Fastify", "Supabase (PostgreSQL)", "Railway", "GitHub"]
     },
     {
       "name": "Paycell MPOS Mobile Application",
@@ -283,25 +231,17 @@
       ]
     },
     {
-      "name": "MyGini Loyalty Mobile Application",
-      "description": "Developed Android loyalty application for customer engagement and rewards management. Implemented real-time synchronization and push notifications.",
+      "name": "vetran (GitHub + Live: vetran.com.tr)",
+      "description": "Contributed to the live vetran.com.tr veterinary clinic management product and cross-platform product flows.",
       "achievements": [
-        "Improved customer engagement by 35%",
-        "Implemented real-time rewards synchronization",
-        "Achieved 4.0+ rating on Google Play Store",
-        "Reduced app crash rate by 60%"
+        "Implemented user-facing flows aligned with appointment, patient, vaccination, and reminder-driven operations",
+        "Contributed to mobile-ready UX and responsive product behavior based on clinic workflow requirements",
+        "Applied AI tools to improve coding speed and test-focused development",
+        "Kept quality high with clean code and maintainable structure"
       ],
-      "technologies": [
-        "Java/Kotlin",
-        "Android SDK",
-        "Firebase",
-        "REST APIs",
-        "Push Notifications"
-      ]
+      "technologies": ["Next.js 15", "TypeScript", "Supabase", "Flutter planning/spec", "Railway", "GitHub Actions", "GitHub"]
     }
   ],
-  "certifications": [
-    
-  ]
+  "certifications": []
 }
 
